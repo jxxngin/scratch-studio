@@ -4,9 +4,10 @@
 
 | 폴더 | 내용 |
 | --- | --- |
-| `docs/` | 커리큘럼 구성안(`scratch-curriculum-outline.md`)과 기획서(`scratch-studio-spec.md`) |
+| `docs/` | 커리큘럼 구성안(`scratch-curriculum-outline.md`), 기획서(`scratch-studio-spec.md`), 강사용 안내서(`teacher-guides/`) |
 | `styles/` | hi-fi 목업 |
-| `project/` | 단원 교안 (`unit.json`, `starter.sb3`, `media/`) |
+| `project/` | 단원 교안. 단원 폴더에는 `unit.json`, `starter.sb3`, `media/`만 둔다 |
+| `tools/` | 단원별 교안 생성 스크립트 |
 | `app/` | 스크래치 전용 학습 화면 (목업 화면 15) |
 
 ## 학습 화면 실행
@@ -27,7 +28,7 @@ python app/serve.py
 다른 단원 폴더를 열 때는 `unit`에 `unit.json`이 들어 있는 폴더를 준다. 진도는 폴더별로 따로 저장된다.
 
 ```
-http://localhost:8000/app/?unit=../project/lv1/04-pirate-cannon_1/scratch-content/scratch-lv1/04-pirate-cannon
+http://localhost:8000/app/?unit=../project/lv1/04-pirate-cannon_1
 ```
 
 ## 아직 실제가 아닌 부분

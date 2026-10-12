@@ -89,7 +89,7 @@ for name, code in ANSWERS:
 
 md = f"""# Lv.1-4 해적선 대포 · 강사용 안내서 (2판)
 
-학생 화면에는 나오지 않는 내용이다. 교안 본문과 퀴즈는 `scratch-lv1/04-pirate-cannon/unit.json`에 있다.
+학생 화면에는 나오지 않는 내용이다. 교안 본문과 퀴즈는 `project/lv1/04-pirate-cannon_1/unit.json`에 있다.
 
 ## 한눈에 보기
 
