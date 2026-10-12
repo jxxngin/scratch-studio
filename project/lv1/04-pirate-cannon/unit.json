@@ -1,0 +1,1213 @@
+{
+  "subject": "scratch-lv1",
+  "unitKey": "04-pirate-cannon",
+  "order": 4,
+  "title": {
+    "ko": "해적선 대포",
+    "en": "Pirate Ship Cannon"
+  },
+  "starterProject": "starter.sb3",
+  "steps": [
+    {
+      "key": "s1-story",
+      "title": {
+        "ko": "투석기에서 대포로",
+        "en": "From catapults to cannons"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "## 오늘의 이야기\n\n옛날 군대는 **투석기**로 돌을 던졌어요. 화약을 쓰는 **대포**가 나오자 훨씬 멀리 쏠 수 있게 되었지요.\n\n그런데 멀리 쏠수록 새로운 고민이 생겼어요. 대포가 **딱 1도**만 비뚤어져도 이렇게 빗나가요.\n\n| 과녁까지 거리 | 빗나가는 정도 |\n| --- | --- |\n| 100걸음 | 약 2걸음 |\n| 1000걸음 | 약 17걸음 |\n\n그래서 포수들은 각도를 재는 도구로 대포를 맞추고, 쏘기 전에 \"이쯤이면 맞겠다\" 하고 각도를 **어림**하는 연습을 했어요.\n\n오늘은 우리가 해적선의 포수예요!",
+            "en": "## Today's story\n\nLong ago, armies threw rocks with **catapults**. When gunpowder **cannons** arrived, they could shoot much farther.\n\nBut shooting farther brought a new problem. If a cannon is off by **just 1 degree**, the shot misses like this:\n\n| Distance to target | How far it misses |\n| --- | --- |\n| 100 steps | about 2 steps |\n| 1000 steps | about 17 steps |\n\nSo gunners measured angles with tools and practiced **estimating** the right angle before firing.\n\nToday, you are the gunner on a pirate ship!"
+          }
+        },
+        {
+          "type": "image",
+          "src": "media/stage-start.png",
+          "alt": {
+            "ko": "해적선 위의 대포와 하늘의 과녁",
+            "en": "A cannon on a pirate ship and a target in the sky"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "## 오늘 만들 것\n\n화살표 키로 대포의 각도를 바꾸고, 스페이스 키로 포탄을 쏴서 하늘의 **과녁 3개**를 차례로 맞히는 게임이에요.\n\n**꼭 만들어야 하는 것**\n- 위쪽·아래쪽 화살표로 대포 각도 바꾸기\n- 스페이스 키로 대포가 보는 쪽으로 포탄 쏘기\n- 과녁을 맞히면 **명중**이 1 올라가고, 과녁이 다음 자리로 옮겨 가기\n\n**오늘 새로 배우는 것**\n- **변수**: 값을 담아 두는, 이름표 붙은 상자\n- **방향**: 스프라이트가 어느 쪽을 보는지 나타내는 숫자",
+            "en": "## What we'll make\n\nA game where you turn the cannon with the arrow keys and fire with the space key to hit **3 targets** in the sky, one after another.\n\n**Must-haves**\n- Change the cannon's angle with the up and down arrows\n- Fire a cannonball in the cannon's direction with the space key\n- When a cannonball hits, **hits** goes up by 1 and the target moves to its next spot\n\n**New today**\n- **Variables**: a labeled box that holds a value\n- **Direction**: a number that tells which way a sprite is facing"
+          }
+        }
+      ]
+    },
+    {
+      "key": "s2-direction",
+      "title": {
+        "ko": "스크래치의 방향 알아보기",
+        "en": "How direction works in Scratch"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "스크래치에서는 스프라이트가 바라보는 쪽을 **숫자**로 나타내요. 시계를 떠올려 보세요. **12시 쪽(위)이 0도**이고, 시계 방향으로 돌수록 숫자가 커져요.",
+            "en": "In Scratch, the way a sprite faces is a **number**. Think of a clock: **12 o'clock (up) is 0 degrees**, and the number grows as you turn clockwise."
+          }
+        },
+        {
+          "type": "image",
+          "src": "media/direction.png",
+          "alt": {
+            "ko": "위 0, 오른쪽 90, 아래 180, 왼쪽 -90을 가리키는 화살표",
+            "en": "Arrows pointing up 0, right 90, down 180, left -90"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**해 보기**\n\n1. 스프라이트 목록에서 **대포**를 고르세요.\n2. **동작** 묶음에서 아래 블록을 찾으세요.",
+            "en": "**Try it**\n\n1. Pick the **대포** (cannon) sprite in the sprite list.\n2. Find this block in the **Motion** category."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "(0) 도 방향 보기",
+            "en": "point in direction (0)"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "3. 숫자를 **0, 45, 90, 180**으로 바꿔 가며 블록을 눌러 보세요. 누르기 전에 대포가 어디를 볼지 먼저 **맞혀 보고** 눌러요.\n\n**생각해 보기**\n- 대포 옆에 있는 흰 눈금이 **각도기**예요. 눈금의 숫자가 스크래치 방향과 같아요.\n- 수학 시간에 배운 **직각**은 몇 도였나요? 0과 90 사이가 바로 직각이에요.\n- 45도는 직각의 딱 **절반**이에요. 각도기에서 45를 찾아보세요.\n\n다 해 봤으면 마지막으로 **90**을 눌러 대포가 오른쪽을 보게 해 두세요.",
+            "en": "3. Change the number to **0, 45, 90, 180** and click the block each time. **Guess first** where the cannon will face, then click.\n\n**Think about it**\n- The white marks beside the cannon are a **protractor**. Its numbers match Scratch directions.\n- How many degrees is a **right angle**? The space between 0 and 90 is a right angle.\n- 45 degrees is exactly **half** of a right angle. Find 45 on the protractor.\n\nWhen you're done, click **90** so the cannon faces right again."
+          }
+        }
+      ]
+    },
+    {
+      "key": "s3-angle-variable",
+      "title": {
+        "ko": "변수 '각도' 만들기",
+        "en": "Make the 'angle' variable"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "## 변수는 이름표 붙은 상자\n\n**변수**는 숫자나 글자를 넣어 두는 상자예요. 상자에 **이름표**를 붙여 두면, 나중에 그 이름으로 안에 든 값을 꺼내 쓰거나 바꿀 수 있어요.\n\n오늘은 대포가 지금 몇 도를 보고 있는지 담아 둘 상자 **각도**를 만들어요. 나중에 포탄도 이 상자를 보고 \"대포가 45도를 보고 있구나\" 하고 같은 쪽으로 날아갈 거예요.\n\n**만드는 방법**\n1. **변수** 묶음을 누르고 **변수 만들기**를 누르세요.\n2. 이름에 `각도`라고 적으세요.\n3. **모든 스프라이트에서 사용**을 고르고 **확인**을 누르세요.\n\n무대 왼쪽 위에 `각도 0`이 보이면 성공이에요.",
+            "en": "## A variable is a labeled box\n\nA **variable** is a box that holds a number or text. Once the box has a **label**, you can use that name to read or change what's inside.\n\nToday you'll make a box called **angle** that remembers which way the cannon is facing. Later, the cannonball will look in this box and fly the same way.\n\n**How to make it**\n1. Open the **Variables** category and click **Make a Variable**.\n2. Name it `angle`.\n3. Choose **For all sprites** and click **OK**.\n\nIf you see `angle 0` at the top left of the stage, you did it."
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**왜 '모든 스프라이트에서 사용'일까요?** 이렇게 만들면 대포도, 포탄도, 과녁도 같은 상자를 볼 수 있어요. 교실 앞 칠판처럼 모두가 함께 보는 상자예요.",
+            "en": "**Why \"For all sprites\"?** Then the cannon, the cannonball and the target can all see the same box, like a whiteboard the whole class can read."
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "static",
+          "rule": "variableExists",
+          "kind": "variable",
+          "name": {
+            "ko": "각도",
+            "en": "angle"
+          }
+        }
+      ]
+    },
+    {
+      "key": "s4-ready",
+      "title": {
+        "ko": "깃발을 누르면 대포 준비",
+        "en": "Get the cannon ready"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "게임을 시작할 때마다 대포가 **오른쪽(90도)**을 보고 시작하게 만들어요.\n\n**대포** 스프라이트에 아래 블록을 만드세요.",
+            "en": "Every time the game starts, the cannon should face **right (90 degrees)**.\n\nBuild this script on the **대포** (cannon) sprite."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "@greenFlag 클릭했을 때\n[각도 v] 을\\(를\\) (90) 로 정하기\n(각도) 도 방향 보기",
+            "en": "when green flag clicked\nset [angle v] to (90)\npoint in direction (angle)"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "- `각도를 90로 정하기`는 **각도** 상자에 90을 넣어요. (**변수** 묶음)\n- `(각도) 도 방향 보기`는 숫자 대신 **각도** 상자를 넣었어요. 변수 묶음의 둥근 `각도` 블록을 끌어다 숫자 칸에 쏙 넣으세요.\n\n**확인하기**: 초록 깃발을 눌러 보세요. 무대의 `각도`가 90이 되고 대포가 오른쪽을 보나요?",
+            "en": "- `set angle to 90` puts 90 into the **angle** box. (**Variables**)\n- In `point in direction (angle)`, the number slot holds the **angle** box. Drag the round `angle` block from Variables into the number slot.\n\n**Check**: Click the green flag. Does `angle` on the stage show 90, and does the cannon face right?"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "static",
+          "rule": "hasBlock",
+          "opcode": "data_setvariableto",
+          "sprite": "대포"
+        },
+        {
+          "type": "static",
+          "rule": "hasBlock",
+          "opcode": "motion_pointindirection",
+          "sprite": "대포"
+        },
+        {
+          "type": "static",
+          "rule": "underHat",
+          "hat": "event_whenflagclicked",
+          "opcode": "data_setvariableto"
+        },
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            }
+          ],
+          "expect": [
+            {
+              "target": "variable",
+              "name": {
+                "ko": "각도",
+                "en": "angle"
+              },
+              "op": "eq",
+              "value": 90
+            },
+            {
+              "target": "sprite",
+              "sprite": "대포",
+              "property": "direction",
+              "op": "eq",
+              "value": 90
+            }
+          ],
+          "timeoutMs": 3000
+        }
+      ]
+    },
+    {
+      "key": "s5-aim",
+      "title": {
+        "ko": "화살표 키로 각도 조절하기",
+        "en": "Aim with the arrow keys"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "이제 화살표 키로 대포를 위아래로 움직여요. **대포** 스프라이트에 아래 블록을 만드세요.",
+            "en": "Now let's tilt the cannon with the arrow keys. Build this on the **대포** (cannon) sprite."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "[위쪽 화살표 v] 키를 눌렀을 때\n[각도 v] 을\\(를\\) (-5) 만큼 바꾸기\n(각도) 도 방향 보기",
+            "en": "when [up arrow v] key pressed\nchange [angle v] by (-5)\npoint in direction (angle)"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**잠깐, 왜 -5일까요?** 위쪽 화살표를 누르면 대포가 **위로** 들려야 해요. 각도기를 보세요. 위로 갈수록 숫자가 90 → 60 → 30 → 0으로 **작아지지요**. 그래서 5씩 **빼야** 대포가 들려요.\n\n`각도를 -5만큼 바꾸기`는 상자에 든 값을 5 줄여요. 그다음 줄에서 대포가 새 값 쪽을 보게 해요.\n\n**스스로 만들기**: **아래쪽 화살표**를 누르면 대포가 **아래로** 5도씩 내려가게 만들어 보세요.\n- 힌트: 위의 블록을 복사해서 두 군데만 고치면 돼요. 어떤 키? 숫자는 + 일까요 - 일까요?\n\n**확인하기**: 깃발을 누른 뒤 위쪽 화살표를 두 번 누르면 `각도`가 **80**, 아래쪽 화살표를 한 번 누르면 **85**가 되어야 해요.",
+            "en": "**Wait, why -5?** The up arrow should lift the cannon **up**. Look at the protractor: going up, the numbers go 90 → 60 → 30 → 0, so they get **smaller**. That's why we **subtract** 5.\n\n`change angle by -5` makes the value in the box 5 smaller. The next block turns the cannon to the new value.\n\n**Your turn**: Make the **down arrow** lower the cannon by 5 degrees.\n- Hint: Duplicate the script above and change just two things. Which key? Plus or minus?\n\n**Check**: After the green flag, press up twice and `angle` should be **80**. Then press down once and it should be **85**."
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "wait",
+              "ms": 200
+            }
+          ],
+          "expect": [
+            {
+              "target": "variable",
+              "name": {
+                "ko": "각도",
+                "en": "angle"
+              },
+              "op": "eq",
+              "value": 80
+            },
+            {
+              "target": "sprite",
+              "sprite": "대포",
+              "property": "direction",
+              "op": "eq",
+              "value": 80
+            }
+          ],
+          "timeoutMs": 4000
+        },
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "wait",
+              "ms": 200
+            }
+          ],
+          "expect": [
+            {
+              "target": "variable",
+              "name": {
+                "ko": "각도",
+                "en": "angle"
+              },
+              "op": "eq",
+              "value": 95
+            },
+            {
+              "target": "sprite",
+              "sprite": "대포",
+              "property": "direction",
+              "op": "eq",
+              "value": 95
+            }
+          ],
+          "timeoutMs": 4000
+        }
+      ]
+    },
+    {
+      "key": "s6-fire",
+      "title": {
+        "ko": "스페이스 키로 발사!",
+        "en": "Fire with the space key!"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "이제 **포탄** 스프라이트를 고르세요. 먼저 게임을 시작하면 포탄이 숨어 있게 해요.",
+            "en": "Now pick the **포탄** (cannonball) sprite. First, hide it when the game starts."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "@greenFlag 클릭했을 때\n숨기기",
+            "en": "when green flag clicked\nhide"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "스페이스 키를 누르면 포탄이 **대포 자리로 가서**, **대포와 같은 쪽을 보고**, 나타나게 해요.",
+            "en": "When the space key is pressed, the cannonball should **go to the cannon**, **face the same way**, and appear."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "[스페이스 v] 키를 눌렀을 때\n[대포 v] \\(으\\)로 이동하기\n(각도) 도 방향 보기\n보이기",
+            "en": "when [space v] key pressed\ngo to [대포 v]\npoint in direction (angle)\nshow"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "여기서 변수의 힘이 나와요. 포탄은 대포가 아니지만, **각도** 상자를 보고 대포와 똑같은 방향을 볼 수 있어요.\n\n**스스로 만들기**: 이어서 포탄이 앞으로 날아가게 하세요.\n- 질문: 10걸음씩 **40번** 움직이려면 어떤 블록으로 감싸야 할까요? (**제어** 묶음)\n- 질문: 다 날아간 뒤에는 포탄이 어떻게 되어야 할까요? (힌트: 처음처럼)\n\n모양이 기억나지 않으면 아래 그림을 보세요.",
+            "en": "Here's the power of variables: the cannonball isn't the cannon, but it can read the **angle** box and face exactly the same way.\n\n**Your turn**: Now make the cannonball fly forward.\n- Question: To move 10 steps **40 times**, which block should wrap around it? (**Control**)\n- Question: What should happen to the cannonball after it finishes flying? (Hint: like at the start)\n\nIf you forget the shape, look here."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "(40) 번 반복하기\n(10) 만큼 움직이기\nend",
+            "en": "repeat (40)\nmove (10) steps\nend"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**확인하기**: 깃발을 누르고 각도를 바꿔 가며 스페이스 키를 눌러 보세요. 포탄이 **대포가 보는 쪽으로** 날아가다가 사라지나요?",
+            "en": "**Check**: Click the green flag, change the angle, and press space. Does the cannonball fly **where the cannon is pointing** and then disappear?"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "static",
+          "rule": "inside",
+          "parent": "control_repeat",
+          "child": "motion_movesteps"
+        },
+        {
+          "type": "static",
+          "rule": "hasBlock",
+          "opcode": "motion_goto",
+          "sprite": "포탄"
+        },
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            }
+          ],
+          "expect": [
+            {
+              "target": "sprite",
+              "sprite": "포탄",
+              "property": "visible",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "target": "sprite",
+              "sprite": "포탄",
+              "property": "direction",
+              "op": "eq",
+              "value": 80
+            },
+            {
+              "target": "sprite",
+              "sprite": "포탄",
+              "property": "x",
+              "op": "gt",
+              "value": -150
+            }
+          ],
+          "timeoutMs": 4000
+        },
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 2500
+            }
+          ],
+          "expect": [
+            {
+              "target": "sprite",
+              "sprite": "포탄",
+              "property": "visible",
+              "op": "eq",
+              "value": false
+            }
+          ],
+          "timeoutMs": 5000
+        }
+      ]
+    },
+    {
+      "key": "s7-experiment",
+      "title": {
+        "ko": "실험: 5도 차이는 얼마나 클까?",
+        "en": "Experiment: how big is 5 degrees?"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "포수처럼 실험해 봐요.\n\n1. 각도를 **60**에 맞추고 쏘세요. 포탄이 사라지는 자리를 손가락으로 짚어 두세요.\n2. 아래쪽 화살표를 한 번 눌러 **65**로 바꾸고 다시 쏘세요.\n\n**생각해 보기**\n- 대포 **바로 앞**에서 두 포탄 길은 얼마나 떨어져 있었나요?\n- 무대 **끝**에서는 얼마나 떨어져 있었나요?",
+            "en": "Let's experiment like real gunners.\n\n1. Set the angle to **60** and fire. Point your finger where the cannonball disappears.\n2. Press the down arrow once to make it **65** and fire again.\n\n**Think about it**\n- Right **in front of** the cannon, how far apart were the two paths?\n- At the **edge** of the stage, how far apart were they?"
+          }
+        },
+        {
+          "type": "image",
+          "src": "media/angle-gap.png",
+          "alt": {
+            "ko": "60도와 65도로 쏜 두 길이 멀리 갈수록 더 벌어지는 그림",
+            "en": "Two paths at 60 and 65 degrees spreading wider the farther they go"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "각도 차이는 똑같이 5도인데, **멀리 갈수록 길이 더 크게 벌어져요**. 그래서 먼 과녁일수록 각도를 더 정확하게 맞춰야 해요. 이야기 속 포수들이 각도를 그렇게 꼼꼼히 잰 이유예요.",
+            "en": "The angle difference is the same 5 degrees, but **the farther the paths go, the wider they spread**. That's why far targets need a more exact angle, and why gunners measured so carefully."
+          }
+        }
+      ]
+    },
+    {
+      "key": "s8-hit",
+      "title": {
+        "ko": "명중했는지 알아내기",
+        "en": "Detect a hit"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "과녁을 맞혔는지 세어 줄 두 번째 변수가 필요해요.\n\n**변수 만들기**: 이름은 `명중`, **모든 스프라이트에서 사용**.\n\n**1) 과녁 준비하기**: **목표** 스프라이트에 아래 블록을 만드세요. 게임을 시작할 때마다 명중을 0으로 되돌리고, 과녁을 첫 자리에 놓아요.",
+            "en": "We need a second variable to count hits.\n\n**Make a variable**: name it `hits`, **For all sprites**.\n\n**1) Set up the target**: Build this on the **목표** (target) sprite. Each new game resets hits to 0 and puts the target in its first spot."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "@greenFlag 클릭했을 때\n[명중 v] 을\\(를\\) (0) 로 정하기\nx: (-36) y: (64) \\(으\\)로 이동하기\n보이기",
+            "en": "when green flag clicked\nset [hits v] to (0)\ngo to x: (-36) y: (64)\nshow"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**2) 맞혔는지 확인하기**: 다시 **포탄** 스프라이트로 가세요. 포탄이 날아가는 **도중에** 과녁에 닿았는지 확인해야 해요.\n\n- 질문: \"닿았는지 확인하는\" 블록은 어느 묶음에 있을까요? (**감지**)\n- 질문: 이 확인은 반복 블록의 **안**에 넣어야 할까요, **밖**에 넣어야 할까요? 왜 그럴까요?\n\n닿았다면 할 일은 세 가지예요.\n- **명중**을 1 올리기\n- 포탄 숨기기\n- 더 날아가지 않게 **이 스크립트 멈추기** (새 블록! **제어** 묶음)\n\n모양이 기억나지 않으면 아래 그림을 보세요.",
+            "en": "**2) Check for a hit**: Go back to the **포탄** (cannonball) sprite. It must check whether it touches the target **while** it flies.\n\n- Question: Which category has the \"is it touching?\" block? (**Sensing**)\n- Question: Should this check go **inside** the repeat block or **outside** it? Why?\n\nIf it touches, do three things:\n- Add 1 to **hits**\n- Hide the cannonball\n- **Stop this script** so it doesn't keep flying (new block! **Control**)\n\nIf you forget the shape, look here."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "만약 <[목표 v] 에 닿았는가?> \\(이\\)라면\n[명중 v] 을\\(를\\) (1) 만큼 바꾸기\n숨기기\n멈추기 [이 스크립트 v]\nend",
+            "en": "if <touching [목표 v]?> then\nchange [hits v] by (1)\nhide\nstop [this script v]\nend"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**확인하기**: 깃발을 누르고 첫 과녁을 맞혀 보세요. 맞히면 포탄이 바로 사라지고 `명중`이 1이 되나요? 빗나가면 0 그대로인가요?\n\n과녁은 아직 움직이지 않아요. 다음 스텝에서 옮길 거예요.",
+            "en": "**Check**: Click the green flag and hit the first target. Does the cannonball vanish right away and `hits` become 1? If you miss, does it stay 0?\n\nThe target doesn't move yet. You'll fix that next."
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "static",
+          "rule": "variableExists",
+          "kind": "variable",
+          "name": {
+            "ko": "명중",
+            "en": "hits"
+          }
+        },
+        {
+          "type": "static",
+          "rule": "inside",
+          "parent": "control_repeat",
+          "child": "control_if"
+        },
+        {
+          "type": "static",
+          "rule": "inside",
+          "parent": "control_if",
+          "child": "data_changevariableby"
+        },
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 2000
+            }
+          ],
+          "expect": [
+            {
+              "target": "variable",
+              "name": {
+                "ko": "명중",
+                "en": "hits"
+              },
+              "op": "eq",
+              "value": 1
+            },
+            {
+              "target": "sprite",
+              "sprite": "포탄",
+              "property": "visible",
+              "op": "eq",
+              "value": false
+            }
+          ],
+          "timeoutMs": 6000
+        },
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 2500
+            }
+          ],
+          "expect": [
+            {
+              "target": "variable",
+              "name": {
+                "ko": "명중",
+                "en": "hits"
+              },
+              "op": "eq",
+              "value": 0
+            }
+          ],
+          "timeoutMs": 5000
+        }
+      ]
+    },
+    {
+      "key": "s9-three-targets",
+      "title": {
+        "ko": "과녁 3개 차례로 맞히기",
+        "en": "Three targets in a row"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "과녁을 맞힐 때마다 다음 자리로 옮겨 가게 해요. 과녁은 **명중** 상자를 보고 있다가 숫자가 바뀌면 움직여요. 변수 덕분에 포탄과 과녁이 서로 신호를 주고받을 수 있어요.\n\n새 블록 `~까지 기다리기`(**제어** 묶음)는 조건이 맞을 때까지 그 자리에서 기다려요. **목표** 스프라이트의 깃발 스크립트 **아래에 이어서** 붙이세요.",
+            "en": "Each time the target is hit, it moves to its next spot. The target watches the **hits** box and moves when the number changes. Thanks to the variable, the cannonball and the target can signal each other.\n\nThe new block `wait until` (**Control**) waits right there until its condition is true. Attach these **below** the green flag script on the **목표** (target) sprite."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "<(명중) = (1)> 까지 기다리기\nx: (90) y: (80) \\(으\\)로 이동하기",
+            "en": "wait until <(hits) = (1)>\ngo to x: (90) y: (80)"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**스스로 만들기**: 과녁의 자리는 모두 세 곳이에요.\n\n| 순서 | 과녁 자리 | 언제 옮겨 갈까? |\n| --- | --- | --- |\n| 1번 | x: -36, y: 64 | 시작할 때 |\n| 2번 | x: 90, y: 80 | 명중이 1이 되면 |\n| 3번 | x: 207, y: 31 | 명중이 2가 되면 |\n\n명중이 **3**이 되면 과녁이 승리를 외치고 사라지게 하세요.",
+            "en": "**Your turn**: The target has three spots.\n\n| Order | Spot | When does it move there? |\n| --- | --- | --- |\n| 1 | x: -36, y: 64 | At the start |\n| 2 | x: 90, y: 80 | When hits becomes 1 |\n| 3 | x: 207, y: 31 | When hits becomes 2 |\n\nWhen hits reaches **3**, make the target cheer and disappear."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "[승리! 3발 모두 명중!] 을\\(를\\) (2) 초 동안 말하기\n숨기기",
+            "en": "say [You win! 3 hits!] for (2) seconds\nhide"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**확인하기**: 깃발을 누르고 끝까지 해 보세요. 과녁 3개를 모두 맞히면 통과예요.",
+            "en": "**Check**: Click the green flag and play to the end. Hit all three targets to pass."
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "static",
+          "rule": "hasBlock",
+          "opcode": "control_wait_until",
+          "sprite": "목표",
+          "minCount": 3
+        },
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 1800
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 2200
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 2600
+            }
+          ],
+          "expect": [
+            {
+              "target": "variable",
+              "name": {
+                "ko": "명중",
+                "en": "hits"
+              },
+              "op": "eq",
+              "value": 3
+            }
+          ],
+          "timeoutMs": 15000
+        },
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 1800
+            }
+          ],
+          "expect": [
+            {
+              "target": "sprite",
+              "sprite": "목표",
+              "property": "x",
+              "op": "eq",
+              "value": 90,
+              "tolerance": 2
+            },
+            {
+              "target": "sprite",
+              "sprite": "목표",
+              "property": "y",
+              "op": "eq",
+              "value": 80,
+              "tolerance": 2
+            }
+          ],
+          "timeoutMs": 5000
+        }
+      ]
+    },
+    {
+      "key": "s10-estimate",
+      "title": {
+        "ko": "포수 시험: 어림해서 맞히기",
+        "en": "Gunner's test: estimate, then fire"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "이제 진짜 포수 시험이에요. 규칙은 하나예요. **쏘기 전에 각도를 먼저 어림하기!**\n\n1. 과녁을 보고 각도기 눈금으로 \"몇 도쯤일까?\" 어림해요.\n2. 그 숫자에 맞춘 다음 쏴요.\n3. 빗나가면 어느 쪽으로 빗나갔는지 보고 고쳐요.\n\n**도전**: 과녁 3개를 **포탄 5발 안에** 모두 맞혀 보세요.",
+            "en": "Time for the real gunner's test. One rule: **estimate the angle before you fire!**\n\n1. Look at the target and use the protractor to guess \"about how many degrees?\"\n2. Set that angle, then fire.\n3. If you miss, see which way you missed and adjust.\n\n**Challenge**: Hit all three targets using **5 cannonballs or fewer**."
+          }
+        },
+        {
+          "type": "image",
+          "src": "media/targets.png",
+          "alt": {
+            "ko": "과녁 세 곳의 위치",
+            "en": "Where the three targets appear"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**생각해 보기**\n- 세 과녁 중 맞히기 가장 어려운 과녁은 몇 번인가요?\n- 3번 과녁은 왜 각도를 딱 맞춰야만 맞을까요? 실험 스텝의 그림을 떠올려 보세요.",
+            "en": "**Think about it**\n- Which of the three targets was hardest to hit?\n- Why does target 3 only get hit when the angle is exactly right? Remember the experiment picture."
+          }
+        }
+      ]
+    },
+    {
+      "key": "s11-missions",
+      "title": {
+        "ko": "확장 미션",
+        "en": "Bonus missions"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "필수 구현을 마쳤어요! 시간이 남으면 하고 싶은 미션을 골라 도전하세요. 하나를 끝낼 때마다 **선생님께 보여 주세요**.\n\n## ★ 미션 A. 나만의 사격장\n과녁 3곳을 내가 정한 자리로 바꾸고 짝에게 도전장을 내밀어 보세요.\n- 힌트: 과녁 스크립트의 x, y 숫자를 바꿔요.\n- 더 해 보기: 반복 횟수를 바꾸면 포탄이 날아가는 거리(사거리)가 어떻게 달라질까요?",
+            "en": "You finished the must-haves! If you have time, pick a mission. **Show your teacher** each time you finish one.\n\n## ★ Mission A. My own range\nMove the three targets to spots you choose and challenge a classmate.\n- Hint: Change the x and y numbers in the target script.\n- More: What happens to the cannonball's range when you change the repeat count?"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "## ★★ 미션 B. 포탄은 5발뿐\n변수 `포탄 수`를 만들어 깃발을 누르면 5로 정하고, 쏠 때마다 1씩 줄이세요. 0이 되면 더 쏠 수 없게 해요.\n- 힌트: 스페이스 스크립트의 **맨 처음**에 아래 블록을 넣어요.",
+            "en": "## ★★ Mission B. Only 5 cannonballs\nMake a variable `shots left`. Set it to 5 at the start and subtract 1 each shot. When it reaches 0, no more firing.\n- Hint: Put these blocks at the **very start** of the space-key script."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "만약 <(포탄 수) = (0)> \\(이\\)라면\n[포탄이 없어요!] 을\\(를\\) (1) 초 동안 말하기\n멈추기 [이 스크립트 v]\nend\n[포탄 수 v] 을\\(를\\) (-1) 만큼 바꾸기",
+            "en": "if <(shots left) = (0)> then\nsay [Out of cannonballs!] for (1) seconds\nstop [this script v]\nend\nchange [shots left v] by (-1)"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "## ★★ 미션 C. 움직이는 과녁\n과녁이 위아래로 천천히 오르내리게 만들어 보세요. 움직이는 과녁은 언제 쏴야 맞을까요?\n- 힌트: **목표** 스프라이트에 깃발 스크립트를 하나 더 만들어요.",
+            "en": "## ★★ Mission C. Moving target\nMake the target bob up and down slowly. When should you fire to hit a moving target?\n- Hint: Add one more green-flag script to the **목표** (target) sprite."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "@greenFlag 클릭했을 때\n무한 반복하기\n(20) 번 반복하기\ny좌표를 (2) 만큼 바꾸기\nend\n(20) 번 반복하기\ny좌표를 (-2) 만큼 바꾸기\nend\nend",
+            "en": "when green flag clicked\nforever\nrepeat (20)\nchange y by (2)\nend\nrepeat (20)\nchange y by (-2)\nend\nend"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "## ★★★ 미션 D. 대포가 뒤로 돌지 않게\n지금은 위쪽 화살표를 계속 누르면 대포가 뒤로 넘어가요. 각도가 **0보다 작아지거나 105보다 커지지 않게** 막아 보세요.\n- 힌트: 화살표 스크립트에서 각도를 바꾼 **다음**에 확인해요. 105 쪽은 스스로 만들어 보세요.",
+            "en": "## ★★★ Mission D. Keep the cannon from flipping\nIf you hold the up arrow, the cannon flips backward. Stop the angle from going **below 0 or above 105**.\n- Hint: Check right **after** changing the angle in the arrow scripts. Make the 105 part yourself."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "만약 <(각도) < (0)> \\(이\\)라면\n[각도 v] 을\\(를\\) (0) 로 정하기\nend",
+            "en": "if <(angle) < (0)> then\nset [angle v] to (0)\nend"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "## ★★★ 미션 E. 바람이 분다\n포탄이 날아가는 동안 반복 안에서 아래 블록으로 조금씩 아래로 끌어내려 보세요. 포탄 길이 어떻게 휘나요? 이제 각도를 어떻게 어림해야 할까요?",
+            "en": "## ★★★ Mission E. The wind is blowing\nInside the repeat, pull the cannonball down a little with this block while it flies. How does its path bend? How should you estimate the angle now?"
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "y좌표를 (-1) 만큼 바꾸기",
+            "en": "change y by (-1)"
+          }
+        }
+      ]
+    }
+  ]
+}
