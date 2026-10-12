@@ -111,6 +111,11 @@ button { font-family: inherit; }
 .ss-question.is-wrong .ss-option.is-selected { border-color: #DC2626; background: #FEF2F2; }
 .ss-question.is-wrong .ss-option.is-selected .ss-radio { border-color: #DC2626; }
 .ss-question.is-wrong .ss-option.is-selected .ss-radio::after { background: #DC2626; }
+.ss-hint { display: none; flex-direction: column; gap: 4px; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 10px 12px; }
+.ss-question.is-hinted .ss-hint { display: flex; }
+.ss-hint-label { font-size: 12px; font-weight: 700; color: #B45309; }
+.ss-hint .md { font-size: 13px; line-height: 1.6; color: #78350F; }
+.ss-hint .md code { background: #FEF3C7; color: #78350F; }
 .ss-explain { font-size: 13px; line-height: 1.6; color: #15803D; background: #F0FDF4; border-radius: 8px; padding: 10px 12px; }
 
 /* 제출 폼 */

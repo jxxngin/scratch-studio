@@ -47,6 +47,7 @@ const state = {
   form: { title: '', note: '', note2: '', yt: '' },
   quiz: {},            // 현재 퀴즈 스텝에서 고른 보기: { 문항 id: 보기 번호 }
   quizWrong: [],       // 마지막 확인에서 틀린 문항 id
+  quizHinted: [],      // 한 번이라도 틀려서 힌트를 보여 준 문항 id
 };
 let store, frame;
 
@@ -149,6 +150,18 @@ function renderQuiz(step) {
       options.appendChild(btn);
     });
     box.append(options, wrongNote);
+    if (q.hint) {
+      const hint = document.createElement('div');
+      hint.className = 'ss-hint';
+      const label = document.createElement('div');
+      label.className = 'ss-hint-label';
+      label.textContent = '힌트';
+      const text = document.createElement('div');
+      text.className = 'md';
+      text.innerHTML = renderMarkdown(t(q.hint));
+      hint.append(label, text);
+      box.appendChild(hint);
+    }
     if (passed && q.explain) {
       const ex = document.createElement('div');
       ex.className = 'ss-explain';
@@ -160,9 +173,12 @@ function renderQuiz(step) {
   return wrap;
 }
 
-// 틀린 문항에 표시를 붙인다. 보기를 다시 고르면 그 문항의 표시는 사라진다.
+// 틀린 문항에 표시를 붙인다. 보기를 다시 고르면 그 문항의 빨간 표시는 사라지고, 힌트는 통과할 때까지 남는다.
 function markWrongQuestions() {
-  for (const box of el.body.querySelectorAll('.ss-question')) box.classList.toggle('is-wrong', state.quizWrong.includes(box.dataset.qid));
+  for (const box of el.body.querySelectorAll('.ss-question')) {
+    box.classList.toggle('is-wrong', state.quizWrong.includes(box.dataset.qid));
+    box.classList.toggle('is-hinted', state.quizHinted.includes(box.dataset.qid));
+  }
 }
 
 function renderSubmitForm() {
@@ -340,6 +356,7 @@ function loadQuizAnswers() {
   const step = current();
   state.quiz = {};
   state.quizWrong = [];
+  state.quizHinted = [];
   if (step.type === 'quiz' && isPassed(state.step)) for (const q of step.questions) state.quiz[q.id] = q.answer;
 }
 
@@ -351,6 +368,7 @@ async function checkQuiz() {
     const res = await store.gradeQuiz(step.key, state.quiz);
     state.result = res.result;
     state.quizWrong = res.wrong;
+    state.quizHinted = [...new Set([...state.quizHinted, ...res.wrong])];
   } catch (e) { console.warn('[scratch-studio] quiz failed', e); state.result = 'error'; }
   if (state.result === 'pass') renderBody();
   else {

@@ -89,7 +89,7 @@ export function createStore(unit, { failFirstSave = false, namespace = '' } = {}
     },
 
     // 미니퀴즈 채점: 모든 문항이 정답이어야 통과. 다시 풀 수 있다.
-    // 틀린 문항의 id는 알려 주지만 정답은 알려 주지 않는다.
+    // 틀린 문항의 id는 알려 주지만 정답은 알려 주지 않는다. 화면은 틀린 문항의 hint를 보여 준다.
     async gradeQuiz(stepKey, answers) {
       const s = read();
       if (!previousAllPassed(s, stepKey)) throw new Error('step locked');
