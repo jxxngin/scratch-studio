@@ -28,7 +28,7 @@ python app/serve.py
 다른 단원 폴더를 열 때는 `unit`에 `unit.json`이 들어 있는 폴더를 준다. 진도는 폴더별로 따로 저장된다.
 
 ```
-http://localhost:8000/app/?unit=../project/lv1/04-pirate-cannon_1
+http://localhost:8000/app/?unit=../project/lv1/<단원 폴더>
 ```
 
 ## 아직 실제가 아닌 부분
