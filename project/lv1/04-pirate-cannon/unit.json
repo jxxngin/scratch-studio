@@ -18,8 +18,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "## 오늘의 질문: 포탄을 어떻게 과녁에 맞힐까?\n\n옛날 군대는 **투석기**로 돌을 던졌어요. 그러다 화약으로 쏘는 **대포**가 생기자 훨씬, 훨씬 멀리 쏠 수 있게 되었어요.",
-            "en": "## Today's question: how do you hit a target with a cannonball?\n\nLong ago, armies threw rocks with **catapults**. Then gunpowder **cannons** came along and could shoot much, much farther."
+            "ko": "## 포탄을 어떻게 과녁에 맞힐까?\n\n옛날 군대는 **투석기**로 돌을 던졌어요. 화약으로 쏘는 **대포**가 나오면서 훨씬 멀리 쏠 수 있게 됐어요.",
+            "en": "## How do you hit a target with a cannonball?\n\nArmies once threw rocks with **catapults**. Gunpowder **cannons** could shoot much farther."
           }
         },
         {
@@ -33,8 +33,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "우리나라 조선 수군도 커다란 대포를 썼어요. **천자총통**은 사람 키보다 긴 쇠촉 화살 **대장군전**을 쏘는 대포예요. 옛 기록에는 대장군전이 **900보**를 날아갔다고 적혀 있어요.\n\n**어림해 보기**: 900걸음이면 우리 학원에서 어디까지 갈 수 있을까요? 짝과 이야기해 보세요.",
-            "en": "Korea's Joseon navy used big cannons too. The **Cheonja chongtong** fired the **Daejanggunjeon**, an iron-tipped arrow longer than a person is tall. Old records say it flew **900 paces**.\n\n**Estimate**: How far from our classroom would 900 steps take you? Talk with your partner."
+            "ko": "조선 수군의 **천자총통**은 사람 키보다 긴 쇠촉 화살 **대장군전**을 쐈어요. 옛 기록에는 **900보**를 날아갔다고 적혀 있어요.\n\n**어림해 보기**: 900걸음이면 학원에서 어디까지 갈까요?",
+            "en": "The Joseon navy's **Cheonja chongtong** fired the **Daejanggunjeon**, an iron-tipped arrow taller than a person. Records say it flew **900 paces**.\n\n**Estimate**: Where could you get from our classroom in 900 steps?"
           }
         },
         {
@@ -57,8 +57,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "멀리 쏠 수 있게 되자 새 고민이 생겼어요. 대포가 **딱 1도**만 비뚤어져도 이만큼 빗나가요.\n\n| 과녁까지 | 빗나가는 정도 |\n| --- | --- |\n| 100걸음 | 약 2걸음 |\n| 1000걸음 | 약 17걸음 |\n\n그래서 포수들은 대포 입구에 'ㄱ'자 모양 자를 꽂고, 실에 매단 추가 가리키는 눈금으로 각도를 쟀어요.",
-            "en": "Shooting farther brought a new problem. If a cannon is off by **just 1 degree**, it misses by this much:\n\n| Distance | Miss |\n| --- | --- |\n| 100 steps | about 2 steps |\n| 1000 steps | about 17 steps |\n\nSo gunners put an L-shaped ruler into the cannon's mouth and read the angle where a hanging weight pointed."
+            "ko": "멀리 쏠수록 각도가 중요해졌어요. 대포가 **1도**만 틀어져도 이만큼 빗나가요.\n\n| 과녁까지 | 빗나가는 거리 |\n| --- | --- |\n| 100걸음 | 약 2걸음 |\n| 1000걸음 | 약 17걸음 |\n\n포수들은 대포 입구에 'ㄱ'자 자를 꽂고, 추가 가리키는 눈금으로 각도를 쟀어요.",
+            "en": "The farther you shoot, the more the angle matters. Just **1 degree** off misses by this much:\n\n| Distance | Miss |\n| --- | --- |\n| 100 steps | about 2 steps |\n| 1000 steps | about 17 steps |\n\nGunners put an L-shaped ruler in the cannon's mouth and read the angle from a hanging weight."
           }
         },
         {
@@ -72,8 +72,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "1537년, 이탈리아의 수학자 **타르탈리아**는 포수들에게 질문 하나당 돈을 받고 답해 주었대요. 그는 대포를 **45도**로 쏘면 포탄이 가장 멀리 날아간다는 것을 알아냈어요.\n\n**그림을 보고 맞혀 보기**: 30도와 60도로 쏜 포탄은 어디에 떨어졌나요?",
-            "en": "In 1537, the Italian mathematician **Tartaglia** reportedly charged gunners for each question he answered. He found that a cannon aimed at **45 degrees** shoots the farthest.\n\n**Look and guess**: Where did the 30-degree and 60-degree shots land?"
+            "ko": "1537년 이탈리아 수학자 **타르탈리아**는 포수들의 질문에 돈을 받고 답해 줬어요. 그가 밝힌 것: 대포는 **45도**로 쏠 때 가장 멀리 간다.\n\n**그림 보기**: 30도와 60도 포탄은 어디에 떨어졌나요?",
+            "en": "In 1537, the mathematician **Tartaglia** answered gunners' questions for a fee. His finding: a cannon shoots farthest at **45 degrees**.\n\n**Look**: Where did the 30° and 60° shots land?"
           }
         },
         {
@@ -87,8 +87,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "진짜 포탄은 땅으로 휘어 떨어지지만, 오늘 우리 게임의 포탄은 곧게 날아가요. 휘는 포탄은 확장 미션에서 만들어 볼 수 있어요.",
-            "en": "Real cannonballs curve down to the ground, but today's cannonball flies in a straight line. You can make it curve in a bonus mission."
+            "ko": "진짜 포탄은 휘어 떨어지지만, 오늘 게임의 포탄은 곧게 날아가요. 휘는 포탄은 확장 미션에서 만들어요.",
+            "en": "Real cannonballs curve down; today's flies straight. You can make it curve in a bonus mission."
           }
         }
       ]
@@ -103,8 +103,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "해적선은 배 옆구리에 대포를 줄줄이 실었어요. 유명한 해적 **검은 수염(블랙비어드)**의 배 '앤 여왕의 복수호'는 1718년 바닷가 모래톱에 걸려 멈췄어요. 이 배는 1996년에 바닷속에서 발견되었고, 지금까지 **대포 20문이 넘게** 건져 올려졌어요.",
-            "en": "Pirate ships carried rows of cannons along their sides. The famous pirate **Blackbeard**'s ship, *Queen Anne's Revenge*, ran aground in 1718. Its wreck was found in 1996, and **more than 20 cannons** have been raised from the sea."
+            "ko": "해적선은 옆구리에 대포를 줄지어 실었어요. 해적 **블랙비어드**의 배 '앤 여왕의 복수호'는 1718년 모래톱에 걸려 멈췄고, 1996년 바닷속에서 발견됐어요. 지금까지 **대포 20문 넘게** 건져 올렸어요.",
+            "en": "Pirate ships carried rows of cannons along their sides. **Blackbeard**'s *Queen Anne's Revenge* ran aground in 1718 and was found in 1996. **Over 20 cannons** have been raised so far."
           }
         },
         {
@@ -118,8 +118,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "## 오늘 만들 게임\n\n화살표 키로 대포 각도를 바꾸고, 스페이스 키로 쏴서 하늘의 **과녁 3개**를 차례로 맞혀요.\n\n**꼭 만들 것**: 각도 조절 · 발사 · 명중 판정 · 과녁 3곳 · 발사 수 세기\n**새로 배울 것**: **변수**(이름표 붙은 상자), **방향**(바라보는 쪽을 나타내는 숫자)",
-            "en": "## Today's game\n\nTurn the cannon with the arrow keys, fire with space, and hit **3 targets** in the sky one by one.\n\n**Must-haves**: aiming · firing · hit detection · three targets · counting shots\n**New today**: **variables** (labeled boxes) and **direction** (a number for the way a sprite faces)"
+            "ko": "## 오늘 만들 게임\n\n화살표로 대포를 돌리고 스페이스로 쏴서, 하늘의 **과녁 3개**를 차례로 맞혀요.\n\n- **꼭 만들 것**: 각도 조절, 발사, 명중 판정, 과녁 3곳, 발사 수 세기\n- **새로 배울 것**: **변수**(이름 붙은 상자), **방향**(바라보는 쪽을 나타내는 숫자)",
+            "en": "## Today's game\n\nTurn the cannon with the arrows, fire with space, and hit **3 targets** in order.\n\n- **Must-haves**: aiming, firing, hit detection, three targets, counting shots\n- **New today**: **variables** (named boxes) and **direction** (a number for where a sprite faces)"
           }
         },
         {
@@ -142,8 +142,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "스크래치는 바라보는 쪽을 **숫자**로 말해요. 시계처럼 **위쪽이 0**, 오른쪽이 90이에요.",
-            "en": "Scratch uses a **number** for the way a sprite faces. Like a clock, **up is 0** and right is 90."
+            "ko": "스크래치는 방향을 **숫자**로 나타내요. **위가 0**, 오른쪽이 90이에요.",
+            "en": "Scratch uses **numbers** for direction. **Up is 0**, right is 90."
           }
         },
         {
@@ -157,8 +157,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**할 일**\n1. 스프라이트 목록에서 **대포**를 고르세요.\n2. **동작** 묶음에서 아래 블록을 찾아 숫자를 바꿔 가며 **눌러** 보세요. 누르기 전에 어디를 볼지 먼저 맞혀요!",
-            "en": "**To do**\n1. Pick the **대포** (cannon) sprite.\n2. Find this block in **Motion**, change the number and **click** it. Guess where it will face first!"
+            "ko": "1. **대포** 스프라이트를 고르세요.\n2. **동작**에서 아래 블록을 찾아 숫자를 바꿔 가며 눌러 보세요. 누르기 전에 어디를 볼지 먼저 맞혀 봐요.",
+            "en": "1. Pick the **대포** (cannon) sprite.\n2. Find this block in **Motion**, change the number and click it. Guess the direction first."
           }
         },
         {
@@ -171,8 +171,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**도전 표**: 맞혔으면 손가락으로 체크!\n\n| 숫자 | 내 예상 | 실제 |\n| --- | --- | --- |\n| 0 | | |\n| 45 | | |\n| 180 | | |\n| 135 | | |\n| -90 | | |\n\n대포 옆의 흰 눈금(각도기)도 같은 숫자를 써요. 45는 직각(90)의 딱 절반이에요.",
-            "en": "**Challenge table**: tick it off when you guess right!\n\n| Number | My guess | Result |\n| --- | --- | --- |\n| 0 | | |\n| 45 | | |\n| 180 | | |\n| 135 | | |\n| -90 | | |\n\nThe white protractor marks use the same numbers. 45 is exactly half of a right angle (90)."
+            "ko": "| 숫자 | 내 예상 | 실제 |\n| --- | --- | --- |\n| 0 | | |\n| 45 | | |\n| 180 | | |\n| 135 | | |\n| -90 | | |\n\n각도기 눈금도 같은 숫자예요. 45는 직각(90)의 절반이에요.",
+            "en": "| Number | Guess | Result |\n| --- | --- | --- |\n| 0 | | |\n| 45 | | |\n| 180 | | |\n| 135 | | |\n| -90 | | |\n\nThe protractor uses the same numbers. 45 is half of a right angle (90)."
           }
         }
       ]
@@ -187,8 +187,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "대포를 누르면 대포가 **체조**를 하게 만들어요. **대포** 스프라이트에 만드세요.",
-            "en": "Make the cannon do a **workout** when you click it. Build this on the **대포** (cannon) sprite."
+            "ko": "대포를 클릭하면 이리저리 도는 **대포 체조**를 만들어요.",
+            "en": "Make the cannon do a **workout** when clicked."
           }
         },
         {
@@ -201,8 +201,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**이어서 스스로**: 45도 다음에 **90 → 180 → 90**도 순서로 돌게 이어 붙이세요. 사이사이에 0.5초씩 기다려요. 마지막에는 오른쪽(90)을 보고 끝나야 해요.\n\n**확인**: 대포를 눌러 보세요. 위 → 오른쪽 위 → 오른쪽 → 아래 → 오른쪽으로 도나요?",
-            "en": "**Continue on your own**: After 45, add **90 → 180 → 90**, waiting 0.5 seconds between each. It must end facing right (90).\n\n**Check**: Click the cannon. Does it go up → up-right → right → down → right?"
+            "ko": "45 다음에 **90 → 180 → 90** 순서로 이어 붙이세요. 사이마다 0.5초씩 기다리고, 마지막은 90이어야 해요.",
+            "en": "After 45, add **90 → 180 → 90**, waiting 0.5 seconds between each. End on 90."
           }
         }
       ],
@@ -280,9 +280,13 @@
             }
           ],
           "answer": 0,
+          "hint": {
+            "ko": "시계의 12시 방향을 숫자 몇으로 정했는지 떠올려 보세요.",
+            "en": "Which number did Scratch give to 12 o'clock?"
+          },
           "explain": {
-            "ko": "스크래치에서는 위쪽이 0도예요.",
-            "en": "In Scratch, up is 0 degrees."
+            "ko": "위쪽이 0도예요.",
+            "en": "Up is 0."
           }
         },
         {
@@ -315,9 +319,13 @@
             }
           ],
           "answer": 0,
+          "hint": {
+            "ko": "오른쪽이 90이에요. 반대쪽은 부호가 어떻게 될까요?",
+            "en": "Right is 90. What about the opposite side?"
+          },
           "explain": {
-            "ko": "왼쪽은 -90이에요. 270을 넣어도 왼쪽을 보지만 스크래치는 -90으로 바꿔 보여 줘요.",
-            "en": "Left is -90. 270 also faces left, but Scratch shows it as -90."
+            "ko": "왼쪽은 -90이에요.",
+            "en": "Left is -90."
           }
         },
         {
@@ -350,8 +358,12 @@
             }
           ],
           "answer": 0,
+          "hint": {
+            "ko": "맨 마지막 블록의 숫자만 보면 돼요.",
+            "en": "Just look at the number in the last block."
+          },
           "explain": {
-            "ko": "마지막 블록이 180도라서 아래를 봐요.",
+            "ko": "마지막 블록이 180이라 아래를 봐요.",
             "en": "The last block is 180, so it faces down."
           }
         }
@@ -367,15 +379,15 @@
         {
           "type": "text",
           "value": {
-            "ko": "**변수**는 값을 넣어 두는 **이름표 붙은 상자**예요. 대포가 지금 몇 도인지 담을 상자 `각도`를 만들어요.\n\n**할 일**\n1. **변수** 묶음 → **변수 만들기**\n2. 이름: `각도`\n3. **모든 스프라이트에서 사용** 고르고 확인\n\n무대 왼쪽 위에 `각도 0`이 보이면 성공!",
-            "en": "A **variable** is a **labeled box** that holds a value. Make a box called `angle` for the cannon's direction.\n\n**To do**\n1. **Variables** → **Make a Variable**\n2. Name: `angle`\n3. Choose **For all sprites**, then OK\n\nIf `angle 0` appears at the top left of the stage, you did it!"
+            "ko": "**변수**는 값을 담는 이름 붙은 상자예요. 대포의 각도를 담을 변수 `각도`를 만들어요.\n\n1. **변수** → **변수 만들기**\n2. 이름 `각도`, **모든 스프라이트에서 사용** → 확인\n\n무대 왼쪽 위에 `각도 0`이 보이면 성공.",
+            "en": "A **variable** is a named box that holds a value. Make `angle` to hold the cannon's angle.\n\n1. **Variables** → **Make a Variable**\n2. Name `angle`, **For all sprites** → OK\n\nYou'll see `angle 0` at the top left of the stage."
           }
         },
         {
           "type": "text",
           "value": {
-            "ko": "**왜 '모든 스프라이트에서 사용'일까?** 나중에 포탄도 이 상자를 봐야 하거든요. 교실 칠판처럼 모두가 함께 보는 상자예요.",
-            "en": "**Why \"For all sprites\"?** Later the cannonball needs to read this box too. It's like a whiteboard the whole class can see."
+            "ko": "'모든 스프라이트에서 사용'으로 만들어야 포탄도 이 값을 볼 수 있어요.",
+            "en": "Choose \"For all sprites\" so the cannonball can read it too."
           }
         }
       ],
@@ -401,8 +413,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "변수 블록을 **눌러서** 상자 속 숫자가 어떻게 바뀌는지 직접 보세요. 블록을 작업 공간에 꺼내 놓기만 하고 눌러요.",
-            "en": "**Click** the variable blocks and watch the number in the box change. Just drag them into the workspace and click."
+            "ko": "블록을 작업 공간에 꺼내 놓고 클릭하면서 `각도` 값이 어떻게 바뀌는지 보세요.",
+            "en": "Drag these into the workspace and click them. Watch `angle` change."
           }
         },
         {
@@ -415,8 +427,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**실험 표**: 먼저 예상하고 눌러요.\n\n| 할 일 | 내 예상 | 무대의 각도 |\n| --- | --- | --- |\n| `90로 정하기` 누르기 | | |\n| `10만큼 바꾸기` 3번 누르기 | | |\n| 숫자를 `-20`으로 고쳐서 1번 누르기 | | |\n| `90로 정하기` 다시 누르기 | | |\n\n**발견!** `정하기`는 상자를 **새 값으로 바꿔 넣고**, `바꾸기`는 **지금 값에 더해요**. 실험이 끝나면 꺼낸 블록은 지워도 돼요.",
-            "en": "**Experiment table**: guess first, then click.\n\n| Action | My guess | angle on stage |\n| --- | --- | --- |\n| Click `set to 90` | | |\n| Click `change by 10` three times | | |\n| Change it to `-20`, click once | | |\n| Click `set to 90` again | | |\n\n**Discovery!** `set` **replaces** the value; `change` **adds to** the current value. You can delete these blocks afterwards."
+            "ko": "먼저 예상하고 눌러요.\n\n| 할 일 | 내 예상 | 실제 각도 |\n| --- | --- | --- |\n| `90로 정하기` 클릭 | | |\n| `10만큼 바꾸기` 3번 클릭 | | |\n| 숫자를 `-20`으로 고쳐 1번 클릭 | | |\n| `90로 정하기` 다시 클릭 | | |\n\n`정하기`는 값을 바꿔 넣고, `바꾸기`는 지금 값에 더해요. 다 해 보면 블록은 지워도 돼요.",
+            "en": "Guess first, then click.\n\n| Action | Guess | angle |\n| --- | --- | --- |\n| Click `set to 90` | | |\n| Click `change by 10` three times | | |\n| Make it `-20`, click once | | |\n| Click `set to 90` again | | |\n\n`set` replaces the value; `change` adds to it. Delete the blocks when done."
           }
         }
       ]
@@ -455,9 +467,13 @@
             }
           ],
           "answer": 0,
+          "hint": {
+            "ko": "`각도` 변수에 무엇이 들어 있었는지 떠올려 보세요.",
+            "en": "Think about what the `angle` variable held."
+          },
           "explain": {
-            "ko": "변수는 이름으로 값을 넣고 꺼내 쓰는 상자예요.",
-            "en": "A variable is a box you read and write by name."
+            "ko": "변수는 이름으로 값을 넣고 꺼내는 상자예요.",
+            "en": "A variable is a box you use by name."
           }
         },
         {
@@ -490,9 +506,13 @@
             }
           ],
           "answer": 3,
+          "hint": {
+            "ko": "`-5만큼 바꾸기`가 몇 번 있는지 세어 보세요.",
+            "en": "Count how many `change by -5` blocks there are."
+          },
           "explain": {
-            "ko": "90에서 5씩 세 번 빼면 75예요.",
-            "en": "90 minus 5 three times is 75."
+            "ko": "90에서 5를 세 번 빼면 75예요.",
+            "en": "90 minus 5, three times, is 75."
           }
         },
         {
@@ -521,9 +541,13 @@
             }
           ],
           "answer": 2,
+          "hint": {
+            "ko": "대포 말고 이 값이 필요한 스프라이트가 있었나요?",
+            "en": "Does any sprite besides the cannon need this value?"
+          },
           "explain": {
-            "ko": "모든 스프라이트가 같은 상자를 보게 하려고요.",
-            "en": "So every sprite sees the same box."
+            "ko": "모든 스프라이트가 같은 값을 보게 하려고요.",
+            "en": "So every sprite sees the same value."
           }
         }
       ]
@@ -538,8 +562,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "게임을 시작할 때마다 대포가 **오른쪽(90)**을 보게 해요. **대포**에 만드세요.",
-            "en": "Each time the game starts, the cannon should face **right (90)**. Build this on the **대포** (cannon) sprite."
+            "ko": "깃발을 누르면 대포가 오른쪽(90)을 보고 시작하게 해요. **대포**에 만드세요.",
+            "en": "Make the cannon face right (90) when the flag is clicked. Build it on the **대포** (cannon) sprite."
           }
         },
         {
@@ -552,8 +576,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**포인트**: 두 번째 블록의 숫자 칸에는 숫자 대신 **둥근 `각도` 블록**을 끌어다 넣어요. 그러면 대포가 늘 상자 속 숫자 쪽을 봐요.\n\n**확인**: 대포를 눌러 아래를 보게 한 뒤 깃발을 누르세요. 다시 오른쪽을 보나요?",
-            "en": "**Key point**: Drag the **round `angle` block** into the number slot of the second block. Then the cannon always faces the number in the box.\n\n**Check**: Click the cannon so it ends up facing somewhere else, then click the green flag. Does it face right again?"
+            "ko": "두 번째 블록의 숫자 칸에는 둥근 `각도` 블록을 끌어다 넣어요.\n\n**확인**: 대포를 클릭해 방향을 바꾼 뒤 깃발을 누르면 다시 오른쪽을 보나요?",
+            "en": "Drag the round `angle` block into the number slot of the second block.\n\n**Check**: Click the cannon to turn it, then click the flag. Does it face right again?"
           }
         }
       ],
@@ -620,8 +644,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**왜 -5일까?** 각도기를 보세요. 대포가 위로 갈수록 숫자가 90 → 60 → 30 → 0으로 **작아져요**. 그래서 빼야 위로 들려요.\n\n**확인**: 깃발 → 위쪽 화살표 두 번 → `각도`가 **80**이고 대포가 조금 들렸나요?",
-            "en": "**Why -5?** Look at the protractor. Going up, the numbers get **smaller**: 90 → 60 → 30 → 0. So we subtract to lift the cannon.\n\n**Check**: Green flag → up arrow twice → is `angle` **80** and the cannon tilted up a little?"
+            "ko": "대포가 위로 갈수록 각도기 숫자가 작아져요(90 → 0). 그래서 -5예요.\n\n**확인**: 깃발 → 위쪽 화살표 2번 → `각도`가 80인가요?",
+            "en": "Going up, the protractor numbers get smaller (90 → 0), so it's -5.\n\n**Check**: Flag → up arrow twice → is `angle` 80?"
           }
         }
       ],
@@ -691,8 +715,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**아래쪽 화살표**를 누르면 대포가 **5도씩 내려가게** 만들어 보세요.\n\n- 힌트 1: 위쪽 스크립트를 오른쪽 클릭 → **복사하기**\n- 힌트 2: 고칠 곳은 **두 군데**예요. 어떤 키? 더할까, 뺄까?\n\n**확인**: 깃발 → 아래쪽 화살표 한 번 → `각도`가 **95**인가요?",
-            "en": "Make the **down arrow** lower the cannon **5 degrees** at a time.\n\n- Hint 1: Right-click the up-arrow script → **Duplicate**\n- Hint 2: Change **two** things. Which key? Add or subtract?\n\n**Check**: Green flag → down arrow once → is `angle` **95**?"
+            "ko": "아래쪽 화살표를 누르면 5도씩 내려가게 만들어 보세요.\n\n- 위쪽 스크립트를 오른쪽 클릭 → **복사하기**\n- 고칠 곳은 두 군데예요.\n\n**확인**: 깃발 → 아래쪽 화살표 1번 → `각도`가 95인가요?",
+            "en": "Make the down arrow lower the cannon 5 degrees.\n\n- Right-click the up-arrow script → **Duplicate**\n- Change two things.\n\n**Check**: Flag → down arrow once → is `angle` 95?"
           }
         }
       ],
@@ -817,8 +841,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "포수가 각도를 소리쳐 알려 주듯, 대포가 지금 각도를 **말하게** 해요.\n\n**할 일**: 위쪽, 아래쪽 화살표 스크립트 **맨 아래**에 이 블록을 붙이세요. 말풍선 칸에 둥근 `각도` 블록을 넣어요.",
-            "en": "Like a gunner calling out the angle, make the cannon **say** its current angle.\n\n**To do**: Attach this block to the **bottom** of both arrow scripts. Put the round `angle` block in the speech slot."
+            "ko": "대포가 지금 각도를 말하게 해요. 위쪽, 아래쪽 화살표 스크립트 맨 아래에 붙이고, 말풍선 칸에 `각도`를 넣어요.",
+            "en": "Make the cannon say its angle. Add this to the bottom of both arrow scripts, with `angle` in the slot."
           }
         },
         {
@@ -831,8 +855,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**확인**: 위쪽 화살표를 누르면 대포가 \"85\"라고 말하나요?\n\n**도전**: 각도기 눈금 **60**에 대포를 정확히 맞춰 보세요. 몇 번 눌러야 할까요? 누르기 전에 계산해 보세요.",
-            "en": "**Check**: Press the up arrow. Does the cannon say \"85\"?\n\n**Challenge**: Line the cannon up exactly with **60** on the protractor. How many presses? Work it out before pressing."
+            "ko": "**확인**: 위쪽 화살표를 누르면 \"85\"라고 말하나요?\n\n**도전**: 대포를 각도기 60에 맞춰 보세요. 몇 번 눌러야 하는지 먼저 계산해 봐요.",
+            "en": "**Check**: Press up. Does it say \"85\"?\n\n**Challenge**: Aim at 60 on the protractor. Work out how many presses first."
           }
         }
       ],
@@ -954,9 +978,13 @@
             }
           ],
           "answer": 3,
+          "hint": {
+            "ko": "각도기에서 위쪽으로 갈수록 숫자가 커지나요, 작아지나요?",
+            "en": "On the protractor, do numbers grow or shrink going up?"
+          },
           "explain": {
-            "ko": "위로 갈수록 숫자가 작아지니까 -5예요.",
-            "en": "Numbers get smaller going up, so -5."
+            "ko": "위로 갈수록 숫자가 작아져서 -5예요.",
+            "en": "Numbers shrink going up, so -5."
           }
         },
         {
@@ -989,8 +1017,12 @@
             }
           ],
           "answer": 2,
+          "hint": {
+            "ko": "숫자가 커지면 대포는 각도기에서 어느 쪽으로 가나요?",
+            "en": "When the number grows, which way does the cannon move?"
+          },
           "explain": {
-            "ko": "+5를 하면 숫자가 커져서 아래쪽으로 돌아요.",
+            "ko": "+5를 하면 숫자가 커져서 아래로 돌아요.",
             "en": "+5 makes the number bigger, so it turns down."
           }
         },
@@ -1024,9 +1056,13 @@
             }
           ],
           "answer": 1,
+          "hint": {
+            "ko": "세 번째 블록의 방향 칸에 무엇이 들어 있는지 보세요.",
+            "en": "Look at what's in the third block's slot."
+          },
           "explain": {
-            "ko": "방향 칸에 `각도` 대신 95를 적어서, 상자 숫자가 바뀌어도 대포는 늘 95를 봐요.",
-            "en": "The slot has 95 instead of `angle`, so the cannon always faces 95."
+            "ko": "방향 칸에 `각도`가 아니라 95가 있어서 대포는 늘 95를 봐요.",
+            "en": "The slot says 95, not `angle`, so it always faces 95."
           }
         }
       ]
@@ -1041,8 +1077,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "이제 **포탄** 스프라이트를 고르세요. 시작하면 포탄은 숨어 있어요.",
-            "en": "Now pick the **포탄** (cannonball) sprite. It hides when the game starts."
+            "ko": "**포탄** 스프라이트를 고르세요. 시작하면 포탄은 숨어 있어요.",
+            "en": "Pick the **포탄** (cannonball) sprite. It hides at the start."
           }
         },
         {
@@ -1055,8 +1091,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "스페이스 키를 누르면 포탄이 **대포 자리로 가서, 대포와 같은 쪽을 보고, 나타나요.**",
-            "en": "When space is pressed, the cannonball **goes to the cannon, faces the same way, and appears.**"
+            "ko": "스페이스를 누르면 포탄이 대포 자리에서 대포와 같은 방향으로 나타나요.",
+            "en": "On space, the cannonball appears at the cannon, facing the same way."
           }
         },
         {
@@ -1069,8 +1105,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**변수의 힘!** 포탄은 대포가 아니지만, `각도` 상자를 보고 대포와 똑같은 쪽을 볼 수 있어요.\n\n**확인**: 각도를 바꾸고 스페이스! 포탄이 대포 끝에 같은 방향으로 나타나나요? (아직 날아가지는 않아요)",
-            "en": "**Variable power!** The cannonball isn't the cannon, but it reads the `angle` box and faces exactly the same way.\n\n**Check**: Change the angle and press space! Does the cannonball appear at the cannon, facing the same way? (It doesn't fly yet.)"
+            "ko": "포탄은 `각도` 값을 읽어서 대포와 같은 쪽을 봐요.\n\n**확인**: 각도를 바꾸고 스페이스를 누르면 포탄이 대포 끝에 같은 방향으로 나타나나요? (아직 날아가지 않아요)",
+            "en": "The cannonball reads `angle` to face the same way as the cannon.\n\n**Check**: Change the angle and press space. Does the cannonball appear facing the same way? (It doesn't fly yet.)"
           }
         }
       ],
@@ -1181,8 +1217,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "포탄이 앞으로 날아가게 해요.\n\n- 질문: 10걸음씩 **40번** 움직이려면 어떤 블록으로 감싸야 할까요? (**제어** 묶음)\n- 질문: 다 날아간 뒤 포탄은? (힌트: 처음처럼)\n\n모양이 기억나지 않으면 아래 그림을 보세요.",
-            "en": "Make the cannonball fly forward.\n\n- Question: To move 10 steps **40 times**, which block wraps around it? (**Control**)\n- Question: What happens to the cannonball after it lands? (Hint: like at the start)\n\nIf you forget the shape, look here."
+            "ko": "포탄이 10걸음씩 **40번** 날아가게 하고, 다 날아가면 숨기세요. 반복 블록은 **제어**에 있어요.",
+            "en": "Make the cannonball move 10 steps **40 times**, then hide. The repeat block is in **Control**."
           }
         },
         {
@@ -1195,8 +1231,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**확인**: 여러 각도로 쏴 보세요. 대포가 보는 쪽으로 날아가다 사라지나요?\n\n**놀아 보기**: 각도기 **0**(바로 위)으로 쏘면? **90**(오른쪽)으로 쏘면? **105**로 쏘면 어디로 갈까요?",
-            "en": "**Check**: Fire at different angles. Does it fly where the cannon points and then disappear?\n\n**Play**: What about **0** (straight up)? **90** (right)? Where does **105** go?"
+            "ko": "**확인**: 대포가 보는 쪽으로 날아가다 사라지나요?\n\n0, 90, 105로도 쏴 보세요. 어디로 가나요?",
+            "en": "**Check**: Does it fly where the cannon points, then disappear?\n\nTry 0, 90 and 105 too. Where does it go?"
           }
         }
       ],
@@ -1306,8 +1342,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**포탄** 스프라이트에는 `발사` 소리가 들어 있어요. 스페이스 스크립트에 소리를 넣어 보세요.\n\n- 질문: 소리 블록은 어디에 넣어야 쏘는 순간 \"펑!\" 할까요? 맨 위? 맨 아래?",
-            "en": "The **포탄** (cannonball) sprite has a sound called `발사`. Add it to the space-key script.\n\n- Question: Where should the sound block go so it booms the moment you fire? Top? Bottom?"
+            "ko": "포탄에 들어 있는 `발사` 소리를 스페이스 스크립트에 넣어요. 쏘는 순간 소리가 나려면 어디에 넣어야 할까요?",
+            "en": "Add the cannonball's `발사` sound to the space script. Where should it go so it plays the moment you fire?"
           }
         },
         {
@@ -1320,8 +1356,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**주의**: `끝까지 재생하기`가 아니라 `재생하기`를 써요. 왜 그럴까요? 둘 다 써 보고 포탄이 언제 출발하는지 비교해 보세요.",
-            "en": "**Careful**: Use `start sound`, not `play sound until done`. Why? Try both and compare when the cannonball leaves."
+            "ko": "`끝까지 재생하기` 대신 `재생하기`를 쓰세요. 둘을 바꿔 가며 포탄이 언제 출발하는지 비교해 보세요.",
+            "en": "Use `start sound`, not `play sound until done`. Try both and compare when the cannonball leaves."
           }
         }
       ],
@@ -1355,8 +1391,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**대포** 스프라이트에는 `불꽃` 모양이 있어요. 쏘는 순간 대포 끝에서 불꽃이 번쩍하게 만들어요. **대포**에 만드세요.",
-            "en": "The **대포** (cannon) sprite has a `불꽃` (flash) costume. Make it flash when firing. Build this on the cannon."
+            "ko": "대포의 `불꽃` 모양으로, 쏠 때 포구에서 불꽃이 번쩍하게 해요. **대포**에 만드세요.",
+            "en": "Use the cannon's `불꽃` (flash) costume to flash when firing. Build it on the cannon."
           }
         },
         {
@@ -1369,8 +1405,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**실험**: `0.1초`를 `1초`로 바꾸면 어떻게 보이나요? 가장 멋진 숫자를 골라 보세요(단, 마지막에는 꼭 `대포` 모양으로 돌아와야 해요).",
-            "en": "**Experiment**: What if you change `0.1` to `1`? Pick the coolest number (but it must switch back to the `대포` costume at the end)."
+            "ko": "0.1을 1로 바꾸면 어떻게 보이나요? 마음에 드는 숫자를 고르되, 마지막엔 `대포` 모양으로 돌아와야 해요.",
+            "en": "What does 1 instead of 0.1 look like? Pick a number you like, but end on the `대포` costume."
           }
         }
       ],
@@ -1425,8 +1461,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "포탄이 얼마나 멀리 갈지는 **반복 횟수 × 걸음 수**로 정해져요. 바꿔 가며 쏴 보세요.\n\n| 반복 | 걸음 | 내 예상 | 실제로 어디까지? |\n| --- | --- | --- | --- |\n| 40 | 10 | 무대 오른쪽 끝 근처 | |\n| 20 | 10 | | |\n| 10 | 10 | | |\n| 20 | 20 | | |\n| 80 | 5 | | |\n\n- 질문: 20 × 20과 40 × 10은 날아가는 거리가 같아요. 그럼 무엇이 다를까요?\n- 질문: 한 번에 **50걸음**씩 뛰면 과녁을 **뛰어넘을** 수도 있어요. 왜 그럴까요?\n\n**끝나면 꼭 40번, 10걸음으로 되돌려 놓으세요.** 그래야 다음 스텝을 통과해요.",
-            "en": "How far the cannonball goes is **repeat count × steps**. Change them and fire.\n\n| Repeat | Steps | My guess | Where did it reach? |\n| --- | --- | --- | --- |\n| 40 | 10 | near the right edge | |\n| 20 | 10 | | |\n| 10 | 10 | | |\n| 20 | 20 | | |\n| 80 | 5 | | |\n\n- Question: 20 × 20 and 40 × 10 reach the same distance. What's different?\n- Question: Jumping **50 steps** at a time can **skip over** the target. Why?\n\n**When done, set it back to 40 and 10.** You need that to pass the next steps."
+            "ko": "날아가는 거리는 **반복 횟수 × 걸음 수**예요. 바꿔 가며 쏴 보세요.\n\n| 반복 | 걸음 | 내 예상 | 어디까지? |\n| --- | --- | --- | --- |\n| 40 | 10 | 오른쪽 끝 근처 | |\n| 20 | 10 | | |\n| 10 | 10 | | |\n| 20 | 20 | | |\n| 80 | 5 | | |\n\n- 20 × 20과 40 × 10은 거리가 같아요. 뭐가 다를까요?\n- 한 번에 50걸음씩 가면 과녁을 건너뛸 수 있어요. 왜일까요?\n\n끝나면 **40번, 10걸음**으로 되돌려 놓으세요.",
+            "en": "Distance is **repeat count × steps**. Change them and fire.\n\n| Repeat | Steps | Guess | Reached |\n| --- | --- | --- | --- |\n| 40 | 10 | near the right edge | |\n| 20 | 10 | | |\n| 10 | 10 | | |\n| 20 | 20 | | |\n| 80 | 5 | | |\n\n- 20 × 20 and 40 × 10 go the same distance. What's different?\n- 50 steps at a time can skip over the target. Why?\n\nSet it back to **40 and 10** when done."
           }
         }
       ],
@@ -1495,9 +1531,13 @@
             }
           ],
           "answer": 3,
+          "hint": {
+            "ko": "포탄은 어디에서 출발해야 할까요?",
+            "en": "Where should the cannonball start from?"
+          },
           "explain": {
             "ko": "대포 자리로 가야 대포에서 쏜 것처럼 보여요.",
-            "en": "Going to the cannon makes it look like it was fired from there."
+            "en": "It must go to the cannon to look fired from it."
           }
         },
         {
@@ -1530,9 +1570,13 @@
             }
           ],
           "answer": 2,
+          "hint": {
+            "ko": "반복 횟수와 한 번에 가는 걸음 수를 곱해 보세요.",
+            "en": "Multiply the repeat count by the steps."
+          },
           "explain": {
             "ko": "10걸음씩 40번이면 400걸음이에요.",
-            "en": "10 steps, 40 times, is 400 steps."
+            "en": "10 steps × 40 = 400."
           }
         },
         {
@@ -1565,9 +1609,13 @@
             }
           ],
           "answer": 0,
+          "hint": {
+            "ko": "반복이 끝난 뒤 포탄에게 아무것도 시키지 않으면 어떻게 될까요?",
+            "en": "What happens if nothing tells it to hide after the loop?"
+          },
           "explain": {
-            "ko": "숨기지 않으면 반복이 끝난 자리에 계속 보여요.",
-            "en": "Without hide, it stays visible where the loop ended."
+            "ko": "숨기지 않으면 멈춘 자리에 계속 보여요.",
+            "en": "Without hide, it stays visible where it stopped."
           }
         }
       ]
@@ -1582,8 +1630,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "포수처럼 실험해요. 포탄이 멈춘 자리를 보려면 **잠깐** 스페이스 스크립트 맨 아래의 `숨기기`를 떼어 놓으세요.\n\n1. 각도 **60**으로 쏘기 → 포탄이 멈춘 자리를 기억\n2. 각도 **65**로 쏘기 → 아까 자리와 비교\n3. 이번엔 반복을 **10번**으로 줄여서 60, 65로 다시 쏘기 (가까운 거리)\n\n- 질문: 가까이에서와 멀리에서, 두 포탄 사이가 어디서 더 벌어졌나요?",
-            "en": "Experiment like a gunner. To see where the cannonball stops, **temporarily** detach the final `hide` block.\n\n1. Fire at **60** → remember where it stopped\n2. Fire at **65** → compare\n3. Change the repeat to **10** and fire at 60 and 65 again (short distance)\n\n- Question: Were the two cannonballs farther apart up close or far away?"
+            "ko": "포탄이 멈춘 자리를 보려고 스페이스 스크립트 맨 아래 `숨기기`를 잠시 떼어 놓아요.\n\n1. 60도로 쏘고 멈춘 자리를 기억해요.\n2. 65도로 쏘고 비교해요.\n3. 반복을 10번으로 줄여 60, 65도로 다시 쏴요.\n\n가까울 때와 멀 때, 두 포탄 사이는 어디서 더 벌어졌나요?",
+            "en": "Detach the final `hide` for now so you can see where the cannonball stops.\n\n1. Fire at 60 and remember where it stops.\n2. Fire at 65 and compare.\n3. Set the repeat to 10 and fire at 60 and 65 again.\n\nWere the two shots farther apart up close or far away?"
           }
         },
         {
@@ -1597,8 +1645,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "같은 5도인데 **멀리 갈수록 크게 벌어져요**. 이야기 속 포수들이 1도까지 꼼꼼히 잰 이유예요.\n\n**실험이 끝나면** 반복을 40으로, `숨기기`를 제자리에 붙여 두세요.",
-            "en": "The same 5 degrees **spreads wider the farther it goes**. That's why gunners measured every single degree.\n\n**When you're done**, set the repeat back to 40 and reattach `hide`."
+            "ko": "같은 5도라도 멀리 갈수록 크게 벌어져요. 포수들이 1도까지 잰 이유예요.\n\n끝나면 반복은 40으로, `숨기기`는 제자리로 돌려 놓으세요.",
+            "en": "The same 5 degrees spreads wider with distance. That's why gunners measured every degree.\n\nWhen done, set the repeat back to 40 and reattach `hide`."
           }
         }
       ],
@@ -1658,8 +1706,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "맞힌 수를 셀 두 번째 상자를 만들어요.\n\n**변수 만들기**: 이름 `명중`, **모든 스프라이트에서 사용**\n\n이제 **목표** 스프라이트에 만드세요. 시작할 때마다 명중을 0으로 되돌리고 과녁을 첫 자리에 놓아요.",
-            "en": "Make a second box to count hits.\n\n**Make a variable**: name `hits`, **For all sprites**\n\nNow build this on the **목표** (target) sprite. Each new game resets hits to 0 and puts the target in its first spot."
+            "ko": "맞힌 수를 셀 변수 `명중`을 만드세요(모든 스프라이트에서 사용).\n\n그다음 **목표**에 만드세요. 깃발을 누르면 명중이 0이 되고 과녁이 첫 자리로 가요.",
+            "en": "Make a variable `hits` (For all sprites).\n\nThen build this on the **목표** (target) sprite. The flag resets hits to 0 and moves the target to its first spot."
           }
         },
         {
@@ -1672,8 +1720,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**확인**: 무대에서 과녁을 마우스로 아무 데나 옮긴 뒤 깃발을 누르세요. 첫 자리로 돌아오나요?",
-            "en": "**Check**: Drag the target anywhere on the stage, then click the green flag. Does it go back to its first spot?"
+            "ko": "**확인**: 과녁을 마우스로 옮긴 뒤 깃발을 누르면 첫 자리로 돌아오나요?",
+            "en": "**Check**: Drag the target away, then click the flag. Does it go back?"
           }
         }
       ],
@@ -1758,8 +1806,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**포탄** 스프라이트로 가요. 포탄이 날아가는 **도중에** 과녁에 닿았는지 확인해야 해요.\n\n- 질문: \"닿았는가?\" 블록은 어느 묶음에? (**감지**)\n- 질문: 확인 블록은 반복 블록 **안**? **밖**? 왜?\n\n닿았다면 할 일 세 가지: **명중 1 올리기 → 숨기기 → 이 스크립트 멈추기**(새 블록!)",
-            "en": "Go to the **포탄** (cannonball) sprite. It must check for the target **while** flying.\n\n- Question: Which category has the \"touching?\" block? (**Sensing**)\n- Question: Does the check go **inside** or **outside** the repeat? Why?\n\nIf it touches: **add 1 to hits → hide → stop this script** (new block!)"
+            "ko": "**포탄**이 날아가는 동안 과녁에 닿았는지 확인해야 해요. `닿았는가?`는 **감지**에 있어요. 반복 안에 넣을까요, 밖에 넣을까요?\n\n닿으면: 명중 1 올리기 → 숨기기 → 이 스크립트 멈추기",
+            "en": "The **포탄** (cannonball) must check for the target while flying. `touching?` is in **Sensing**. Inside the repeat, or outside?\n\nOn a hit: add 1 to hits → hide → stop this script"
           }
         },
         {
@@ -1772,8 +1820,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**확인**: 첫 과녁을 맞히면 포탄이 바로 사라지고 `명중`이 1이 되나요? 빗나가면 그대로 0인가요?",
-            "en": "**Check**: When you hit the first target, does the cannonball vanish and `hits` become 1? If you miss, does it stay 0?"
+            "ko": "**확인**: 맞히면 포탄이 바로 사라지고 `명중`이 1이 되나요? 빗나가면 0 그대로인가요?",
+            "en": "**Check**: On a hit, does the cannonball vanish and `hits` become 1? On a miss, does it stay 0?"
           }
         }
       ],
@@ -1956,8 +2004,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "과녁은 `명중` 상자를 지켜보다가 숫자가 바뀌면 움직여요. 새 블록 `~까지 기다리기`(**제어**)를 쓰면 돼요.\n\n**목표**의 깃발 스크립트 **아래에 이어서** 붙이세요.",
-            "en": "The target watches the `hits` box and moves when it changes. Use the new block `wait until` (**Control**).\n\nAttach these **below** the target's green-flag script."
+            "ko": "과녁이 `명중` 값을 보고 있다가 1이 되면 다음 자리로 가게 해요. **목표**의 깃발 스크립트 아래에 이어 붙이세요.",
+            "en": "The target waits until `hits` is 1, then moves on. Attach this below the target's flag script."
           }
         },
         {
@@ -1970,8 +2018,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**확인**: 첫 과녁을 맞히면 과녁이 오른쪽 위 두 번째 자리로 옮겨 가나요?\n\n**생각해 보기**: 포탄과 과녁은 서로 말을 걸지 않았는데 어떻게 알았을까요?",
-            "en": "**Check**: When you hit the first target, does it move to the second spot?\n\n**Think**: The cannonball and target never talked to each other. How did the target know?"
+            "ko": "**확인**: 첫 과녁을 맞히면 과녁이 두 번째 자리로 가나요?\n\n포탄과 과녁은 어떻게 신호를 주고받았을까요?",
+            "en": "**Check**: After the first hit, does the target move to spot 2?\n\nHow did the cannonball and target signal each other?"
           }
         }
       ],
@@ -2115,8 +2163,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**목표** 스프라이트에는 `펑` 모양이 있어요. 맞히면 과녁이 잠깐 터졌다가 다음 자리로 가게 해요.\n\n**할 일**: `~까지 기다리기`와 `이동하기` **사이에** 아래 세 블록을 끼워 넣으세요.",
-            "en": "The **목표** (target) sprite has a `펑` (boom) costume. Make it explode briefly before moving on.\n\n**To do**: Put these three blocks **between** `wait until` and `go to`."
+            "ko": "맞으면 과녁이 `펑` 모양으로 잠깐 터지게 해요. `~까지 기다리기`와 `이동하기` 사이에 끼워 넣으세요.",
+            "en": "Make the target flash the `펑` (boom) costume when hit. Put these between `wait until` and `go to`."
           }
         },
         {
@@ -2129,8 +2177,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**놓치기 쉬운 곳**: 게임 도중에 멈추면 과녁이 `펑` 모양으로 남을 수 있어요. 깃발 스크립트 맨 위에 `모양을 과녁으로 바꾸기`도 넣어 두세요.",
-            "en": "**Easy to miss**: If you stop mid-game, the target can stay in the `펑` costume. Add `switch costume to 과녁` at the top of the green-flag script too."
+            "ko": "도중에 멈추면 과녁이 `펑` 모양으로 남을 수 있어요. 깃발 스크립트 맨 위에 `모양을 과녁으로 바꾸기`도 넣어 두세요.",
+            "en": "If you stop mid-game, the target can stay as `펑`. Add `switch costume to 과녁` at the top of the flag script."
           }
         }
       ],
@@ -2274,8 +2322,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**스스로 완성하기**: 과녁 자리는 모두 세 곳이에요.\n\n| 순서 | 자리 | 언제 옮겨 갈까? |\n| --- | --- | --- |\n| 1번 | x: -36, y: 64 | 시작할 때 |\n| 2번 | x: 90, y: 80 | 명중이 1이 되면 |\n| 3번 | x: 207, y: 31 | 명중이 2가 되면 |\n\n명중이 **3**이 되면 펑! 하고 승리를 외친 뒤 사라지게 하세요.",
-            "en": "**Finish it yourself**: The target has three spots.\n\n| Order | Spot | When does it move? |\n| --- | --- | --- |\n| 1 | x: -36, y: 64 | At the start |\n| 2 | x: 90, y: 80 | When hits becomes 1 |\n| 3 | x: 207, y: 31 | When hits becomes 2 |\n\nWhen hits reaches **3**, go boom, cheer, and disappear."
+            "ko": "과녁 자리는 세 곳이에요. 나머지를 완성하세요.\n\n| 순서 | 자리 | 옮겨 가는 때 |\n| --- | --- | --- |\n| 1번 | x: -36, y: 64 | 시작할 때 |\n| 2번 | x: 90, y: 80 | 명중이 1일 때 |\n| 3번 | x: 207, y: 31 | 명중이 2일 때 |\n\n명중이 3이 되면 승리를 외치고 사라지게 하세요.",
+            "en": "There are three spots. Finish the rest.\n\n| Order | Spot | When |\n| --- | --- | --- |\n| 1 | x: -36, y: 64 | At the start |\n| 2 | x: 90, y: 80 | When hits is 1 |\n| 3 | x: 207, y: 31 | When hits is 2 |\n\nAt 3 hits, cheer and disappear."
           }
         },
         {
@@ -2288,8 +2336,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**확인**: 처음부터 끝까지 해 보세요. 과녁 3개를 모두 맞히면 통과!",
-            "en": "**Check**: Play from start to finish. Hit all three to pass!"
+            "ko": "**확인**: 과녁 3개를 모두 맞히면 통과예요.",
+            "en": "**Check**: Hit all three to pass."
           }
         },
         {
@@ -2535,9 +2583,13 @@
             }
           ],
           "answer": 1,
+          "hint": {
+            "ko": "3번 자리로 가기 전에 과녁을 몇 번 맞혔을까요?",
+            "en": "How many hits before the target moves to spot 3?"
+          },
           "explain": {
-            "ko": "두 번째 과녁을 맞혀서 명중이 2가 되면 3번 자리로 가요.",
-            "en": "After the second hit, hits is 2, so it moves to spot 3."
+            "ko": "두 번째로 맞혀 명중이 2가 되면 3번 자리로 가요.",
+            "en": "After the second hit, hits is 2."
           }
         },
         {
@@ -2566,9 +2618,13 @@
             }
           ],
           "answer": 0,
+          "hint": {
+            "ko": "과녁의 `~까지 기다리기` 블록이 무엇을 보고 있었나요?",
+            "en": "What does the target's `wait until` block check?"
+          },
           "explain": {
-            "ko": "모든 스프라이트가 보는 변수 덕분에 서로 신호를 주고받을 수 있어요.",
-            "en": "A shared variable lets sprites signal each other."
+            "ko": "모든 스프라이트가 보는 `명중` 값이 바뀌는 걸 봐요.",
+            "en": "It sees the shared `hits` value change."
           }
         },
         {
@@ -2601,9 +2657,13 @@
             }
           ],
           "answer": 3,
+          "hint": {
+            "ko": "확인하는 순간 포탄은 어디쯤 있을까요?",
+            "en": "Where is the cannonball at the moment it checks?"
+          },
           "explain": {
-            "ko": "반복이 다 끝난 뒤에 한 번만 확인하니까, 그때 포탄은 이미 과녁을 지나간 뒤예요.",
-            "en": "It only checks once after the loop, when the cannonball has already passed the target."
+            "ko": "반복이 끝난 뒤 한 번만 확인하니까, 그때는 이미 과녁을 지나간 뒤예요.",
+            "en": "It checks only once, after the loop, when the ball has passed the target."
           }
         }
       ]
@@ -2618,8 +2678,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "진짜 포수는 포탄을 아껴요. 몇 발을 쐈는지 세어 봐요.\n\n**변수 만들기**: 이름 `발사`, **모든 스프라이트에서 사용**\n\n- 질문: 게임을 시작할 때 `발사`를 0으로 정하는 블록은 어느 스크립트에 넣을까요? (힌트: 대포의 깃발 스크립트)\n- 질문: 1씩 올리는 블록은 어느 스크립트에 넣을까요? (힌트: 쏠 때마다)",
-            "en": "Real gunners save cannonballs. Let's count how many you fire.\n\n**Make a variable**: name `shots`, **For all sprites**\n\n- Question: Which script should set `shots` to 0 at the start? (Hint: the cannon's green-flag script)\n- Question: Which script should add 1? (Hint: every time you fire)"
+            "ko": "몇 발 쐈는지 세어 봐요. 변수 `발사`를 만드세요(모든 스프라이트에서 사용).\n\n- 0으로 정하기는 대포의 깃발 스크립트에\n- 1씩 올리기는 쏠 때마다 실행되는 곳에",
+            "en": "Count your shots. Make a variable `shots` (For all sprites).\n\n- Set it to 0 in the cannon's flag script\n- Add 1 wherever firing happens"
           }
         },
         {
@@ -2632,8 +2692,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**확인**: 깃발을 누르고 스페이스를 두 번 누르면 `발사`가 2가 되나요?",
-            "en": "**Check**: Green flag, then press space twice. Is `shots` 2?"
+            "ko": "**확인**: 깃발을 누르고 스페이스를 2번 누르면 `발사`가 2인가요?",
+            "en": "**Check**: Flag, then space twice. Is `shots` 2?"
           }
         }
       ],
@@ -2701,15 +2761,15 @@
         {
           "type": "text",
           "value": {
-            "ko": "진짜 포수 시험이에요. 규칙은 하나! **쏘기 전에 각도를 먼저 어림하기.**\n\n1. 과녁을 보고 각도기 눈금으로 \"몇 도쯤?\" 어림\n2. 대포가 말하는 숫자를 보며 그 각도에 맞추기\n3. 쏘고, 빗나가면 어느 쪽으로 빗나갔는지 보고 고치기\n\n**기록표**\n\n| 과녁 | 내 어림 | 맞은 각도 | 쏜 횟수 |\n| --- | --- | --- | --- |\n| 1번 | | | |\n| 2번 | | | |\n| 3번 | | | |\n\n**단계별 도전**\n- 🥉 7발 안에 3개\n- 🥈 5발 안에 3개\n- 🥇 3발 만에 3개 (한 발도 안 빗나가기!)",
-            "en": "The real gunner's test. One rule! **Estimate the angle before firing.**\n\n1. Look at the target and guess the angle with the protractor\n2. Use the number the cannon says to set that angle\n3. Fire; if you miss, see which way and adjust\n\n**Record sheet**\n\n| Target | My estimate | Hit angle | Shots |\n| --- | --- | --- | --- |\n| 1 | | | |\n| 2 | | | |\n| 3 | | | |\n\n**Challenge levels**\n- 🥉 3 targets in 7 shots\n- 🥈 3 targets in 5 shots\n- 🥇 3 targets in 3 shots (no misses!)"
+            "ko": "규칙: **쏘기 전에 각도를 어림하기.** 각도기로 어림 → 그 각도에 맞추기 → 쏘고, 빗나가면 고치기.\n\n| 과녁 | 내 어림 | 맞은 각도 | 쏜 횟수 |\n| --- | --- | --- | --- |\n| 1번 | | | |\n| 2번 | | | |\n| 3번 | | | |\n\n- 🥉 7발 안에 3개\n- 🥈 5발 안에 3개\n- 🥇 3발에 3개",
+            "en": "Rule: **estimate before you fire.** Guess with the protractor → set that angle → fire, and adjust if you miss.\n\n| Target | Guess | Hit angle | Shots |\n| --- | --- | --- | --- |\n| 1 | | | |\n| 2 | | | |\n| 3 | | | |\n\n- 🥉 3 targets in 7 shots\n- 🥈 3 targets in 5 shots\n- 🥇 3 targets in 3 shots"
           }
         },
         {
           "type": "text",
           "value": {
-            "ko": "**생각해 보기**: 1번 과녁은 조금 틀려도 맞는데, 3번 과녁은 딱 맞아야만 맞아요. 5도 실험을 떠올리면 왜 그럴까요?",
-            "en": "**Think**: Target 1 forgives small mistakes, but target 3 only counts if you're exact. Remember the 5-degree experiment: why?"
+            "ko": "1번은 조금 틀려도 맞는데 3번은 정확해야 맞아요. 왜일까요?",
+            "en": "Target 1 forgives small errors, but target 3 doesn't. Why?"
           }
         }
       ]
@@ -2748,9 +2808,13 @@
             }
           ],
           "answer": 0,
+          "hint": {
+            "ko": "5도 실험에서 가까울 때와 멀 때를 비교해 보세요.",
+            "en": "Recall the 5-degree experiment: near vs far."
+          },
           "explain": {
-            "ko": "세 과녁의 크기는 같아요. 멀수록 작은 각도 차이가 크게 벌어져요.",
-            "en": "All targets are the same size. Distance makes small angle errors big."
+            "ko": "세 과녁은 크기가 같아요. 멀수록 각도 차이가 크게 벌어져요.",
+            "en": "All targets are the same size; distance magnifies angle errors."
           }
         },
         {
@@ -2779,9 +2843,13 @@
             }
           ],
           "answer": 1,
+          "hint": {
+            "ko": "변수 묶음에 내가 직접 만든 이름들을 떠올려 보세요.",
+            "en": "Think of the names you made in Variables."
+          },
           "explain": {
-            "ko": "`방향`은 스크래치에 원래 있는 블록이에요. 우리가 만든 변수는 각도, 명중, 발사예요.",
-            "en": "`direction` is built into Scratch. We made angle, hits and shots."
+            "ko": "`방향`은 스크래치에 원래 있어요. 만든 변수는 각도, 명중, 발사예요.",
+            "en": "`direction` is built in. We made angle, hits and shots."
           }
         },
         {
@@ -2810,9 +2878,13 @@
             }
           ],
           "answer": 2,
+          "hint": {
+            "ko": "이야기 그림에서 가장 멀리 간 빨간 선을 떠올려 보세요.",
+            "en": "Remember the red line that went farthest in the story picture."
+          },
           "explain": {
             "ko": "45도예요. 30도와 60도는 같은 곳에 떨어져요.",
-            "en": "45 degrees. 30 and 60 land in the same place."
+            "en": "45 degrees. 30 and 60 land together."
           }
         }
       ]
@@ -2827,15 +2899,15 @@
         {
           "type": "text",
           "value": {
-            "ko": "필수 구현 끝! 남은 시간에 미션을 골라 도전하세요. 하나 끝낼 때마다 **선생님께 보여 주세요**.\n\n## ★ 미션 A. 나만의 사격장\n과녁 3곳을 내가 정한 자리로 바꾸고 짝에게 도전장! 짝은 몇 발 만에 맞힐까요?",
-            "en": "Must-haves done! Pick a mission for the time left. **Show your teacher** each time you finish one.\n\n## ★ Mission A. My own range\nMove the three targets anywhere you like and challenge your partner. How many shots will they need?"
+            "ko": "남은 시간에 골라서 도전하세요. 하나 끝내면 선생님께 보여 주세요.\n\n## ★ 미션 A. 나만의 사격장\n과녁 3곳을 내 마음대로 옮기고 짝에게 도전해 보세요.",
+            "en": "Pick missions for the time left. Show your teacher when you finish one.\n\n## ★ Mission A. My own range\nMove the three targets anywhere and challenge your partner."
           }
         },
         {
           "type": "text",
           "value": {
-            "ko": "## ★★ 미션 B. 포탄은 5발뿐\n변수 `포탄 수`를 만들어 시작할 때 5로 정하고, 쏠 때마다 1씩 줄이세요. 0이면 못 쏘게 해요. 스페이스 스크립트 **맨 처음**에 넣어요.",
-            "en": "## ★★ Mission B. Only 5 cannonballs\nMake `shots left`, set it to 5 at the start and subtract 1 per shot. At 0, no firing. Put this at the **very start** of the space script."
+            "ko": "## ★★ 미션 B. 포탄은 5발뿐\n변수 `포탄 수`를 5로 시작해 쏠 때마다 1씩 줄이고, 0이면 못 쏘게 해요. 스페이스 스크립트 맨 앞에 넣어요.",
+            "en": "## ★★ Mission B. Only 5 cannonballs\nStart `shots left` at 5, subtract 1 per shot, and block firing at 0. Put this at the start of the space script."
           }
         },
         {
@@ -2848,8 +2920,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "## ★★ 미션 C. 움직이는 과녁\n과녁이 위아래로 오르내리게 해요. 움직이는 과녁은 언제 쏴야 맞을까요? **목표**에 깃발 스크립트를 하나 더 만들어요.",
-            "en": "## ★★ Mission C. Moving target\nMake the target bob up and down. When should you fire? Add one more green-flag script to the **목표** (target) sprite."
+            "ko": "## ★★ 미션 C. 움직이는 과녁\n과녁이 위아래로 움직이게 해요. **목표**에 깃발 스크립트를 하나 더 만들어요.",
+            "en": "## ★★ Mission C. Moving target\nMake the target bob up and down with a second flag script on **목표**."
           }
         },
         {
@@ -2862,8 +2934,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "## ★★★ 미션 D. 대포가 뒤로 넘어가지 않게\n각도가 **0보다 작아지거나 105보다 커지지 않게** 막아요. 화살표 스크립트에서 각도를 바꾼 **다음**에 확인해요. 105 쪽은 스스로!",
-            "en": "## ★★★ Mission D. Don't flip the cannon\nKeep the angle from going **below 0 or above 105**. Check right **after** changing it in the arrow scripts. Do the 105 side yourself!"
+            "ko": "## ★★★ 미션 D. 대포가 넘어가지 않게\n각도가 0보다 작거나 105보다 커지지 않게 막아요. 105 쪽은 직접 만들어 보세요.",
+            "en": "## ★★★ Mission D. Don't flip the cannon\nKeep the angle between 0 and 105. Do the 105 side yourself."
           }
         },
         {
@@ -2876,8 +2948,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "## ★★★ 미션 E. 바람이 분다 (휘는 포탄)\n포탄이 날아가는 반복 **안**에 아래 블록을 넣어 조금씩 끌어내려 보세요. 포탄 길이 어떻게 휘나요? 이제 각도를 어떻게 어림해야 할까요? 타르탈리아의 45도와 비교해 보세요.",
-            "en": "## ★★★ Mission E. Wind (curving shots)\nPut this block **inside** the flying repeat to pull the cannonball down little by little. How does the path bend? How should you estimate now? Compare with Tartaglia's 45 degrees."
+            "ko": "## ★★★ 미션 E. 휘는 포탄\n날아가는 반복 안에 이 블록을 넣어 보세요. 포탄 길이 어떻게 바뀌고, 어림은 어떻게 달라질까요?",
+            "en": "## ★★★ Mission E. Curving shots\nPut this inside the flying repeat. How does the path change, and how do you estimate now?"
           }
         },
         {
