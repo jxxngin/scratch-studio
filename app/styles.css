@@ -56,6 +56,7 @@ button { font-family: inherit; }
 
 .ss-progress { display: flex; align-items: center; padding: 12px 24px; flex-shrink: 0; }
 .ss-dots { display: flex; align-items: center; gap: 8px; }
+.ss-progress .ss-dots { flex: 1; min-width: 0; flex-wrap: wrap; }
 .ss-dots.is-dense { gap: 6px; }
 .ss-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--line-strong); flex-shrink: 0; }
 .ss-dot.is-passed { background: var(--ink); }
@@ -84,6 +85,26 @@ button { font-family: inherit; }
 .ss-blocks { background: #F8FAFC; border-radius: 8px; padding: 20px; overflow-x: auto; }
 .ss-blocks svg { display: block; }
 .ss-blocks pre { margin: 0; font: 13px/1.7 ui-monospace, Menlo, Consolas, monospace; color: var(--text); white-space: pre-wrap; }
+
+/* 미니퀴즈 */
+.ss-quiz { display: flex; flex-direction: column; gap: 28px; }
+.ss-question { display: flex; flex-direction: column; gap: 12px; }
+.ss-question + .ss-question { padding-top: 24px; border-top: 1px solid #F1F5F9; }
+.ss-question-no { font-size: 12px; font-weight: 700; color: var(--muted); }
+.ss-question-prompt { font-size: 15px; font-weight: 700; line-height: 1.6; color: var(--ink); }
+.ss-options { display: flex; flex-direction: column; gap: 10px; }
+.ss-option {
+  display: flex; align-items: center; gap: 14px; min-height: 52px; padding: 10px 16px; border-radius: 10px;
+  border: 1.5px solid var(--line-strong); background: #fff; cursor: pointer; text-align: left; font-size: 14px; font-weight: 500; color: var(--ink);
+}
+.ss-option:hover:not(:disabled) { border-color: var(--faint); }
+.ss-option:disabled { cursor: default; color: var(--muted); }
+.ss-option.is-selected { border-color: var(--ink); background: #F8FAFC; color: var(--ink); }
+.ss-radio { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #CBD5E1; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.ss-radio::after { content: ''; width: 10px; height: 10px; border-radius: 50%; }
+.ss-option.is-selected .ss-radio { border-color: var(--ink); }
+.ss-option.is-selected .ss-radio::after { background: var(--ink); }
+.ss-explain { font-size: 13px; line-height: 1.6; color: #15803D; background: #F0FDF4; border-radius: 8px; padding: 10px 12px; }
 
 /* 제출 폼 */
 .ss-field { display: flex; flex-direction: column; gap: 8px; }

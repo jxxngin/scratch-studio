@@ -45,6 +45,7 @@ const state = {
   dirty: false, saving: false,
   submission: null, editing: false, submitting: false,
   form: { title: '', note: '', note2: '', yt: '' },
+  quiz: {},            // 현재 퀴즈 스텝에서 고른 보기: { 문항 id: 보기 번호 }
 };
 let store, frame;
 
@@ -102,6 +103,54 @@ function renderContentBlock(b) {
   }
   if (b.type === 'blocks') return renderBlocksCode(t(b.value));
   return document.createComment(`unknown block: ${b.type}`);
+}
+
+function renderQuiz(step) {
+  const passed = isPassed(state.step);
+  const wrap = document.createElement('div');
+  wrap.className = 'ss-quiz';
+  step.questions.forEach((q, qi) => {
+    const box = document.createElement('div');
+    box.className = 'ss-question';
+    const no = document.createElement('div');
+    no.className = 'ss-question-no';
+    no.textContent = `문제 ${qi + 1} / ${step.questions.length}`;
+    const prompt = document.createElement('div');
+    prompt.className = 'md ss-question-prompt';
+    prompt.innerHTML = renderMarkdown(t(q.prompt));
+    box.append(no, prompt);
+    if (q.image) box.appendChild(renderContentBlock({ type: 'image', src: q.image, alt: q.prompt }));
+    if (q.blocks) box.appendChild(renderBlocksCode(t(q.blocks)));
+
+    const options = document.createElement('div');
+    options.className = 'ss-options';
+    q.options.forEach((o, oi) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'ss-option' + (state.quiz[q.id] === oi ? ' is-selected' : '');
+      btn.disabled = passed;
+      const radio = document.createElement('span');
+      radio.className = 'ss-radio';
+      btn.append(radio, t(o));
+      btn.addEventListener('click', () => {
+        if (state.result === 'grading') return;
+        state.quiz[q.id] = oi;
+        state.result = null;
+        for (const b of options.children) b.classList.toggle('is-selected', b === btn);
+        renderChrome();
+      });
+      options.appendChild(btn);
+    });
+    box.appendChild(options);
+    if (passed && q.explain) {
+      const ex = document.createElement('div');
+      ex.className = 'ss-explain';
+      ex.textContent = t(q.explain);
+      box.appendChild(ex);
+    }
+    wrap.appendChild(box);
+  });
+  return wrap;
 }
 
 function renderSubmitForm() {
@@ -174,6 +223,7 @@ function renderBody() {
   el.body.appendChild(h);
 
   if (step.type === 'submit') el.body.appendChild(state.submission && !state.editing ? renderSubmitDone() : renderSubmitForm());
+  else if (step.type === 'quiz') el.body.appendChild(renderQuiz(step));
   else for (const b of step.content || []) el.body.appendChild(renderContentBlock(b));
   el.body.scrollTop = 0;
 }
@@ -196,6 +246,7 @@ function primaryAction() {
   }
   if (isPassed(state.step) || !step.hasChecks) return { label: '다음 ›', on: next };
   if (state.result === 'grading') return { label: '확인 중', disabled: true, spin: true };
+  if (step.type === 'quiz') return { label: '확인', disabled: !step.questions.every((q) => state.quiz[q.id] != null), on: checkQuiz };
   return { label: '확인', disabled: !state.editorReady, on: check };
 }
 
@@ -253,6 +304,7 @@ function renderLayout() {
 function goTo(i) {
   state.step = Math.max(0, Math.min(state.steps.length - 1, i));
   state.result = null;
+  loadQuizAnswers();
   renderBody();
   renderChrome();
 }
@@ -268,6 +320,23 @@ async function next() {
 function prev() {
   if (state.editing) return cancelResubmit();
   goTo(state.step - 1);
+}
+
+// 이미 통과한 퀴즈로 돌아오면 정답이 골라진 상태로 보여준다.
+function loadQuizAnswers() {
+  const step = current();
+  state.quiz = {};
+  if (step.type === 'quiz' && isPassed(state.step)) for (const q of step.questions) state.quiz[q.id] = q.answer;
+}
+
+async function checkQuiz() {
+  const step = current();
+  state.result = 'grading';
+  renderChrome();
+  try { state.result = await store.gradeQuiz(step.key, state.quiz); }
+  catch (e) { console.warn('[scratch-studio] quiz failed', e); state.result = 'error'; }
+  if (state.result === 'pass') renderBody();
+  renderChrome();
 }
 
 async function check() {
@@ -445,10 +514,12 @@ async function start() {
   if (!res.ok) throw new Error(`unit.json을 불러오지 못했어요 (${res.status})`);
   const unit = await res.json();
   state.unit = unit;
-  store = createStore(unit, { failFirstSave: config.failFirstSave });
+  store = createStore(unit, { failFirstSave: config.failFirstSave, namespace: params.get('unit') ? config.unitBase : '' });
 
-  // 미니퀴즈와 프로젝트 제출은 unit.json이 아니라 사이트가 단원에 배치한다. 여기서는 제출 스텝만 끝에 붙인다.
-  state.steps = unit.steps.map((s) => ({ type: 'lesson', key: s.key, title: s.title, content: s.content, hasChecks: (s.checks || []).length > 0 }));
+  // 퀴즈는 unit.json의 "type": "quiz" 스텝으로 들어온다. 프로젝트 제출은 사이트가 배치하므로 끝에 붙인다.
+  state.steps = unit.steps.map((s) => (s.type === 'quiz'
+    ? { type: 'quiz', key: s.key, title: s.title, questions: s.questions || [], hasChecks: true }
+    : { type: 'lesson', key: s.key, title: s.title, content: s.content, hasChecks: (s.checks || []).length > 0 }));
   state.steps.push({ type: 'submit', key: SUBMIT_KEY });
 
   state.submission = store.getProgress().submission;
@@ -457,6 +528,7 @@ async function start() {
   // 완료되지 않은 첫 스텝에서 이어서 한다.
   const firstOpen = state.steps.findIndex((_, i) => !isPassed(i));
   state.step = firstOpen < 0 ? state.steps.length - 1 : firstOpen;
+  loadQuizAnswers();
   renderBody();
   renderChrome();
 

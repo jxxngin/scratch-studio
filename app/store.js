@@ -23,8 +23,9 @@ async function idb(mode, fn) {
   });
 }
 
-export function createStore(unit, { failFirstSave = false } = {}) {
-  const id = `${unit.subject}/${unit.unitKey}`;
+// namespace: 같은 단원의 다른 판(폴더)을 나란히 열어 볼 때 진도가 섞이지 않게 하는 개발용 구분값.
+export function createStore(unit, { failFirstSave = false, namespace = '' } = {}) {
+  const id = `${unit.subject}/${unit.unitKey}${namespace ? `@${namespace}` : ''}`;
   const key = `ss:${id}`;
   let failNext = failFirstSave;
 
@@ -82,8 +83,21 @@ export function createStore(unit, { failFirstSave = false } = {}) {
     async completeStep(stepKey) {
       const s = read();
       if (!previousAllPassed(s, stepKey)) throw new Error('step locked');
-      if ((unit.steps[stepIndex(stepKey)].checks || []).length) throw new Error('step needs grading');
+      const step = unit.steps[stepIndex(stepKey)];
+      if ((step.checks || []).length || step.type === 'quiz') throw new Error('step needs grading');
       if (!s.passed.includes(stepKey)) { s.passed.push(stepKey); write(s); }
+    },
+
+    // 미니퀴즈 채점: 모든 문항이 정답이어야 통과. 다시 풀 수 있다.
+    async gradeQuiz(stepKey, answers) {
+      const s = read();
+      if (!previousAllPassed(s, stepKey)) throw new Error('step locked');
+      const step = unit.steps[stepIndex(stepKey)];
+      const pass = step.questions.every((q) => answers[q.id] === q.answer);
+      s.attempts[stepKey] = (s.attempts[stepKey] || 0) + 1;
+      if (pass && !s.passed.includes(stepKey)) s.passed.push(stepKey);
+      write(s);
+      return pass ? 'pass' : 'fail';
     },
 
     // 프로젝트 제출: 새 버전과 썸네일 저장. 작품당 최근 10개 버전만 보관한다.
