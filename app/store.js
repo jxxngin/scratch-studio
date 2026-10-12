@@ -89,15 +89,17 @@ export function createStore(unit, { failFirstSave = false, namespace = '' } = {}
     },
 
     // 미니퀴즈 채점: 모든 문항이 정답이어야 통과. 다시 풀 수 있다.
+    // 틀린 문항의 id는 알려 주지만 정답은 알려 주지 않는다.
     async gradeQuiz(stepKey, answers) {
       const s = read();
       if (!previousAllPassed(s, stepKey)) throw new Error('step locked');
       const step = unit.steps[stepIndex(stepKey)];
-      const pass = step.questions.every((q) => answers[q.id] === q.answer);
+      const wrong = step.questions.filter((q) => answers[q.id] !== q.answer).map((q) => q.id);
+      const pass = wrong.length === 0;
       s.attempts[stepKey] = (s.attempts[stepKey] || 0) + 1;
       if (pass && !s.passed.includes(stepKey)) s.passed.push(stepKey);
       write(s);
-      return pass ? 'pass' : 'fail';
+      return { result: pass ? 'pass' : 'fail', wrong };
     },
 
     // 프로젝트 제출: 새 버전과 썸네일 저장. 작품당 최근 10개 버전만 보관한다.

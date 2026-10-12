@@ -104,6 +104,13 @@ button { font-family: inherit; }
 .ss-radio::after { content: ''; width: 10px; height: 10px; border-radius: 50%; }
 .ss-option.is-selected .ss-radio { border-color: var(--ink); }
 .ss-option.is-selected .ss-radio::after { background: var(--ink); }
+.ss-question-wrong { display: none; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #DC2626; }
+.ss-question-wrong::before { content: '!'; width: 20px; height: 20px; border-radius: 50%; background: #DC2626; color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.ss-question.is-wrong .ss-question-wrong { display: flex; }
+.ss-question.is-wrong .ss-question-no { color: #DC2626; }
+.ss-question.is-wrong .ss-option.is-selected { border-color: #DC2626; background: #FEF2F2; }
+.ss-question.is-wrong .ss-option.is-selected .ss-radio { border-color: #DC2626; }
+.ss-question.is-wrong .ss-option.is-selected .ss-radio::after { background: #DC2626; }
 .ss-explain { font-size: 13px; line-height: 1.6; color: #15803D; background: #F0FDF4; border-radius: 8px; padding: 10px 12px; }
 
 /* 제출 폼 */
