@@ -1,7 +1,8 @@
 # 디랩 코딩 트랙 — 학원 운영 웹사이트 MVP 기획 문서
 
 작성일: 2026-07-17
-최종 수정: 2026-10-15 — 스크래치 학생용 교안 틀에 맞춰 과목명(스크래치 Lv.1~3), 스크래치 미니퀴즈 예외(§3.3.1), Lv.3 설계하기(§3.3.1, §5 `DESIGN_NOTE`), 퀴즈 가져오기 키(§5 `QUIZ_QUESTION`)를 반영
+최종 수정: 2026-10-16 — 스크래치 교안 틀 개정에 맞춰 스크래치 미니퀴즈 동작(힌트와 해설, §3.3.1), 목차(§5 `UNIT.chapters`), 입력 표(§3.3.1, §5 `STEP_RECORD`)를 반영
+이전 수정: 2026-10-15 — 스크래치 학생용 교안 틀에 맞춰 과목명(스크래치 Lv.1~3), 스크래치 미니퀴즈 예외(§3.3.1), Lv.3 설계하기(§3.3.1, §5 `DESIGN_NOTE`), 퀴즈 가져오기 키(§5 `QUIZ_QUESTION`)를 반영
 개발 폴더명: `dlab-coding-track`
 
 이 문서는 대화를 통해 도출된 요구사항, 역할별 권한, 데이터 모델(ERD)을 정리한 것입니다.
@@ -88,7 +89,9 @@ Claude Code에 이 문서를 전달하여 프로젝트 구조 및 DB 스키마 �
 - **진입**: 단원 목록에서 `editor_type = scratch`인 과목의 단원을 열면 전용 화면으로, 그 외 튜토리얼형 과목은 기존 튜토리얼 진행 화면으로 들어간다. 기존 화면은 고치지 않는다.
 - **데이터**: 진도·퀴즈·제출은 기존 테이블(`STEP_PROGRESS`, `UNIT_PROGRESS`, `QUIZ`, `PROJECT`)을 그대로 쓰고, 작품 파일과 제출 버전을 위한 테이블과 컬럼을 추가한다 (§5).
 - **다른 튜토리얼형 과목과 다른 점**: 스텝 단위의 교사 수동 통과가 없다. 실시간 관찰·제어권 교환(§3.4)을 적용하지 않고, 대신 교사와 관리자가 저장된 작품을 열어볼 수 있다 (§4). PC와 크롬북만 지원한다.
-- **미니퀴즈**: 한 퀴즈 스텝의 문항을 모두 맞혀야 통과하고, 통과해야 다음 스텝으로 넘어간다. 따라서 단원 완료 조건에 들어간다. 틀려도 해설이나 어느 문항이 틀렸는지는 보여주지 않는다. 문항은 교안과 함께 가져오기 스크립트로 등록하고, 화면에서는 고치지 않는다.
+- **미니퀴즈**: 한 퀴즈 스텝의 문항(2~3개)을 모두 맞혀야 통과하고, 통과해야 다음 스텝으로 넘어간다. 따라서 단원 완료 조건에 들어간다. 틀리면 틀린 문항을 직접 표시하지 않고 그 문항 아래에 힌트를 보여주며, 통과하면 모든 문항의 해설을 보여준다. 문항은 교안과 함께 가져오기 스크립트로 등록하고, 화면에서는 고치지 않는다.
+- **입력 표**: 탐색 스텝에서 학생이 예상과 결과를 직접 적는 표다. 정답이 있는 칸은 채점하고(본 사이트가 채점), 적은 값은 `STEP_RECORD`에 저장한다 (§5).
+- **목차**: 스크래치 단원은 스텝을 목차로 묶어 보여준다. 목차는 교안과 함께 가져오기 스크립트로 등록한다 (`UNIT.chapters`).
 - **설계하기 (Lv.3)**: 만들기 전에 작품을 구상하는 글쓰기 스텝이다. 학생의 답은 `DESIGN_NOTE`에 저장한다 (§5).
 - **교안 틀**: 단원의 스텝 종류와 순서, 스텝 안의 칸 구성은 「스크래치 학생용 교안 틀」([scratch-studio/scratch-lesson-template.md](scratch-studio/scratch-lesson-template.md))이 기준이다.
 - **다른 기능과의 연결**: 제출한 작품은 포트폴리오(§3.5)와 학부모 리포트(§3.6)에서 작품 실행으로 보여주고, 교사 승인을 거쳐 커뮤니티에 공유할 수 있다 (§3.7).
@@ -294,6 +297,8 @@ erDiagram
   USER ||--o{ PROJECT_COMMENT : writes
   USER ||--o{ SCRATCH_PROJECT : saves
   USER ||--o{ DESIGN_NOTE : writes
+  USER ||--o{ STEP_RECORD : writes
+  LESSON_STEP ||--o{ STEP_RECORD : recorded_in
   LESSON_STEP ||--o{ DESIGN_NOTE : answered_in
   UNIT ||--o{ QUIZ : contains
   UNIT ||--o{ UNIT_PROGRESS : tracked_by
@@ -375,6 +380,7 @@ erDiagram
     boolean is_published "공개/비공개, 기본값 false"
     string starter_project_url "nullable, 스크래치 단원의 시작용 sb3"
     string import_key "nullable, 스크래치 교안 가져오기에서 단원을 찾는 키 (과목 안에서 유일)"
+    json chapters "nullable, 스크래치 단원의 목차. 목차마다 이름(ko/en)과 스텝 import_key 목록"
   }
   UNIT_PROGRESS {
     string id PK
@@ -463,7 +469,7 @@ erDiagram
     string option_c
     string option_d
     string correct_option "A | B | C | D"
-    json content "nullable, 스크래치 미니퀴즈의 문항과 보기(ko/en). 있으면 question_text·option_a~d 대신 사용"
+    json content "nullable, 스크래치 미니퀴즈의 문항, 보기, 힌트, 해설, 블록 그림(ko/en). 있으면 question_text·option_a~d 대신 사용"
     string import_key "nullable, 스크래치 교안 가져오기에서 문항을 찾는 키 (스텝 안에서 유일)"
   }
   QUIZ_SUBMISSION {
@@ -528,6 +534,13 @@ erDiagram
     string user_id FK
     string step_id FK "LESSON_STEP, 스크래치 Lv.3 설계하기 스텝 (user_id + step_id 유일)"
     json answers "문항별 학생의 답. 문항은 사이트 코드에 고정"
+    string updated_at
+  }
+  STEP_RECORD {
+    string id PK
+    string user_id FK
+    string step_id FK "LESSON_STEP, 입력 표가 있는 스크래치 스텝 (user_id + step_id 유일)"
+    json values "표 key마다 칸 값. 입력할 때마다 저장"
     string updated_at
   }
   ATTENDANCE {
@@ -612,6 +625,7 @@ erDiagram
   - **보호자 동의 표시와 닉네임 변경**: 작품 공개 동의 여부 표시·해제, 학생 닉네임 변경 (§3.7)
   - **작품 열람**: 학생의 제출 버전 목록과 작업 중인 저장본 열기 (「스크래치 스튜디오 기획서」 5장)
   - **설계하기 답 열람**: 스크래치 Lv.3 학생이 설계하기 스텝에 쓴 답 (`DESIGN_NOTE`, 「스크래치 스튜디오 기획서」 5장)
+  - **입력 표 열람**: 스크래치 학생이 탐색 스텝의 입력 표에 적은 예상과 결과 (`STEP_RECORD`, 「스크래치 스튜디오 기획서」 5장)
 
 **관리자**: 대시보드(전체 통계) · 계정/권한 관리 · 반/시간대별 수업 스케줄 관리(그리드 뷰) ·
 전체 학생 리포트 조회 · 학생의 작품·댓글 삭제(보호자 요청 시) · (교사 화면 전체 접근)

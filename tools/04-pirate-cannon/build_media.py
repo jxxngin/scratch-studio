@@ -1,36 +1,23 @@
 # -*- coding: utf-8 -*-
-"""해적선 대포 합친 교안(버전 2 폴더)의 시작 프로젝트와 media/를 만든다.
+"""해적선 대포 교안의 미리보기 GIF(media/s<번호>-<내용>.gif)를 만든다.
 
-실행: python tools/04-pirate-cannon-v2/build_media.py
-필요: Pillow, 맑은 고딕(C:/Windows/Fonts/malgun.ttf). build_unit.py를 먼저 돌린다.
+실행: python tools/04-pirate-cannon/build_media.py
+필요: Pillow, 맑은 고딕(C:/Windows/Fonts/malgun.ttf)
 
-- starter.sb3: 버전 1의 시작 프로젝트를 그대로 복사한다.
-- 그림과 사진: unit.json이 쓰는 것 중 GIF가 아닌 것은 버전 1의 media/에서 복사한다.
-- media/s<번호>-<내용>.gif: 만들기 스텝마다 그 스텝까지 완성한 작품이 움직이는 모습
+- 오늘 만들 게임(s03)의 완성작 GIF와, 만들기 스텝마다 그 스텝까지 완성한 작품이 움직이는 GIF를 다시 그린다.
+- 다른 그림·사진과 starter.sb3는 건드리지 않는다. 교안(unit.json)은 직접 고친다.
+- 무대 모습을 바꾸거나 만들기 스텝을 더하면 아래 장면을 고치고 다시 돌린다.
 
 좌표 기준(스크래치 무대): 대포 회전축 (-170, -70), 과녁 1번 (-36, 64) 45도, 2번 (90, 80) 60도, 3번 (207, 31) 75도
 """
-import json, math, os, shutil
+import math, os
 from PIL import Image, ImageDraw, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-V1 = os.path.join(ROOT, "project", "lv1", "04-pirate-cannon")
-OUT = os.path.join(ROOT, "project", "lv1", "04-pirate-cannon-v2")
+OUT = os.path.join(ROOT, "project", "lv1", "04-pirate-cannon")
 MEDIA = os.path.join(OUT, "media")
-
-unit = json.load(open(os.path.join(OUT, "unit.json"), encoding="utf-8"))
-srcs = set()
-for s in unit["steps"]:
-    srcs.update(b["src"] for b in s.get("content", []) if b["type"] == "image")
-    srcs.update(q["image"] for q in s.get("questions", []) if "image" in q)
-
-shutil.rmtree(MEDIA, ignore_errors=True)
-os.makedirs(MEDIA)
-shutil.copyfile(os.path.join(V1, "starter.sb3"), os.path.join(OUT, "starter.sb3"))
-for src in sorted(srcs):
-    if not src.endswith(".gif"):
-        shutil.copyfile(os.path.join(V1, src), os.path.join(OUT, src))
+os.makedirs(MEDIA, exist_ok=True)
 
 # ---------------------------------------------------------------- 그리기
 FONT = "C:/Windows/Fonts/malgun.ttf"
