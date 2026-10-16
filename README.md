@@ -35,10 +35,24 @@ http://localhost:8000/app/?unit=../project/lv1/<단원 폴더>
 
 교안을 보기 위한 배포다. 실제 수업용이 아니다.
 
+주소: <https://scratch-studio-gray.vercel.app/> (`/app/`으로 연결된다)
+
 - `main`에 푸시하면 Vercel이 자동으로 배포한다. 빌드 과정은 없다.
 - `.vercelignore`로 `app/`과 `project/`만 올린다. `docs/`(강사용 안내서, 기획서), `tools/`, `styles/`는 올라가지 않는다.
 - `vercel.json`: 첫 주소 `/`를 `/app/`으로 보내고, 모든 응답에 `noindex`를 붙인다.
 - 배포 주소는 링크를 아는 누구나 볼 수 있다. 퀴즈 정답과 채점 규칙도 `unit.json`에 들어 있어 브라우저에서 보인다.
+- 진도는 보는 사람의 브라우저에 저장된다. 서버가 없으므로 사람마다, 브라우저마다 따로 쌓인다.
+
+**배포 확인 (2026-10-16, 커밋 `8733afb`)**
+
+| 확인한 것 | 결과 |
+| --- | --- |
+| `/`, `/app` | `/app/`으로 연결됨 |
+| 학습 화면, 에디터 자리, 교안(`unit.json`, `starter.sb3`, 이미지, GIF) | 열림 |
+| `docs/`, `tools/`, `styles/`, `README.md`, `app/serve.py`, `vercel.json` | 404 (배포되지 않음) |
+| `X-Robots-Tag: noindex, nofollow` 헤더 | 모든 응답에 붙음 |
+| 버전 1 (32스텝 + 제출) | 처음부터 끝까지 넘김. 블록 그림, 이미지, 퀴즈 정상 |
+| 버전 2 (18스텝 + 제출) | 처음부터 끝까지 넘김. 블록 그림, 이미지, GIF, 퀴즈 정상 |
 
 ## 해적선 대포 버전 1, 2 보기 (임시)
 
@@ -48,8 +62,8 @@ http://localhost:8000/app/?unit=../project/lv1/<단원 폴더>
 
 | 버전 | 폴더 | 주소 |
 | --- | --- | --- |
-| 1 | `project/lv1/04-pirate-cannon` | <http://localhost:8000/app/> |
-| 2 | `project/lv1/04-pirate-cannon-v2` | <http://localhost:8000/app/?unit=../project/lv1/04-pirate-cannon-v2> |
+| 1 | `project/lv1/04-pirate-cannon` | 배포 <https://scratch-studio-gray.vercel.app/app/> · 로컬 <http://localhost:8000/app/> |
+| 2 | `project/lv1/04-pirate-cannon-v2` | 배포 <https://scratch-studio-gray.vercel.app/app/?unit=../project/lv1/04-pirate-cannon-v2> · 로컬 <http://localhost:8000/app/?unit=../project/lv1/04-pirate-cannon-v2> |
 
 | 항목 | 버전 1 | 버전 2 |
 | --- | --- | --- |
