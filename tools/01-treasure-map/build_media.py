@@ -5,7 +5,7 @@
 필요: Pillow, 맑은 고딕(C:/Windows/Fonts/malgun.ttf)
 
 - starter.sb3: 배경 '보물 지도'(격자와 좌표 숫자, 네 귀퉁이의 배·동굴·야자수·해골 바위), 스프라이트 '보물'(X 표시), '탐험가'
-- media/: 이야기 그림(story-*.png), 좌표 설명 그림(stage-xy.png), 오늘 만들 게임(s02-preview.gif), 만들기 스텝의 미리보기 GIF
+- media/: 이야기 그림(story-*.png), 좌표 설명 그림(stage-xy.png), 오늘 만들 게임(s03-preview.gif), 만들기 스텝의 미리보기 GIF
 - 교안(unit.json)은 건드리지 않는다. 무대 모습이나 보물 자리를 바꾸면 unit.json의 좌표와 채점 규칙도 함께 고친다.
 
 좌표 기준(스크래치 무대): 탐험가 출발(배) (-180, -120), 방향키 한 번에 10
@@ -227,6 +227,7 @@ class Scene:
         i = self.st["spot"]
         if i is None or i >= len(SPOTS) or not touching(self.st["explorer"], SPOTS[i]): return
         self.st["spot"] = i + 1
+        if self.st.get("found_say"): self.snap(700, treasure_say="찾았다!")
         if i + 1 < len(SPOTS): self.st["treasure"] = SPOTS[i + 1]
     def go(self, i, ms=60):
         """i번 보물 자리까지 가로 먼저, 다음에 세로로 걷는다."""
@@ -241,10 +242,10 @@ class Scene:
         print("%s: %d frames, %.1fs" % (name, len(self.frames), sum(ms for _, ms in self.frames) / 1000))
 
 # ---------------------------------------------------------------- 미리보기 GIF
-# s02 오늘 만들 게임: 완성작 전체 (출발 → 보물 5곳 → 걸린 시간)
+# s03 오늘 만들 게임: 완성작 전체 (출발 → 보물 5곳 → 걸린 시간)
 s = Scene(explorer=(150, -40), treasure=(120, -60))
 s.snap(600)
-s.set(explorer=START, treasure=SPOTS[0], spot=0, timer=0.0, explorer_say="보물을 찾으러 가자!")
+s.set(explorer=START, treasure=SPOTS[0], spot=0, timer=0.0, explorer_say="보물을 찾으러 가자!", found_say=True)
 s.snap(1200, key="⚑ 깃발")
 s.set(explorer_say=None)
 for i in range(5): s.go(i, ms=50)
@@ -253,47 +254,61 @@ s.snap(1400)
 t = s.st["timer"]
 s.set(treasure_say="%.1f" % t, timer=None)
 s.snap(2200, timer=t)
-s.save("s02-preview.gif")
+s.save("s03-preview.gif")
 
-# s04 깃발을 누르면 배에서 출발
+# s06 깃발을 누르면 배에서 출발
 s = Scene(explorer=(0, 0))
 s.snap(1000)
 s.set(explorer=START)
 s.snap(1800, key="⚑ 깃발")
 s.snap(500)
-s.save("s04-start.gif")
+s.save("s06-start.gif")
 
-# s06 방향키로 움직이기 (좌표 표시를 켠 모습)
+# s09 오른쪽·왼쪽 화살표 (좌표 표시를 켠 모습)
 s = Scene(show_xy=True)
 s.snap(700)
-s.walk(40, 0, ms=200); s.walk(0, 40, ms=200); s.walk(-20, 0, ms=200); s.walk(0, -20, ms=200)
+s.walk(40, 0, ms=220); s.walk(-20, 0, ms=220)
 s.snap(1000)
-s.save("s06-arrows.gif")
+s.save("s09-arrows-x.gif")
 
-# s08 보물이 첫 자리에 숨어요
+# s10 위쪽·아래쪽 화살표
+s = Scene(show_xy=True)
+s.snap(700)
+s.walk(0, 40, ms=220); s.walk(0, -20, ms=220)
+s.snap(1000)
+s.save("s10-arrows-y.gif")
+
+# s13 보물이 첫 자리에 숨어요
 s = Scene(explorer=(40, -20), treasure=(120, -60))
 s.snap(1000)
 s.set(explorer=START, treasure=SPOTS[0])
 s.snap(1800, key="⚑ 깃발")
 s.snap(500)
-s.save("s08-spot1.gif")
+s.save("s13-spot1.gif")
 
-# s09 탐험가가 닿으면 두 번째 자리로
+# s15 탐험가가 닿으면 두 번째 자리로
 s = Scene(treasure=SPOTS[0], spot=0)
 s.snap(600)
 s.go(0, ms=90)
 s.snap(1500)
-s.save("s09-next.gif")
+s.save("s15-next.gif")
 
-# s10 보물 다섯 곳: 두 번째부터 네 번째까지 찾고, 다섯 번째 자리로
+# s16 세 번째 자리: 두 번째 보물을 찾으면 세 번째 자리로
 s = Scene(explorer=SPOTS[0], treasure=SPOTS[1], spot=1)
 s.snap(600)
-for i in (1, 2, 3): s.go(i, ms=55)
+s.go(1, ms=80)
 s.snap(1500)
-s.save("s10-five.gif")
+s.save("s16-third.gif")
 
-# s11 걸린 시간 말하기: 마지막 보물을 찾으면 시간을 말한다
-s = Scene(explorer=SPOTS[3], treasure=SPOTS[4], spot=4, timer=24.0)
+# s17 네 번째, 다섯 번째 자리: 세 번째와 네 번째를 찾고 다섯 번째 자리로
+s = Scene(explorer=SPOTS[1], treasure=SPOTS[2], spot=2)
+s.snap(600)
+for i in (2, 3): s.go(i, ms=60)
+s.snap(1500)
+s.save("s17-last.gif")
+
+# s20 걸린 시간 말하기: 마지막 보물을 찾으면 시간을 말한다 (s18의 '찾았다!'까지 한 모습)
+s = Scene(explorer=SPOTS[3], treasure=SPOTS[4], spot=4, timer=24.0, found_say=True)
 s.snap(500)
 s.go(4, ms=70)
 s.set(treasure=SPOTS[4], treasure_say="보물을 모두 찾았어요!")
@@ -301,7 +316,7 @@ s.snap(1600)
 t = s.st["timer"]
 s.set(treasure_say="%.1f" % t, timer=None)
 s.snap(2200, timer=t)
-s.save("s11-time.gif")
+s.save("s20-time.gif")
 
 # ---------------------------------------------------------------- 설명 그림
 def arrow(d, a, b, color, width=4):
@@ -369,6 +384,24 @@ for i, (x, y) in enumerate(SPOTS):
     d.text((100, 100 + i * 34), "보물 %d" % (i + 1), fill=INK, font=font(18, True), anchor="lm")
     d.text((240, 100 + i * 34), "x: %d   y: %d" % (x, y), fill=(60, 40, 20), font=font(18), anchor="lm")
 img.save(os.path.join(MEDIA, "story-map.png"))
+
+# story-seats: 영화관 좌석표 (어림해 보기 답: C열 5번)
+img = Image.new("RGB", (480, 300), (250, 247, 240))
+d = ImageDraw.Draw(img)
+d.rounded_rectangle([90, 18, 420, 40], radius=6, fill=(203, 213, 225))
+d.text((255, 29), "스크린", fill=(51, 65, 85), font=font(13, True), anchor="mm")
+ROWS = "ABCDE"
+for r, row in enumerate(ROWS):
+    y = 70 + r * 40
+    d.text((62, y + 14), row, fill=(51, 65, 85), font=font(16, True), anchor="mm")
+    for q in range(8):
+        x = 90 + q * 42
+        mark = (row == "C" and q == 4)
+        d.rounded_rectangle([x, y, x + 32, y + 28], radius=6, fill=(234, 88, 12) if mark else (147, 197, 253),
+                            outline=(194, 65, 12) if mark else (96, 165, 250), width=2)
+for q in range(8):
+    d.text((106 + q * 42, 284), str(q + 1), fill=(51, 65, 85), font=font(14, True), anchor="mm")
+img.save(os.path.join(MEDIA, "story-seats.png"))
 
 # ---------------------------------------------------------------- 시작 프로젝트
 C2 = K(2)

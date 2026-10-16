@@ -20,9 +20,9 @@
 | 스크래치 스튜디오 기획서 | [scratch-studio-spec.md](docs/scratch-studio-spec.md) | 2026-10-16 | 5장: 미니퀴즈 동작, 소제목 표시, 목차, 입력 표. 6장: 퀴즈 문항 필드(`hint`, `explain`, `blocks`, `title`), `record` 블록과 검사, `chapters`, 마크다운 범위. 8장: 입력 표 API |
 | 본 사이트 기획서 | [spec.md](docs/spec.md) | 2026-10-16 | §3.3.1: 미니퀴즈 동작, 입력 표, 목차. §5: `UNIT.chapters`, `STEP_RECORD`, `QUIZ_QUESTION.content`. §8: 학생 상세의 입력 표 열람 |
 | 커리큘럼 구성안 | [scratch-curriculum-outline.md](docs/scratch-curriculum-outline.md) | 2026-10-16 | Lv.1 표 아래: 보물 지도 탐험의 정해진 블록(`탐험가에 닿았는가? 까지 기다리기`)과 타이머 메모 |
-| 강사용 안내서 (보물 지도 탐험) | [lv1-01-treasure-map.md](docs/teacher-guides/lv1-01-treasure-map.md) | 2026-10-16 | 새로 만듦. 단계 구성, 정답 코드, 채점 경로, 퀴즈 정답·힌트·해설 |
+| 강사용 안내서 (보물 지도 탐험) | [lv1-01-treasure-map.md](docs/teacher-guides/lv1-01-treasure-map.md) | 2026-10-16 | 새로 만듦. 단계 구성과 120분 배분, 정답 코드, 채점 경로, 퀴즈 정답·힌트·해설 |
 | 강사용 안내서 (해적선 대포) | [lv1-04-pirate-cannon.md](docs/teacher-guides/lv1-04-pirate-cannon.md) | 2026-10-16 | 단계 구성, 퀴즈 정답·힌트·해설 |
-| 보물 지도 탐험 교안 | [unit.json](project/lv1/01-treasure-map/unit.json) · [starter.sb3](project/lv1/01-treasure-map/starter.sb3) · [media/](project/lv1/01-treasure-map/media) | 2026-10-16 | 새로 만듦. Lv.1 첫 단원 |
+| 보물 지도 탐험 교안 | [unit.json](project/lv1/01-treasure-map/unit.json) · [starter.sb3](project/lv1/01-treasure-map/starter.sb3) · [media/](project/lv1/01-treasure-map/media) | 2026-10-16 | 새로 만듦. Lv.1 첫 단원, 26스텝(2시간 기준) |
 | 해적선 대포 교안 | [unit.json](project/lv1/04-pirate-cannon/unit.json) · [starter.sb3](project/lv1/04-pirate-cannon/starter.sb3) · [media/](project/lv1/04-pirate-cannon/media) | 2026-10-16 | 교안 틀 개정의 기준이 된 교안 |
 
 ### 교안 틀 변경 (2026-10-16 반영)

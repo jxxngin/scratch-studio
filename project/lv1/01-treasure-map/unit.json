@@ -40,14 +40,45 @@
         {
           "type": "text",
           "value": {
-            "ko": "이 이야기가 정말 있었던 일인지는 아무도 몰라요. 하지만 데카르트가 1637년에 낸 책에서 **숫자 두 개로 자리를 나타내는 방법**을 쓴 것은 사실이에요. 이 방법은 데카르트의 이름을 따서 **데카르트 좌표**라고 불러요.\n\n지금도 지도 앱은 내가 있는 자리를 숫자 두 개(위도와 경도)로 알아내요.",
-            "en": "Nobody knows if this story really happened. But it is true that in a book from 1637, Descartes used **two numbers to describe a position**. That's why this idea is called **Cartesian coordinates**, after him.\n\nMap apps still find where you are with two numbers (latitude and longitude)."
+            "ko": "이 이야기가 정말 있었던 일인지는 아무도 몰라요. 하지만 데카르트가 1637년에 낸 책에서 **숫자 두 개로 자리를 나타내는 방법**을 쓴 것은 사실이에요. 이 방법은 데카르트의 이름을 따서 **데카르트 좌표**라고 불러요.",
+            "en": "Nobody knows if this story really happened. But it is true that in a book from 1637, Descartes used **two numbers to describe a position**. That's why this idea is called **Cartesian coordinates**, after him."
           }
         }
       ]
     },
     {
-      "key": "s02-story-map",
+      "key": "s02-story-seats",
+      "title": {
+        "ko": "숫자 두 개로 자리 말하기",
+        "en": "Two numbers name a spot"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "## 숫자 두 개는 어디에 쓰일까?\n\n데카르트의 생각은 지금도 곳곳에 있어요. 영화관 표에는 **E열 2번**처럼 자리가 적혀 있어요. **열**은 앞에서 몇째 줄인지, **번**은 옆으로 몇째 자리인지 알려 줘요.",
+            "en": "## Where do two numbers help?\n\nDescartes' idea is still everywhere. A movie ticket says something like **row E, seat 2**. The **row** tells you which line from the front, and the **seat** tells you how far along the line."
+          }
+        },
+        {
+          "type": "image",
+          "src": "media/story-seats.png",
+          "alt": {
+            "ko": "영화관 좌석표: 앞에서부터 A~E열, 옆으로 1~8번이 있고 자리 하나가 주황색으로 칠해져 있다",
+            "en": "A movie theater seat map: rows A to E from the front and seats 1 to 8 across, with one seat colored orange"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**그림 보기**: 주황색 자리는 몇 열 몇 번일까요?\n\n체스판의 칸도 e4처럼 글자 하나와 숫자 하나로 불러요. 지도 앱은 내가 있는 자리를 숫자 두 개(위도와 경도)로 알아내요. 모두 **가로 하나, 세로 하나**로 자리를 말하는 방법이에요.\n\n**생각해 보기**: 우리 교실에서 내 자리를 숫자 두 개로 말해 보세요.",
+            "en": "**Look**: Which row and seat is the orange one?\n\nSquares on a chessboard also have names like e4: one letter and one number. Map apps find where you are with two numbers (latitude and longitude). They all name a spot with **one number across and one up or down**.\n\n**Look**: Say where your seat in our classroom is, using two numbers."
+          }
+        }
+      ]
+    },
+    {
+      "key": "s03-story-map",
       "title": {
         "ko": "오늘 우리는 보물 탐험가",
         "en": "Today you're a treasure hunter"
@@ -77,16 +108,16 @@
         },
         {
           "type": "image",
-          "src": "media/s02-preview.gif",
+          "src": "media/s03-preview.gif",
           "alt": {
-            "ko": "완성한 게임: 깃발을 누르면 탐험가가 배에서 출발해 방향키로 보물 5곳을 차례로 찾고, 보물이 걸린 시간을 말한다",
-            "en": "The finished game: the explorer starts at the ship, finds the five treasure spots in turn with the arrow keys, and the treasure says the time taken"
+            "ko": "완성한 게임: 깃발을 누르면 탐험가가 배에서 출발해 방향키로 보물 5곳을 차례로 찾고, 보물은 찾을 때마다 '찾았다!'라고 말한 뒤 마지막에 걸린 시간을 말한다",
+            "en": "The finished game: the explorer starts at the ship and finds the five treasure spots with the arrow keys; the treasure says \"Found it!\" each time and the time taken at the end"
           }
         }
       ]
     },
     {
-      "key": "s03-stage-xy",
+      "key": "s04-stage-xy",
       "title": {
         "ko": "탐색: 좌표로 순간 이동",
         "en": "Explore: Teleport with coordinates"
@@ -216,7 +247,130 @@
       ]
     },
     {
-      "key": "s04-start",
+      "key": "s05-stage-edge",
+      "title": {
+        "ko": "탐색: 무대 끝 너머로 보내면?",
+        "en": "Explore: Send it past the edge"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "지도의 숫자는 180까지만 적혀 있어요. 무대는 어디까지일까요? 탐험가를 무대 밖 좌표로 보내 봐요.\n\n`x: y: (으)로 이동하기`에 표의 숫자를 넣고 클릭해요. 클릭하기 전에 탐험가가 어떻게 될지 먼저 골라요.",
+            "en": "The map only shows numbers up to 180. How far does the stage go? Send the explorer to coordinates outside the stage.\n\nPut the numbers from the table into `go to x: y:` and click it. Before you click, guess what will happen to the explorer."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "x: (300) y: (0) \\(으\\)로 이동하기",
+            "en": "go to x: (300) y: (0)"
+          }
+        },
+        {
+          "type": "record",
+          "key": "record",
+          "columns": [
+            {
+              "label": {
+                "ko": "x, y",
+                "en": "x, y"
+              }
+            },
+            {
+              "label": {
+                "ko": "내 예상",
+                "en": "Guess"
+              },
+              "input": true,
+              "kind": "select",
+              "options": [
+                {
+                  "ko": "오른쪽 끝",
+                  "en": "Right edge"
+                },
+                {
+                  "ko": "왼쪽 끝",
+                  "en": "Left edge"
+                },
+                {
+                  "ko": "위쪽 끝",
+                  "en": "Top edge"
+                },
+                {
+                  "ko": "아래쪽 끝",
+                  "en": "Bottom edge"
+                },
+                {
+                  "ko": "왼쪽 위 귀퉁이",
+                  "en": "Top-left corner"
+                },
+                {
+                  "ko": "사라져요",
+                  "en": "It disappears"
+                }
+              ]
+            },
+            {
+              "label": {
+                "ko": "해 보니",
+                "en": "Result"
+              },
+              "input": true,
+              "kind": "verify",
+              "of": 1
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "(300, 0)",
+                "en": "(300, 0)"
+              },
+              null,
+              {
+                "answer": 0
+              }
+            ],
+            [
+              {
+                "ko": "(0, -250)",
+                "en": "(0, -250)"
+              },
+              null,
+              {
+                "answer": 3
+              }
+            ],
+            [
+              {
+                "ko": "(-400, 200)",
+                "en": "(-400, 200)"
+              },
+              null,
+              {
+                "answer": 4
+              }
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "탐험가는 사라지지 않고 무대 끝에 걸려 조금만 보여요. 스크래치는 스프라이트가 무대 밖으로 다 나가지 않게 붙잡아 둬요.\n\n무대는 가로로 **-240부터 240까지**, 세로로 **-180부터 180까지**예요.\n\n**정리**: 숫자를 0과 0으로 바꾸고 클릭해서 탐험가를 가운데로 돌려놓아요.",
+            "en": "The explorer doesn't disappear. It gets caught at the edge and only a little of it shows. Scratch keeps sprites from leaving the stage completely.\n\nThe stage goes **from -240 to 240** across and **from -180 to 180** up and down.\n\n**Clean up**: Set the numbers to 0 and 0 and click to bring the explorer back to the middle."
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "record",
+          "key": "record"
+        }
+      ]
+    },
+    {
+      "key": "s06-start",
       "title": {
         "ko": "깃발을 누르면 배에서 출발",
         "en": "Start at the ship"
@@ -231,7 +385,7 @@
         },
         {
           "type": "image",
-          "src": "media/s04-start.gif",
+          "src": "media/s06-start.gif",
           "alt": {
             "ko": "가운데에 있던 탐험가가 깃발을 누르자 왼쪽 아래 배로 간다",
             "en": "The explorer in the middle jumps to the ship at the bottom left when the flag is clicked"
@@ -300,7 +454,7 @@
       ]
     },
     {
-      "key": "s05-change-xy",
+      "key": "s07-change-xy",
       "title": {
         "ko": "탐색: x좌표, y좌표 바꾸기",
         "en": "Explore: Change x and y"
@@ -429,25 +583,129 @@
       ]
     },
     {
-      "key": "s06-arrows",
+      "key": "s08-goto-vs-change",
       "title": {
-        "ko": "방향키로 움직이기",
-        "en": "Move with arrow keys"
+        "ko": "탐색: 이동하기와 바꾸기",
+        "en": "Explore: Go to vs. change"
       },
       "content": [
         {
           "type": "text",
           "value": {
-            "ko": "**목표**\n- 방향키를 한 번 누르면 탐험가가 그쪽으로 10만큼 움직여요. 네 방향 모두요.",
-            "en": "**Goal**\n- Each arrow key moves the explorer 10 in its direction. All four directions."
+            "ko": "`x: y: (으)로 이동하기`와 `x좌표를 ~만큼 바꾸기`는 무엇이 다를까요?\n\n1. 무대 왼쪽 위에 `x 좌표`가 보이는지 확인해요. 안 보이면 **동작** 꾸러미 아래쪽의 네모를 체크해요.\n2. 줄마다 먼저 `x: 0 y: 0 (으)로 이동하기`를 클릭해 탐험가를 가운데에 놓고 시작해요.\n3. 표대로 블록을 클릭하기 전에 `x 좌표`가 얼마가 될지 숫자로 적어요.\n\n- **해 보기 1**: `x: 60 y: 0 (으)로 이동하기`를 2번 클릭\n- **해 보기 2**: `x좌표를 60만큼 바꾸기`를 2번 클릭\n- **해 보기 3**: `x: -60 y: 0 (으)로 이동하기`를 1번 클릭하고, 이어서 `x좌표를 60만큼 바꾸기`를 1번 클릭",
+            "en": "How is `go to x: y:` different from `change x by`?\n\n1. Check that `x position` shows at the top left of the stage. If not, tick its box at the bottom of **Motion**.\n2. For each row, first click `go to x: 0 y: 0` to put the explorer in the middle.\n3. Before clicking the blocks in the table, write down what `x position` will be.\n\n- **Try 1**: Click `go to x: 60 y: 0` twice\n- **Try 2**: Click `change x by 60` twice\n- **Try 3**: Click `go to x: -60 y: 0` once, then `change x by 60` once"
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "x: (60) y: (0) \\(으\\)로 이동하기",
+            "en": "go to x: (60) y: (0)"
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "x 좌표를 (60) 만큼 바꾸기",
+            "en": "change x by (60)"
+          }
+        },
+        {
+          "type": "record",
+          "key": "record",
+          "columns": [
+            {
+              "label": {
+                "ko": "해 볼 것",
+                "en": "Try"
+              }
+            },
+            {
+              "label": {
+                "ko": "내 예상 (x)",
+                "en": "Guess (x)"
+              },
+              "input": true,
+              "kind": "number"
+            },
+            {
+              "label": {
+                "ko": "해 보니",
+                "en": "Result"
+              },
+              "input": true,
+              "kind": "verify",
+              "of": 1
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "1",
+                "en": "1"
+              },
+              null,
+              {
+                "answer": 60
+              }
+            ],
+            [
+              {
+                "ko": "2",
+                "en": "2"
+              },
+              null,
+              {
+                "answer": 120
+              }
+            ],
+            [
+              {
+                "ko": "3",
+                "en": "3"
+              },
+              null,
+              {
+                "answer": 0
+              }
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**이동하기**는 몇 번을 눌러도 같은 자리로 가요. **바꾸기**는 지금 자리에서 그만큼 더 가요.\n\n**정리**: 꺼낸 블록을 왼쪽 블록 꾸러미로 끌어다 지우고, 깃발을 눌러 탐험가를 배로 보내요.",
+            "en": "**Go to** always goes to the same spot, however many times you click. **Change** moves that much more from where you are now.\n\n**Clean up**: Drag the blocks you took out back to the block palette to delete them, then click the flag to send the explorer to the ship."
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "record",
+          "key": "record"
+        }
+      ]
+    },
+    {
+      "key": "s09-arrows-x",
+      "title": {
+        "ko": "오른쪽·왼쪽 화살표",
+        "en": "Right and left arrows"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "**목표**\n- 오른쪽 화살표를 한 번 누르면 탐험가가 오른쪽으로 10만큼 움직여요.\n- 왼쪽 화살표를 한 번 누르면 왼쪽으로 10만큼 움직여요.",
+            "en": "**Goal**\n- One press of the right arrow moves the explorer 10 to the right.\n- One press of the left arrow moves it 10 to the left."
           }
         },
         {
           "type": "image",
-          "src": "media/s06-arrows.gif",
+          "src": "media/s09-arrows-x.gif",
           "alt": {
-            "ko": "방향키를 누를 때마다 탐험가가 한 칸씩 움직이고, 왼쪽 위의 x 좌표와 y 좌표 숫자가 10씩 바뀐다",
-            "en": "The explorer moves a step with each arrow key, and the x and y numbers at the top left change by 10"
+            "ko": "오른쪽 화살표를 누를 때마다 탐험가가 오른쪽으로 한 칸씩 가고, 왼쪽 화살표를 누르면 돌아온다. 왼쪽 위의 x 좌표가 10씩 바뀐다",
+            "en": "The explorer steps right with each right-arrow press and back with the left arrow; x position at the top left changes by 10"
           }
         },
         {
@@ -467,15 +725,15 @@
         {
           "type": "text",
           "value": {
-            "ko": "키 블록을 하나 더 꺼내 `오른쪽 화살표`를 눌러 `왼쪽 화살표`로 바꿔요. 왼쪽, 위, 아래도 만들어요.\n\n왼쪽으로 가면 x가 작아져요. 왼쪽, 위, 아래는 x와 y 중 무엇을, 얼마만큼 바꿔야 할까요? 탐색에서 적은 표를 떠올려 보세요.\n\n키를 눌러도 움직이지 않으면 무대를 한 번 클릭한 뒤 다시 눌러요.",
-            "en": "Drag out another key block and change `right arrow` to `left arrow`. Make left, up and down too.\n\nGoing left makes x smaller. For left, up and down, should you change x or y, and by how much? Think back to the table you filled in.\n\nIf nothing moves when you press a key, click the stage once and try again."
+            "ko": "키 블록을 하나 더 꺼내 `오른쪽 화살표`를 눌러 `왼쪽 화살표`로 바꿔요. 왼쪽으로 가면 x는 커질까요, 작아질까요? 그 아래에 어떤 블록을 붙여야 할까요?\n\n키를 눌러도 움직이지 않으면 무대를 한 번 클릭한 뒤 다시 눌러요.",
+            "en": "Drag out another key block and change `right arrow` to `left arrow`. Going left, does x get bigger or smaller? Which block goes under it?\n\nIf nothing moves when you press a key, click the stage once and try again."
           }
         },
         {
           "type": "text",
           "value": {
-            "ko": "**확인**: 깃발을 누르고 방향키 네 개를 하나씩 눌러 보세요. 오른쪽 키를 한 번 누르면 x 좌표가 -170이 되나요?\n\n**도전**: 키를 꾹 누르고 있으면 어떻게 되나요?",
-            "en": "**Check**: Click the flag and press each arrow key. After one press of the right arrow, is x position -170?\n\n**Challenge**: What happens if you hold a key down?"
+            "ko": "**확인**: 깃발을 누르고 오른쪽 화살표를 한 번 누르세요. `x 좌표`가 -170이 되나요? 깃발을 다시 누르고 왼쪽 화살표를 한 번 누르면 -190이 되나요?",
+            "en": "**Check**: Click the flag and press the right arrow once. Is `x position` -170? Click the flag again and press the left arrow once. Is it -190?"
           }
         }
       ],
@@ -541,7 +799,47 @@
             }
           ],
           "timeoutMs": 3000
+        }
+      ]
+    },
+    {
+      "key": "s10-arrows-y",
+      "title": {
+        "ko": "위·아래 화살표는 스스로",
+        "en": "Up and down on your own"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "**목표**\n- 위쪽 화살표를 한 번 누르면 탐험가가 위로 10만큼 움직여요.\n- 아래쪽 화살표를 한 번 누르면 아래로 10만큼 움직여요.",
+            "en": "**Goal**\n- One press of the up arrow moves the explorer 10 up.\n- One press of the down arrow moves it 10 down."
+          }
         },
+        {
+          "type": "image",
+          "src": "media/s10-arrows-y.gif",
+          "alt": {
+            "ko": "위쪽 화살표를 누를 때마다 탐험가가 위로 한 칸씩 가고, 아래쪽 화살표를 누르면 내려온다. 왼쪽 위의 y 좌표가 10씩 바뀐다",
+            "en": "The explorer steps up with each up-arrow press and back down with the down arrow; y position at the top left changes by 10"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "이번에는 블록 그림 없이 만들어요. 위아래로 움직이면 x와 y 중 무엇이 바뀌나요? 탐색 표에서 `y좌표를 30만큼 바꾸기`를 눌렀을 때 어느 쪽으로 갔는지 떠올려 보세요. 필요한 블록은 **이벤트**와 **동작** 꾸러미에 있어요.",
+            "en": "This time, build it without a block picture. Moving up and down, which changes, x or y? Remember which way `change y by 30` went in the explore table. The blocks you need are in **Events** and **Motion**."
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**확인**: 깃발을 누르고 위쪽 화살표를 한 번 누르세요. `y 좌표`가 -110이 되나요? 아래쪽 화살표를 누르면 어떻게 되나요?\n\n**도전**: 키를 꾹 누르고 있으면 어떻게 되나요?",
+            "en": "**Check**: Click the flag and press the up arrow once. Is `y position` -110? What happens with the down arrow?\n\n**Challenge**: What happens if you hold a key down?"
+          }
+        }
+      ],
+      "checks": [
         {
           "type": "dynamic",
           "actions": [
@@ -607,7 +905,7 @@
       ]
     },
     {
-      "key": "s07-hello",
+      "key": "s11-hello",
       "title": {
         "ko": "꾸미기: 출발 인사",
         "en": "Decorate: Say hello at the start"
@@ -657,6 +955,69 @@
             }
           ],
           "timeoutMs": 3000
+        }
+      ]
+    },
+    {
+      "key": "s12-my-xy",
+      "title": {
+        "ko": "꾸미기: 지금 내 좌표는?",
+        "en": "Decorate: Where am I now?"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "스페이스 키를 누르면 탐험가가 지금 좌표를 말하게 해요. 보물 자리를 찾을 때 쓸모가 있어요.\n\n**동작** 꾸러미 맨 아래의 둥근 `x 좌표`, `y 좌표` 블록을 말하기 블록의 빈칸에 끌어다 넣어요. 블록은 위에서부터 차례로 실행되니까, x를 먼저 말하고 y를 나중에 말해요.",
+            "en": "Make the explorer say where it is when you press space. It helps when you look for treasure.\n\nDrag the round `x position` and `y position` blocks from the bottom of **Motion** into the say blocks. Blocks run in order from the top, so it says x first and y second."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "[스페이스 v] 키를 눌렀을 때\n(x 좌표) 을\\(를\\) (1) 초 동안 말하기\n(y 좌표) 을\\(를\\) (1) 초 동안 말하기",
+            "en": "when [space v] key pressed\nsay (x position) for (1) seconds\nsay (y position) for (1) seconds"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**확인**: 깃발을 누르고 인사가 끝나면 스페이스를 누르세요. 탐험가가 -180, -120을 차례로 말하나요? 조금 움직인 뒤에 다시 눌러 보세요.",
+            "en": "**Check**: Click the flag, wait for the hello, then press space. Does the explorer say -180 and then -120? Move a little and press it again."
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 2300
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            }
+          ],
+          "expect": [
+            {
+              "target": "sprite",
+              "sprite": "탐험가",
+              "property": "sayText",
+              "op": "contains",
+              "value": "-180"
+            }
+          ],
+          "timeoutMs": 4000
         }
       ]
     },
@@ -781,7 +1142,7 @@
       ]
     },
     {
-      "key": "s08-treasure-spot",
+      "key": "s13-treasure-spot",
       "title": {
         "ko": "보물을 첫 자리에 숨기기",
         "en": "Hide the treasure at spot 1"
@@ -796,7 +1157,7 @@
         },
         {
           "type": "image",
-          "src": "media/s08-spot1.gif",
+          "src": "media/s13-spot1.gif",
           "alt": {
             "ko": "깃발을 누르자 X 표시가 (-60, -60)으로 가고 탐험가는 배로 간다",
             "en": "On the flag, the X mark goes to (-60, -60) and the explorer goes to the ship"
@@ -852,7 +1213,121 @@
       ]
     },
     {
-      "key": "s09-wait-touch",
+      "key": "s14-order-swap",
+      "title": {
+        "ko": "탐색: 순서를 바꾸면?",
+        "en": "Explore: Change the order"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "블록 순서를 바꾸면 무엇이 달라질까요? **탐험가**의 코드 영역에 아래 블록 세 개를 붙여 놓아요. 깃발 블록이 없어도 블록 묶음을 클릭하면 위에서부터 실행돼요.",
+            "en": "What changes if you change the order of blocks? Stack these three blocks in the code area of **탐험가** (explorer). Even without a flag block, clicking the stack runs it from the top."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "x: (0) y: (0) \\(으\\)로 이동하기\n[출발!] 을\\(를\\) (1) 초 동안 말하기\nx: (120) y: (60) \\(으\\)로 이동하기",
+            "en": "go to x: (0) y: (0)\nsay [Go!] for (1) seconds\ngo to x: (120) y: (60)"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "줄마다 블록 순서를 표처럼 바꾸고 묶음을 클릭해요. 탐험가가 **말하는 동안** 어디에 있는지 먼저 맞혀 보고 확인해요.\n\n- **순서 1**: 이동 (0, 0) → 말하기 → 이동 (120, 60)\n- **순서 2**: 이동 (120, 60) → 말하기 → 이동 (0, 0)\n- **순서 3**: 이동 (0, 0) → 이동 (120, 60) → 말하기",
+            "en": "For each row, rearrange the blocks as shown and click the stack. Guess where the explorer is **while it talks**, then check.\n\n- **Order 1**: go to (0, 0) → say → go to (120, 60)\n- **Order 2**: go to (120, 60) → say → go to (0, 0)\n- **Order 3**: go to (0, 0) → go to (120, 60) → say"
+          }
+        },
+        {
+          "type": "record",
+          "key": "record",
+          "columns": [
+            {
+              "label": {
+                "ko": "순서",
+                "en": "Order"
+              }
+            },
+            {
+              "label": {
+                "ko": "내 예상",
+                "en": "Guess"
+              },
+              "input": true,
+              "kind": "select",
+              "options": [
+                {
+                  "ko": "가운데 (0, 0)",
+                  "en": "Middle (0, 0)"
+                },
+                {
+                  "ko": "(120, 60)",
+                  "en": "(120, 60)"
+                }
+              ]
+            },
+            {
+              "label": {
+                "ko": "해 보니",
+                "en": "Result"
+              },
+              "input": true,
+              "kind": "verify",
+              "of": 1
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "1",
+                "en": "1"
+              },
+              null,
+              {
+                "answer": 0
+              }
+            ],
+            [
+              {
+                "ko": "2",
+                "en": "2"
+              },
+              null,
+              {
+                "answer": 1
+              }
+            ],
+            [
+              {
+                "ko": "3",
+                "en": "3"
+              },
+              null,
+              {
+                "answer": 1
+              }
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "블록은 위에서부터 **차례로** 하나씩 실행돼요. 이것을 **순차**라고 해요. 같은 블록이라도 순서가 바뀌면 결과가 바뀌어요. 순서 3에서 (0, 0)으로 간 것은 너무 빨라서 보이지 않아요.\n\n**정리**: 블록 묶음을 왼쪽 블록 꾸러미로 끌어다 지우고, 깃발을 눌러 탐험가를 배로 보내요.",
+            "en": "Blocks run **one at a time, in order** from the top. This is called **sequence**. The same blocks give a different result in a different order. In order 3, the move to (0, 0) happens too fast to see.\n\n**Clean up**: Drag the stack back to the block palette to delete it, then click the flag to send the explorer to the ship."
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "record",
+          "key": "record"
+        }
+      ]
+    },
+    {
+      "key": "s15-wait-touch",
       "title": {
         "ko": "찾으면 다음 자리로",
         "en": "Found it? Move to the next spot"
@@ -867,7 +1342,7 @@
         },
         {
           "type": "image",
-          "src": "media/s09-next.gif",
+          "src": "media/s15-next.gif",
           "alt": {
             "ko": "탐험가가 방향키로 첫 번째 X 표시까지 가자 X 표시가 (-120, 60)으로 옮겨 간다",
             "en": "The explorer walks to the first X with the arrow keys, and the X jumps to (-120, 60)"
@@ -890,8 +1365,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "`탐험가에 닿았는가? 까지 기다리기`는 탐험가가 보물에 닿을 때까지 다음 블록으로 넘어가지 않고 기다려요. 이 블록이 어떻게 판단하는지는 '달리는 말 경주'에서 자세히 배워요.\n\n블록은 위에서부터 **차례로** 실행돼요. 이것을 **순차**라고 해요. 그래서 보물은 첫 자리로 가서 → 기다렸다가 → 탐험가가 오면 두 번째 자리로 가요.",
-            "en": "`wait until touching 탐험가?` waits here until the explorer touches the treasure, then moves on to the next block. You'll learn how this block decides in \"Horse Race\".\n\nBlocks run **one after another** from the top. This is called **sequence**. So the treasure goes to spot 1 → waits → moves to spot 2 when the explorer arrives."
+            "ko": "`탐험가에 닿았는가? 까지 기다리기`는 탐험가가 보물에 닿을 때까지 다음 블록으로 넘어가지 않고 기다려요. 이 블록이 어떻게 판단하는지는 '달리는 말 경주'에서 자세히 배워요.\n\n탐색에서 본 것처럼 블록은 위에서부터 차례로 실행돼요(**순차**). 그래서 보물은 첫 자리로 가서 → 기다렸다가 → 탐험가가 오면 두 번째 자리로 가요.",
+            "en": "`wait until touching 탐험가?` waits here until the explorer touches the treasure, then moves on to the next block. You'll learn how this block decides in \"Horse Race\".\n\nAs you saw when exploring, blocks run one after another from the top (**sequence**). So the treasure goes to spot 1 → waits → moves to spot 2 when the explorer arrives."
           }
         },
         {
@@ -1109,39 +1584,442 @@
       ]
     },
     {
-      "key": "s10-five-spots",
+      "key": "s16-third-spot",
       "title": {
-        "ko": "보물 다섯 곳",
-        "en": "Five treasure spots"
+        "ko": "세 번째 자리",
+        "en": "The third spot"
       },
       "content": [
         {
           "type": "text",
           "value": {
-            "ko": "**목표**\n- 탐험가가 보물을 찾을 때마다 보물이 쪽지의 다음 자리로 옮겨 가요. 다섯 번째 자리는 (0, -120)이에요.",
-            "en": "**Goal**\n- Each time the explorer finds the treasure, it moves to the next spot on the note. The fifth spot is (0, -120)."
+            "ko": "**목표**\n- 두 번째 보물을 찾으면 보물이 세 번째 자리 (60, 120)으로 옮겨 가요.",
+            "en": "**Goal**\n- When the explorer finds the second treasure, it moves to the third spot, (60, 120)."
           }
         },
         {
           "type": "image",
-          "src": "media/s10-five.gif",
+          "src": "media/s16-third.gif",
           "alt": {
-            "ko": "탐험가가 두 번째, 세 번째, 네 번째 X 표시를 찾을 때마다 X 표시가 쪽지의 다음 자리로 옮겨 간다",
-            "en": "Each time the explorer finds the 2nd, 3rd and 4th X, the X moves to the next spot on the note"
+            "ko": "탐험가가 두 번째 X 표시를 찾자 X 표시가 (60, 120)으로 옮겨 간다",
+            "en": "The explorer finds the second X, and the X moves to (60, 120)"
           }
         },
         {
           "type": "text",
           "value": {
-            "ko": "해적의 쪽지를 다시 봐요.\n\n| 보물 | x | y |\n| --- | --- | --- |\n| 1 | -60 | -60 |\n| 2 | -120 | 60 |\n| 3 | 60 | 120 |\n| 4 | 120 | 0 |\n| 5 | 0 | -120 |\n\n두 번째 자리 아래에는 어떤 블록 두 개를 붙여야 할까요? 같은 짝을 되풀이해서 다섯 번째 자리까지 이어 붙여요.",
-            "en": "Look at the pirate's note again.\n\n| Treasure | x | y |\n| --- | --- | --- |\n| 1 | -60 | -60 |\n| 2 | -120 | 60 |\n| 3 | 60 | 120 |\n| 4 | 120 | 0 |\n| 5 | 0 | -120 |\n\nWhich two blocks go under the second spot? Repeat the same pair until the fifth spot."
+            "ko": "해적의 쪽지를 다시 봐요.\n\n| 보물 | x | y |\n| --- | --- | --- |\n| 1 | -60 | -60 |\n| 2 | -120 | 60 |\n| 3 | 60 | 120 |\n| 4 | 120 | 0 |\n| 5 | 0 | -120 |\n\n두 번째 자리로 가는 블록 아래에 어떤 블록 두 개를 붙여야 할까요? 앞에서 붙인 `기다리기`와 `이동하기` 짝을 보세요.",
+            "en": "Look at the pirate's note again.\n\n| Treasure | x | y |\n| --- | --- | --- |\n| 1 | -60 | -60 |\n| 2 | -120 | 60 |\n| 3 | 60 | 120 |\n| 4 | 120 | 0 |\n| 5 | 0 | -120 |\n\nWhich two blocks go under the block that goes to the second spot? Look at the `wait until` and `go to` pair you added before."
           }
         },
         {
           "type": "text",
           "value": {
-            "ko": "블록에서 마우스 오른쪽 버튼을 누르고 **복사하기**를 고르면 그 아래 블록까지 함께 복사돼요. 복사한 뒤 숫자만 고치면 빨라요.\n\n**확인**: 깃발을 누르고 쪽지 순서대로 보물을 찾아가세요. 네 번째 보물을 찾으면 보물이 (0, -120)으로 가나요?\n\n**도전**: 쪽지 순서를 지키지 않고 세 번째 자리로 먼저 가면 어떻게 되나요?",
-            "en": "Right-click a block and choose **Duplicate** to copy it together with the blocks below it. Then just change the numbers.\n\n**Check**: Click the flag and find the treasures in the order on the note. After the fourth, does the treasure go to (0, -120)?\n\n**Challenge**: What happens if you go to the third spot first, out of order?"
+            "ko": "블록에서 마우스 오른쪽 버튼을 누르고 **복사하기**를 고르면 그 아래 블록까지 함께 복사돼요. 복사한 뒤 숫자만 고치면 빨라요.\n\n**확인**: 깃발을 누르고 첫 번째, 두 번째 보물을 차례로 찾으세요. 보물이 (60, 120)으로 가나요?",
+            "en": "Right-click a block and choose **Duplicate** to copy it together with the blocks below it. Then just change the numbers.\n\n**Check**: Click the flag and find the first and second treasures. Does the treasure go to (60, 120)?"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowLeft",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowLeft",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowLeft",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowLeft",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowLeft",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowLeft",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            }
+          ],
+          "expect": [
+            {
+              "target": "sprite",
+              "sprite": "보물",
+              "property": "x",
+              "op": "eq",
+              "value": 60,
+              "tolerance": 5
+            },
+            {
+              "target": "sprite",
+              "sprite": "보물",
+              "property": "y",
+              "op": "eq",
+              "value": 120,
+              "tolerance": 5
+            }
+          ],
+          "timeoutMs": 8000
+        }
+      ]
+    },
+    {
+      "key": "s17-last-spots",
+      "title": {
+        "ko": "네 번째, 다섯 번째는 스스로",
+        "en": "Spots 4 and 5 on your own"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "**목표**\n- 보물을 찾을 때마다 보물이 쪽지의 다음 자리로 옮겨 가요. 네 번째 보물을 찾으면 다섯 번째 자리 (0, -120)으로 가요.",
+            "en": "**Goal**\n- Each time the explorer finds the treasure, it moves to the next spot on the note. After the fourth, it goes to the fifth spot, (0, -120)."
+          }
+        },
+        {
+          "type": "image",
+          "src": "media/s17-last.gif",
+          "alt": {
+            "ko": "탐험가가 세 번째, 네 번째 X 표시를 찾을 때마다 X 표시가 쪽지의 다음 자리로 옮겨 가서 (0, -120)에 간다",
+            "en": "Each time the explorer finds the 3rd and 4th X, the X moves to the next spot on the note, ending at (0, -120)"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "쪽지를 보고 나머지 두 자리를 스스로 이어 붙여요. 다섯 번째 자리 아래에도 `기다리기`를 붙여야 탐험가가 마지막 보물을 찾을 수 있어요.\n\n| 보물 | x | y |\n| --- | --- | --- |\n| 1 | -60 | -60 |\n| 2 | -120 | 60 |\n| 3 | 60 | 120 |\n| 4 | 120 | 0 |\n| 5 | 0 | -120 |",
+            "en": "Use the note to add the last two spots yourself. Put a `wait until` under the fifth spot too, so the explorer can find the last treasure.\n\n| Treasure | x | y |\n| --- | --- | --- |\n| 1 | -60 | -60 |\n| 2 | -120 | 60 |\n| 3 | 60 | 120 |\n| 4 | 120 | 0 |\n| 5 | 0 | -120 |"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**확인**: 깃발을 누르고 쪽지 순서대로 보물을 찾아가세요. 네 번째 보물을 찾으면 보물이 (0, -120)으로 가나요?\n\n**도전**: 쪽지 순서를 지키지 않고 세 번째 자리로 먼저 가면 어떻게 되나요?",
+            "en": "**Check**: Click the flag and find the treasures in the order on the note. After the fourth, does the treasure go to (0, -120)?\n\n**Challenge**: What happens if you go to the third spot first, out of order?"
           }
         }
       ],
@@ -1898,32 +2776,240 @@
       ]
     },
     {
-      "key": "s11-timer",
+      "key": "s18-found-say",
       "title": {
-        "ko": "걸린 시간 말하기",
-        "en": "Say the time taken"
+        "ko": "꾸미기: 찾았다!",
+        "en": "Decorate: Found it!"
       },
       "content": [
         {
           "type": "text",
           "value": {
-            "ko": "**목표**\n- 깃발을 누르면 타이머가 0부터 다시 재요.\n- 다섯 번째 보물까지 찾으면 보물이 \"보물을 모두 찾았어요!\"라고 말한 뒤 걸린 시간을 말해요.",
-            "en": "**Goal**\n- Click the flag: the timer starts again from 0.\n- After the fifth treasure, the treasure says \"Found all the treasure!\" and then the time taken."
+            "ko": "보물을 찾을 때마다 보물이 \"찾았다!\"라고 말하게 해요. 각 `기다리기` 블록 **바로 아래**에 말하기 블록을 끼워 넣어요. 다섯 군데 모두요.",
+            "en": "Make the treasure say \"Found it!\" every time it's found. Slot a say block **right under** each `wait until` block, all five of them."
           }
         },
         {
-          "type": "image",
-          "src": "media/s11-time.gif",
-          "alt": {
-            "ko": "탐험가가 마지막 X 표시를 찾자 보물이 다 찾았다고 말하고, 이어서 걸린 시간 26.7을 말한다",
-            "en": "The explorer finds the last X; the treasure says it found everything, then says the time 26.7"
+          "type": "blocks",
+          "value": {
+            "ko": "<[탐험가 v] 에 닿았는가?> 까지 기다리기\n[찾았다!] 을\\(를\\) (1) 초 동안 말하기\nx: (-120) y: (60) \\(으\\)로 이동하기",
+            "en": "wait until <touching [탐험가 v]?>\nsay [Found it!] for (1) seconds\ngo to x: (-120) y: (60)"
           }
         },
         {
           "type": "text",
           "value": {
-            "ko": "**타이머**는 스크래치 안의 초시계예요. 깃발을 누른 뒤 몇 초가 흘렀는지 세어요.\n\n1. **감지** 꾸러미의 `타이머 초기화`를 **보물**의 깃발 블록 바로 아래, 맨 위에 끼워요. 초기화하면 0부터 다시 세요.\n2. 다섯 번째 자리의 `기다리기` 아래에 말하기 블록 두 개를 붙여요. 빈칸에는 **감지** 꾸러미의 둥근 `타이머` 블록을 끌어다 넣어요.",
-            "en": "The **timer** is a stopwatch inside Scratch. It counts the seconds since the flag was clicked.\n\n1. Put `reset timer` from **Sensing** right under the flag block of **보물** (treasure), at the very top. Resetting starts the count again from 0.\n2. Under the fifth `wait until`, snap the two say blocks. Drag the round `timer` block from **Sensing** into the empty slot."
+            "ko": "**확인**: 깃발을 누르고 첫 번째 보물을 찾으세요. 보물이 1초 동안 \"찾았다!\"라고 말한 뒤 다음 자리로 가나요? 말하는 동안 보물이 왜 그 자리에 그대로 있을까요?",
+            "en": "**Check**: Click the flag and find the first treasure. Does it say \"Found it!\" for 1 second and then move to the next spot? Why does the treasure stay put while it talks?"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            }
+          ],
+          "expect": [
+            {
+              "target": "sprite",
+              "sprite": "보물",
+              "property": "sayText",
+              "op": "ne",
+              "value": ""
+            }
+          ],
+          "timeoutMs": 5000
+        }
+      ]
+    },
+    {
+      "key": "s19-timer-reset",
+      "title": {
+        "ko": "타이머 준비",
+        "en": "Get the timer ready"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "**목표**\n- 깃발을 누르면 무대의 타이머가 0부터 다시 세요.",
+            "en": "**Goal**\n- Click the flag: the timer on the stage counts again from 0."
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**타이머**는 스크래치 안의 초시계예요. 몇 초가 흘렀는지 세어요.\n\n1. **감지**(하늘색) 꾸러미에서 둥근 `타이머` 블록 왼쪽의 네모를 체크해요. 무대에 시간이 보여요.\n2. `타이머 초기화`를 **보물**의 깃발 블록 바로 아래, 맨 위에 끼워요. 초기화하면 0부터 다시 세요.",
+            "en": "The **timer** is a stopwatch inside Scratch. It counts the seconds that pass.\n\n1. In **Sensing** (light blue), tick the box next to the round `timer` block. The time shows on the stage.\n2. Put `reset timer` right under the flag block of **보물** (treasure), at the very top. Resetting starts the count again from 0."
           }
         },
         {
@@ -1934,17 +3020,69 @@
           }
         },
         {
-          "type": "blocks",
+          "type": "text",
           "value": {
-            "ko": "x: (0) y: (-120) \\(으\\)로 이동하기\n<[탐험가 v] 에 닿았는가?> 까지 기다리기\n[보물을 모두 찾았어요!] 을\\(를\\) (2) 초 동안 말하기\n(타이머) 말하기",
-            "en": "go to x: (0) y: (-120)\nwait until <touching [탐험가 v]?>\nsay [Found all the treasure!] for (2) seconds\nsay (timer)"
+            "ko": "**확인**: 타이머가 10을 넘을 때까지 기다렸다가 깃발을 누르세요. 타이머가 0부터 다시 세나요?\n\n**해 보기**: 블록 꾸러미에 있는 `타이머 초기화`를 그냥 클릭해 보세요. 무대의 타이머는 어떻게 되나요?",
+            "en": "**Check**: Wait until the timer passes 10, then click the flag. Does it count from 0 again?\n\n**Try**: Click `reset timer` right in the block palette. What happens to the timer on the stage?"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "type": "static",
+          "rule": "hasBlock",
+          "opcode": "sensing_resettimer",
+          "sprite": "보물"
+        },
+        {
+          "type": "static",
+          "rule": "underHat",
+          "hat": "event_whenflagclicked",
+          "opcode": "sensing_resettimer"
+        }
+      ]
+    },
+    {
+      "key": "s20-time-say",
+      "title": {
+        "ko": "걸린 시간 말하기",
+        "en": "Say the time taken"
+      },
+      "content": [
+        {
+          "type": "text",
+          "value": {
+            "ko": "**목표**\n- 다섯 번째 보물까지 찾으면 보물이 \"보물을 모두 찾았어요!\"라고 말한 뒤 걸린 시간을 말해요.",
+            "en": "**Goal**\n- After the fifth treasure, the treasure says \"Found all the treasure!\" and then the time taken."
+          }
+        },
+        {
+          "type": "image",
+          "src": "media/s20-time.gif",
+          "alt": {
+            "ko": "탐험가가 마지막 X 표시를 찾자 보물이 찾았다고 말하고, 다 찾았다고 말한 뒤 걸린 시간 26.7을 말한다",
+            "en": "The explorer finds the last X; the treasure says it found it, that it found everything, and then the time 26.7"
           }
         },
         {
           "type": "text",
           "value": {
-            "ko": "**확인**: 깃발을 누르고 보물 5개를 모두 찾으세요. 보물이 걸린 시간을 말하나요?\n\n**해 보기**: **감지** 꾸러미의 `타이머` 왼쪽 네모를 체크하면 무대에서 시간이 흐르는 게 보여요.",
-            "en": "**Check**: Click the flag and find all 5 treasures. Does the treasure say the time?\n\n**Try**: Tick the box next to `timer` in **Sensing** to watch the time count on the stage."
+            "ko": "다섯 번째 자리의 `기다리기` 아래에 말하기 블록 두 개를 붙여요. 두 번째 말하기의 빈칸에는 **감지** 꾸러미의 둥근 `타이머` 블록을 끌어다 넣어요. 타이머는 깃발을 누른 뒤로 몇 초가 흘렀는지 알려 줘요.",
+            "en": "Under the fifth `wait until`, snap the two say blocks. Drag the round `timer` block from **Sensing** into the second one. The timer tells you how many seconds have passed since the flag."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "x: (0) y: (-120) \\(으\\)로 이동하기\n<[탐험가 v] 에 닿았는가?> 까지 기다리기\n[찾았다!] 을\\(를\\) (1) 초 동안 말하기\n[보물을 모두 찾았어요!] 을\\(를\\) (2) 초 동안 말하기\n(타이머) 말하기",
+            "en": "go to x: (0) y: (-120)\nwait until <touching [탐험가 v]?>\nsay [Found it!] for (1) seconds\nsay [Found all the treasure!] for (2) seconds\nsay (timer)"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**확인**: 깃발을 누르고 보물 5개를 모두 찾으세요. 보물이 걸린 시간을 말하나요? 무대의 타이머와 같은 숫자인가요?",
+            "en": "**Check**: Click the flag and find all 5 treasures. Does the treasure say the time? Is it the same number as the timer on the stage?"
           }
         }
       ],
@@ -1954,12 +3092,6 @@
           "rule": "hasBlock",
           "opcode": "sensing_timer",
           "sprite": "보물"
-        },
-        {
-          "type": "static",
-          "rule": "underHat",
-          "hat": "event_whenflagclicked",
-          "opcode": "sensing_resettimer"
         },
         {
           "type": "dynamic",
@@ -2911,7 +4043,7 @@
             },
             {
               "do": "wait",
-              "ms": 2500
+              "ms": 3500
             }
           ],
           "expect": [
@@ -2923,7 +4055,7 @@
               "value": ""
             }
           ],
-          "timeoutMs": 20000
+          "timeoutMs": 21000
         }
       ]
     },
@@ -3048,7 +4180,7 @@
       ]
     },
     {
-      "key": "s12-final-test",
+      "key": "s21-final-test",
       "title": {
         "ko": "완성 확인: 보물 찾기 시험",
         "en": "Final check: treasure hunt test"
@@ -3064,8 +4196,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "탐색에서 꺼낸 블록이 코드 영역에 남아 있으면 먼저 지워요. 방향키는 한 번에 10씩 움직여야 해요.",
-            "en": "If any blocks from the explore steps are still in the code area, delete them first. Each arrow key should move 10."
+            "ko": "탐색에서 꺼낸 블록(순서 바꾸기 묶음 등)이 코드 영역에 남아 있으면 먼저 지워요. 방향키는 한 번에 10씩 움직여야 해요.",
+            "en": "If any blocks from the explore steps (like the order stack) are still in the code area, delete them first. Each arrow key should move 10."
           }
         },
         {
@@ -4087,7 +5219,7 @@
             },
             {
               "do": "wait",
-              "ms": 2500
+              "ms": 3500
             }
           ],
           "expect": [
@@ -4099,7 +5231,7 @@
               "value": ""
             }
           ],
-          "timeoutMs": 20000
+          "timeoutMs": 21000
         },
         {
           "type": "dynamic",
@@ -5051,7 +6183,7 @@
             },
             {
               "do": "wait",
-              "ms": 2500
+              "ms": 3500
             },
             {
               "do": "greenFlag"
@@ -5095,7 +6227,7 @@
               "tolerance": 5
             }
           ],
-          "timeoutMs": 21000
+          "timeoutMs": 22000
         }
       ]
     },
@@ -5212,7 +6344,7 @@
       ]
     },
     {
-      "key": "s13-missions",
+      "key": "s22-missions",
       "title": {
         "ko": "확장 미션",
         "en": "Bonus missions"
@@ -5228,8 +6360,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "## ★★ 미션 B. 보물이 다음 자리를 알려 줘요\n보물을 찾을 때마다 보물이 다음 자리의 좌표를 말하게 해요. 그러면 쪽지를 보지 않아도 돼요. 각 `기다리기` 아래, 다음 자리로 가는 블록 바로 뒤에 넣어요.",
-            "en": "## ★★ Mission B. The treasure gives the next clue\nEach time it's found, make the treasure say the next spot's coordinates, so players don't need the note. Put it after each go-to block that follows a `wait until`."
+            "ko": "## ★★ 미션 B. 보물이 다음 자리를 알려 줘요\n\"찾았다!\" 대신 다음 자리의 좌표를 말하게 해요. 그러면 쪽지를 보지 않아도 돼요. 각 `기다리기` 아래, 다음 자리로 가는 블록 바로 뒤에 넣어요.",
+            "en": "## ★★ Mission B. The treasure gives the next clue\nInstead of \"Found it!\", make the treasure say the next spot's coordinates, so players don't need the note. Put it after each go-to block that follows a `wait until`."
           }
         },
         {
@@ -5242,8 +6374,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "## ★★ 미션 C. 배로 순간 이동\n스페이스 키를 누르면 탐험가가 배로 돌아가게 해요. 어떤 이벤트 블록과 어떤 동작 블록이 필요할까요? 이 키를 쓰면 시간이 빨라질까요, 느려질까요?",
-            "en": "## ★★ Mission C. Teleport to the ship\nMake the space key send the explorer back to the ship. Which event block and which motion block do you need? Does using this key make your time faster or slower?"
+            "ko": "## ★★ 미션 C. 배로 순간 이동\n`b` 키를 누르면 탐험가가 배로 돌아가게 해요. 스페이스 키는 좌표 말하기에 쓰고 있어요. 어떤 이벤트 블록과 어떤 동작 블록이 필요할까요? 이 키를 쓰면 시간이 빨라질까요, 느려질까요?",
+            "en": "## ★★ Mission C. Teleport to the ship\nMake the `b` key send the explorer back to the ship. Space is already used for saying the coordinates. Which event block and which motion block do you need? Does using this key make your time faster or slower?"
           }
         },
         {
@@ -5263,7 +6395,7 @@
       ]
     },
     {
-      "key": "s14-robot",
+      "key": "s23-robot",
       "title": {
         "ko": "심화 도전: 자동 탐험 로봇",
         "en": "Advanced challenge: auto explorer robot"
@@ -5272,22 +6404,22 @@
         {
           "type": "text",
           "value": {
-            "ko": "방향키를 누르지 않아도 탐험가가 스스로 보물을 찾아가게 해 봐요. 쪽지 순서대로 움직이는 **로봇 탐험가**예요.\n\n**동작** 꾸러미의 `1초 동안 x: y: (으)로 이동하기`는 순간 이동하지 않고 미끄러지듯 그 자리까지 가요. **탐험가**에 `a` 키 스크립트를 만들고, 다섯 자리를 쪽지 순서대로 이어 붙여요.",
-            "en": "Make the explorer find the treasure by itself, without the arrow keys. It's a **robot explorer** that follows the note in order.\n\n`glide 1 secs to x: y:` in **Motion** slides to the spot instead of jumping. Build an `a` key script on **탐험가** (explorer) and stack the five spots in the order on the note."
+            "ko": "방향키를 누르지 않아도 탐험가가 스스로 보물을 찾아가게 해 봐요. 쪽지 순서대로 움직이는 **로봇 탐험가**예요.\n\n**동작** 꾸러미의 `2초 동안 x: y: (으)로 이동하기`는 순간 이동하지 않고 미끄러지듯 그 자리까지 가요. **탐험가**에 `a` 키 스크립트를 만들고, 다섯 자리를 쪽지 순서대로 이어 붙여요.",
+            "en": "Make the explorer find the treasure by itself, without the arrow keys. It's a **robot explorer** that follows the note in order.\n\n`glide 2 secs to x: y:` in **Motion** slides to the spot instead of jumping. Build an `a` key script on **탐험가** (explorer) and stack the five spots in the order on the note."
           }
         },
         {
           "type": "blocks",
           "value": {
-            "ko": "[a v] 키를 눌렀을 때\n(1) 초 동안 x: (-60) y: (-60) \\(으\\)로 이동하기\n(1) 초 동안 x: (-120) y: (60) \\(으\\)로 이동하기",
-            "en": "when [a v] key pressed\nglide (1) secs to x: (-60) y: (-60)\nglide (1) secs to x: (-120) y: (60)"
+            "ko": "[a v] 키를 눌렀을 때\n(2) 초 동안 x: (-60) y: (-60) \\(으\\)로 이동하기\n(2) 초 동안 x: (-120) y: (60) \\(으\\)로 이동하기",
+            "en": "when [a v] key pressed\nglide (2) secs to x: (-60) y: (-60)\nglide (2) secs to x: (-120) y: (60)"
           }
         },
         {
           "type": "text",
           "value": {
-            "ko": "- 깃발을 누른 뒤 `a`를 누르세요. 로봇은 몇 초 만에 보물 5개를 찾나요? 내 기록과 비교해 보세요.\n- 1초를 0.5초로 바꾸면 걸린 시간은 어떻게 될까요?\n- 쪽지의 3번과 4번 자리를 바꿔 쌓으면 어떻게 될까요? 왜 그럴까요?\n\n**되돌리기**: 원래 게임으로 돌아가려면 `a` 키 스크립트를 통째로 왼쪽 블록 꾸러미로 끌어다 지우세요.",
-            "en": "- Click the flag, then press `a`. How many seconds does the robot take to find all 5? Compare with your record.\n- What happens to the time if you change 1 second to 0.5?\n- What happens if you swap spots 3 and 4 in the stack? Why?\n\n**Undo**: To get the original game back, drag the whole `a` key script to the block palette on the left to delete it."
+            "ko": "- 깃발을 누른 뒤 `a`를 누르세요. 로봇은 몇 초 만에 보물 5개를 찾나요? 내 기록과 비교해 보세요.\n- 2초를 1초로 바꾸면 걸린 시간은 어떻게 될까요? 보물을 다 찾나요?\n- 쪽지의 3번과 4번 자리를 바꿔 쌓으면 어떻게 될까요? 왜 그럴까요?\n\n**되돌리기**: 원래 게임으로 돌아가려면 `a` 키 스크립트를 통째로 왼쪽 블록 꾸러미로 끌어다 지우세요.",
+            "en": "- Click the flag, then press `a`. How many seconds does the robot take to find all 5? Compare with your record.\n- What happens to the time if you change 2 seconds to 1? Does it still find every treasure?\n- What happens if you swap spots 3 and 4 in the stack? Why?\n\n**Undo**: To get the original game back, drag the whole `a` key script to the block palette on the left to delete it."
           }
         }
       ]
@@ -5302,7 +6434,8 @@
       },
       "steps": [
         "s01-story-fly",
-        "s02-story-map"
+        "s02-story-seats",
+        "s03-story-map"
       ]
     },
     {
@@ -5312,11 +6445,15 @@
         "en": "Coordinates and moving"
       },
       "steps": [
-        "s03-stage-xy",
-        "s04-start",
-        "s05-change-xy",
-        "s06-arrows",
-        "s07-hello",
+        "s04-stage-xy",
+        "s05-stage-edge",
+        "s06-start",
+        "s07-change-xy",
+        "s08-goto-vs-change",
+        "s09-arrows-x",
+        "s10-arrows-y",
+        "s11-hello",
+        "s12-my-xy",
         "q1-xy"
       ]
     },
@@ -5327,10 +6464,14 @@
         "en": "Hiding the treasure"
       },
       "steps": [
-        "s08-treasure-spot",
-        "s09-wait-touch",
-        "s10-five-spots",
-        "s11-timer",
+        "s13-treasure-spot",
+        "s14-order-swap",
+        "s15-wait-touch",
+        "s16-third-spot",
+        "s17-last-spots",
+        "s18-found-say",
+        "s19-timer-reset",
+        "s20-time-say",
         "q2-order"
       ]
     },
@@ -5341,7 +6482,7 @@
         "en": "Wrap-up"
       },
       "steps": [
-        "s12-final-test",
+        "s21-final-test",
         "q3-wrap"
       ]
     },
@@ -5352,8 +6493,8 @@
         "en": "Go further"
       },
       "steps": [
-        "s13-missions",
-        "s14-robot"
+        "s22-missions",
+        "s23-robot"
       ]
     }
   ]
