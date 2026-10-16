@@ -62,8 +62,8 @@ http://localhost:8000/app/?unit=../project/lv1/<단원 폴더>
 
 | 버전 | 폴더 | 주소 |
 | --- | --- | --- |
-| 1 | `project/lv1/04-pirate-cannon` | 배포 <https://scratch-studio-gray.vercel.app/app/> · 로컬 <http://localhost:8000/app/> |
-| 2 | `project/lv1/04-pirate-cannon-v2` | 배포 <https://scratch-studio-gray.vercel.app/app/?unit=../project/lv1/04-pirate-cannon-v2> · 로컬 <http://localhost:8000/app/?unit=../project/lv1/04-pirate-cannon-v2> |
+| 1 | `project/lv1/04-pirate-cannon` | <https://scratch-studio-gray.vercel.app/app/> |
+| 2 | `project/lv1/04-pirate-cannon-v2` | <https://scratch-studio-gray.vercel.app/app/?unit=../project/lv1/04-pirate-cannon-v2> |
 
 | 항목 | 버전 1 | 버전 2 |
 | --- | --- | --- |
