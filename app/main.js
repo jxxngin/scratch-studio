@@ -546,17 +546,33 @@ function bindEditor() {
   setInterval(() => save(false), AUTOSAVE_MS);
 }
 
+// 퀴즈 스텝은 두 형식을 받는다.
+// 기획서 6장: { "kind": "quiz", "questions": [{ "key", "question", "options", "answer" }] }
+// 이전 교안: { "type": "quiz", "title", "questions": [{ "id", "prompt", "options", "answer", "hint", "explain" }] }
+function normalizeUnit(unit) {
+  for (const s of unit.steps) {
+    if (s.kind !== 'quiz' && s.type !== 'quiz') continue;
+    s.type = 'quiz';
+    if (!s.title) s.title = { ko: '퀴즈', en: 'Quiz' };
+    for (const q of s.questions || []) {
+      if (q.id == null) q.id = q.key;
+      if (q.prompt == null) q.prompt = q.question;
+    }
+  }
+  return unit;
+}
+
 async function start() {
   bindLayout();
   renderLayout();
 
   const res = await fetch(`${config.unitBase}/unit.json`);
   if (!res.ok) throw new Error(`unit.json을 불러오지 못했어요 (${res.status})`);
-  const unit = await res.json();
+  const unit = normalizeUnit(await res.json());
   state.unit = unit;
   store = createStore(unit, { failFirstSave: config.failFirstSave, namespace: params.get('unit') ? config.unitBase : '' });
 
-  // 퀴즈는 unit.json의 "type": "quiz" 스텝으로 들어온다. 프로젝트 제출은 사이트가 배치하므로 끝에 붙인다.
+  // 프로젝트 제출은 사이트가 배치하므로 끝에 붙인다.
   state.steps = unit.steps.map((s) => (s.type === 'quiz'
     ? { type: 'quiz', key: s.key, title: s.title, questions: s.questions || [], hasChecks: true }
     : { type: 'lesson', key: s.key, title: s.title, content: s.content, hasChecks: (s.checks || []).length > 0 }));
