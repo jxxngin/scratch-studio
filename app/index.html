@@ -39,10 +39,18 @@
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="1.75"><rect x=".9" y=".9" width="16.2" height="12.2" rx="2.2"/><path d="M1 1h5.5v12H1z" fill="currentColor"/></svg>
       </button>
     </div>
-    <div class="ss-progress">
-      <div class="ss-dots" data-dots></div>
+    <div class="ss-progress" id="progress">
+      <button type="button" class="ss-toc-btn" id="tocBtn" aria-expanded="false" hidden>
+        <svg width="14" height="12" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M1 1h12M1 6h12M1 11h12"/></svg>
+        목차
+      </button>
+      <div class="ss-progress-main">
+        <div class="ss-chapter-name" id="chapterName" hidden></div>
+        <div class="ss-dots" data-dots="panel"></div>
+      </div>
       <span class="ss-step-label" id="stepLabel"></span>
     </div>
+    <nav class="ss-toc" id="toc" aria-label="목차" hidden></nav>
     <div class="ss-body" id="body"></div>
     <div class="ss-band" id="band" hidden><span class="ss-band-icon" id="bandIcon"></span><span id="bandText"></span></div>
     <div class="ss-actions" id="actions">

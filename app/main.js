@@ -4,6 +4,7 @@
 import { renderMarkdown, renderInline } from './markdown.js';
 import { ScratchStudioFrame } from './studio-frame.js';
 import { createStore, isYoutubeUrl, youtubeId } from './store.js';
+import { installDevSkip } from './dev-skip.js'; // [임시] dev-skip
 
 const params = new URLSearchParams(location.search);
 const config = {
@@ -34,6 +35,7 @@ const el = {
   body: $('body'), band: $('band'), bandIcon: $('bandIcon'), bandText: $('bandText'),
   prev: $('prevBtn'), primary: $('primaryBtn'),
   loading: $('editorLoading'), iframe: $('editor'),
+  progress: $('progress'), tocBtn: $('tocBtn'), toc: $('toc'), chapterName: $('chapterName'),
 };
 
 const state = {
@@ -46,8 +48,11 @@ const state = {
   submission: null, editing: false, submitting: false,
   form: { title: '', note: '', note2: '', yt: '' },
   quiz: {},            // 현재 퀴즈 스텝에서 고른 보기: { 문항 id: 보기 번호 }
+  chapters: null,      // 목차 (unit.json의 chapters가 있을 때)
+  tocExpanded: null,   // 목차에서 펼친 목차
 };
 let store, frame;
+let devSkip = null; // [임시] dev-skip
 
 function readLocale() {
   try { return localStorage.getItem(LOCALE_KEY) === 'en' ? 'en' : 'ko'; } catch (e) { return 'ko'; }
@@ -79,16 +84,21 @@ function renderBlocksCode(code) {
 }
 
 // 입력 표: 학생이 예상과 결과를 직접 적는 표. 적은 값은 저장한다.
-// 열: { label, input?, kind?, options?, requires? }
-//   kind: 'text'(기본), 'number', 'select'(options 중 하나를 고르고 보기 번호를 저장)
+// 열: { label, input?, kind?, options?, requires?, of? }
+//   kind: 'text'(기본), 'number', 'select'(options 중 하나를 고르고 보기 번호를 저장),
+//         'verify'(해 보니: [맞았어요] [달랐어요]. 달랐으면 of 열과 같은 종류의 칸에 실제 값을 적는다)
 //   requires: 같은 줄에서 먼저 채워야 하는 열 번호 (예상을 적어야 결과 칸이 열림)
+//   of: verify 열이 확인하는 예상 열 번호. 저장 값은 'same' 또는 'diff:<실제 값>'
 // 줄: 칸 배열. 고정 열은 글자, 입력 열은 null 또는 { placeholder?, answer? }
 //   answer가 있는 칸은 스텝의 { "type": "record" } 검사가 채점한다 (store.checkRecords)
+const GUESS_FIRST = { ko: '예상 먼저', en: 'Guess first' };
+const CHOOSE = { ko: '고르기', en: 'Choose' };
+
 function renderRecordInput(col, cell) {
   if (col.kind === 'select') {
     const sel = document.createElement('select');
     sel.className = 'ss-record-input';
-    sel.add(new Option(t({ ko: '고르기', en: 'Choose' }), ''));
+    sel.add(new Option(t(CHOOSE), ''));
     col.options.forEach((o, oi) => sel.add(new Option(t(o), String(oi))));
     return sel;
   }
@@ -97,6 +107,52 @@ function renderRecordInput(col, cell) {
   if (col.kind === 'number') input.inputMode = 'decimal';
   input.dataset.placeholder = cell && cell.placeholder ? t(cell.placeholder) : '';
   return input;
+}
+
+function setLocked(input, locked) {
+  input.disabled = locked;
+  if (input.tagName === 'SELECT') input.options[0].text = t(locked ? GUESS_FIRST : CHOOSE);
+  else input.placeholder = locked ? t(GUESS_FIRST) : input.dataset.placeholder;
+}
+
+// 해 보니 칸: [맞았어요] [달랐어요], 달랐으면 실제 값 칸
+function renderVerify(guessCol, value, onChange) {
+  const box = document.createElement('div');
+  box.className = 'ss-verify';
+  const same = document.createElement('button');
+  const diff = document.createElement('button');
+  same.type = diff.type = 'button';
+  same.className = 'ss-verify-btn is-same';
+  diff.className = 'ss-verify-btn is-diff';
+  same.textContent = t({ ko: '맞았어요', en: 'Same' });
+  diff.textContent = t({ ko: '달랐어요', en: 'Different' });
+  const actual = renderRecordInput(guessCol, null);
+  actual.classList.add('ss-verify-actual');
+  const v = { current: value };
+  const paint = () => {
+    const isSame = v.current === 'same';
+    const isDiff = v.current.startsWith('diff:');
+    same.classList.toggle('is-on', isSame);
+    diff.classList.toggle('is-on', isDiff);
+    actual.hidden = !isDiff;
+    if (isDiff) actual.value = v.current.slice(5);
+  };
+  same.addEventListener('click', () => { v.current = 'same'; paint(); onChange(v.current); });
+  diff.addEventListener('click', () => { v.current = 'diff:' + (v.current.startsWith('diff:') ? v.current.slice(5) : ''); paint(); onChange(v.current); actual.focus(); });
+  actual.addEventListener(actual.tagName === 'SELECT' ? 'change' : 'input', () => { v.current = 'diff:' + actual.value; onChange(v.current); });
+  const buttons = document.createElement('div');
+  buttons.className = 'ss-verify-buttons';
+  buttons.append(same, diff);
+  box.append(buttons, actual);
+  paint();
+  return {
+    el: box,
+    lock(locked) {
+      same.disabled = diff.disabled = actual.disabled = locked;
+      box.classList.toggle('is-locked', locked);
+      box.title = locked ? t(GUESS_FIRST) : '';
+    },
+  };
 }
 
 function renderRecord(b, stepKey) {
@@ -112,14 +168,18 @@ function renderRecord(b, stepKey) {
     head.appendChild(th);
   }
   const body = table.createTBody();
-  const inputs = [];
+  const parts = [];
   const update = () => {
-    for (const { input, ri, col } of inputs) {
-      const locked = col.requires != null && !values[ri][col.requires].trim();
-      input.disabled = locked;
-      if (input.tagName === 'SELECT') input.options[0].text = locked ? t({ ko: '예상 먼저', en: 'Guess first' }) : t({ ko: '고르기', en: 'Choose' });
-      else input.placeholder = locked ? t({ ko: '예상 먼저', en: 'Guess first' }) : input.dataset.placeholder;
+    for (const { lock, ri, col } of parts) {
+      const need = col.kind === 'verify' ? col.of : col.requires;
+      lock(need != null && !values[ri][need].trim());
     }
+  };
+  const save = (ri, ci, v) => {
+    if (state.result === 'fail') { state.result = null; renderChrome(); }
+    values[ri][ci] = v;
+    store.saveRecord(stepKey, b.key, values);
+    update();
   };
   b.rows.forEach((row, ri) => {
     const tr = body.insertRow();
@@ -127,16 +187,17 @@ function renderRecord(b, stepKey) {
       const col = b.columns[ci];
       const td = tr.insertCell();
       if (!col.input) { td.innerHTML = renderInline(t(cell)); return; }
+      if (col.kind === 'verify') {
+        const vf = renderVerify(b.columns[col.of], values[ri][ci], (v) => save(ri, ci, v));
+        parts.push({ lock: vf.lock, ri, col });
+        td.appendChild(vf.el);
+        return;
+      }
       const input = renderRecordInput(col, cell);
       input.value = values[ri][ci];
       input.setAttribute('aria-label', `${t(b.columns[0].label)} ${t(row[0])} · ${t(col.label)}`);
-      input.addEventListener(input.tagName === 'SELECT' ? 'change' : 'input', () => {
-        if (state.result === 'fail') { state.result = null; renderChrome(); }
-        values[ri][ci] = input.value;
-        store.saveRecord(stepKey, b.key, values);
-        update();
-      });
-      inputs.push({ input, ri, col });
+      input.addEventListener(input.tagName === 'SELECT' ? 'change' : 'input', () => save(ri, ci, input.value));
+      parts.push({ lock: (locked) => setLocked(input, locked), ri, col });
       td.appendChild(input);
     });
   });
@@ -156,10 +217,21 @@ const LABEL_KINDS = {
 };
 const LABEL_OF = Object.fromEntries(Object.entries(LABEL_KINDS).flatMap(([kind, names]) => names.map((n) => [n, kind])));
 
+// 소제목 칩의 아이콘 (색을 구분하기 어려워도 모양으로 알아볼 수 있게)
+const LABEL_ICONS = {
+  goal: '<circle cx="8" cy="8" r="6.25"/><circle cx="8" cy="8" r="3"/><circle cx="8" cy="8" r=".9" fill="currentColor"/>',
+  check: '<path d="M3 8.5l3.2 3L13 4.5"/>',
+  challenge: '<path d="M8 1.8l1.9 3.9 4.2.6-3 3 .7 4.2L8 11.5l-3.8 2 .7-4.2-3-3 4.2-.6z" fill="currentColor" stroke-linejoin="round"/>',
+  try: '<path d="M4.5 2.8v10.4L13 8z" fill="currentColor" stroke-linejoin="round"/>',
+  tidy: '<path d="M3 4v3.5h3.5"/><path d="M3.4 7.2A5 5 0 1 1 4.5 11.6"/>',
+  think: '<circle cx="8" cy="8" r="6.25"/><path d="M6.2 6.3a1.9 1.9 0 1 1 2.6 1.8c-.5.2-.8.6-.8 1.1v.4"/><circle cx="8" cy="11.6" r=".6" fill="currentColor"/>',
+};
+
 function labelChip(kind, text) {
   const chip = document.createElement('span');
   chip.className = `ss-label ss-label-${kind}`;
-  chip.textContent = text;
+  chip.innerHTML = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">${LABEL_ICONS[kind]}</svg>`;
+  chip.append(text);
   return chip;
 }
 
@@ -372,16 +444,100 @@ function primaryAction() {
   return { label: '확인', disabled: !state.editorReady, on: check };
 }
 
+// ---- 목차 ----
+// unit.json의 chapters가 있으면 패널 위쪽에 "지금 목차 이름 + 그 목차의 점"만 보여 주고, 목차 버튼으로 전체 목차를 펼친다.
+// 제출 스텝은 사이트가 붙이므로 맨 끝에 따로 한 줄로 둔다. chapters가 없는 교안은 전체 점을 그대로 보여 준다.
+
+function buildChapters(unit) {
+  if (!unit.chapters) return null;
+  const index = Object.fromEntries(state.steps.map((s, i) => [s.key, i]));
+  const chapters = unit.chapters.map((c, ci) => ({ no: ci + 1, title: c.title, steps: c.steps.map((k) => index[k]) }));
+  const covered = chapters.flatMap((c) => c.steps);
+  const missing = state.steps.map((_, i) => i).filter((i) => !covered.includes(i) && state.steps[i].type !== 'submit');
+  if (missing.length) console.warn('[scratch-studio] steps not in any chapter', missing.map((i) => state.steps[i].key));
+  chapters.push({ no: null, title: { ko: '제출', en: 'Submit' }, steps: [state.steps.length - 1] });
+  return chapters;
+}
+
+const chapterOf = (i) => state.chapters.find((c) => c.steps.includes(i));
+const firstOpenStep = () => {
+  const i = state.steps.findIndex((_, k) => !isPassed(k));
+  return i < 0 ? state.steps.length - 1 : i;
+};
+const chapterTitle = (c) => (c.no ? `${c.no}. ${t(c.title)}` : t(c.title));
+
+function dot(i) {
+  const d = document.createElement('div');
+  d.className = 'ss-dot' + (isPassed(i) ? ' is-passed' : '') + (i === state.step ? ' is-current' : '');
+  return d;
+}
+
+function renderToc() {
+  const open = firstOpenStep();
+  const cur = chapterOf(state.step);
+  el.toc.replaceChildren();
+  for (const c of state.chapters) {
+    const done = c.steps.filter(isPassed).length;
+    const locked = c.steps[0] > open;
+    const expanded = state.tocExpanded === c;
+    const head = document.createElement('button');
+    head.type = 'button';
+    head.className = 'ss-toc-chapter' + (c === cur ? ' is-current' : '') + (locked ? ' is-locked' : '');
+    const mark = done === c.steps.length ? '✓' : locked ? '' : '●';
+    head.innerHTML = `<span class="ss-toc-mark${locked ? ' is-lock' : ''}">${mark}</span>`
+      + `<span class="ss-toc-title"></span><span class="ss-toc-count">${c.no ? `${done}/${c.steps.length}` : ''}</span>`;
+    head.querySelector('.ss-toc-title').textContent = chapterTitle(c);
+    head.addEventListener('click', () => {
+      if (c.steps.length === 1) { if (!locked) { goTo(c.steps[0]); closeToc(); } return; }
+      state.tocExpanded = expanded ? null : c;
+      renderToc();
+    });
+    el.toc.appendChild(head);
+    if (!expanded || c.steps.length === 1) continue;
+    const list = document.createElement('div');
+    list.className = 'ss-toc-steps';
+    for (const i of c.steps) {
+      const item = document.createElement('button');
+      item.type = 'button';
+      const reachable = i <= open;
+      item.disabled = !reachable;
+      item.className = 'ss-toc-step' + (i === state.step ? ' is-current' : '');
+      const m = isPassed(i) ? '✓' : i === state.step ? '●' : reachable ? '○' : '';
+      item.innerHTML = `<span class="ss-toc-mark${reachable ? '' : ' is-lock'}">${m}</span><span class="ss-toc-title"></span>`;
+      item.querySelector('.ss-toc-title').textContent = state.steps[i].type === 'submit' ? '프로젝트 제출' : t(state.steps[i].title);
+      item.addEventListener('click', () => { goTo(i); closeToc(); });
+      list.appendChild(item);
+    }
+    el.toc.appendChild(list);
+  }
+}
+
+function openToc() {
+  state.tocExpanded = chapterOf(state.step);
+  renderToc();
+  el.toc.style.top = `${el.progress.offsetTop + el.progress.offsetHeight}px`;
+  el.toc.hidden = false;
+  el.tocBtn.setAttribute('aria-expanded', 'true');
+  const cur = el.toc.querySelector('.ss-toc-step.is-current');
+  if (cur) cur.scrollIntoView({ block: 'center' });
+}
+function closeToc() {
+  el.toc.hidden = true;
+  el.tocBtn.setAttribute('aria-expanded', 'false');
+}
+
 function renderChrome() {
   const n = state.steps.length;
+  const cur = state.chapters && chapterOf(state.step);
   for (const box of document.querySelectorAll('[data-dots]')) {
-    box.classList.toggle('is-dense', n > 10);
-    box.replaceChildren(...state.steps.map((_, i) => {
-      const d = document.createElement('div');
-      d.className = 'ss-dot' + (isPassed(i) ? ' is-passed' : '') + (i === state.step ? ' is-current' : '');
-      return d;
-    }));
+    const steps = box.dataset.dots === 'panel' && cur ? cur.steps : state.steps.map((_, i) => i);
+    box.classList.toggle('is-dense', steps.length > 10);
+    box.replaceChildren(...steps.map(dot));
   }
+  el.tocBtn.hidden = !state.chapters;
+  el.chapterName.hidden = !cur;
+  if (cur) el.chapterName.textContent = chapterTitle(cur);
+  if (!el.toc.hidden) renderToc();
   el.stepLabel.textContent = `${state.step + 1} / ${n}`;
   el.stepShort.textContent = `${state.step + 1}/${n}`;
   el.unitTitle.textContent = t(state.unit.title);
@@ -407,6 +563,7 @@ function renderChrome() {
   }
   el.primary.append(prim.label);
   el.primary.onclick = prim.on || null;
+  if (devSkip) devSkip.update(current().hasChecks && current().type !== 'submit' && !isPassed(state.step)); // [임시] dev-skip
 
   const ytInput = el.body.querySelector('#f-yt');
   if (ytInput) {
@@ -602,6 +759,14 @@ function bindLayout() {
   });
   el.prev.addEventListener('click', prev);
 
+  // 목차: 버튼으로 열고 닫는다. 바깥을 누르거나 Esc를 누르면 닫힌다.
+  el.tocBtn.addEventListener('click', () => (el.toc.hidden ? openToc() : closeToc()));
+  document.addEventListener('click', (e) => {
+    const path = e.composedPath();
+    if (!el.toc.hidden && !path.includes(el.toc) && !path.includes(el.tocBtn)) closeToc();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !el.toc.hidden) closeToc(); });
+
   el.resizer.addEventListener('mousedown', (e) => {
     e.preventDefault();
     const x0 = e.clientX, w0 = state.panelW;
@@ -663,6 +828,7 @@ function normalizeUnit(unit) {
 
 async function start() {
   bindLayout();
+  devSkip = installDevSkip({ panel: el.panel, actions: $('actions'), onSkip: () => { store.devPass(current().key); goTo(state.step + 1); } }); // [임시] dev-skip
   renderLayout();
 
   const res = await fetch(`${config.unitBase}/unit.json`);
@@ -676,6 +842,7 @@ async function start() {
     ? { type: 'quiz', key: s.key, title: s.title, questions: s.questions || [], hasChecks: true }
     : { type: 'lesson', key: s.key, title: s.title, content: s.content, hasChecks: (s.checks || []).length > 0 }));
   state.steps.push({ type: 'submit', key: SUBMIT_KEY });
+  state.chapters = buildChapters(unit);
 
   state.submission = store.getProgress().submission;
   fillFormFromSubmission();

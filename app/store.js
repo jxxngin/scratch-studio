@@ -92,6 +92,12 @@ export function createStore(unit, { failFirstSave = false, namespace = '' } = {}
     },
 
     // 채점 규칙이 없는 스텝은 읽고 넘어가면 완료다.
+    // [임시] 교안 확인용 건너뛰기(dev-skip.js)에서만 쓴다. 채점 없이 통과 처리한다.
+    devPass(stepKey) {
+      const s = read();
+      if (!s.passed.includes(stepKey)) { s.passed.push(stepKey); write(s); }
+    },
+
     async completeStep(stepKey) {
       const s = read();
       if (!previousAllPassed(s, stepKey)) throw new Error('step locked');
@@ -121,8 +127,14 @@ export function createStore(unit, { failFirstSave = false, namespace = '' } = {}
         const values = (this.getRecord(stepKey, c.key)) || [];
         return block.rows.every((row, ri) => row.every((cell, ci) => {
           if (!cell || cell.answer == null) return true;
-          const v = String((values[ri] && values[ri][ci]) || '').trim();
-          const col = block.columns[ci];
+          const get = (c) => String((values[ri] && values[ri][c]) || '').trim();
+          let col = block.columns[ci];
+          let v = get(ci);
+          if (col.kind === 'verify') {
+            // 해 보니 칸: 맞았으면 예상 값, 달랐으면 고른 실제 값으로 채점한다
+            v = v === 'same' ? get(col.of) : v.startsWith('diff:') ? v.slice(5).trim() : '';
+            col = block.columns[col.of];
+          }
           if (col.kind === 'number') return v !== '' && Number(v) === Number(cell.answer);
           return v === String(cell.answer);
         }));
