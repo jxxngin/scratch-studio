@@ -46,8 +46,6 @@ const state = {
   submission: null, editing: false, submitting: false,
   form: { title: '', note: '', note2: '', yt: '' },
   quiz: {},            // 현재 퀴즈 스텝에서 고른 보기: { 문항 id: 보기 번호 }
-  quizWrong: [],       // 마지막 확인에서 틀린 문항 id
-  quizHinted: [],      // 한 번이라도 틀려서 힌트를 보여 준 문항 id
 };
 let store, frame;
 
@@ -121,9 +119,6 @@ function renderQuiz(step) {
     const prompt = document.createElement('div');
     prompt.className = 'md ss-question-prompt';
     prompt.innerHTML = renderMarkdown(t(q.prompt));
-    const wrongNote = document.createElement('div');
-    wrongNote.className = 'ss-question-wrong';
-    wrongNote.textContent = '틀렸어요. 다시 골라 보세요';
     box.append(no, prompt);
     if (q.image) box.appendChild(renderContentBlock({ type: 'image', src: q.image, alt: q.prompt }));
     if (q.blocks) box.appendChild(renderBlocksCode(t(q.blocks)));
@@ -142,26 +137,13 @@ function renderQuiz(step) {
         if (state.result === 'grading') return;
         state.quiz[q.id] = oi;
         state.result = null;
-        state.quizWrong = state.quizWrong.filter((id) => id !== q.id);
-        markWrongQuestions();
         for (const b of options.children) b.classList.toggle('is-selected', b === btn);
         renderChrome();
       });
       options.appendChild(btn);
     });
-    box.append(options, wrongNote);
-    if (q.hint) {
-      const hint = document.createElement('div');
-      hint.className = 'ss-hint';
-      const label = document.createElement('div');
-      label.className = 'ss-hint-label';
-      label.textContent = '힌트';
-      const text = document.createElement('div');
-      text.className = 'md';
-      text.innerHTML = renderMarkdown(t(q.hint));
-      hint.append(label, text);
-      box.appendChild(hint);
-    }
+    box.appendChild(options);
+    // 틀렸을 때는 통과/실패만 알리고, 해설은 통과한 뒤에만 보여 준다.
     if (passed && q.explain) {
       const ex = document.createElement('div');
       ex.className = 'ss-explain';
@@ -171,14 +153,6 @@ function renderQuiz(step) {
     wrap.appendChild(box);
   });
   return wrap;
-}
-
-// 틀린 문항에 표시를 붙인다. 보기를 다시 고르면 그 문항의 빨간 표시는 사라지고, 힌트는 통과할 때까지 남는다.
-function markWrongQuestions() {
-  for (const box of el.body.querySelectorAll('.ss-question')) {
-    box.classList.toggle('is-wrong', state.quizWrong.includes(box.dataset.qid));
-    box.classList.toggle('is-hinted', state.quizHinted.includes(box.dataset.qid));
-  }
 }
 
 function renderSubmitForm() {
@@ -292,8 +266,7 @@ function renderChrome() {
   el.stepShort.textContent = `${state.step + 1}/${n}`;
   el.unitTitle.textContent = t(state.unit.title);
 
-  let band = BANDS[state.result];
-  if (state.result === 'fail' && state.quizWrong.length) band = { ...band, text: `${state.quizWrong.length}문제가 틀렸어요. 다시 풀어 보세요` };
+  const band = BANDS[state.result];
   el.band.hidden = !band;
   if (band) {
     el.band.className = `ss-band ${band.cls}`;
@@ -355,8 +328,6 @@ function prev() {
 function loadQuizAnswers() {
   const step = current();
   state.quiz = {};
-  state.quizWrong = [];
-  state.quizHinted = [];
   if (step.type === 'quiz' && isPassed(state.step)) for (const q of step.questions) state.quiz[q.id] = q.answer;
 }
 
@@ -364,18 +335,9 @@ async function checkQuiz() {
   const step = current();
   state.result = 'grading';
   renderChrome();
-  try {
-    const res = await store.gradeQuiz(step.key, state.quiz);
-    state.result = res.result;
-    state.quizWrong = res.wrong;
-    state.quizHinted = [...new Set([...state.quizHinted, ...res.wrong])];
-  } catch (e) { console.warn('[scratch-studio] quiz failed', e); state.result = 'error'; }
+  try { state.result = await store.gradeQuiz(step.key, state.quiz); }
+  catch (e) { console.warn('[scratch-studio] quiz failed', e); state.result = 'error'; }
   if (state.result === 'pass') renderBody();
-  else {
-    markWrongQuestions();
-    const first = el.body.querySelector('.ss-question.is-wrong');
-    if (first) first.scrollIntoView({ block: 'start', behavior: 'smooth' });
-  }
   renderChrome();
 }
 
