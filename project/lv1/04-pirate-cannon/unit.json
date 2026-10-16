@@ -24,6 +24,14 @@
         },
         {
           "type": "image",
+          "src": "media/story-photo-trebuchet.jpg",
+          "alt": {
+            "ko": "스위스 라우펜 성에 복원한 투석기",
+            "en": "A rebuilt trebuchet at Laupen Castle, Switzerland"
+          }
+        },
+        {
+          "type": "image",
           "src": "media/story-catapult-cannon.png",
           "alt": {
             "ko": "투석기는 수백 걸음, 대포는 훨씬 멀리 쏘는 모습",
@@ -39,10 +47,25 @@
         },
         {
           "type": "image",
-          "src": "media/story-cheonja.png",
+          "src": "media/story-photo-cheonja.jpg",
           "alt": {
-            "ko": "천자총통과 대장군전 그림",
-            "en": "Drawing of the Cheonja chongtong and its giant arrow"
+            "ko": "천자총통 유물 (국립중앙박물관)",
+            "en": "A Cheonja chongtong cannon (National Museum of Korea)"
+          }
+        },
+        {
+          "type": "image",
+          "src": "media/story-photo-arrows.jpg",
+          "alt": {
+            "ko": "조선 시대 총통으로 쏘던 화살과 돌 포탄",
+            "en": "Joseon-era cannon arrows and stone cannonballs"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "*사진: 라우펜 성 투석기 © Sandstein (CC BY 3.0) · 천자총통 국립중앙박물관 (공공누리 제1유형) · 총통 화살 Gary Todd (CC0)*",
+            "en": "*Photos: Laupen trebuchet © Sandstein (CC BY 3.0) · Cheonja chongtong, National Museum of Korea (KOGL Type 1) · Cannon arrows, Gary Todd (CC0)*"
           }
         }
       ]
@@ -70,10 +93,33 @@
           }
         },
         {
+          "type": "image",
+          "src": "media/story-photo-quadrant.jpg",
+          "alt": {
+            "ko": "1572년에 만든 포수의 각도 자 (드레스덴)",
+            "en": "A gunner's quadrant made in 1572 (Dresden)"
+          }
+        },
+        {
           "type": "text",
           "value": {
             "ko": "1537년 이탈리아 수학자 **타르탈리아**는 포수들의 질문에 돈을 받고 답해 줬어요. 그는 대포를 수평에서 **45도** 들어 쏠 때 가장 멀리 간다고 했어요.\n\n단, 같은 힘으로 쏘고, 쏜 높이와 떨어지는 높이가 같고, 공기의 방해가 없다고 할 때의 이야기예요.\n\n**그림 보기**: 30도와 60도 포탄은 어디에 떨어졌나요?",
             "en": "In 1537, the mathematician **Tartaglia** answered gunners' questions for a fee. He said a cannon raised **45 degrees** from level shoots farthest.\n\nThat holds when every shot has the same push, starts and lands at the same height, and the air doesn't slow it down.\n\n**Look**: Where did the 30° and 60° shots land?"
+          }
+        },
+        {
+          "type": "image",
+          "src": "media/story-photo-tartaglia.jpg",
+          "alt": {
+            "ko": "타르탈리아의 책에 실린 포탄 길 그림 (1537)",
+            "en": "Cannonball paths from Tartaglia's book (1537)"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "타르탈리아는 포탄이 처음엔 곧게 날다가 나중에 휘어 떨어진다고 그렸어요. 지금은 처음부터 휘어서 난다는 것을 알아요.",
+            "en": "Tartaglia drew the ball flying straight first, then curving down. Today we know it curves the whole way."
           }
         },
         {
@@ -89,6 +135,13 @@
           "value": {
             "ko": "오늘 게임의 포탄은 곧게 날아가요. 그래서 이 게임으로 45도 규칙을 실험할 수는 없어요. 마지막 심화 도전에서 아래로 떨어지는 포탄을 만들어 볼 수 있어요.",
             "en": "Today's cannonball flies straight, so this game can't test the 45° rule. In the last advanced challenge you can make a cannonball that falls."
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "*사진: 포수 사분의 Daderot (퍼블릭 도메인) · 『새로운 과학』 삽화 (퍼블릭 도메인)*",
+            "en": "*Images: gunner's quadrant by Daderot (public domain) · Nova Scientia illustration (public domain)*"
           }
         }
       ]
@@ -246,130 +299,6 @@
       ]
     },
     {
-      "key": "q1-direction",
-      "type": "quiz",
-      "title": {
-        "ko": "확인 퀴즈: 방향",
-        "en": "Quiz: direction"
-      },
-      "questions": [
-        {
-          "id": "q1-1",
-          "kind": "choice",
-          "prompt": {
-            "ko": "대포가 그림처럼 보고 있어요. 몇 도일까요?",
-            "en": "The cannon faces like this. What is its direction?"
-          },
-          "image": "media/quiz-cannon-up.png",
-          "options": [
-            {
-              "ko": "0",
-              "en": "0"
-            },
-            {
-              "ko": "90",
-              "en": "90"
-            },
-            {
-              "ko": "180",
-              "en": "180"
-            },
-            {
-              "ko": "-90",
-              "en": "-90"
-            }
-          ],
-          "answer": 0,
-          "hint": {
-            "ko": "시계의 12시 방향을 숫자 몇으로 정했는지 떠올려 보세요.",
-            "en": "Which number did Scratch give to 12 o'clock?"
-          },
-          "explain": {
-            "ko": "위쪽이 0도예요.",
-            "en": "Up is 0."
-          }
-        },
-        {
-          "id": "q1-2",
-          "kind": "code",
-          "prompt": {
-            "ko": "대포가 **왼쪽**을 보게 하려면 ? 에 무엇을 넣어야 할까요?",
-            "en": "To make the cannon face **left**, what goes in the ? ?"
-          },
-          "blocks": {
-            "ko": "(?) 도 방향 보기",
-            "en": "point in direction (?)"
-          },
-          "options": [
-            {
-              "ko": "-90",
-              "en": "-90"
-            },
-            {
-              "ko": "180",
-              "en": "180"
-            },
-            {
-              "ko": "0",
-              "en": "0"
-            },
-            {
-              "ko": "90",
-              "en": "90"
-            }
-          ],
-          "answer": 0,
-          "hint": {
-            "ko": "오른쪽이 90이에요. 반대쪽은 부호가 어떻게 될까요?",
-            "en": "Right is 90. What about the opposite side?"
-          },
-          "explain": {
-            "ko": "왼쪽은 -90이에요.",
-            "en": "Left is -90."
-          }
-        },
-        {
-          "id": "q1-3",
-          "kind": "predict",
-          "prompt": {
-            "ko": "이 대포를 누르면 **마지막**에 어느 쪽을 볼까요?",
-            "en": "After clicking, where does the cannon face **at the end**?"
-          },
-          "blocks": {
-            "ko": "이 스프라이트를 클릭했을 때\n(0) 도 방향 보기\n(1) 초 기다리기\n(90) 도 방향 보기\n(1) 초 기다리기\n(180) 도 방향 보기",
-            "en": "when this sprite clicked\npoint in direction (0)\nwait (1) seconds\npoint in direction (90)\nwait (1) seconds\npoint in direction (180)"
-          },
-          "options": [
-            {
-              "ko": "아래",
-              "en": "Down"
-            },
-            {
-              "ko": "왼쪽",
-              "en": "Left"
-            },
-            {
-              "ko": "위",
-              "en": "Up"
-            },
-            {
-              "ko": "오른쪽",
-              "en": "Right"
-            }
-          ],
-          "answer": 0,
-          "hint": {
-            "ko": "맨 마지막 블록의 숫자만 보면 돼요.",
-            "en": "Just look at the number in the last block."
-          },
-          "explain": {
-            "ko": "마지막 블록이 180이라 아래를 봐요.",
-            "en": "The last block is 180, so it faces down."
-          }
-        }
-      ]
-    },
-    {
       "key": "s06-angle-variable",
       "title": {
         "ko": "변수 '각도' 만들기",
@@ -434,50 +363,93 @@
       ]
     },
     {
-      "key": "q2-variable",
+      "key": "q1-direction",
       "type": "quiz",
       "title": {
-        "ko": "확인 퀴즈: 변수",
-        "en": "Quiz: variables"
+        "ko": "확인 퀴즈: 방향과 변수",
+        "en": "Quiz: direction and variables"
       },
       "questions": [
         {
-          "id": "q2-1",
-          "kind": "choice",
+          "id": "q1-1",
+          "kind": "code",
           "prompt": {
-            "ko": "변수를 가장 잘 설명한 것은?",
-            "en": "Which best describes a variable?"
+            "ko": "대포가 **왼쪽**을 보게 하려면 ? 에 무엇을 넣어야 할까요?",
+            "en": "To make the cannon face **left**, what goes in the ? ?"
+          },
+          "blocks": {
+            "ko": "(?) 도 방향 보기",
+            "en": "point in direction (?)"
           },
           "options": [
             {
-              "ko": "값을 담아 두는 이름표 붙은 상자",
-              "en": "A labeled box that holds a value"
+              "ko": "-90",
+              "en": "-90"
             },
             {
-              "ko": "무대의 배경",
-              "en": "The stage backdrop"
+              "ko": "180",
+              "en": "180"
             },
             {
-              "ko": "소리를 내는 블록",
-              "en": "A block that plays sound"
+              "ko": "0",
+              "en": "0"
             },
             {
-              "ko": "스프라이트의 모양",
-              "en": "A sprite's costume"
+              "ko": "90",
+              "en": "90"
             }
           ],
           "answer": 0,
           "hint": {
-            "ko": "`각도` 변수에 무엇이 들어 있었는지 떠올려 보세요.",
-            "en": "Think about what the `angle` variable held."
+            "ko": "오른쪽이 90이에요. 반대쪽은 부호가 어떻게 될까요?",
+            "en": "Right is 90. What about the opposite side?"
           },
           "explain": {
-            "ko": "변수는 이름으로 값을 넣고 꺼내는 상자예요.",
-            "en": "A variable is a box you use by name."
+            "ko": "왼쪽은 -90이에요.",
+            "en": "Left is -90."
           }
         },
         {
-          "id": "q2-2",
+          "id": "q1-2",
+          "kind": "predict",
+          "prompt": {
+            "ko": "이 대포를 누르면 **마지막**에 어느 쪽을 볼까요?",
+            "en": "After clicking, where does the cannon face **at the end**?"
+          },
+          "blocks": {
+            "ko": "이 스프라이트를 클릭했을 때\n(0) 도 방향 보기\n(1) 초 기다리기\n(90) 도 방향 보기\n(1) 초 기다리기\n(180) 도 방향 보기",
+            "en": "when this sprite clicked\npoint in direction (0)\nwait (1) seconds\npoint in direction (90)\nwait (1) seconds\npoint in direction (180)"
+          },
+          "options": [
+            {
+              "ko": "아래",
+              "en": "Down"
+            },
+            {
+              "ko": "왼쪽",
+              "en": "Left"
+            },
+            {
+              "ko": "위",
+              "en": "Up"
+            },
+            {
+              "ko": "오른쪽",
+              "en": "Right"
+            }
+          ],
+          "answer": 0,
+          "hint": {
+            "ko": "맨 마지막 블록의 숫자만 보면 돼요.",
+            "en": "Just look at the number in the last block."
+          },
+          "explain": {
+            "ko": "마지막 블록이 180이라 아래를 봐요.",
+            "en": "The last block is 180, so it faces down."
+          }
+        },
+        {
+          "id": "q1-3",
           "kind": "predict",
           "prompt": {
             "ko": "이 블록들을 위에서부터 차례로 누르면 `각도`는 얼마가 될까요?",
@@ -516,7 +488,7 @@
           }
         },
         {
-          "id": "q2-3",
+          "id": "q1-4",
           "kind": "choice",
           "prompt": {
             "ko": "`각도`를 '모든 스프라이트에서 사용'으로 만든 까닭은?",
@@ -941,172 +913,6 @@
       ]
     },
     {
-      "key": "q3-aim",
-      "type": "quiz",
-      "title": {
-        "ko": "확인 퀴즈: 조준",
-        "en": "Quiz: aiming"
-      },
-      "questions": [
-        {
-          "id": "q3-1",
-          "kind": "code",
-          "prompt": {
-            "ko": "위쪽 화살표를 누르면 대포가 **위로** 5도 들리게 하려면 ? 에 무엇을 넣을까요?",
-            "en": "To lift the cannon **up** 5 degrees, what goes in the ? ?"
-          },
-          "blocks": {
-            "ko": "[위쪽 화살표 v] 키를 눌렀을 때\n[각도 v] 을\\(를\\) (?) 만큼 바꾸기\n(각도) 도 방향 보기",
-            "en": "when [up arrow v] key pressed\nchange [angle v] by (?)\npoint in direction (angle)"
-          },
-          "options": [
-            {
-              "ko": "90",
-              "en": "90"
-            },
-            {
-              "ko": "0",
-              "en": "0"
-            },
-            {
-              "ko": "5",
-              "en": "5"
-            },
-            {
-              "ko": "-5",
-              "en": "-5"
-            }
-          ],
-          "answer": 3,
-          "hint": {
-            "ko": "각도기에서 위쪽으로 갈수록 숫자가 커지나요, 작아지나요?",
-            "en": "On the protractor, do numbers grow or shrink going up?"
-          },
-          "explain": {
-            "ko": "위로 갈수록 숫자가 작아져서 -5예요.",
-            "en": "Numbers shrink going up, so -5."
-          }
-        },
-        {
-          "id": "q3-2",
-          "kind": "predict",
-          "prompt": {
-            "ko": "친구가 위쪽 화살표 스크립트를 이렇게 만들었어요. 위쪽 화살표를 누르면?",
-            "en": "A friend built the up-arrow script like this. What happens when you press up?"
-          },
-          "blocks": {
-            "ko": "[위쪽 화살표 v] 키를 눌렀을 때\n[각도 v] 을\\(를\\) (5) 만큼 바꾸기\n(각도) 도 방향 보기",
-            "en": "when [up arrow v] key pressed\nchange [angle v] by (5)\npoint in direction (angle)"
-          },
-          "options": [
-            {
-              "ko": "대포가 사라진다",
-              "en": "The cannon disappears"
-            },
-            {
-              "ko": "대포가 위로 들린다",
-              "en": "The cannon tilts up"
-            },
-            {
-              "ko": "대포가 아래로 내려간다",
-              "en": "The cannon tilts down"
-            },
-            {
-              "ko": "아무 일도 없다",
-              "en": "Nothing happens"
-            }
-          ],
-          "answer": 2,
-          "hint": {
-            "ko": "숫자가 커지면 대포는 각도기에서 어느 쪽으로 가나요?",
-            "en": "When the number grows, which way does the cannon move?"
-          },
-          "explain": {
-            "ko": "+5를 하면 숫자가 커져서 아래로 돌아요.",
-            "en": "+5 makes the number bigger, so it turns down."
-          }
-        },
-        {
-          "id": "q3-3",
-          "kind": "predict",
-          "prompt": {
-            "ko": "아래쪽 화살표를 **여러 번** 누르면 어떻게 될까요?",
-            "en": "What happens if you press the down arrow **many times**?"
-          },
-          "blocks": {
-            "ko": "[아래쪽 화살표 v] 키를 눌렀을 때\n[각도 v] 을\\(를\\) (5) 만큼 바꾸기\n(95) 도 방향 보기",
-            "en": "when [down arrow v] key pressed\nchange [angle v] by (5)\npoint in direction (95)"
-          },
-          "options": [
-            {
-              "ko": "대포가 계속 내려간다",
-              "en": "The cannon keeps going down"
-            },
-            {
-              "ko": "각도 숫자는 바뀌지만 대포는 늘 95도를 본다",
-              "en": "angle changes, but the cannon always faces 95"
-            },
-            {
-              "ko": "각도 숫자도 안 바뀐다",
-              "en": "angle doesn't change either"
-            },
-            {
-              "ko": "대포가 위로 간다",
-              "en": "The cannon goes up"
-            }
-          ],
-          "answer": 1,
-          "hint": {
-            "ko": "세 번째 블록의 방향 칸에 무엇이 들어 있는지 보세요.",
-            "en": "Look at what's in the third block's slot."
-          },
-          "explain": {
-            "ko": "방향 칸에 `각도`가 아니라 95가 있어서 대포는 늘 95를 봐요.",
-            "en": "The slot says 95, not `angle`, so it always faces 95."
-          }
-        },
-        {
-          "id": "q3-4",
-          "kind": "predict",
-          "prompt": {
-            "ko": "위쪽 화살표 스크립트에서 `(각도) 도 방향 보기`를 뺐어요. 깃발을 누르고 위쪽 화살표를 2번 누른 뒤 쏘면?",
-            "en": "The `point in direction (angle)` block was removed from the up-arrow script. After the flag, press up twice and fire. What happens?"
-          },
-          "blocks": {
-            "ko": "[위쪽 화살표 v] 키를 눌렀을 때\n[각도 v] 을\\(를\\) (-5) 만큼 바꾸기\n(각도) 말하기",
-            "en": "when [up arrow v] key pressed\nchange [angle v] by (-5)\nsay (angle)"
-          },
-          "options": [
-            {
-              "ko": "대포와 포탄 모두 오른쪽(90)으로",
-              "en": "Cannon and cannonball both face right (90)"
-            },
-            {
-              "ko": "대포와 포탄 모두 80 쪽으로",
-              "en": "Cannon and cannonball both face 80"
-            },
-            {
-              "ko": "대포는 오른쪽을 보는데 포탄은 80 쪽으로 날아간다",
-              "en": "The cannon faces right, but the cannonball flies toward 80"
-            },
-            {
-              "ko": "아무것도 날아가지 않는다",
-              "en": "Nothing flies"
-            }
-          ],
-          "answer": 2,
-          "hint": {
-            "ko": "`각도` 값은 바뀌었을까요? 포탄은 무엇을 보고 방향을 정하나요?",
-            "en": "Did `angle` change? What does the cannonball use to pick its direction?"
-          },
-          "explain": {
-            "ko": "`각도`는 80이 되지만 대포는 방향 블록이 없어 그대로예요. 포탄은 `각도`를 읽으니 80 쪽으로 날아가요.",
-            "en": "`angle` becomes 80, but without the direction block the cannon doesn't turn. The cannonball reads `angle`, so it flies toward 80."
-          }
-        }
-      ]
-    },
-    {
       "key": "s12-ball-ready",
       "title": {
         "ko": "포탄 준비",
@@ -1474,54 +1280,93 @@
       ]
     },
     {
-      "key": "q4-fire",
+      "key": "q3-aim",
       "type": "quiz",
       "title": {
-        "ko": "확인 퀴즈: 발사",
-        "en": "Quiz: firing"
+        "ko": "확인 퀴즈: 조준과 발사",
+        "en": "Quiz: aiming and firing"
       },
       "questions": [
         {
-          "id": "q4-1",
+          "id": "q3-1",
           "kind": "code",
           "prompt": {
-            "ko": "포탄이 대포에서 출발하려면 ? 에 무엇을 골라야 할까요?",
-            "en": "For the cannonball to start at the cannon, what goes in the ? ?"
+            "ko": "위쪽 화살표를 누르면 대포가 **위로** 5도 들리게 하려면 ? 에 무엇을 넣을까요?",
+            "en": "To lift the cannon **up** 5 degrees, what goes in the ? ?"
           },
           "blocks": {
-            "ko": "[스페이스 v] 키를 눌렀을 때\n[? v] \\(으\\)로 이동하기\n(각도) 도 방향 보기\n보이기",
-            "en": "when [space v] key pressed\ngo to [? v]\npoint in direction (angle)\nshow"
+            "ko": "[위쪽 화살표 v] 키를 눌렀을 때\n[각도 v] 을\\(를\\) (?) 만큼 바꾸기\n(각도) 도 방향 보기",
+            "en": "when [up arrow v] key pressed\nchange [angle v] by (?)\npoint in direction (angle)"
           },
           "options": [
             {
-              "ko": "목표",
-              "en": "목표 (target)"
+              "ko": "90",
+              "en": "90"
             },
             {
-              "ko": "마우스 포인터",
-              "en": "mouse-pointer"
+              "ko": "0",
+              "en": "0"
             },
             {
-              "ko": "무작위 위치",
-              "en": "random position"
+              "ko": "5",
+              "en": "5"
             },
             {
-              "ko": "대포",
-              "en": "대포 (cannon)"
+              "ko": "-5",
+              "en": "-5"
             }
           ],
           "answer": 3,
           "hint": {
-            "ko": "포탄은 어디에서 출발해야 할까요?",
-            "en": "Where should the cannonball start from?"
+            "ko": "각도기에서 위쪽으로 갈수록 숫자가 커지나요, 작아지나요?",
+            "en": "On the protractor, do numbers grow or shrink going up?"
           },
           "explain": {
-            "ko": "대포 자리로 가야 대포에서 쏜 것처럼 보여요.",
-            "en": "It must go to the cannon to look fired from it."
+            "ko": "위로 갈수록 숫자가 작아져서 -5예요.",
+            "en": "Numbers shrink going up, so -5."
           }
         },
         {
-          "id": "q4-2",
+          "id": "q3-2",
+          "kind": "predict",
+          "prompt": {
+            "ko": "위쪽 화살표 스크립트에서 `(각도) 도 방향 보기`를 뺐어요. 깃발을 누르고 위쪽 화살표를 2번 누른 뒤 쏘면?",
+            "en": "The `point in direction (angle)` block was removed from the up-arrow script. After the flag, press up twice and fire. What happens?"
+          },
+          "blocks": {
+            "ko": "[위쪽 화살표 v] 키를 눌렀을 때\n[각도 v] 을\\(를\\) (-5) 만큼 바꾸기\n(각도) 말하기",
+            "en": "when [up arrow v] key pressed\nchange [angle v] by (-5)\nsay (angle)"
+          },
+          "options": [
+            {
+              "ko": "대포와 포탄 모두 오른쪽(90)으로",
+              "en": "Cannon and cannonball both face right (90)"
+            },
+            {
+              "ko": "대포와 포탄 모두 80 쪽으로",
+              "en": "Cannon and cannonball both face 80"
+            },
+            {
+              "ko": "대포는 오른쪽을 보는데 포탄은 80 쪽으로 날아간다",
+              "en": "The cannon faces right, but the cannonball flies toward 80"
+            },
+            {
+              "ko": "아무것도 날아가지 않는다",
+              "en": "Nothing flies"
+            }
+          ],
+          "answer": 2,
+          "hint": {
+            "ko": "`각도` 값은 바뀌었을까요? 포탄은 무엇을 보고 방향을 정하나요?",
+            "en": "Did `angle` change? What does the cannonball use to pick its direction?"
+          },
+          "explain": {
+            "ko": "`각도`는 80이 되지만 대포는 방향 블록이 없어 그대로예요. 포탄은 `각도`를 읽으니 80 쪽으로 날아가요.",
+            "en": "`angle` becomes 80, but without the direction block the cannon doesn't turn. The cannonball reads `angle`, so it flies toward 80."
+          }
+        },
+        {
+          "id": "q3-3",
           "kind": "predict",
           "prompt": {
             "ko": "이 블록대로 날아가면 포탄은 모두 몇 걸음을 움직일까요?",
@@ -1560,7 +1405,7 @@
           }
         },
         {
-          "id": "q4-3",
+          "id": "q3-4",
           "kind": "predict",
           "prompt": {
             "ko": "마지막의 `숨기기`를 빠뜨렸어요. 쏘면 어떻게 될까요?",
@@ -2642,15 +2487,15 @@
     {
       "key": "s23-shots",
       "title": {
-        "ko": "발사 수 세기",
-        "en": "Count your shots"
+        "ko": "선택: 발사 수 세기",
+        "en": "Optional: count your shots"
       },
       "content": [
         {
           "type": "text",
           "value": {
-            "ko": "몇 발 쐈는지 세어 봐요. 변수 `발사`를 만드세요(모든 스프라이트에서 사용).\n\n- 0으로 정하기는 대포의 깃발 스크립트에\n- 1씩 올리기는 쏠 때마다 실행되는 곳에",
-            "en": "Count your shots. Make a variable `shots` (For all sprites).\n\n- Set it to 0 in the cannon's flag script\n- Add 1 wherever firing happens"
+            "ko": "**선택 단계예요.** 건너뛰어도 돼요.\n\n몇 발 쐈는지 세어 봐요. 변수 `발사`를 만드세요(모든 스프라이트에서 사용).\n\n- 0으로 정하기는 대포의 깃발 스크립트에\n- 1씩 올리기는 쏠 때마다 실행되는 곳에",
+            "en": "**This step is optional.** You can skip it.\n\nCount your shots. Make a variable `shots` (For all sprites).\n\n- Set it to 0 in the cannon's flag script\n- Add 1 wherever firing happens"
           }
         },
         {
@@ -2667,59 +2512,6 @@
             "en": "**Check**: Click the flag, press space, and press it again after the cannonball disappears. Is `shots` 2?\n\nWhat would happen if the flag didn't set `shots` to 0?"
           }
         }
-      ],
-      "checks": [
-        {
-          "type": "static",
-          "rule": "variableExists",
-          "kind": "variable",
-          "name": {
-            "ko": "발사",
-            "en": "shots"
-          }
-        },
-        {
-          "type": "dynamic",
-          "actions": [
-            {
-              "do": "greenFlag"
-            },
-            {
-              "do": "wait",
-              "ms": 300
-            },
-            {
-              "do": "keyPress",
-              "key": " ",
-              "durationMs": 50
-            },
-            {
-              "do": "wait",
-              "ms": 2000
-            },
-            {
-              "do": "keyPress",
-              "key": " ",
-              "durationMs": 50
-            },
-            {
-              "do": "wait",
-              "ms": 300
-            }
-          ],
-          "expect": [
-            {
-              "target": "variable",
-              "name": {
-                "ko": "발사",
-                "en": "shots"
-              },
-              "op": "eq",
-              "value": 2
-            }
-          ],
-          "timeoutMs": 5000
-        }
       ]
     },
     {
@@ -2732,8 +2524,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "규칙: **쏘기 전에 각도를 어림하기.** 각도기로 어림 → 그 각도에 맞추기 → 쏘고, 빗나가면 고치기.\n\n결과는 명중, 위로 빗나감, 아래로 빗나감 중 하나로 적어요.\n\n| 발 | 과녁 | 쏜 각도 | 결과 | 다음 각도와 까닭 |\n| --- | --- | --- | --- | --- |\n| 1 | | | | |\n| 2 | | | | |\n| 3 | | | | |\n| 4 | | | | |\n| 5 | | | | |\n\n**🎯 포수 도전** (적게 쏘기)\n- 🥉 7발 안에 3개\n- 🥈 5발 안에 3개\n- 🥇 3발에 3개\n\n**🧠 설명 도전** (선생님이나 짝에게 말하기)\n1. 포탄이 대포와 같은 쪽으로 날아가는 까닭\n2. 명중 확인이 반복 안에 있어야 하는 까닭\n3. 깃발을 누르면 `발사`를 0으로 정하는 까닭",
-            "en": "Rule: **estimate before you fire.** Guess with the protractor → set that angle → fire, and adjust if you miss.\n\nWrite the result as hit, missed high, or missed low.\n\n| Shot | Target | Angle | Result | Next angle and why |\n| --- | --- | --- | --- | --- |\n| 1 | | | | |\n| 2 | | | | |\n| 3 | | | | |\n| 4 | | | | |\n| 5 | | | | |\n\n**🎯 Gunner challenge** (fewest shots)\n- 🥉 3 targets in 7 shots\n- 🥈 3 targets in 5 shots\n- 🥇 3 targets in 3 shots\n\n**🧠 Explain challenge** (tell your teacher or partner)\n1. Why the cannonball flies the same way as the cannon\n2. Why the hit check must be inside the loop\n3. Why the flag sets `shots` to 0"
+            "ko": "규칙: **쏘기 전에 각도를 어림하기.** 각도기로 어림 → 그 각도에 맞추기 → 쏘고, 빗나가면 고치기.\n\n결과는 명중, 위로 빗나감, 아래로 빗나감 중 하나로 적어요.\n\n| 발 | 과녁 | 쏜 각도 | 결과 | 다음 각도와 까닭 |\n| --- | --- | --- | --- | --- |\n| 1 | | | | |\n| 2 | | | | |\n| 3 | | | | |\n| 4 | | | | |\n| 5 | | | | |\n\n**🎯 포수 도전** (적게 쏘기)\n- 🥉 7발 안에 3개\n- 🥈 5발 안에 3개\n- 🥇 3발에 3개\n\n**🧠 설명 도전** (선생님이나 짝에게 말하기)\n1. 포탄이 대포와 같은 쪽으로 날아가는 까닭\n2. 명중 확인이 반복 안에 있어야 하는 까닭\n3. 깃발을 누르면 `명중`을 0으로 정하는 까닭",
+            "en": "Rule: **estimate before you fire.** Guess with the protractor → set that angle → fire, and adjust if you miss.\n\nWrite the result as hit, missed high, or missed low.\n\n| Shot | Target | Angle | Result | Next angle and why |\n| --- | --- | --- | --- | --- |\n| 1 | | | | |\n| 2 | | | | |\n| 3 | | | | |\n| 4 | | | | |\n| 5 | | | | |\n\n**🎯 Gunner challenge** (fewest shots)\n- 🥉 3 targets in 7 shots\n- 🥈 3 targets in 5 shots\n- 🥇 3 targets in 3 shots\n\n**🧠 Explain challenge** (tell your teacher or partner)\n1. Why the cannonball flies the same way as the cannon\n2. Why the hit check must be inside the loop\n3. Why the flag sets `hits` to 0"
           }
         },
         {
@@ -2792,45 +2584,53 @@
           "id": "q6-2",
           "kind": "choice",
           "prompt": {
-            "ko": "오늘 만든 변수가 **아닌** 것은?",
-            "en": "Which is **not** a variable we made today?"
+            "ko": "다음 중 우리가 **변수로 만든** 것은?",
+            "en": "Which of these is a variable **we made**?"
           },
           "options": [
             {
-              "ko": "발사",
-              "en": "shots"
-            },
-            {
               "ko": "방향",
               "en": "direction"
+            },
+            {
+              "ko": "x좌표",
+              "en": "x position"
             },
             {
               "ko": "각도",
               "en": "angle"
             },
             {
-              "ko": "명중",
-              "en": "hits"
+              "ko": "크기",
+              "en": "size"
             }
           ],
-          "answer": 1,
+          "answer": 2,
           "hint": {
-            "ko": "변수 묶음에 내가 직접 만든 이름들을 떠올려 보세요.",
-            "en": "Think of the names you made in Variables."
+            "ko": "**변수** 묶음에서 '변수 만들기'로 만든 이름을 떠올려 보세요.",
+            "en": "Think of names you made with 'Make a Variable'."
           },
           "explain": {
-            "ko": "`방향`은 스크래치에 원래 있어요. 만든 변수는 각도, 명중, 발사예요.",
-            "en": "`direction` is built in. We made angle, hits and shots."
+            "ko": "`각도`는 우리가 만든 변수예요. 방향, x좌표, 크기는 스크래치에 원래 있어요.",
+            "en": "`angle` is our variable. Direction, x position and size are built into Scratch."
           }
         },
         {
           "id": "q6-3",
           "kind": "choice",
           "prompt": {
-            "ko": "깃발을 누를 때 `발사`를 0으로 정하는 까닭은?",
-            "en": "Why does the flag set `shots` to 0?"
+            "ko": "깃발을 누를 때 `명중`을 0으로 정하는 까닭은?",
+            "en": "Why does the flag set `hits` to 0?"
           },
           "options": [
+            {
+              "ko": "과녁을 숨기려고",
+              "en": "To hide the target"
+            },
+            {
+              "ko": "과녁이 첫 자리로 가게 하려고",
+              "en": "To move the target to its first spot"
+            },
             {
               "ko": "대포가 오른쪽을 보게 하려고",
               "en": "To make the cannon face right"
@@ -2838,24 +2638,16 @@
             {
               "ko": "새 게임마다 처음부터 세려고",
               "en": "To count from zero in every new game"
-            },
-            {
-              "ko": "포탄을 숨기려고",
-              "en": "To hide the cannonball"
-            },
-            {
-              "ko": "발사 소리를 끄려고",
-              "en": "To turn off the firing sound"
             }
           ],
-          "answer": 1,
+          "answer": 3,
           "hint": {
-            "ko": "0으로 정하지 않고 게임을 두 번 하면 `발사`는 어떻게 될까요?",
-            "en": "If you play twice without resetting, what happens to `shots`?"
+            "ko": "0으로 정하지 않고 게임을 두 번 하면 `명중`은 어떻게 될까요?",
+            "en": "If you play twice without resetting, what happens to `hits`?"
           },
           "explain": {
-            "ko": "정하지 않으면 지난 게임의 발사 수에 이어서 세요.",
-            "en": "Without the reset, it keeps counting from the last game."
+            "ko": "정하지 않으면 지난 게임의 명중 수에 이어서 세고, 과녁도 엉뚱한 자리에서 시작해요.",
+            "en": "Without the reset, it keeps counting from the last game and the target starts in the wrong spot."
           }
         },
         {
