@@ -275,46 +275,12 @@
             },
             {
               "label": {
-                "ko": "실제",
+                "ko": "해 보니",
                 "en": "Result"
               },
               "input": true,
-              "kind": "select",
-              "options": [
-                {
-                  "ko": "위",
-                  "en": "Up"
-                },
-                {
-                  "ko": "오른쪽 위",
-                  "en": "Up-right"
-                },
-                {
-                  "ko": "오른쪽",
-                  "en": "Right"
-                },
-                {
-                  "ko": "오른쪽 아래",
-                  "en": "Down-right"
-                },
-                {
-                  "ko": "아래",
-                  "en": "Down"
-                },
-                {
-                  "ko": "왼쪽 아래",
-                  "en": "Down-left"
-                },
-                {
-                  "ko": "왼쪽",
-                  "en": "Left"
-                },
-                {
-                  "ko": "왼쪽 위",
-                  "en": "Up-left"
-                }
-              ],
-              "requires": 1
+              "kind": "verify",
+              "of": 1
             }
           ],
           "rows": [
@@ -538,12 +504,12 @@
             },
             {
               "label": {
-                "ko": "실제 각도",
-                "en": "angle"
+                "ko": "해 보니",
+                "en": "Result"
               },
               "input": true,
-              "kind": "number",
-              "requires": 1
+              "kind": "verify",
+              "of": 1
             }
           ],
           "rows": [
@@ -1656,26 +1622,12 @@
             },
             {
               "label": {
-                "ko": "어디까지?",
-                "en": "Reached"
+                "ko": "해 보니",
+                "en": "Result"
               },
               "input": true,
-              "kind": "select",
-              "options": [
-                {
-                  "ko": "무대 왼쪽",
-                  "en": "Left side"
-                },
-                {
-                  "ko": "무대 가운데",
-                  "en": "Middle"
-                },
-                {
-                  "ko": "무대 오른쪽 끝",
-                  "en": "Right edge"
-                }
-              ],
-              "requires": 2
+              "kind": "verify",
+              "of": 2
             }
           ],
           "rows": [
@@ -4022,6 +3974,103 @@
             "en": "`fall` grows each frame: -0.1, -0.2, -0.3 … The ball drops a little at first and more later, so the path bends.\n\n- Why does adding only `change y by -1` make a slanted straight line instead of a curve?\n- Hit all three targets with the falling ball. How did the angles change from the straight version?\n\n**Undo**: To get the original game back, remove the three blocks you added (`set fall`, `change fall`, `change y`)."
           }
         }
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "key": "c1",
+      "title": {
+        "ko": "이야기",
+        "en": "Story"
+      },
+      "steps": [
+        "s01-story-cannon",
+        "s02-story-angle",
+        "s03-story-pirates"
+      ]
+    },
+    {
+      "key": "c2",
+      "title": {
+        "ko": "방향과 변수",
+        "en": "Direction and variables"
+      },
+      "steps": [
+        "s04-direction",
+        "s05-cannon-dance",
+        "s06-angle-variable",
+        "s07-variable-play",
+        "q1-direction"
+      ]
+    },
+    {
+      "key": "c3",
+      "title": {
+        "ko": "조준",
+        "en": "Aiming"
+      },
+      "steps": [
+        "s08-ready",
+        "s09-up",
+        "s10-down",
+        "s11-say-angle"
+      ]
+    },
+    {
+      "key": "c4",
+      "title": {
+        "ko": "발사",
+        "en": "Firing"
+      },
+      "steps": [
+        "s12-ball-ready",
+        "s13-fly",
+        "s14-sound",
+        "s15-flash",
+        "s16-range",
+        "q3-aim",
+        "s17-five-degrees"
+      ]
+    },
+    {
+      "key": "c5",
+      "title": {
+        "ko": "명중",
+        "en": "Hits"
+      },
+      "steps": [
+        "s18-target-ready",
+        "s18a-touching",
+        "s18b-if-say",
+        "s19-hit",
+        "s20-next-spot",
+        "s21-boom",
+        "s22-three-targets",
+        "q5-hit"
+      ]
+    },
+    {
+      "key": "c6",
+      "title": {
+        "ko": "마무리",
+        "en": "Wrap-up"
+      },
+      "steps": [
+        "s23-shots",
+        "s24-gunner-test",
+        "q6-wrap"
+      ]
+    },
+    {
+      "key": "c7",
+      "title": {
+        "ko": "더 해 보기",
+        "en": "Go further"
+      },
+      "steps": [
+        "s25-missions",
+        "s26-curve"
       ]
     }
   ]

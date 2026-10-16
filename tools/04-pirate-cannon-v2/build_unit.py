@@ -342,7 +342,8 @@ def to_record(step_key, block):
         out.append(text(ko[2], en[2]))
     return out
 
-# 탐색 스텝의 표는 줄을 3개로 줄이고 "실제" 칸을 채점한다. 방향과 위치는 보기에서 고르고, 각도는 숫자로 적는다.
+# 탐색 스텝의 표는 줄을 3개로 줄이고 결과를 채점한다. 예상(방향·위치는 보기, 각도는 숫자)을 적은 뒤 해 보고
+# [맞았어요] / [달랐어요]를 누른다. 달랐을 때만 실제 값을 적는다. 채점은 최종 값(맞았으면 예상, 달랐으면 실제)으로 한다.
 DIRS = [L("위", "Up"), L("오른쪽 위", "Up-right"), L("오른쪽", "Right"), L("오른쪽 아래", "Down-right"),
         L("아래", "Down"), L("왼쪽 아래", "Down-left"), L("왼쪽", "Left"), L("왼쪽 위", "Up-left")]
 SPOTS = [L("무대 왼쪽", "Left side"), L("무대 가운데", "Middle"), L("무대 오른쪽 끝", "Right edge")]
@@ -351,7 +352,7 @@ RECORD_SPEC = {
     "s04-direction": {
         "columns": [col("숫자", "Number"),
                     col("내 예상", "Guess", input=True, kind="select", options=DIRS),
-                    col("실제", "Result", input=True, kind="select", options=DIRS, requires=1)],
+                    col("해 보니", "Result", input=True, kind="verify", of=1)],
         # 위 그림(direction.png)에 없는 방향을 고른다 (그림에 있는 45, 90, -90은 답이 보이므로)
         "rows": [[L("135", "135"), None, {"answer": 3}],
                  [L("180", "180"), None, {"answer": 4}],
@@ -360,7 +361,7 @@ RECORD_SPEC = {
     "s07-variable-play": {
         "columns": [col("할 일", "Action"),
                     col("내 예상", "Guess", input=True, kind="number"),
-                    col("실제 각도", "angle", input=True, kind="number", requires=1)],
+                    col("해 보니", "Result", input=True, kind="verify", of=1)],
         "rows": [[L("`90로 정하기` 클릭", "Click `set to 90`"), None, {"answer": 90}],
                  [L("`10만큼 바꾸기` 3번 클릭", "Click `change by 10` three times"), None, {"answer": 120}],
                  [L("숫자를 `-20`으로 고쳐 1번 클릭", "Make it `-20`, click once"), None, {"answer": 100}]],
@@ -369,7 +370,7 @@ RECORD_SPEC = {
         "intro": L("대포는 오른쪽(90)을 보게 두고 쏴요.", "Keep the cannon facing right (90) when you fire."),
         "columns": [col("반복", "Repeat"), col("걸음", "Steps"),
                     col("내 예상", "Guess", input=True, kind="select", options=SPOTS),
-                    col("어디까지?", "Reached", input=True, kind="select", options=SPOTS, requires=2)],
+                    col("해 보니", "Result", input=True, kind="verify", of=2)],
         "rows": [[L("20", "20"), L("10", "10"), None, {"answer": 1}],
                  [L("10", "10"), L("10", "10"), None, {"answer": 0}],
                  [L("20", "20"), L("20", "20"), None, {"answer": 2}]],
@@ -393,6 +394,23 @@ for key in RECORD_SPEC:
     S[key]["checks"] = [{"type": "record", "key": "record"}] + S[key].get("checks", [])
 
 unit["steps"] = [S[s["key"]] for s in v1["steps"]]
+
+# ---------------------------------------------------------------- 목차
+# 확인 퀴즈가 각 목차의 끝에 오도록 나눈다. 제출 스텝은 사이트가 맨 끝에 따로 붙인다.
+CHAPTERS = [
+    (L("이야기", "Story"), ["s01-story-cannon", "s02-story-angle", "s03-story-pirates"]),
+    (L("방향과 변수", "Direction and variables"),
+     ["s04-direction", "s05-cannon-dance", "s06-angle-variable", "s07-variable-play", "q1-direction"]),
+    (L("조준", "Aiming"), ["s08-ready", "s09-up", "s10-down", "s11-say-angle"]),
+    (L("발사", "Firing"), ["s12-ball-ready", "s13-fly", "s14-sound", "s15-flash", "s16-range", "q3-aim", "s17-five-degrees"]),
+    (L("명중", "Hits"), ["s18-target-ready", "s18a-touching", "s18b-if-say", "s19-hit", "s20-next-spot",
+                         "s21-boom", "s22-three-targets", "q5-hit"]),
+    (L("마무리", "Wrap-up"), ["s23-shots", "s24-gunner-test", "q6-wrap"]),
+    (L("더 해 보기", "Go further"), ["s25-missions", "s26-curve"]),
+]
+flat = [k for _, keys in CHAPTERS for k in keys]
+assert flat == [s["key"] for s in unit["steps"]], "목차가 스텝 순서와 다름"
+unit["chapters"] = [{"key": "c%d" % (i + 1), "title": title, "steps": keys} for i, (title, keys) in enumerate(CHAPTERS)]
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 with open(OUT, "w", encoding="utf-8", newline="\n") as f:
     json.dump(unit, f, ensure_ascii=False, indent=2)
@@ -445,7 +463,7 @@ sec2 = re.search(r"## 2\. 단계 구성\n.*?(?=\n## 3\.)", g, re.S)
 g = g[:sec2.start()] + (
     "## 2. 단계 구성\n\n"
     "스텝 키는 버전 1과 같다. 만들기 스텝은 목표 → 미리보기 GIF → 안내 → 해 보기 순서이고, "
-    "꾸미기 스텝(소리, 불꽃, 펑, 발사 수)도 채점한다. 탐색 스텝은 입력 표의 \"실제\" 칸을 채점하고"
+    "꾸미기 스텝(소리, 불꽃, 펑, 발사 수)도 채점한다. 탐색 스텝은 입력 표의 결과를 채점하고"
     "(s04, s07, s16), s16과 s17은 실험 뒤 복구했는지(반복 40번, 10걸음, 마지막 `숨기기`)도 확인한다. "
     "s17과 s18a는 입력 표가 없다.\n\n"
     + steps_md + "\n\n"
@@ -456,9 +474,10 @@ g = g[:sec2.start()] + (
     "깃발을 다시 눌렀을 때 처음 상태로 돌아오는지를 확인한다. 꾸미기나 실험에서 바꾼 것이 남아 있으면 "
     "여기서 걸린다.\n\n"
     "**입력 표**: " + ", ".join(RECORD_STEPS) + "의 표는 학생이 직접 적는 입력 표다. "
-    "\"내 예상\" 칸을 적어야 같은 줄의 결과 칸이 열린다(예상을 먼저 하게 하려는 것). "
-    "s04, s07, s16은 \"실제\" 칸이 모두 맞아야 통과한다(방향과 위치는 보기에서 고르고, 각도는 숫자로 적는다). "
-    "\"내 예상\" 칸은 채점하지 않는다. s24 기록표는 채점하지 않는다. "
+    "s04, s07, s16은 \"내 예상\"을 적은 뒤 블록을 눌러 보고 \"해 보니\" 칸에서 [맞았어요] 또는 [달랐어요]를 누른다. "
+    "달랐을 때만 실제 값을 고른다(같은 값을 두 번 적지 않게). 예상을 적어야 \"해 보니\" 칸이 열린다. "
+    "채점은 최종 값(맞았으면 예상, 달랐으면 실제 값)이 모두 맞아야 통과다. 예상이 틀린 것만으로는 실패하지 않는다. "
+    "s24 기록표는 채점하지 않는다. "
     "예상과 결과가 다른 줄을 골라 왜 달랐는지 말하게 하면 좋다.\n") + g[sec2.end():]
 secq = re.search(r"### 퀴즈 정답과 의도\n.*?(?=\n## 7\.)", g, re.S)
 g = g[:secq.start()] + (
