@@ -930,8 +930,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "포탄은 `각도` 값을 읽어서 대포와 같은 쪽을 봐요.\n\n`대포로 이동하기`의 '대포 자리'는 대포가 도는 중심(뒤쪽 둥근 부분)이에요. 포탄은 대포 뒤에 가려져 있다가 날아가면서 포구로 나와요.\n\n**확인**: 각도를 바꾸고 스페이스를 누른 뒤, 스프라이트 정보에서 포탄의 방향이 대포와 같고 '보이기'가 켜졌는지 보세요. (아직 날아가지 않아서 포탄은 대포에 가려 있어요)",
-            "en": "The cannonball reads `angle` to face the same way as the cannon.\n\n\"Go to 대포\" moves it to the point the cannon turns around (the round back end). The cannonball starts hidden behind the cannon and comes out of the muzzle as it flies.\n\n**Check**: Change the angle and press space. In the sprite info, is the cannonball's direction the same as the cannon's, with Show on? (It doesn't fly yet, so the cannon covers it.)"
+            "ko": "포탄은 `각도` 값을 읽어서 대포와 같은 쪽을 봐요.\n\n`대포로 이동하기`의 '대포 자리'는 대포가 도는 중심(뒤쪽 둥근 부분)이에요. 포탄은 대포보다 앞에 있어서 그 자리에 바로 보여요.\n\n**확인**: 각도를 바꾸고 스페이스를 누르세요. 포탄이 대포 뒤쪽 둥근 부분에 나타나나요? 스프라이트 정보에서 포탄의 방향이 대포와 같은지도 보세요. (아직 날아가지 않아요)",
+            "en": "The cannonball reads `angle` to face the same way as the cannon.\n\n\"Go to 대포\" moves it to the point the cannon turns around (the round back end). The cannonball is in front of the cannon, so you can see it there.\n\n**Check**: Change the angle and press space. Does the cannonball appear on the round back end of the cannon? In the sprite info, check that its direction matches the cannon's. (It doesn't fly yet.)"
           }
         }
       ],
