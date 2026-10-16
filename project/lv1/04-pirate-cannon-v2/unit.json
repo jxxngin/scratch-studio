@@ -177,10 +177,10 @@
         },
         {
           "type": "image",
-          "src": "media/stage-start.png",
+          "src": "media/s03-preview.gif",
           "alt": {
-            "ko": "오늘 쓸 무대: 해적선, 각도기, 과녁",
-            "en": "Today's stage: ship, protractor and target"
+            "ko": "완성한 게임: 화살표로 대포를 돌려 쏜 포탄이 과녁 3곳을 차례로 맞히고, 과녁이 다 맞혔다고 말한다",
+            "en": "The finished game: turn the cannon, hit the three targets in turn, and the target says you hit them all"
           }
         }
       ]
@@ -222,10 +222,79 @@
           }
         },
         {
+          "type": "record",
+          "key": "record",
+          "columns": [
+            {
+              "label": {
+                "ko": "숫자",
+                "en": "Number"
+              }
+            },
+            {
+              "label": {
+                "ko": "내 예상",
+                "en": "Guess"
+              },
+              "input": true
+            },
+            {
+              "label": {
+                "ko": "실제",
+                "en": "Result"
+              },
+              "input": true,
+              "requires": 1
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "0",
+                "en": "0"
+              },
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "45",
+                "en": "45"
+              },
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "180",
+                "en": "180"
+              },
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "135",
+                "en": "135"
+              },
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "-90",
+                "en": "-90"
+              },
+              null,
+              null
+            ]
+          ]
+        },
+        {
           "type": "text",
           "value": {
-            "ko": "| 숫자 | 내 예상 | 실제 |\n| --- | --- | --- |\n| 0 | | |\n| 45 | | |\n| 180 | | |\n| 135 | | |\n| -90 | | |\n\n배경의 각도기도 스크래치 방향 숫자예요. 이야기 속 포수의 각도는 수평에서 잰 것이라 기준이 달라요. 예를 들어 수평에서 30도 들린 대포는 스크래치 방향으로 60이에요.",
-            "en": "| Number | Guess | Result |\n| --- | --- | --- |\n| 0 | | |\n| 45 | | |\n| 180 | | |\n| 135 | | |\n| -90 | | |\n\nThe protractor in the backdrop shows Scratch directions. A gunner's angle is measured from level, so it starts somewhere else. A cannon raised 30° from level has Scratch direction 60."
+            "ko": "배경의 각도기도 스크래치 방향 숫자예요. 이야기 속 포수의 각도는 수평에서 잰 것이라 기준이 달라요. 예를 들어 수평에서 30도 들린 대포는 스크래치 방향으로 60이에요.",
+            "en": "The protractor in the backdrop shows Scratch directions. A gunner's angle is measured from level, so it starts somewhere else. A cannon raised 30° from level has Scratch direction 60."
           }
         }
       ]
@@ -379,8 +448,76 @@
         {
           "type": "text",
           "value": {
-            "ko": "먼저 예상하고 눌러요.\n\n| 할 일 | 내 예상 | 실제 각도 |\n| --- | --- | --- |\n| `90로 정하기` 클릭 | | |\n| `10만큼 바꾸기` 3번 클릭 | | |\n| 숫자를 `-20`으로 고쳐 1번 클릭 | | |\n| `90로 정하기` 다시 클릭 | | |\n\n`정하기`는 값을 바꿔 넣고, `바꾸기`는 지금 값에 더해요.\n\n**정리**: 다 해 보면 꺼낸 블록 두 개를 지우세요. 남겨 두고 실수로 누르면 `각도`만 바뀌고 대포는 그대로라서 헷갈려요.",
-            "en": "Guess first, then click.\n\n| Action | Guess | angle |\n| --- | --- | --- |\n| Click `set to 90` | | |\n| Click `change by 10` three times | | |\n| Make it `-20`, click once | | |\n| Click `set to 90` again | | |\n\n`set` replaces the value; `change` adds to it.\n\n**Clean up**: Delete both blocks when done. If you click one by mistake later, `angle` changes but the cannon doesn't, which is confusing."
+            "ko": "먼저 예상하고 눌러요.",
+            "en": "Guess first, then click."
+          }
+        },
+        {
+          "type": "record",
+          "key": "record",
+          "columns": [
+            {
+              "label": {
+                "ko": "할 일",
+                "en": "Action"
+              }
+            },
+            {
+              "label": {
+                "ko": "내 예상",
+                "en": "Guess"
+              },
+              "input": true
+            },
+            {
+              "label": {
+                "ko": "실제 각도",
+                "en": "angle"
+              },
+              "input": true,
+              "requires": 1
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "`90로 정하기` 클릭",
+                "en": "Click `set to 90`"
+              },
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "`10만큼 바꾸기` 3번 클릭",
+                "en": "Click `change by 10` three times"
+              },
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "숫자를 `-20`으로 고쳐 1번 클릭",
+                "en": "Make it `-20`, click once"
+              },
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "`90로 정하기` 다시 클릭",
+                "en": "Click `set to 90` again"
+              },
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "`정하기`는 값을 바꿔 넣고, `바꾸기`는 지금 값에 더해요.\n\n**정리**: 다 해 보면 꺼낸 블록 두 개를 지우세요. 남겨 두고 실수로 누르면 `각도`만 바뀌고 대포는 그대로라서 헷갈려요.",
+            "en": "`set` replaces the value; `change` adds to it.\n\n**Clean up**: Delete both blocks when done. If you click one by mistake later, `angle` changes but the cannon doesn't, which is confusing."
           }
         }
       ]
@@ -1332,8 +1469,115 @@
         {
           "type": "text",
           "value": {
-            "ko": "날아가는 거리는 **반복 횟수 × 걸음 수**예요. 바꿔 가며 쏴 보세요.\n\n| 반복 | 걸음 | 내 예상 | 어디까지? |\n| --- | --- | --- | --- |\n| 40 | 10 | 오른쪽 끝 근처 | |\n| 20 | 10 | | |\n| 10 | 10 | | |\n| 20 | 20 | | |\n| 80 | 5 | | |\n\n- 20 × 20과 40 × 10은 거리가 같아요. 뭐가 다를까요?\n- 한 번에 50걸음씩 가면 과녁을 건너뛸 수 있어요. 왜일까요?\n\n끝나면 **40번, 10걸음**으로 되돌려 놓으세요.",
-            "en": "Distance is **repeat count × steps**. Change them and fire.\n\n| Repeat | Steps | Guess | Reached |\n| --- | --- | --- | --- |\n| 40 | 10 | near the right edge | |\n| 20 | 10 | | |\n| 10 | 10 | | |\n| 20 | 20 | | |\n| 80 | 5 | | |\n\n- 20 × 20 and 40 × 10 go the same distance. What's different?\n- 50 steps at a time can skip over the target. Why?\n\nSet it back to **40 and 10** when done."
+            "ko": "날아가는 거리는 **반복 횟수 × 걸음 수**예요. 바꿔 가며 쏴 보세요.",
+            "en": "Distance is **repeat count × steps**. Change them and fire."
+          }
+        },
+        {
+          "type": "record",
+          "key": "record",
+          "columns": [
+            {
+              "label": {
+                "ko": "반복",
+                "en": "Repeat"
+              }
+            },
+            {
+              "label": {
+                "ko": "걸음",
+                "en": "Steps"
+              }
+            },
+            {
+              "label": {
+                "ko": "내 예상",
+                "en": "Guess"
+              },
+              "input": true
+            },
+            {
+              "label": {
+                "ko": "어디까지?",
+                "en": "Reached"
+              },
+              "input": true,
+              "requires": 2
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "40",
+                "en": "40"
+              },
+              {
+                "ko": "10",
+                "en": "10"
+              },
+              {
+                "placeholder": {
+                  "ko": "오른쪽 끝 근처",
+                  "en": "near the right edge"
+                }
+              },
+              null
+            ],
+            [
+              {
+                "ko": "20",
+                "en": "20"
+              },
+              {
+                "ko": "10",
+                "en": "10"
+              },
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "10",
+                "en": "10"
+              },
+              {
+                "ko": "10",
+                "en": "10"
+              },
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "20",
+                "en": "20"
+              },
+              {
+                "ko": "20",
+                "en": "20"
+              },
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "80",
+                "en": "80"
+              },
+              {
+                "ko": "5",
+                "en": "5"
+              },
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "- 20 × 20과 40 × 10은 거리가 같아요. 뭐가 다를까요?\n- 한 번에 50걸음씩 가면 과녁을 건너뛸 수 있어요. 왜일까요?\n\n끝나면 **40번, 10걸음**으로 되돌려 놓으세요.",
+            "en": "- 20 × 20 and 40 × 10 go the same distance. What's different?\n- 50 steps at a time can skip over the target. Why?\n\nSet it back to **40 and 10** when done."
           }
         }
       ],
@@ -2675,8 +2919,107 @@
         {
           "type": "text",
           "value": {
-            "ko": "규칙: **쏘기 전에 각도를 어림하기.** 각도기로 어림 → 그 각도에 맞추기 → 쏘고, 빗나가면 고치기.\n\n결과는 명중, 위로 빗나감, 아래로 빗나감 중 하나로 적어요.\n\n| 발 | 과녁 | 쏜 각도 | 결과 | 다음 각도와 까닭 |\n| --- | --- | --- | --- | --- |\n| 1 | | | | |\n| 2 | | | | |\n| 3 | | | | |\n| 4 | | | | |\n| 5 | | | | |\n\n**🎯 포수 도전** (적게 쏘기)\n- 🥉 7발 안에 3개\n- 🥈 5발 안에 3개\n- 🥇 3발에 3개\n\n**🧠 설명 도전** (선생님이나 짝에게 말하기)\n1. 포탄이 대포와 같은 쪽으로 날아가는 까닭\n2. 명중 확인이 반복 안에 있어야 하는 까닭\n3. 깃발을 누르면 `명중`을 0으로 정하는 까닭",
-            "en": "Rule: **estimate before you fire.** Guess with the protractor → set that angle → fire, and adjust if you miss.\n\nWrite the result as hit, missed high, or missed low.\n\n| Shot | Target | Angle | Result | Next angle and why |\n| --- | --- | --- | --- | --- |\n| 1 | | | | |\n| 2 | | | | |\n| 3 | | | | |\n| 4 | | | | |\n| 5 | | | | |\n\n**🎯 Gunner challenge** (fewest shots)\n- 🥉 3 targets in 7 shots\n- 🥈 3 targets in 5 shots\n- 🥇 3 targets in 3 shots\n\n**🧠 Explain challenge** (tell your teacher or partner)\n1. Why the cannonball flies the same way as the cannon\n2. Why the hit check must be inside the loop\n3. Why the flag sets `hits` to 0"
+            "ko": "규칙: **쏘기 전에 각도를 어림하기.** 각도기로 어림 → 그 각도에 맞추기 → 쏘고, 빗나가면 고치기.\n\n결과는 명중, 위로 빗나감, 아래로 빗나감 중 하나로 적어요.",
+            "en": "Rule: **estimate before you fire.** Guess with the protractor → set that angle → fire, and adjust if you miss.\n\nWrite the result as hit, missed high, or missed low."
+          }
+        },
+        {
+          "type": "record",
+          "key": "record",
+          "columns": [
+            {
+              "label": {
+                "ko": "발",
+                "en": "Shot"
+              }
+            },
+            {
+              "label": {
+                "ko": "과녁",
+                "en": "Target"
+              },
+              "input": true
+            },
+            {
+              "label": {
+                "ko": "쏜 각도",
+                "en": "Angle"
+              },
+              "input": true
+            },
+            {
+              "label": {
+                "ko": "결과",
+                "en": "Result"
+              },
+              "input": true
+            },
+            {
+              "label": {
+                "ko": "다음 각도와 까닭",
+                "en": "Next angle and why"
+              },
+              "input": true
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "1",
+                "en": "1"
+              },
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "2",
+                "en": "2"
+              },
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "3",
+                "en": "3"
+              },
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "4",
+                "en": "4"
+              },
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              {
+                "ko": "5",
+                "en": "5"
+              },
+              null,
+              null,
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**🎯 포수 도전** (적게 쏘기)\n- 🥉 7발 안에 3개\n- 🥈 5발 안에 3개\n- 🥇 3발에 3개\n\n**🧠 설명 도전** (선생님이나 짝에게 말하기)\n1. 포탄이 대포와 같은 쪽으로 날아가는 까닭\n2. 명중 확인이 반복 안에 있어야 하는 까닭\n3. 깃발을 누르면 `명중`을 0으로 정하는 까닭",
+            "en": "**🎯 Gunner challenge** (fewest shots)\n- 🥉 3 targets in 7 shots\n- 🥈 3 targets in 5 shots\n- 🥇 3 targets in 3 shots\n\n**🧠 Explain challenge** (tell your teacher or partner)\n1. Why the cannonball flies the same way as the cannon\n2. Why the hit check must be inside the loop\n3. Why the flag sets `hits` to 0"
           }
         },
         {

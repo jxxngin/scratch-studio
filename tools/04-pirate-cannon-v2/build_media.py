@@ -183,6 +183,25 @@ class Scene:
 
 CLICK = (-160, -64)
 
+# s03 오늘 만들 게임: 완성작 전체 (조준 → 발사 → 명중 → 과녁 이동 → 승리)
+s = Scene(vars={"각도": 90, "명중": 0})
+s.snap(600)
+s.press("↑", 9, -5)
+s.fire(end_hold=250)
+s.set(target=TARGETS[1])
+s.snap(350)
+s.press("↓", 3, 5)
+s.fire(end_hold=250)
+s.set(target=TARGETS[2])
+s.snap(350)
+s.press("↓", 3, 5)
+s.fire(end_hold=100)
+s.set(say="과녁 3개를 모두 맞혔어요!")
+s.snap(1600)
+s.set(say=None, target=None)
+s.snap(900)
+s.save("s03-preview.gif")
+
 # s05 대포 체조: 클릭하면 0 → 45 → 90 → 180 → 90
 s = Scene()
 s.snap(700, cursor=CLICK)

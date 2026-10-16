@@ -188,6 +188,14 @@ s18b["value"] = L("명중", "Hit")
 S["s22-three-targets"]["checks"] = [
     dyn(HIT3 + wait(4200), [var_is(HITS, 3), spr("과녁", "visible", "eq", False)], 16000)]
 
+# ---------------------------------------------------------------- 오늘 만들 게임: 완성작 미리보기
+# 만들기를 시작하기 전에 완성한 게임이 움직이는 모습을 보여 준다 (무대 그림 대신)
+s03_img = [b for b in S["s03-story-pirates"]["content"] if b["type"] == "image" and b["src"] == "media/stage-start.png"]
+assert len(s03_img) == 1
+s03_img[0]["src"] = "media/s03-preview.gif"
+s03_img[0]["alt"] = L("완성한 게임: 화살표로 대포를 돌려 쏜 포탄이 과녁 3곳을 차례로 맞히고, 과녁이 다 맞혔다고 말한다",
+                      "The finished game: turn the cannon, hit the three targets in turn, and the target says you hit them all")
+
 # ---------------------------------------------------------------- 탐색, 꾸미기 스텝
 EXPLORE = {
     "s04-direction": ("방향 블록 눌러 보기", "Click the direction block"),
@@ -257,12 +265,74 @@ s24["checks"] = [
          spr("과녁", "x", "eq", -36, 5), spr("과녁", "y", "eq", 64, 5)], 17000),
 ]
 
+# ---------------------------------------------------------------- 입력 표 (record 블록)
+# 빈칸이 있는 표(예상·결과 표, 기록표)는 학생이 직접 적는 입력 표로 바꾼다. 빈칸이 있는 열이 입력 열이고,
+# 입력 열에 미리 적힌 글자는 예시(placeholder)가 된다. "예상" 열 뒤의 입력 열은 예상을 적어야 열린다.
+def split_table(value):
+    lines = value.split("\n")
+    idx = [i for i, l in enumerate(lines) if l.startswith("|")]
+    if not idx:
+        return None
+    a, b = idx[0], idx[-1]
+    assert idx == list(range(a, b + 1)), value[:30]
+    rows = [[c.strip() for c in l.strip().strip("|").split("|")] for l in lines[a:b + 1]]
+    return "\n".join(lines[:a]).strip("\n"), (rows[0], rows[2:]), "\n".join(lines[b + 1:]).strip("\n")
+
+def to_record(step_key, block):
+    ko, en = split_table(block["value"]["ko"]), split_table(block["value"]["en"])
+    if not ko:
+        return None
+    (hk, bk), (he, be) = ko[1], en[1]
+    assert len(hk) == len(he) and len(bk) == len(be), step_key
+    if not any(c == "" for r in bk for c in r):
+        return None
+    n = len(hk)
+    is_input = [any(r[ci] == "" for r in bk) for ci in range(n)]
+    guess = next((ci for ci in range(n) if is_input[ci] and "예상" in hk[ci]), None)
+    columns = []
+    for ci in range(n):
+        col = {"label": L(hk[ci], he[ci])}
+        if is_input[ci]:
+            col["input"] = True
+            if guess is not None and ci > guess:
+                col["requires"] = guess
+        columns.append(col)
+    rows = []
+    for rk, re_ in zip(bk, be):
+        row = []
+        for ci in range(n):
+            if not is_input[ci]:
+                row.append(L(rk[ci], re_[ci]))
+            else:
+                row.append({"placeholder": L(rk[ci], re_[ci])} if rk[ci] else None)
+        rows.append(row)
+    out = []
+    if ko[0]:
+        out.append(text(ko[0], en[0]))
+    out.append({"type": "record", "key": "record", "columns": columns, "rows": rows})
+    if ko[2]:
+        out.append(text(ko[2], en[2]))
+    return out
+
+RECORD_STEPS = []
+for step in S.values():
+    if step.get("kind") == "quiz":
+        continue
+    content = []
+    for block in step["content"]:
+        rec = to_record(step["key"], block) if block["type"] == "text" else None
+        content.extend(rec or [block])
+        if rec:
+            RECORD_STEPS.append(step["key"])
+    step["content"] = content
+assert len(set(RECORD_STEPS)) == len(RECORD_STEPS), RECORD_STEPS  # 스텝마다 입력 표는 하나 (키 "record")
+
 unit["steps"] = [S[s["key"]] for s in v1["steps"]]
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 with open(OUT, "w", encoding="utf-8", newline="\n") as f:
     json.dump(unit, f, ensure_ascii=False, indent=2)
     f.write("\n")
-print("written", OUT, len(unit["steps"]), "steps")
+print("written", OUT, len(unit["steps"]), "steps; record tables:", RECORD_STEPS)
 
 # ---------------------------------------------------------------- 강사용 안내서
 def kind_of(step):
@@ -315,7 +385,11 @@ g = g[:sec2.start()] + (
     "구분되지 않으므로 깃발 아래의 이동 블록을 정적으로 확인한다.\n\n"
     "s24는 포수 시험 기록표를 그대로 두고 완성 확인을 더한 스텝이다. 게임 전체(과녁 3개를 맞히고 사라짐)와 "
     "깃발을 다시 눌렀을 때 처음 상태로 돌아오는지를 확인한다. 꾸미기나 실험에서 바꾼 것이 남아 있으면 "
-    "여기서 걸린다.\n") + g[sec2.end():]
+    "여기서 걸린다.\n\n"
+    "**입력 표**: " + ", ".join(RECORD_STEPS) + "의 표는 학생이 직접 적는 입력 표다. "
+    "\"내 예상\" 칸을 적어야 같은 줄의 결과 칸이 열린다(예상을 먼저 하게 하려는 것). "
+    "적은 값은 저장되지만 채점하지 않으며, \"다음\"으로 넘어가는 데에도 필요 없다. "
+    "예상과 결과가 다른 줄을 골라 왜 달랐는지 말하게 하면 좋다.\n") + g[sec2.end():]
 secq = re.search(r"### 퀴즈 정답과 의도\n.*?(?=\n## 7\.)", g, re.S)
 g = g[:secq.start()] + (
     "### 퀴즈 정답과 의도\n\n"
