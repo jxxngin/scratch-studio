@@ -236,7 +236,42 @@
                 "ko": "내 예상",
                 "en": "Guess"
               },
-              "input": true
+              "input": true,
+              "kind": "select",
+              "options": [
+                {
+                  "ko": "위",
+                  "en": "Up"
+                },
+                {
+                  "ko": "오른쪽 위",
+                  "en": "Up-right"
+                },
+                {
+                  "ko": "오른쪽",
+                  "en": "Right"
+                },
+                {
+                  "ko": "오른쪽 아래",
+                  "en": "Down-right"
+                },
+                {
+                  "ko": "아래",
+                  "en": "Down"
+                },
+                {
+                  "ko": "왼쪽 아래",
+                  "en": "Down-left"
+                },
+                {
+                  "ko": "왼쪽",
+                  "en": "Left"
+                },
+                {
+                  "ko": "왼쪽 위",
+                  "en": "Up-left"
+                }
+              ]
             },
             {
               "label": {
@@ -244,25 +279,54 @@
                 "en": "Result"
               },
               "input": true,
+              "kind": "select",
+              "options": [
+                {
+                  "ko": "위",
+                  "en": "Up"
+                },
+                {
+                  "ko": "오른쪽 위",
+                  "en": "Up-right"
+                },
+                {
+                  "ko": "오른쪽",
+                  "en": "Right"
+                },
+                {
+                  "ko": "오른쪽 아래",
+                  "en": "Down-right"
+                },
+                {
+                  "ko": "아래",
+                  "en": "Down"
+                },
+                {
+                  "ko": "왼쪽 아래",
+                  "en": "Down-left"
+                },
+                {
+                  "ko": "왼쪽",
+                  "en": "Left"
+                },
+                {
+                  "ko": "왼쪽 위",
+                  "en": "Up-left"
+                }
+              ],
               "requires": 1
             }
           ],
           "rows": [
             [
               {
-                "ko": "0",
-                "en": "0"
+                "ko": "135",
+                "en": "135"
               },
               null,
-              null
-            ],
-            [
               {
-                "ko": "45",
-                "en": "45"
-              },
-              null,
-              null
+                "answer": 3
+              }
             ],
             [
               {
@@ -270,23 +334,19 @@
                 "en": "180"
               },
               null,
-              null
+              {
+                "answer": 4
+              }
             ],
             [
               {
-                "ko": "135",
-                "en": "135"
+                "ko": "-45",
+                "en": "-45"
               },
               null,
-              null
-            ],
-            [
               {
-                "ko": "-90",
-                "en": "-90"
-              },
-              null,
-              null
+                "answer": 7
+              }
             ]
           ]
         },
@@ -296,6 +356,12 @@
             "ko": "배경의 각도기도 스크래치 방향 숫자예요. 이야기 속 포수의 각도는 수평에서 잰 것이라 기준이 달라요. 예를 들어 수평에서 30도 들린 대포는 스크래치 방향으로 60이에요.",
             "en": "The protractor in the backdrop shows Scratch directions. A gunner's angle is measured from level, so it starts somewhere else. A cannon raised 30° from level has Scratch direction 60."
           }
+        }
+      ],
+      "checks": [
+        {
+          "type": "record",
+          "key": "record"
         }
       ]
     },
@@ -467,7 +533,8 @@
                 "ko": "내 예상",
                 "en": "Guess"
               },
-              "input": true
+              "input": true,
+              "kind": "number"
             },
             {
               "label": {
@@ -475,6 +542,7 @@
                 "en": "angle"
               },
               "input": true,
+              "kind": "number",
               "requires": 1
             }
           ],
@@ -485,7 +553,9 @@
                 "en": "Click `set to 90`"
               },
               null,
-              null
+              {
+                "answer": 90
+              }
             ],
             [
               {
@@ -493,7 +563,9 @@
                 "en": "Click `change by 10` three times"
               },
               null,
-              null
+              {
+                "answer": 120
+              }
             ],
             [
               {
@@ -501,15 +573,9 @@
                 "en": "Make it `-20`, click once"
               },
               null,
-              null
-            ],
-            [
               {
-                "ko": "`90로 정하기` 다시 클릭",
-                "en": "Click `set to 90` again"
-              },
-              null,
-              null
+                "answer": 100
+              }
             ]
           ]
         },
@@ -519,6 +585,12 @@
             "ko": "`정하기`는 값을 바꿔 넣고, `바꾸기`는 지금 값에 더해요.\n\n**정리**: 다 해 보면 꺼낸 블록 두 개를 지우세요. 남겨 두고 실수로 누르면 `각도`만 바뀌고 대포는 그대로라서 헷갈려요.",
             "en": "`set` replaces the value; `change` adds to it.\n\n**Clean up**: Delete both blocks when done. If you click one by mistake later, `angle` changes but the cannon doesn't, which is confusing."
           }
+        }
+      ],
+      "checks": [
+        {
+          "type": "record",
+          "key": "record"
         }
       ]
     },
@@ -559,6 +631,10 @@
             }
           ],
           "answer": 0,
+          "hint": {
+            "ko": "오른쪽이 90이에요. 반대쪽은 부호가 어떻게 될까요?",
+            "en": "Right is 90. What about the opposite side?"
+          },
           "explain": {
             "ko": "왼쪽은 -90이에요.",
             "en": "Left is -90."
@@ -593,6 +669,10 @@
             }
           ],
           "answer": 3,
+          "hint": {
+            "ko": "`-5만큼 바꾸기`가 몇 번 있는지 세어 보세요.",
+            "en": "Count how many `change by -5` blocks there are."
+          },
           "explain": {
             "ko": "90에서 5를 세 번 빼면 75예요.",
             "en": "90 minus 5, three times, is 75."
@@ -623,6 +703,10 @@
             }
           ],
           "answer": 2,
+          "hint": {
+            "ko": "대포 말고 이 값이 필요한 스프라이트가 있었나요?",
+            "en": "Does any sprite besides the cannon need this value?"
+          },
           "explain": {
             "ko": "모든 스프라이트가 같은 값을 보게 하려고요.",
             "en": "So every sprite sees the same value."
@@ -1402,15 +1486,15 @@
     {
       "key": "s14-sound",
       "title": {
-        "ko": "꾸미기(선택): 펑! 발사 소리",
-        "en": "Decorate (optional): BOOM sound"
+        "ko": "꾸미기: 펑! 발사 소리",
+        "en": "Decorate: BOOM sound"
       },
       "content": [
         {
           "type": "text",
           "value": {
-            "ko": "**꾸미기 단계예요.** 건너뛰어도 다음 단계를 할 수 있어요.\n\n포탄에 들어 있는 `발사` 소리를 스페이스 스크립트에 넣어요. 쏘는 순간 소리가 나려면 어디에 넣어야 할까요?",
-            "en": "**This is a decorating step.** You can skip it and still do the next steps.\n\nAdd the cannonball's `발사` sound to the space script. Where should it go so it plays the moment you fire?"
+            "ko": "포탄에 들어 있는 `발사` 소리를 스페이스 스크립트에 넣어요. 쏘는 순간 소리가 나려면 어디에 넣어야 할까요?",
+            "en": "Add the cannonball's `발사` sound to the space script. Where should it go so it plays the moment you fire?"
           }
         },
         {
@@ -1427,20 +1511,39 @@
             "en": "Use `start sound`, not `play sound until done`. Try both and compare when the cannonball leaves."
           }
         }
+      ],
+      "checks": [
+        {
+          "type": "anyOf",
+          "checks": [
+            {
+              "type": "static",
+              "rule": "hasBlock",
+              "opcode": "sound_play",
+              "sprite": "포탄"
+            },
+            {
+              "type": "static",
+              "rule": "hasBlock",
+              "opcode": "sound_playuntildone",
+              "sprite": "포탄"
+            }
+          ]
+        }
       ]
     },
     {
       "key": "s15-flash",
       "title": {
-        "ko": "꾸미기(선택): 대포 불꽃",
-        "en": "Decorate (optional): muzzle flash"
+        "ko": "꾸미기: 대포 불꽃",
+        "en": "Decorate: Muzzle flash"
       },
       "content": [
         {
           "type": "text",
           "value": {
-            "ko": "**꾸미기 단계예요.** 건너뛰어도 돼요.\n\n대포의 `불꽃` 모양으로, 쏠 때 포구에서 불꽃이 번쩍하게 해요. **대포**에 만드세요.",
-            "en": "**This is a decorating step.** You can skip it.\n\nUse the cannon's `불꽃` (flash) costume to flash when firing. Build it on the cannon."
+            "ko": "대포의 `불꽃` 모양으로, 쏠 때 포구에서 불꽃이 번쩍하게 해요. **대포**에 만드세요.",
+            "en": "Use the cannon's `불꽃` (flash) costume to flash when firing. Build it on the cannon."
           }
         },
         {
@@ -1457,6 +1560,46 @@
             "en": "What does 1 instead of 0.1 look like? Pick a number you like, but end on the `대포` costume.\n\nAlso add `switch costume to 대포` to the flag script, so a restart always begins with the normal costume."
           }
         }
+      ],
+      "checks": [
+        {
+          "type": "static",
+          "rule": "hasBlock",
+          "opcode": "looks_switchcostumeto",
+          "sprite": "대포",
+          "minCount": 2
+        },
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 1500
+            }
+          ],
+          "expect": [
+            {
+              "target": "sprite",
+              "sprite": "대포",
+              "property": "costume",
+              "op": "eq",
+              "value": "대포"
+            }
+          ],
+          "timeoutMs": 4000
+        }
       ]
     },
     {
@@ -1469,8 +1612,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "날아가는 거리는 **반복 횟수 × 걸음 수**예요. 바꿔 가며 쏴 보세요.",
-            "en": "Distance is **repeat count × steps**. Change them and fire."
+            "ko": "날아가는 거리는 **반복 횟수 × 걸음 수**예요. 바꿔 가며 쏴 보세요.\n\n대포는 오른쪽(90)을 보게 두고 쏴요.",
+            "en": "Distance is **repeat count × steps**. Change them and fire.\n\nKeep the cannon facing right (90) when you fire."
           }
         },
         {
@@ -1494,7 +1637,22 @@
                 "ko": "내 예상",
                 "en": "Guess"
               },
-              "input": true
+              "input": true,
+              "kind": "select",
+              "options": [
+                {
+                  "ko": "무대 왼쪽",
+                  "en": "Left side"
+                },
+                {
+                  "ko": "무대 가운데",
+                  "en": "Middle"
+                },
+                {
+                  "ko": "무대 오른쪽 끝",
+                  "en": "Right edge"
+                }
+              ]
             },
             {
               "label": {
@@ -1502,29 +1660,27 @@
                 "en": "Reached"
               },
               "input": true,
+              "kind": "select",
+              "options": [
+                {
+                  "ko": "무대 왼쪽",
+                  "en": "Left side"
+                },
+                {
+                  "ko": "무대 가운데",
+                  "en": "Middle"
+                },
+                {
+                  "ko": "무대 오른쪽 끝",
+                  "en": "Right edge"
+                }
+              ],
               "requires": 2
             }
           ],
           "rows": [
             [
               {
-                "ko": "40",
-                "en": "40"
-              },
-              {
-                "ko": "10",
-                "en": "10"
-              },
-              {
-                "placeholder": {
-                  "ko": "오른쪽 끝 근처",
-                  "en": "near the right edge"
-                }
-              },
-              null
-            ],
-            [
-              {
                 "ko": "20",
                 "en": "20"
               },
@@ -1533,7 +1689,9 @@
                 "en": "10"
               },
               null,
-              null
+              {
+                "answer": 1
+              }
             ],
             [
               {
@@ -1545,7 +1703,9 @@
                 "en": "10"
               },
               null,
-              null
+              {
+                "answer": 0
+              }
             ],
             [
               {
@@ -1557,19 +1717,9 @@
                 "en": "20"
               },
               null,
-              null
-            ],
-            [
               {
-                "ko": "80",
-                "en": "80"
-              },
-              {
-                "ko": "5",
-                "en": "5"
-              },
-              null,
-              null
+                "answer": 2
+              }
             ]
           ]
         },
@@ -1582,6 +1732,10 @@
         }
       ],
       "checks": [
+        {
+          "type": "record",
+          "key": "record"
+        },
         {
           "type": "dynamic",
           "actions": [
@@ -1659,6 +1813,10 @@
             }
           ],
           "answer": 3,
+          "hint": {
+            "ko": "각도기에서 위쪽으로 갈수록 숫자가 커지나요, 작아지나요?",
+            "en": "On the protractor, do numbers grow or shrink going up?"
+          },
           "explain": {
             "ko": "위로 갈수록 숫자가 작아져서 -5예요.",
             "en": "Numbers shrink going up, so -5."
@@ -1693,6 +1851,10 @@
             }
           ],
           "answer": 2,
+          "hint": {
+            "ko": "`각도` 값은 바뀌었을까요? 포탄은 무엇을 보고 방향을 정하나요?",
+            "en": "Did `angle` change? What does the cannonball use to pick its direction?"
+          },
           "explain": {
             "ko": "`각도`는 80이 되지만 대포는 방향 블록이 없어 그대로예요. 포탄은 `각도`를 읽으니 80 쪽으로 날아가요.",
             "en": "`angle` becomes 80, but without the direction block the cannon doesn't turn. The cannonball reads `angle`, so it flies toward 80."
@@ -1727,6 +1889,10 @@
             }
           ],
           "answer": 0,
+          "hint": {
+            "ko": "반복이 끝난 뒤 포탄에게 아무것도 시키지 않으면 어떻게 될까요?",
+            "en": "What happens if nothing tells it to hide after the loop?"
+          },
           "explain": {
             "ko": "숨기지 않으면 멈춘 자리에 계속 보여요.",
             "en": "Without hide, it stays visible where it stopped."
@@ -2482,15 +2648,15 @@
     {
       "key": "s21-boom",
       "title": {
-        "ko": "꾸미기(선택): 펑! 터지는 과녁",
-        "en": "Decorate (optional): exploding target"
+        "ko": "꾸미기: 펑! 터지는 과녁",
+        "en": "Decorate: Exploding target"
       },
       "content": [
         {
           "type": "text",
           "value": {
-            "ko": "**꾸미기 단계예요.** 건너뛰어도 돼요.\n\n맞으면 과녁이 `펑` 모양으로 잠깐 터지게 해요. `~까지 기다리기`와 `이동하기` 사이에 끼워 넣으세요.",
-            "en": "**This is a decorating step.** You can skip it.\n\nMake the target flash the `펑` (boom) costume when hit. Put these between `wait until` and `go to`."
+            "ko": "맞으면 과녁이 `펑` 모양으로 잠깐 터지게 해요. `~까지 기다리기`와 `이동하기` 사이에 끼워 넣으세요.",
+            "en": "Make the target flash the `펑` (boom) costume when hit. Put these between `wait until` and `go to`."
           }
         },
         {
@@ -2506,6 +2672,135 @@
             "ko": "도중에 멈추면 과녁이 `펑` 모양으로 남을 수 있어요. 깃발 스크립트 맨 위에 `모양을 과녁으로 바꾸기`도 넣어 두세요.",
             "en": "If you stop mid-game, the target can stay as `펑`. Add `switch costume to 과녁` at the top of the flag script."
           }
+        }
+      ],
+      "checks": [
+        {
+          "type": "static",
+          "rule": "hasBlock",
+          "opcode": "looks_switchcostumeto",
+          "sprite": "과녁",
+          "minCount": 2
+        },
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 1800
+            }
+          ],
+          "expect": [
+            {
+              "target": "sprite",
+              "sprite": "과녁",
+              "property": "costume",
+              "op": "eq",
+              "value": "과녁"
+            },
+            {
+              "target": "sprite",
+              "sprite": "과녁",
+              "property": "x",
+              "op": "eq",
+              "value": 90,
+              "tolerance": 5
+            }
+          ],
+          "timeoutMs": 6000
         }
       ]
     },
@@ -2794,6 +3089,10 @@
             }
           ],
           "answer": 1,
+          "hint": {
+            "ko": "3번 자리로 가기 전에 과녁을 몇 번 맞혔을까요?",
+            "en": "How many hits before the target moves to spot 3?"
+          },
           "explain": {
             "ko": "두 번째로 맞혀 명중이 2가 되면 3번 자리로 가요.",
             "en": "After the second hit, hits is 2."
@@ -2828,6 +3127,10 @@
             }
           ],
           "answer": 3,
+          "hint": {
+            "ko": "확인하는 순간 포탄은 어디쯤 있을까요?",
+            "en": "Where is the cannonball at the moment it checks?"
+          },
           "explain": {
             "ko": "반복이 끝난 뒤 한 번만 확인하니까, 그때는 이미 과녁을 지나간 뒤예요.",
             "en": "It checks only once, after the loop, when the ball has passed the target."
@@ -2858,6 +3161,10 @@
             }
           ],
           "answer": 3,
+          "hint": {
+            "ko": "두 블록을 하나씩 빼고 쏴 보면 무엇이 달라지는지 떠올려 보세요.",
+            "en": "Imagine removing each block one at a time. What changes?"
+          },
           "explain": {
             "ko": "숨기기는 보이는 것만, 멈추기는 실행만 다뤄요. 그래서 둘 다 넣어요.",
             "en": "Hide only affects what you see; stop only affects what runs. That's why we use both."
@@ -2868,15 +3175,15 @@
     {
       "key": "s23-shots",
       "title": {
-        "ko": "꾸미기(선택): 발사 수 세기",
-        "en": "Decorate (optional): count your shots"
+        "ko": "꾸미기: 발사 수 세기",
+        "en": "Decorate: Count your shots"
       },
       "content": [
         {
           "type": "text",
           "value": {
-            "ko": "**꾸미기 단계예요.** 건너뛰어도 돼요.\n\n몇 발 쐈는지 세어 봐요. 변수 `발사`를 만드세요(모든 스프라이트에서 사용).\n\n- 0으로 정하기는 대포의 깃발 스크립트에\n- 1씩 올리기는 쏠 때마다 실행되는 곳에",
-            "en": "**This is a decorating step.** You can skip it.\n\nCount your shots. Make a variable `shots` (For all sprites).\n\n- Set it to 0 in the cannon's flag script\n- Add 1 wherever firing happens"
+            "ko": "몇 발 쐈는지 세어 봐요. 변수 `발사`를 만드세요(모든 스프라이트에서 사용).\n\n- 0으로 정하기는 대포의 깃발 스크립트에\n- 1씩 올리기는 쏠 때마다 실행되는 곳에",
+            "en": "Count your shots. Make a variable `shots` (For all sprites).\n\n- Set it to 0 in the cannon's flag script\n- Add 1 wherever firing happens"
           }
         },
         {
@@ -2892,6 +3199,50 @@
             "ko": "**확인**: 깃발을 누르고 스페이스를 누른 뒤, 포탄이 사라지면 한 번 더 누르세요. `발사`가 2인가요?\n\n깃발에서 `발사`를 0으로 정하지 않으면 어떻게 될까요?",
             "en": "**Check**: Click the flag, press space, and press it again after the cannonball disappears. Is `shots` 2?\n\nWhat would happen if the flag didn't set `shots` to 0?"
           }
+        }
+      ],
+      "checks": [
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 2000
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 2000
+            }
+          ],
+          "expect": [
+            {
+              "target": "variable",
+              "name": {
+                "ko": "발사",
+                "en": "shots"
+              },
+              "op": "eq",
+              "value": 2
+            }
+          ],
+          "timeoutMs": 6000
         }
       ]
     },
@@ -3502,6 +3853,10 @@
             }
           ],
           "answer": 0,
+          "hint": {
+            "ko": "5도 실험에서 가까울 때와 멀 때를 비교해 보세요.",
+            "en": "Recall the 5-degree experiment: near vs far."
+          },
           "explain": {
             "ko": "세 과녁은 크기가 같아요. 멀수록 각도 차이가 크게 벌어져요.",
             "en": "All targets are the same size; distance magnifies angle errors."
@@ -3532,6 +3887,10 @@
             }
           ],
           "answer": 3,
+          "hint": {
+            "ko": "0으로 정하지 않고 게임을 두 번 하면 `명중`은 어떻게 될까요?",
+            "en": "If you play twice without resetting, what happens to `hits`?"
+          },
           "explain": {
             "ko": "정하지 않으면 지난 게임의 명중 수에 이어서 세고, 과녁도 엉뚱한 자리에서 시작해요.",
             "en": "Without the reset, it keeps counting from the last game and the target starts in the wrong spot."
@@ -3566,6 +3925,10 @@
             }
           ],
           "answer": 0,
+          "hint": {
+            "ko": "포탄 스크립트의 `방향 보기` 칸에 무엇이 들어 있었나요?",
+            "en": "What's in the cannonball's `point in direction` slot?"
+          },
           "explain": {
             "ko": "포탄의 `(각도) 도 방향 보기`가 대포와 같은 값을 쓰게 해요.",
             "en": "The cannonball's `point in direction (angle)` uses the same value as the cannon."

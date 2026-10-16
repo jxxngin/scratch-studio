@@ -8,7 +8,7 @@
 버전 1의 분량, 글, 확장 미션은 그대로 두고 아래만 바꾼다 (README "합치기 계획").
 - 만들기 스텝: 맨 위에 목표, 그 아래 미리보기 GIF, 안내, 맨 아래 해 보기(버전 1의 "확인", "도전", "해 보기" 문단)
 - 탐색 스텝: 제목 앞에 "탐색:" (작품에 남지 않는 활동, 채점 없음. s16, s17만 복구 확인)
-- 꾸미기 스텝: 제목 앞에 "꾸미기(선택):"
+- 꾸미기 스텝: 제목 앞에 "꾸미기:", 채점 추가 ("선택", "건너뛰어도" 문구는 뺌)
 - 퀴즈: 기획서 6장 형식(kind, key, question)으로. 스텝마다 2~3문항, 해설은 남기고 힌트는 뺀다
   (뺀 문항과 힌트는 강사용 안내서로)
 - 포수 시험 자리에 완성 확인 스텝 (기록표는 그대로)
@@ -207,12 +207,32 @@ EXPLORE = {
 for key, (ko, en) in EXPLORE.items():
     S[key]["title"] = L("탐색: " + ko, "Explore: " + en)
 
-s23 = S["s23-shots"]
-s23["title"] = L("꾸미기(선택): 발사 수 세기", "Decorate (optional): count your shots")
-v = s23["content"][0]["value"]
-assert v["ko"].startswith("**선택 단계예요.**")
-v["ko"] = v["ko"].replace("**선택 단계예요.**", "**꾸미기 단계예요.**", 1)
-v["en"] = v["en"].replace("**This step is optional.**", "**This is a decorating step.**", 1)
+# 꾸미기 스텝도 채점한다. "선택", "건너뛰어도 돼요" 문구는 뺀다.
+SHOTS = L("발사", "shots")
+DECORATE = {
+    "s14-sound": ("펑! 발사 소리", "BOOM sound", [
+        {"type": "anyOf", "checks": [
+            {"type": "static", "rule": "hasBlock", "opcode": "sound_play", "sprite": "포탄"},
+            {"type": "static", "rule": "hasBlock", "opcode": "sound_playuntildone", "sprite": "포탄"}]}]),
+    "s15-flash": ("대포 불꽃", "Muzzle flash", [
+        {"type": "static", "rule": "hasBlock", "opcode": "looks_switchcostumeto", "sprite": "대포", "minCount": 2},
+        dyn(FLAG + FIRE + wait(1500), [spr("대포", "costume", "eq", "대포")], 4000)]),
+    "s21-boom": ("펑! 터지는 과녁", "Exploding target", [
+        {"type": "static", "rule": "hasBlock", "opcode": "looks_switchcostumeto", "sprite": "과녁", "minCount": 2},
+        dyn(HIT1, [spr("과녁", "costume", "eq", "과녁"), spr("과녁", "x", "eq", 90, 5)], 6000)]),
+    "s23-shots": ("발사 수 세기", "Count your shots", [
+        dyn(FLAG + FIRE + wait(2000) + FIRE + wait(2000), [var_is(SHOTS, 2)], 6000)]),
+}
+SKIP_KO = ("**꾸미기 단계예요.**", "**선택 단계예요.**")
+SKIP_EN = ("**This is a decorating step.**", "**This step is optional.**")
+for key, (ko, en, checks) in DECORATE.items():
+    step = S[key]
+    step["title"] = L("꾸미기: " + ko, "Decorate: " + en)
+    v = step["content"][0]["value"]
+    pk, pe = v["ko"].split("\n\n"), v["en"].split("\n\n")
+    assert pk[0].startswith(SKIP_KO) and pe[0].startswith(SKIP_EN), key
+    v["ko"], v["en"] = "\n\n".join(pk[1:]), "\n\n".join(pe[1:])
+    step["checks"] = checks
 
 # ---------------------------------------------------------------- 퀴즈
 QUIZ_KEEP = {
@@ -234,7 +254,8 @@ for key, keep in QUIZ_KEEP.items():
             if f in q: item[f] = q[f]
         item["options"] = q["options"]
         item["answer"] = q["answer"]
-        item["explain"] = q["explain"]
+        item["hint"] = q["hint"]          # 틀린 문항 아래에 노란 칸으로 보여 줌
+        item["explain"] = q["explain"]    # 통과하면 모든 문항에 보여 줌
         qs.append(item)
     assert 2 <= len(qs) <= 3, key
     S[key] = {"key": key, "kind": "quiz", "title": step["title"], "questions": qs}
@@ -306,13 +327,54 @@ def to_record(step_key, block):
             else:
                 row.append({"placeholder": L(rk[ci], re_[ci])} if rk[ci] else None)
         rows.append(row)
+    spec = RECORD_SPEC.get(step_key)
+    if spec:
+        columns, rows = spec["columns"], spec["rows"]
     out = []
-    if ko[0]:
-        out.append(text(ko[0], en[0]))
+    before_ko, before_en = ko[0], en[0]
+    if spec and "intro" in spec:
+        before_ko = (before_ko + "\n\n" + spec["intro"]["ko"]).strip("\n")
+        before_en = (before_en + "\n\n" + spec["intro"]["en"]).strip("\n")
+    if before_ko:
+        out.append(text(before_ko, before_en))
     out.append({"type": "record", "key": "record", "columns": columns, "rows": rows})
     if ko[2]:
         out.append(text(ko[2], en[2]))
     return out
+
+# 탐색 스텝의 표는 줄을 3개로 줄이고 "실제" 칸을 채점한다. 방향과 위치는 보기에서 고르고, 각도는 숫자로 적는다.
+DIRS = [L("위", "Up"), L("오른쪽 위", "Up-right"), L("오른쪽", "Right"), L("오른쪽 아래", "Down-right"),
+        L("아래", "Down"), L("왼쪽 아래", "Down-left"), L("왼쪽", "Left"), L("왼쪽 위", "Up-left")]
+SPOTS = [L("무대 왼쪽", "Left side"), L("무대 가운데", "Middle"), L("무대 오른쪽 끝", "Right edge")]
+def col(ko, en, **kw): return {"label": L(ko, en), **kw}
+RECORD_SPEC = {
+    "s04-direction": {
+        "columns": [col("숫자", "Number"),
+                    col("내 예상", "Guess", input=True, kind="select", options=DIRS),
+                    col("실제", "Result", input=True, kind="select", options=DIRS, requires=1)],
+        # 위 그림(direction.png)에 없는 방향을 고른다 (그림에 있는 45, 90, -90은 답이 보이므로)
+        "rows": [[L("135", "135"), None, {"answer": 3}],
+                 [L("180", "180"), None, {"answer": 4}],
+                 [L("-45", "-45"), None, {"answer": 7}]],
+    },
+    "s07-variable-play": {
+        "columns": [col("할 일", "Action"),
+                    col("내 예상", "Guess", input=True, kind="number"),
+                    col("실제 각도", "angle", input=True, kind="number", requires=1)],
+        "rows": [[L("`90로 정하기` 클릭", "Click `set to 90`"), None, {"answer": 90}],
+                 [L("`10만큼 바꾸기` 3번 클릭", "Click `change by 10` three times"), None, {"answer": 120}],
+                 [L("숫자를 `-20`으로 고쳐 1번 클릭", "Make it `-20`, click once"), None, {"answer": 100}]],
+    },
+    "s16-range": {
+        "intro": L("대포는 오른쪽(90)을 보게 두고 쏴요.", "Keep the cannon facing right (90) when you fire."),
+        "columns": [col("반복", "Repeat"), col("걸음", "Steps"),
+                    col("내 예상", "Guess", input=True, kind="select", options=SPOTS),
+                    col("어디까지?", "Reached", input=True, kind="select", options=SPOTS, requires=2)],
+        "rows": [[L("20", "20"), L("10", "10"), None, {"answer": 1}],
+                 [L("10", "10"), L("10", "10"), None, {"answer": 0}],
+                 [L("20", "20"), L("20", "20"), None, {"answer": 2}]],
+    },
+}
 
 RECORD_STEPS = []
 for step in S.values():
@@ -326,6 +388,9 @@ for step in S.values():
             RECORD_STEPS.append(step["key"])
     step["content"] = content
 assert len(set(RECORD_STEPS)) == len(RECORD_STEPS), RECORD_STEPS  # 스텝마다 입력 표는 하나 (키 "record")
+# 정답이 있는 입력 표는 사이트가 채점한다 ({"type": "record"}). s16은 실험 뒤 복구 확인도 그대로 둔다.
+for key in RECORD_SPEC:
+    S[key]["checks"] = [{"type": "record", "key": "record"}] + S[key].get("checks", [])
 
 unit["steps"] = [S[s["key"]] for s in v1["steps"]]
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
@@ -340,7 +405,7 @@ def kind_of(step):
     if step.get("kind") == "quiz": return "퀴즈"
     if k in MAKE: return "만들기"
     if k in EXPLORE: return "탐색"
-    if k in ("s14-sound", "s15-flash", "s21-boom", "s23-shots"): return "꾸미기(선택)"
+    if k in DECORATE: return "꾸미기"
     if k.startswith(("s01", "s02", "s03")): return "이야기"
     if k == "s24-gunner-test": return "완성 확인"
     return "확장 미션"
@@ -354,13 +419,16 @@ for step in unit["steps"]:
         auto = "없음"
     else:
         n_dyn = sum(c["type"] == "dynamic" for c in checks)
-        auto = "동적 %d" % n_dyn + (", 정적 %d" % (len(checks) - n_dyn) if len(checks) > n_dyn else "")
+        n_rec = sum(c["type"] == "record" for c in checks)
+        n_sta = len(checks) - n_dyn - n_rec
+        parts = (["입력 표"] if n_rec else []) + (["동적 %d" % n_dyn] if n_dyn else []) + (["정적 %d" % n_sta] if n_sta else [])
+        auto = ", ".join(parts)
     gif = MAKE[step["key"]][2] if step["key"] in MAKE else ""
     rows.append("| %s | %s | %s | %s | %s |" % (step["key"], step["title"]["ko"], kind_of(step), auto, gif))
 steps_md = "\n".join(rows)
 
 def opt(q, i): return q["options"][i]["ko"]
-qrows = ["| 문항 | 화면 | 정답 | 해설(통과 후 화면에 나옴) | 힌트(말로 줄 때) |", "| --- | --- | --- | --- | --- |"]
+qrows = ["| 문항 | 화면 | 정답 | 해설(통과하면 나옴) | 힌트(틀리면 그 문항 아래에 나옴) |", "| --- | --- | --- | --- | --- |"]
 for step in v1["steps"]:
     if step.get("type") != "quiz": continue
     for q in step["questions"]:
@@ -377,8 +445,9 @@ sec2 = re.search(r"## 2\. 단계 구성\n.*?(?=\n## 3\.)", g, re.S)
 g = g[:sec2.start()] + (
     "## 2. 단계 구성\n\n"
     "스텝 키는 버전 1과 같다. 만들기 스텝은 목표 → 미리보기 GIF → 안내 → 해 보기 순서이고, "
-    "탐색 스텝(작품에 남지 않는 활동)과 꾸미기(선택) 스텝은 채점하지 않는다. "
-    "s16, s17만 실험 뒤 복구했는지(반복 40번, 10걸음, 마지막 `숨기기`) 확인한다.\n\n"
+    "꾸미기 스텝(소리, 불꽃, 펑, 발사 수)도 채점한다. 탐색 스텝은 입력 표의 \"실제\" 칸을 채점하고"
+    "(s04, s07, s16), s16과 s17은 실험 뒤 복구했는지(반복 40번, 10걸음, 마지막 `숨기기`)도 확인한다. "
+    "s17과 s18a는 입력 표가 없다.\n\n"
     + steps_md + "\n\n"
     "자동 검사는 실행 결과를 보는 동적 검사를 먼저 쓰고, 정적 검사(블록 검사)는 새 블록이 나오는 스텝"
     "(s05, s06, s08, s12, s20)에만 둔다. s18만 예외로, 과녁이 처음부터 첫 자리에 있어 동적 검사로 "
@@ -388,14 +457,14 @@ g = g[:sec2.start()] + (
     "여기서 걸린다.\n\n"
     "**입력 표**: " + ", ".join(RECORD_STEPS) + "의 표는 학생이 직접 적는 입력 표다. "
     "\"내 예상\" 칸을 적어야 같은 줄의 결과 칸이 열린다(예상을 먼저 하게 하려는 것). "
-    "적은 값은 저장되지만 채점하지 않으며, \"다음\"으로 넘어가는 데에도 필요 없다. "
+    "s04, s07, s16은 \"실제\" 칸이 모두 맞아야 통과한다(방향과 위치는 보기에서 고르고, 각도는 숫자로 적는다). "
+    "\"내 예상\" 칸은 채점하지 않는다. s24 기록표는 채점하지 않는다. "
     "예상과 결과가 다른 줄을 골라 왜 달랐는지 말하게 하면 좋다.\n") + g[sec2.end():]
 secq = re.search(r"### 퀴즈 정답과 의도\n.*?(?=\n## 7\.)", g, re.S)
 g = g[:secq.start()] + (
     "### 퀴즈 정답과 의도\n\n"
-    "퀴즈 스텝마다 2~3문항만 화면에 남겼다. 틀리면 통과/실패만 보여 주고 어느 문항이 틀렸는지, 힌트는 "
-    "보여 주지 않는다. 통과하면 문항마다 해설이 나온다. 학생이 막히면 아래 힌트를 말로 주고, "
-    "뺀 문항은 수업 중에 말로 묻는 질문으로 쓴다.\n\n"
+    "퀴즈 스텝마다 3문항만 화면에 남겼다. 틀리면 틀린 문항을 따로 표시하지 않고, 그 문항 아래에 노란 칸으로 "
+    "힌트를 보여 준다. 통과하면 모든 문항에 해설이 나온다. 뺀 문항은 수업 중에 말로 묻는 질문으로 쓴다.\n\n"
     + quiz_md + "\n\n"
     "포수 도전(발수)과 설명 도전(이해)은 따로 확인한다. 적게 쏴서 맞힌 학생도 설명 도전 3개를 "
     "말로 할 수 있는지 본다.\n") + g[secq.end():]
