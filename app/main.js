@@ -7,10 +7,13 @@ import { createStore, isYoutubeUrl, youtubeId } from './store.js';
 import { installDevSkip } from './dev-skip.js'; // [임시] dev-skip
 
 const params = new URLSearchParams(location.search);
+const unitBase = (params.get('unit') || '../project/lv1/04-pirate-cannon').replace(/\/$/, '');
+// [임시] home: exit가 없으면 "종료"는 교안 확인용 홈 화면의 그 레벨 목록으로 간다. 홈 화면을 없앨 때 이 줄도 ''로 되돌린다.
+const homeExit = `./home/#lv${(unitBase.match(/\/lv(\d)\//) || [])[1] || 1}`;
 const config = {
-  unitBase: (params.get('unit') || '../project/lv1/04-pirate-cannon').replace(/\/$/, ''),
+  unitBase,
   editorUrl: params.get('editor') || './editor-stub/index.html',
-  exitUrl: params.get('exit') || '',
+  exitUrl: params.get('exit') || homeExit,
   failFirstSave: params.get('saveFail') === '1',
 };
 const editorUrl = new URL(config.editorUrl, location.href);

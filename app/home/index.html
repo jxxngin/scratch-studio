@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스크래치 스튜디오</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<!--
+  [임시] 교안 확인용 레벨 고르기 화면. 건너뛰기(app/dev-skip.js)처럼 실제 수업용으로 쓸 때는 없앤다.
+  없애는 법: app/home/ 폴더를 지우고, vercel.json의 "/" 이동 주소를 "/app/"로 되돌리고,
+  app/main.js에서 "[임시] home"으로 검색되는 줄(종료 기본 주소)을 '' 로 되돌린다.
+  실제 사이트에서는 본 사이트의 단원 목록이 이 역할을 한다.
+-->
+<style>
+/* 레벨 고르기 화면. 색은 학습 화면(app/styles.css)과 같다. */
+:root {
+  --accent: #2F6FD6;
+  --ink: #1E293B;
+  --text: #334155;
+  --muted: #64748B;
+  --faint: #94A3B8;
+  --line: #E5E7EB;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: #FAFAF8; color: var(--ink);
+  font-family: 'Pretendard Variable', 'Pretendard', system-ui, sans-serif;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
+h1 { font-size: 26px; font-weight: 800; margin: 0 0 6px; letter-spacing: -0.3px; }
+.sub { margin: 0 0 28px; color: var(--muted); font-size: 14px; }
+
+.levels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 24px; }
+.level {
+  height: 72px; border: 1.5px solid var(--line); border-radius: 12px; background: #fff; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  font-family: inherit; color: var(--ink);
+}
+.level:hover { border-color: var(--faint); }
+.level b { font-size: 18px; }
+.level span { font-size: 12px; color: var(--muted); }
+.level[aria-pressed="true"] { border-color: var(--accent); background: #EEF4FD; }
+.level[aria-pressed="true"] b { color: var(--accent); }
+
+.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.unit {
+  display: flex; align-items: center; gap: 14px; min-height: 60px; padding: 10px 16px;
+  border: 1px solid var(--line); border-radius: 10px; background: #fff; text-decoration: none; color: var(--ink);
+}
+a.unit:hover { border-color: var(--accent); }
+.no {
+  width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;
+}
+.name { flex: 1; min-width: 0; font-size: 15px; font-weight: 700; }
+.go { font-size: 13px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+.unit.is-off { background: #F8FAFC; color: var(--faint); }
+.unit.is-off .no { background: #E2E8F0; color: var(--faint); }
+.unit.is-off .go { color: var(--faint); font-weight: 600; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>스크래치 스튜디오</h1>
+  <p class="sub">레벨을 고르고 프로젝트를 여세요. (교안 확인용 임시 화면)</p>
+  <div class="levels" role="group" aria-label="레벨" id="levels"></div>
+  <ol class="list" id="list"></ol>
+</main>
+<script>
+// 커리큘럼 구성안(docs/scratch-curriculum-outline.md)의 순서. unit이 있는 것만 열 수 있다.
+// 교안을 새로 만들면 그 줄에 unit(단원 폴더 이름)을 적는다.
+const LEVELS = [
+  { lv: 1, grade: '초등 4학년', units: [
+    { name: '보물 지도 탐험', unit: '01-treasure-map' }, { name: '모스부호 송신기' }, { name: '달리는 말 경주' },
+    { name: '해적선 대포', unit: '04-pirate-cannon' }, { name: '자동 연주 오르골' }, { name: '신호등 길 건너기' },
+    { name: '미로를 푸는 쥐' }, { name: '우연이 그리는 그림' }, { name: '공룡 달리기' }, { name: '학기말 프로젝트', final: true }] },
+  { lv: 2, grade: '초등 5학년', units: [
+    { name: '바다 청소 대작전' }, { name: '반응 속도 대결' }, { name: '레모네이드 가게' }, { name: '달 착륙선' },
+    { name: '나만의 그림판' }, { name: '카드 짝 맞추기' }, { name: '시저 암호 대결' }, { name: '리듬 게임' },
+    { name: '통신 오류 탐지기' }, { name: '학기말 프로젝트', final: true }] },
+  { lv: 3, grade: '초등 6학년', units: [
+    { name: '퐁 대전' }, { name: '나만의 어드벤처' }, { name: '물고기 떼' }, { name: '발판 점프 모험' },
+    { name: '캐릭터 챗봇' }, { name: '교통 체증 실험' }, { name: '배달 로봇 관제센터' }, { name: '지뢰 찾기' },
+    { name: '타워 디펜스' }, { name: '학기말 프로젝트', final: true }] },
+];
+
+const levelsEl = document.getElementById('levels');
+const listEl = document.getElementById('list');
+
+function current() {
+  const m = location.hash.match(/^#lv([123])$/);
+  return m ? Number(m[1]) : 1;
+}
+
+function render() {
+  const lv = current();
+  levelsEl.innerHTML = '';
+  for (const L of LEVELS) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'level';
+    b.setAttribute('aria-pressed', String(L.lv === lv));
+    b.innerHTML = `<b>Lv.${L.lv}</b><span>${L.grade}</span>`;
+    b.addEventListener('click', () => { history.replaceState(null, '', `#lv${L.lv}`); render(); });
+    levelsEl.appendChild(b);
+  }
+  listEl.innerHTML = '';
+  LEVELS[lv - 1].units.forEach((u, i) => {
+    const li = document.createElement('li');
+    const row = document.createElement(u.unit ? 'a' : 'div');
+    row.className = 'unit' + (u.unit ? '' : ' is-off');
+    if (u.unit) {
+      // 학습 화면의 "종료"를 누르면 이 레벨 목록으로 돌아온다.
+      const params = new URLSearchParams({ unit: `../project/lv${lv}/${u.unit}`, exit: `/app/home/#lv${lv}` });
+      row.href = `/app/?${params}`;
+    } else {
+      row.setAttribute('aria-disabled', 'true');
+    }
+    row.innerHTML = `<span class="no">${u.final ? '★' : i + 1}</span><span class="name">${u.name}</span><span class="go">${u.unit ? '열기 ›' : '준비 중'}</span>`;
+    li.appendChild(row);
+    listEl.appendChild(li);
+  });
+}
+
+window.addEventListener('hashchange', render);
+render();
+</script>
+</body>
+</html>
