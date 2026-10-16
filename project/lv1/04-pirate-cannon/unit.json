@@ -264,14 +264,7 @@
           "type": "static",
           "rule": "hasBlock",
           "opcode": "motion_pointindirection",
-          "sprite": "대포",
-          "minCount": 5
-        },
-        {
-          "type": "static",
-          "rule": "underHat",
-          "hat": "event_whenthisspriteclicked",
-          "opcode": "control_wait"
+          "sprite": "대포"
         },
         {
           "type": "dynamic",
@@ -561,12 +554,6 @@
           "sprite": "대포"
         },
         {
-          "type": "static",
-          "rule": "underHat",
-          "hat": "event_whenflagclicked",
-          "opcode": "motion_pointindirection"
-        },
-        {
           "type": "dynamic",
           "actions": [
             {
@@ -834,13 +821,6 @@
       ],
       "checks": [
         {
-          "type": "static",
-          "rule": "hasBlock",
-          "opcode": "looks_say",
-          "sprite": "대포",
-          "minCount": 2
-        },
-        {
           "type": "dynamic",
           "actions": [
             {
@@ -963,14 +943,24 @@
           "sprite": "포탄"
         },
         {
-          "type": "static",
-          "rule": "underHat",
-          "hat": "event_whenflagclicked",
-          "opcode": "looks_hide"
-        },
-        {
           "type": "dynamic",
           "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
             {
               "do": "greenFlag"
             },
@@ -992,7 +982,7 @@
               "value": false
             }
           ],
-          "timeoutMs": 3000
+          "timeoutMs": 4000
         },
         {
           "type": "dynamic",
@@ -1082,12 +1072,6 @@
         }
       ],
       "checks": [
-        {
-          "type": "static",
-          "rule": "inside",
-          "parent": "control_repeat",
-          "child": "motion_movesteps"
-        },
         {
           "type": "dynamic",
           "actions": [
@@ -1254,28 +1238,42 @@
       ],
       "checks": [
         {
-          "type": "static",
-          "rule": "hasBlock",
-          "opcode": "control_repeat",
-          "sprite": "포탄",
-          "inputs": {
-            "TIMES": {
-              "op": "eq",
-              "value": 40
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 2500
             }
-          }
-        },
-        {
-          "type": "static",
-          "rule": "hasBlock",
-          "opcode": "motion_movesteps",
-          "sprite": "포탄",
-          "inputs": {
-            "STEPS": {
+          ],
+          "expect": [
+            {
+              "target": "sprite",
+              "sprite": "포탄",
+              "property": "x",
+              "op": "gt",
+              "value": 200
+            },
+            {
+              "target": "sprite",
+              "sprite": "포탄",
+              "property": "visible",
               "op": "eq",
-              "value": 10
+              "value": false
             }
-          }
+          ],
+          "timeoutMs": 5000
         }
       ]
     },
@@ -1477,18 +1475,6 @@
       ],
       "checks": [
         {
-          "type": "static",
-          "rule": "hasBlock",
-          "opcode": "control_repeat",
-          "sprite": "포탄",
-          "inputs": {
-            "TIMES": {
-              "op": "eq",
-              "value": 40
-            }
-          }
-        },
-        {
           "type": "dynamic",
           "actions": [
             {
@@ -1512,6 +1498,13 @@
             {
               "target": "sprite",
               "sprite": "포탄",
+              "property": "x",
+              "op": "gt",
+              "value": 200
+            },
+            {
+              "target": "sprite",
+              "sprite": "포탄",
               "property": "visible",
               "op": "eq",
               "value": false
@@ -1531,8 +1524,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "이제 맞혔는지 판정할 차례예요. 먼저 맞힌 수를 셀 변수 `명중`을 만드세요(모든 스프라이트에서 사용).\n\n그다음 **목표**에 만드세요. 깃발을 누르면 명중이 0이 되고 과녁이 첫 자리로 가요.",
-            "en": "Now we check for hits. First make a variable `hits` (For all sprites) to count them.\n\nThen build this on the **목표** (target) sprite. The flag resets hits to 0 and moves the target to its first spot."
+            "ko": "이제 맞혔는지 판정할 차례예요. 먼저 맞힌 수를 셀 변수 `명중`을 만드세요(모든 스프라이트에서 사용).\n\n그다음 **과녁**에 만드세요. 깃발을 누르면 명중이 0이 되고 과녁이 첫 자리로 가요.",
+            "en": "Now we check for hits. First make a variable `hits` (For all sprites) to count them.\n\nThen build this on the **과녁** (target) sprite. The flag resets hits to 0 and moves the target to its first spot."
           }
         },
         {
@@ -1553,24 +1546,9 @@
       "checks": [
         {
           "type": "static",
-          "rule": "variableExists",
-          "kind": "variable",
-          "name": {
-            "ko": "명중",
-            "en": "hits"
-          }
-        },
-        {
-          "type": "static",
-          "rule": "hasBlock",
-          "opcode": "data_setvariableto",
-          "sprite": "목표"
-        },
-        {
-          "type": "static",
-          "rule": "hasBlock",
-          "opcode": "motion_gotoxy",
-          "sprite": "목표"
+          "rule": "underHat",
+          "hat": "event_whenflagclicked",
+          "opcode": "motion_gotoxy"
         },
         {
           "type": "dynamic",
@@ -1595,14 +1573,14 @@
             },
             {
               "target": "sprite",
-              "sprite": "목표",
+              "sprite": "과녁",
               "property": "visible",
               "op": "eq",
               "value": true
             },
             {
               "target": "sprite",
-              "sprite": "목표",
+              "sprite": "과녁",
               "property": "x",
               "op": "eq",
               "value": -36,
@@ -1610,7 +1588,7 @@
             },
             {
               "target": "sprite",
-              "sprite": "목표",
+              "sprite": "과녁",
               "property": "y",
               "op": "eq",
               "value": 64,
@@ -1638,8 +1616,8 @@
         {
           "type": "blocks",
           "value": {
-            "ko": "<[목표 v] 에 닿았는가?>",
-            "en": "<touching [목표 v]?>"
+            "ko": "<[과녁 v] 에 닿았는가?>",
+            "en": "<touching [과녁 v]?>"
           }
         },
         {
@@ -1668,8 +1646,8 @@
         {
           "type": "blocks",
           "value": {
-            "ko": "만약 <[목표 v] 에 닿았는가?> \\(이\\)라면\n[명중!] 말하기\nend",
-            "en": "if <touching [목표 v]?> then\nsay [Hit!]\nend"
+            "ko": "만약 <[과녁 v] 에 닿았는가?> \\(이\\)라면\n[명중!] 말하기\nend",
+            "en": "if <touching [과녁 v]?> then\nsay [Hit!]\nend"
           }
         },
         {
@@ -1682,27 +1660,116 @@
       ],
       "checks": [
         {
-          "type": "static",
-          "rule": "inside",
-          "parent": "control_repeat",
-          "child": "control_if"
-        },
-        {
-          "type": "anyOf",
-          "checks": [
+          "type": "dynamic",
+          "actions": [
             {
-              "type": "static",
-              "rule": "inside",
-              "parent": "control_if",
-              "child": "looks_say"
+              "do": "greenFlag"
             },
             {
-              "type": "static",
-              "rule": "inside",
-              "parent": "control_if",
-              "child": "looks_sayforsecs"
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 120
+            },
+            {
+              "do": "keyPress",
+              "key": " ",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 800
             }
-          ]
+          ],
+          "expect": [
+            {
+              "target": "sprite",
+              "sprite": "포탄",
+              "property": "sayText",
+              "op": "contains",
+              "value": "명중"
+            }
+          ],
+          "timeoutMs": 5000
         }
       ]
     },
@@ -1723,8 +1790,8 @@
         {
           "type": "blocks",
           "value": {
-            "ko": "[스페이스 v] 키를 눌렀을 때\n[대포 v] \\(으\\)로 이동하기\n(각도) 도 방향 보기\n보이기\n(40) 번 반복하기\n(10) 만큼 움직이기\n만약 <[목표 v] 에 닿았는가?> \\(이\\)라면\n[명중 v] 을\\(를\\) (1) 만큼 바꾸기\n숨기기\n멈추기 [이 스크립트 v]\nend\nend\n숨기기",
-            "en": "when [space v] key pressed\ngo to [대포 v]\npoint in direction (angle)\nshow\nrepeat (40)\nmove (10) steps\nif <touching [목표 v]?> then\nchange [hits v] by (1)\nhide\nstop [this script v]\nend\nend\nhide"
+            "ko": "[스페이스 v] 키를 눌렀을 때\n[대포 v] \\(으\\)로 이동하기\n(각도) 도 방향 보기\n보이기\n(40) 번 반복하기\n(10) 만큼 움직이기\n만약 <[과녁 v] 에 닿았는가?> \\(이\\)라면\n[명중 v] 을\\(를\\) (1) 만큼 바꾸기\n숨기기\n멈추기 [이 스크립트 v]\nend\nend\n숨기기",
+            "en": "when [space v] key pressed\ngo to [대포 v]\npoint in direction (angle)\nshow\nrepeat (40)\nmove (10) steps\nif <touching [과녁 v]?> then\nchange [hits v] by (1)\nhide\nstop [this script v]\nend\nend\nhide"
           }
         },
         {
@@ -1736,18 +1803,6 @@
         }
       ],
       "checks": [
-        {
-          "type": "static",
-          "rule": "inside",
-          "parent": "control_repeat",
-          "child": "control_if"
-        },
-        {
-          "type": "static",
-          "rule": "inside",
-          "parent": "control_if",
-          "child": "data_changevariableby"
-        },
         {
           "type": "dynamic",
           "actions": [
@@ -1914,7 +1969,7 @@
         {
           "type": "text",
           "value": {
-            "ko": "과녁이 `명중` 값을 보고 있다가 1이 되면 다음 자리로 가게 해요. **목표**의 깃발 스크립트 아래에 이어 붙이세요.",
+            "ko": "과녁이 `명중` 값을 보고 있다가 1이 되면 다음 자리로 가게 해요. **과녁**의 깃발 스크립트 아래에 이어 붙이세요.",
             "en": "The target waits until `hits` is 1, then moves on. Attach this below the target's flag script."
           }
         },
@@ -1938,7 +1993,7 @@
           "type": "static",
           "rule": "hasBlock",
           "opcode": "control_wait_until",
-          "sprite": "목표"
+          "sprite": "과녁"
         },
         {
           "type": "dynamic",
@@ -2044,7 +2099,7 @@
           "expect": [
             {
               "target": "sprite",
-              "sprite": "목표",
+              "sprite": "과녁",
               "property": "x",
               "op": "eq",
               "value": 90,
@@ -2052,7 +2107,7 @@
             },
             {
               "target": "sprite",
-              "sprite": "목표",
+              "sprite": "과녁",
               "property": "y",
               "op": "eq",
               "value": 80,
@@ -2131,13 +2186,6 @@
         }
       ],
       "checks": [
-        {
-          "type": "static",
-          "rule": "hasBlock",
-          "opcode": "control_wait_until",
-          "sprite": "목표",
-          "minCount": 3
-        },
         {
           "type": "dynamic",
           "actions": [
@@ -2416,8 +2464,8 @@
             "en": "The if block was moved **outside** the repeat. If you aim perfectly and fire?"
           },
           "blocks": {
-            "ko": "(40) 번 반복하기\n(10) 만큼 움직이기\nend\n만약 <[목표 v] 에 닿았는가?> \\(이\\)라면\n[명중 v] 을\\(를\\) (1) 만큼 바꾸기\nend",
-            "en": "repeat (40)\nmove (10) steps\nend\nif <touching [목표 v]?> then\nchange [hits v] by (1)\nend"
+            "ko": "(40) 번 반복하기\n(10) 만큼 움직이기\nend\n만약 <[과녁 v] 에 닿았는가?> \\(이\\)라면\n[명중 v] 을\\(를\\) (1) 만큼 바꾸기\nend",
+            "en": "repeat (40)\nmove (10) steps\nend\nif <touching [과녁 v]?> then\nchange [hits v] by (1)\nend"
           },
           "options": [
             {
@@ -2722,8 +2770,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "## ★★ 미션 C. 움직이는 과녁\n과녁이 위아래로 움직이게 해요. **목표**에 깃발 스크립트를 하나 더 만들어요.",
-            "en": "## ★★ Mission C. Moving target\nMake the target bob up and down with a second flag script on **목표**."
+            "ko": "## ★★ 미션 C. 움직이는 과녁\n과녁이 위아래로 움직이게 해요. **과녁**에 깃발 스크립트를 하나 더 만들어요.",
+            "en": "## ★★ Mission C. Moving target\nMake the target bob up and down with a second flag script on **과녁**."
           }
         },
         {
@@ -2766,8 +2814,8 @@
         {
           "type": "blocks",
           "value": {
-            "ko": "[낙하 v] 을\\(를\\) (0) 로 정하기\n(40) 번 반복하기\n(10) 만큼 움직이기\n[낙하 v] 을\\(를\\) (-0.1) 만큼 바꾸기\ny좌표를 (낙하) 만큼 바꾸기\n만약 <[목표 v] 에 닿았는가?> \\(이\\)라면\n[명중 v] 을\\(를\\) (1) 만큼 바꾸기\n숨기기\n멈추기 [이 스크립트 v]\nend\nend",
-            "en": "set [fall v] to (0)\nrepeat (40)\nmove (10) steps\nchange [fall v] by (-0.1)\nchange y by (fall)\nif <touching [목표 v]?> then\nchange [hits v] by (1)\nhide\nstop [this script v]\nend\nend"
+            "ko": "[낙하 v] 을\\(를\\) (0) 로 정하기\n(40) 번 반복하기\n(10) 만큼 움직이기\n[낙하 v] 을\\(를\\) (-0.1) 만큼 바꾸기\ny좌표를 (낙하) 만큼 바꾸기\n만약 <[과녁 v] 에 닿았는가?> \\(이\\)라면\n[명중 v] 을\\(를\\) (1) 만큼 바꾸기\n숨기기\n멈추기 [이 스크립트 v]\nend\nend",
+            "en": "set [fall v] to (0)\nrepeat (40)\nmove (10) steps\nchange [fall v] by (-0.1)\nchange y by (fall)\nif <touching [과녁 v]?> then\nchange [hits v] by (1)\nhide\nstop [this script v]\nend\nend"
           }
         },
         {
