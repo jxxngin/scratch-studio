@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>보물 지도 탐험 엔진 검증</title>
+<!-- TurboWarp의 실행기(스크래치 VM + 렌더러). 채점 규칙을 실제 엔진에서 돌려 보려고 쓴다. -->
+<script src="https://cdn.jsdelivr.net/npm/@turbowarp/scaffolding@0.4.0/dist/scaffolding-min.js"></script>
+</head>
+<body>
+<div id="stage" style="width:480px;height:360px"></div>
+<script>
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+let sc = null;
+
+async function load(url) {
+  if (sc) { sc.vm.stopAll(); sc.vm.quit && sc.vm.quit(); document.getElementById('stage').innerHTML = ''; }
+  sc = new Scaffolding.Scaffolding();
+  sc.width = 480; sc.height = 360;
+  sc.setup();
+  sc.appendTo(document.getElementById('stage'));
+  sc.vm.setTurboMode(false);
+  const buf = await (await fetch(url)).arrayBuffer();
+  await sc.loadProject(buf);
+  sc.start();
+  return true;
+}
+
+function sprite(name) {
+  const rt = sc.vm.runtime;
+  if (name === '@first') return rt.targets.find((t) => !t.isStage && t.isOriginal);
+  return rt.targets.find((t) => !t.isStage && t.isOriginal && t.getName() === name);
+}
+function sayText(t) {
+  const s = t.getCustomState('Scratch.looks');
+  return s && s.text != null ? String(s.text) : '';
+}
+function variable(names) {
+  const stage = sc.vm.runtime.getTargetForStage();
+  for (const v of Object.values(stage.variables)) if (names.includes(v.name)) return v.value;
+  return undefined;
+}
+function snapshot() {
+  const out = {};
+  for (const t of sc.vm.runtime.targets) {
+    if (t.isStage || !t.isOriginal) continue;
+    out[t.getName()] = { x: t.x, y: t.y, visible: t.visible, sayText: sayText(t), direction: t.direction };
+  }
+  out.timer = sc.vm.runtime.ioDevices.clock.projectTimer();
+  return out;
+}
+
+async function act(a) {
+  const vm = sc.vm;
+  if (a.do === 'greenFlag') vm.greenFlag();
+  else if (a.do === 'wait') await sleep(a.ms);
+  else if (a.do === 'keyPress') {
+    vm.postIOData('keyboard', { key: a.key, isDown: true });
+    await sleep(a.durationMs || 50);
+    vm.postIOData('keyboard', { key: a.key, isDown: false });
+  } else if (a.do === 'stop') vm.stopAll();
+  else throw new Error('unknown action ' + a.do);
+}
+
+function value(t, prop) {
+  if (prop === 'sayText') return sayText(t);
+  return t[prop];
+}
+function compare(actual, op, expected, tol) {
+  const list = expected && typeof expected === 'object' && !Array.isArray(expected) ? Object.values(expected) : [expected];
+  return list.some((e) => {
+    switch (op) {
+      case 'eq': return typeof e === 'number' ? Math.abs(Number(actual) - e) <= (tol || 0) : String(actual) === String(e);
+      case 'ne': return String(actual) !== String(e);
+      case 'gt': return Number(actual) > Number(e);
+      case 'lt': return Number(actual) < Number(e);
+      case 'contains': return String(actual).includes(String(e));
+      default: throw new Error('unknown op ' + op);
+    }
+  });
+}
+
+// 동적 검사 하나: 작품을 새로 불러와 actions를 실행하고 expect를 확인한다.
+window.runDynamic = async function (url, check) {
+  await load(url);
+  await sleep(200);
+  const initial = {};
+  for (const e of check.expect) if (e.target === 'sprite') { const t = sprite(e.sprite); initial[e.sprite + '.' + e.property] = t && value(t, e.property); }
+  const t0 = performance.now();
+  for (const a of check.actions) await act(a);
+  const results = check.expect.map((e) => {
+    let actual;
+    if (e.target === 'sprite') { const t = sprite(e.sprite); actual = t ? value(t, e.property) : undefined; }
+    else if (e.target === 'variable') actual = variable(Object.values(e.name));
+    const expected = e.value && e.value.ref === 'initial' ? initial[e.sprite + '.' + e.property] : e.value;
+    return { expect: e, actual, pass: actual !== undefined && compare(actual, e.op, expected, e.tolerance) };
+  });
+  return { pass: results.every((r) => r.pass), ms: Math.round(performance.now() - t0), results, snapshot: snapshot() };
+};
+
+// 자유 시나리오: actions를 실행하며 중간 상태를 기록한다.
+window.runScenario = async function (url, actions, sampleEveryMs) {
+  await load(url);
+  await sleep(200);
+  const log = [];
+  for (const a of actions) {
+    await act(a);
+    if (a.log) log.push({ label: a.log, state: snapshot() });
+  }
+  return log;
+};
+
+window.ready = true;
+</script>
+</body>
+</html>

@@ -7,7 +7,7 @@
 | `docs/` | 커리큘럼 구성안(`scratch-curriculum-outline.md`), 기획서(`scratch-studio-spec.md`), 교안 틀(`scratch-lesson-template.md`), 본 사이트 기획서(`spec.md`), 강사용 안내서(`teacher-guides/`) |
 | `styles/` | hi-fi 목업 |
 | `project/` | 단원 교안. 단원 폴더에는 `unit.json`, `starter.sb3`, `media/`만 둔다 |
-| `tools/` | 단원별 미리보기 GIF 생성 스크립트 (보물 지도 탐험은 시작 프로젝트와 그림도 함께 만든다) |
+| `tools/` | 단원별 미리보기 GIF 생성 스크립트 (보물 지도 탐험은 시작 프로젝트와 그림도 함께 만들고, `verify/`에 엔진 검증 도구가 있다) |
 | `app/` | 스크래치 전용 학습 화면 (목업 화면 15) |
 
 ## 문서 내려받기
@@ -20,9 +20,9 @@
 | 스크래치 스튜디오 기획서 | [scratch-studio-spec.md](docs/scratch-studio-spec.md) | 2026-10-16 | 5장: 미니퀴즈 동작, 소제목 표시, 목차, 입력 표, 작품 제목 예시(단원 이름). 6장: 퀴즈 문항 필드(`hint`, `explain`, `blocks`, `title`), `record` 블록과 검사, `chapters`, 마크다운 범위. 8장: 입력 표 API |
 | 본 사이트 기획서 | [spec.md](docs/spec.md) | 2026-10-16 | §3.3.1: 미니퀴즈 동작, 입력 표, 목차. §5: `UNIT.chapters`, `STEP_RECORD`, `QUIZ_QUESTION.content`. §8: 학생 상세의 입력 표 열람 |
 | 커리큘럼 구성안 | [scratch-curriculum-outline.md](docs/scratch-curriculum-outline.md) | 2026-10-16 | Lv.1 표 아래: 보물 지도 탐험의 정해진 블록(`탐험가에 닿았는가? 까지 기다리기`)과 타이머 메모 |
-| 강사용 안내서 (보물 지도 탐험) | [lv1-01-treasure-map.md](docs/teacher-guides/lv1-01-treasure-map.md) | 2026-10-16 | 새로 만듦. 단계 구성과 120분 배분, 정답 코드, 채점 경로, 퀴즈 정답·힌트·해설 |
+| 강사용 안내서 (보물 지도 탐험) | [lv1-01-treasure-map.md](docs/teacher-guides/lv1-01-treasure-map.md) | 2026-10-16 | 새로 만듦. 단계 구성과 120분 배분, 정답 코드, 채점 경로, 퀴즈 정답·힌트·해설, 엔진 검증 기록(7장), 실제 그림 출처(8장) |
 | 강사용 안내서 (해적선 대포) | [lv1-04-pirate-cannon.md](docs/teacher-guides/lv1-04-pirate-cannon.md) | 2026-10-16 | 단계 구성, 퀴즈 정답·힌트·해설 |
-| 보물 지도 탐험 교안 | [unit.json](project/lv1/01-treasure-map/unit.json) · [starter.sb3](project/lv1/01-treasure-map/starter.sb3) · [media/](project/lv1/01-treasure-map/media) | 2026-10-16 | 새로 만듦. Lv.1 첫 단원, 26스텝(2시간 기준) |
+| 보물 지도 탐험 교안 | [unit.json](project/lv1/01-treasure-map/unit.json) · [starter.sb3](project/lv1/01-treasure-map/starter.sb3) · [media/](project/lv1/01-treasure-map/media) | 2026-10-16 | 새로 만듦. Lv.1 첫 단원, 26스텝(2시간 기준). 실제 그림 3장(퍼블릭 도메인), 채점 규칙은 엔진에서 검증 |
 | 해적선 대포 교안 | [unit.json](project/lv1/04-pirate-cannon/unit.json) · [starter.sb3](project/lv1/04-pirate-cannon/starter.sb3) · [media/](project/lv1/04-pirate-cannon/media) | 2026-10-16 | 교안 틀 개정의 기준이 된 교안 |
 
 ### 교안 틀 변경 (2026-10-16 반영)
@@ -105,5 +105,5 @@ http://localhost:8000/app/?unit=../project/lv1/<단원 폴더>
 - **건너뛰기 (교안 확인용, 임시)**: 채점이 있는 스텝 아래에 "건너뛰기 (교안 확인용)"이 있다. 누르면 채점 없이 통과 처리하고 다음 스텝으로 간다. 실제 수업용으로 쓸 때는 `app/dev-skip.js`, `app/main.js`에서 `dev-skip`으로 검색되는 줄, `app/store.js`의 `devPass`, `app/styles.css`의 `.ss-dev-skip` 스타일을 지운다.
 - **레벨 고르기 화면 (교안 확인용, 임시)**: `app/home/`이 Lv.1~3과 단원 목록을 보여 준다. 교안이 있는 단원만 열리고 나머지는 "준비 중"으로 막혀 있다. 교안을 새로 만들면 `app/home/index.html`의 `LEVELS`에서 그 단원 줄에 `unit`(폴더 이름)을 적는다. 학습 화면의 "종료"는 이 화면의 그 레벨 목록으로 돌아온다. 실제 수업용으로 쓸 때는 `app/home/`을 지우고, `vercel.json`의 `/` 이동 주소를 `/app/`으로 되돌리고, `app/main.js`에서 `[임시] home`으로 검색되는 줄의 종료 기본 주소를 `''`로 되돌린다(실제 사이트에서는 본 사이트의 단원 목록이 이 역할을 한다).
 - **프로젝트 제출**: 사이트가 배치하는 기능이라 단원 끝에 제출 스텝을 붙인다.
-- **채점 규칙**: 채점 엔진이 없어 규칙은 좌표와 시간을 계산해 맞췄을 뿐 실제로 돌려 보지 않았다. 기획서의 `tests/`(정답·오답 sb3)도 없다.
+- **채점 규칙**: 채점 엔진이 아직 없다. 보물 지도 탐험은 `tools/01-treasure-map/verify/`의 도구로 정답·오답 sb3(`tests/`)를 만들어 TurboWarp 실행기에서 `checks`를 돌려 확인했다(정답은 모두 통과, 오개념 작품을 포함한 틀린 작품 12개는 실수하는 스텝에서 떨어짐, 결과는 `report.txt`·`scenarios.txt`와 강사용 안내서 7장). 실행: `python tools/01-treasure-map/verify/build_tests.py` → `run_checks.py` → `scenarios.py` (Playwright와 Chromium 필요). 해적선 대포는 규칙을 좌표와 시간으로 계산해 맞췄을 뿐 채점기처럼 돌려 보지 않았다.
 - **교안 위치**: 기획서는 `scratch-content/scratch-lv1/<단원>/`과 `tests/`, 이 저장소는 `project/lv1/<단원>/`. 어느 쪽으로 맞출지 아직 정하지 않았다.

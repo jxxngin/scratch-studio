@@ -24,6 +24,14 @@
         },
         {
           "type": "image",
+          "src": "media/story-photo-descartes.jpg",
+          "alt": {
+            "ko": "데카르트의 초상화. 긴 곱슬머리에 검은 옷과 흰 깃을 입었다",
+            "en": "Portrait of Descartes with long curly hair, a black coat and a white collar"
+          }
+        },
+        {
+          "type": "image",
           "src": "media/story-fly.png",
           "alt": {
             "ko": "네모난 타일이 줄지어 있는 천장에 파리 한 마리가 붙어 있고, 왼쪽 아래 모서리에 점이 찍혀 있다",
@@ -40,8 +48,23 @@
         {
           "type": "text",
           "value": {
-            "ko": "이 이야기가 정말 있었던 일인지는 아무도 몰라요. 하지만 데카르트가 1637년에 낸 책에서 **숫자 두 개로 자리를 나타내는 방법**을 쓴 것은 사실이에요. 이 방법은 데카르트의 이름을 따서 **데카르트 좌표**라고 불러요.",
-            "en": "Nobody knows if this story really happened. But it is true that in a book from 1637, Descartes used **two numbers to describe a position**. That's why this idea is called **Cartesian coordinates**, after him."
+            "ko": "이 이야기가 정말 있었던 일인지는 아무도 몰라요. 하지만 데카르트가 1637년에 낸 책 『방법서설』의 부록 『기하학』에서 **숫자 두 개로 자리를 나타내는 방법**을 쓴 것은 사실이에요. 이 방법은 데카르트의 이름을 따서 **데카르트 좌표**라고 불러요.",
+            "en": "Nobody knows if this story really happened. But it is true that in *La Géométrie*, an appendix to his 1637 book *Discourse on the Method*, Descartes used **two numbers to describe a position**. That's why this idea is called **Cartesian coordinates**, after him."
+          }
+        },
+        {
+          "type": "image",
+          "src": "media/story-photo-discours.jpg",
+          "alt": {
+            "ko": "1637년에 나온 『방법서설』 초판의 표지. 프랑스어로 제목이 적혀 있다",
+            "en": "Title page of the first edition of Discourse on the Method, 1637, in French"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "*그림: 데카르트 초상, 프란스 할스의 그림을 따라 그린 것 (1649년경, 퍼블릭 도메인) · 『방법서설』 초판 표지 (1637, 리즈 대학 도서관, 퍼블릭 도메인)*",
+            "en": "*Images: Portrait of Descartes, after Frans Hals (c. 1649, public domain) · Title page of Discourse on the Method, first edition (1637, Leeds University Library, public domain)*"
           }
         }
       ]
@@ -92,6 +115,21 @@
           }
         },
         {
+          "type": "text",
+          "value": {
+            "ko": "진짜 해적이 보물 지도를 남겼다는 기록은 없대요. **X 표시가 보물 자리**라는 생각은 1883년 소설 『보물섬』에 실린 지도로 널리 알려졌어요. 오늘 우리 보물도 X 표시예요.",
+            "en": "There is no record of a real pirate ever leaving a treasure map. The idea that **X marks the treasure** became famous through the map in the 1883 novel *Treasure Island*. Our treasure today is an X too."
+          }
+        },
+        {
+          "type": "image",
+          "src": "media/story-photo-treasure-island.jpg",
+          "alt": {
+            "ko": "1883년 소설 『보물섬』의 지도. 섬 그림 위에 빨간 X 표시가 있다",
+            "en": "The map from the 1883 novel Treasure Island, with red X marks on the island"
+          }
+        },
+        {
           "type": "image",
           "src": "media/story-map.png",
           "alt": {
@@ -113,6 +151,13 @@
             "ko": "완성한 게임: 깃발을 누르면 탐험가가 배에서 출발해 방향키로 보물 5곳을 차례로 찾고, 보물은 찾을 때마다 '찾았다!'라고 말한 뒤 마지막에 걸린 시간을 말한다",
             "en": "The finished game: the explorer starts at the ship and finds the five treasure spots with the arrow keys; the treasure says \"Found it!\" each time and the time taken at the end"
           }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "*그림: 『보물섬』 지도, 로버트 루이스 스티븐슨 (1883, 퍼블릭 도메인)*",
+            "en": "*Image: Map of Treasure Island, Robert Louis Stevenson (1883, public domain)*"
+          }
         }
       ]
     },
@@ -126,8 +171,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "스크래치 무대도 데카르트의 천장처럼 **좌표**로 자리를 말해요. **좌표**는 숫자 두 개로 나타낸 자리예요.\n\n- **x**: 가운데에서 가로로 얼마나 갔는지\n- **y**: 가운데에서 세로로 얼마나 갔는지\n\n가운데는 (0, 0)이에요. 가운데보다 왼쪽이나 아래는 0보다 작은 수, **음수**예요. 음수는 -60처럼 앞에 -를 붙여요.",
-            "en": "The Scratch stage uses **coordinates** to name spots, just like Descartes' ceiling. **Coordinates** are a position written as two numbers.\n\n- **x**: how far across from the middle\n- **y**: how far up or down from the middle\n\nThe middle is (0, 0). Left of or below the middle, the numbers are smaller than 0. These are **negative numbers**, written with a - in front, like -60."
+            "ko": "스크래치 무대도 데카르트의 천장처럼 **좌표**로 자리를 말해요. **좌표**는 숫자 두 개로 나타낸 자리예요.\n\n- **x**: 가운데에서 가로로 얼마나 갔는지\n- **y**: 가운데에서 세로로 얼마나 갔는지\n\n가운데는 (0, 0)이에요. 가운데보다 왼쪽이나 아래는 0보다 작은 수, **음수**예요. 음수는 -60처럼 앞에 -를 붙여요. 겨울에 영하 5도를 -5도로 쓰는 것과 같아요.",
+            "en": "The Scratch stage uses **coordinates** to name spots, just like Descartes' ceiling. **Coordinates** are a position written as two numbers.\n\n- **x**: how far across from the middle\n- **y**: how far up or down from the middle\n\nThe middle is (0, 0). Left of or below the middle, the numbers are smaller than 0. These are **negative numbers**, written with a - in front, like -60. It's like writing 5 degrees below zero as -5 degrees."
           }
         },
         {
@@ -914,8 +959,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "깃발을 누르면 탐험가가 배에서 한마디 하게 해요. **형태**(보라색) 꾸러미의 블록을 깃발 스크립트 맨 아래에 붙이고, 하고 싶은 말을 적어요.",
-            "en": "Make the explorer say something at the ship when the flag is clicked. Snap this block from **Looks** (purple) to the bottom of the flag script and type what you want to say."
+            "ko": "깃발을 누르면 탐험가가 배에서 한마디 하게 해요. **형태**(보라색) 꾸러미의 블록을 깃발 스크립트 맨 아래에 붙이고, 하고 싶은 말을 적어요.\n\n이동 블록 **아래**에 붙여야 해요. 위에 붙이면 2초 동안 말한 뒤에야 배로 가서, 게임을 시작할 때마다 탐험가가 늦게 출발해요.",
+            "en": "Make the explorer say something at the ship when the flag is clicked. Snap this block from **Looks** (purple) to the bottom of the flag script and type what you want to say.\n\nPut it **under** the go-to block. If it goes on top, the explorer talks for 2 seconds before going to the ship, so every game starts late."
           }
         },
         {
@@ -952,6 +997,22 @@
               "property": "sayText",
               "op": "ne",
               "value": ""
+            },
+            {
+              "target": "sprite",
+              "sprite": "탐험가",
+              "property": "x",
+              "op": "eq",
+              "value": -180,
+              "tolerance": 5
+            },
+            {
+              "target": "sprite",
+              "sprite": "탐험가",
+              "property": "y",
+              "op": "eq",
+              "value": -120,
+              "tolerance": 5
             }
           ],
           "timeoutMs": 3000
@@ -982,8 +1043,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "**확인**: 깃발을 누르고 인사가 끝나면 스페이스를 누르세요. 탐험가가 -180, -120을 차례로 말하나요? 조금 움직인 뒤에 다시 눌러 보세요.",
-            "en": "**Check**: Click the flag, wait for the hello, then press space. Does the explorer say -180 and then -120? Move a little and press it again."
+            "ko": "**확인**: 깃발을 누르고 인사가 끝나면 스페이스를 누르세요. 탐험가가 -180, -120을 차례로 말하나요? 먼저 말하는 숫자가 x, 나중에 말하는 숫자가 y예요. 조금 움직인 뒤에 다시 눌러 보세요.",
+            "en": "**Check**: Click the flag, wait for the hello, then press space. Does the explorer say -180 and then -120? The first number is x and the second is y. Move a little and press it again."
           }
         }
       ],
@@ -1365,8 +1426,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "`탐험가에 닿았는가? 까지 기다리기`는 탐험가가 보물에 닿을 때까지 다음 블록으로 넘어가지 않고 기다려요. 이 블록이 어떻게 판단하는지는 '달리는 말 경주'에서 자세히 배워요.\n\n탐색에서 본 것처럼 블록은 위에서부터 차례로 실행돼요(**순차**). 그래서 보물은 첫 자리로 가서 → 기다렸다가 → 탐험가가 오면 두 번째 자리로 가요.",
-            "en": "`wait until touching 탐험가?` waits here until the explorer touches the treasure, then moves on to the next block. You'll learn how this block decides in \"Horse Race\".\n\nAs you saw when exploring, blocks run one after another from the top (**sequence**). So the treasure goes to spot 1 → waits → moves to spot 2 when the explorer arrives."
+            "ko": "`탐험가에 닿았는가? 까지 기다리기`는 탐험가가 보물에 닿을 때까지 다음 블록으로 넘어가지 않고 기다려요. 좌표가 딱 맞지 않아도 두 그림이 조금이라도 겹치면 닿은 거예요. 이 블록이 어떻게 판단하는지는 '달리는 말 경주'에서 자세히 배워요.\n\n탐색에서 본 것처럼 블록은 위에서부터 차례로 실행돼요(**순차**). 그래서 보물은 첫 자리로 가서 → 기다렸다가 → 탐험가가 오면 두 번째 자리로 가요.",
+            "en": "`wait until touching 탐험가?` waits here until the explorer touches the treasure, then moves on to the next block. The coordinates don't have to match exactly; if the two pictures overlap even a little, they are touching. You'll learn how this block decides in \"Horse Race\".\n\nAs you saw when exploring, blocks run one after another from the top (**sequence**). So the treasure goes to spot 1 → waits → moves to spot 2 when the explorer arrives."
           }
         },
         {
@@ -1559,6 +1620,10 @@
             {
               "do": "wait",
               "ms": 300
+            },
+            {
+              "do": "wait",
+              "ms": 1000
             }
           ],
           "expect": [
@@ -1579,7 +1644,7 @@
               "tolerance": 5
             }
           ],
-          "timeoutMs": 6000
+          "timeoutMs": 7000
         }
       ]
     },
@@ -1962,6 +2027,10 @@
             {
               "do": "wait",
               "ms": 300
+            },
+            {
+              "do": "wait",
+              "ms": 1000
             }
           ],
           "expect": [
@@ -1982,7 +2051,7 @@
               "tolerance": 5
             }
           ],
-          "timeoutMs": 8000
+          "timeoutMs": 9000
         }
       ]
     },
@@ -2751,6 +2820,10 @@
             {
               "do": "wait",
               "ms": 300
+            },
+            {
+              "do": "wait",
+              "ms": 1000
             }
           ],
           "expect": [
@@ -2771,7 +2844,7 @@
               "tolerance": 5
             }
           ],
-          "timeoutMs": 14000
+          "timeoutMs": 15000
         }
       ]
     },
@@ -2785,8 +2858,8 @@
         {
           "type": "text",
           "value": {
-            "ko": "보물을 찾을 때마다 보물이 \"찾았다!\"라고 말하게 해요. 각 `기다리기` 블록 **바로 아래**에 말하기 블록을 끼워 넣어요. 다섯 군데 모두요.",
-            "en": "Make the treasure say \"Found it!\" every time it's found. Slot a say block **right under** each `wait until` block, all five of them."
+            "ko": "보물을 찾을 때마다 보물이 \"찾았다!\"라고 말하게 해요. 첫 번째부터 네 번째 `기다리기` 블록 **바로 아래**에 말하기 블록을 끼워 넣어요. 다섯 번째 보물을 찾으면 다음 스텝에서 곧바로 걸린 시간을 말하게 해요.",
+            "en": "Make the treasure say \"Found it!\" every time it's found. Slot a say block **right under** the first four `wait until` blocks. For the fifth treasure, the next steps make it say the time right away."
           }
         },
         {
@@ -2992,53 +3065,113 @@
       ]
     },
     {
-      "key": "s19-timer-reset",
+      "key": "s19-timer-look",
       "title": {
-        "ko": "타이머 준비",
-        "en": "Get the timer ready"
+        "ko": "탐색: 타이머 살펴보기",
+        "en": "Explore: Watch the timer"
       },
       "content": [
         {
           "type": "text",
           "value": {
-            "ko": "**목표**\n- 깃발을 누르면 무대의 타이머가 0부터 다시 세요.",
-            "en": "**Goal**\n- Click the flag: the timer on the stage counts again from 0."
-          }
-        },
-        {
-          "type": "text",
-          "value": {
-            "ko": "**타이머**는 스크래치 안의 초시계예요. 몇 초가 흘렀는지 세어요.\n\n1. **감지**(하늘색) 꾸러미에서 둥근 `타이머` 블록 왼쪽의 네모를 체크해요. 무대에 시간이 보여요.\n2. `타이머 초기화`를 **보물**의 깃발 블록 바로 아래, 맨 위에 끼워요. 초기화하면 0부터 다시 세요.",
-            "en": "The **timer** is a stopwatch inside Scratch. It counts the seconds that pass.\n\n1. In **Sensing** (light blue), tick the box next to the round `timer` block. The time shows on the stage.\n2. Put `reset timer` right under the flag block of **보물** (treasure), at the very top. Resetting starts the count again from 0."
+            "ko": "**타이머**는 스크래치 안의 초시계예요. 몇 초가 흘렀는지 세어요.\n\n1. **감지**(하늘색) 꾸러미에서 둥근 `타이머` 블록 왼쪽의 네모를 체크해요. 무대 왼쪽 위에 시간이 보여요.\n2. 표대로 해 보기 전에 타이머가 어떻게 될지 먼저 골라요.\n\n- **해 보기 1**: 아무것도 누르지 않고 5초 기다리기\n- **해 보기 2**: 블록 꾸러미의 `타이머 초기화`를 클릭하기\n- **해 보기 3**: 깃발 누르기",
+            "en": "The **timer** is a stopwatch inside Scratch. It counts the seconds that pass.\n\n1. In **Sensing** (light blue), tick the box next to the round `timer` block. The time shows at the top left of the stage.\n2. Before trying each row, guess what the timer will do.\n\n- **Try 1**: Wait 5 seconds without pressing anything\n- **Try 2**: Click `reset timer` in the block palette\n- **Try 3**: Click the green flag"
           }
         },
         {
           "type": "blocks",
           "value": {
-            "ko": "@greenFlag 클릭했을 때\n타이머 초기화\nx: (-60) y: (-60) \\(으\\)로 이동하기\n<[탐험가 v] 에 닿았는가?> 까지 기다리기",
-            "en": "when green flag clicked\nreset timer\ngo to x: (-60) y: (-60)\nwait until <touching [탐험가 v]?>"
+            "ko": "타이머 초기화",
+            "en": "reset timer"
           }
+        },
+        {
+          "type": "record",
+          "key": "record",
+          "columns": [
+            {
+              "label": {
+                "ko": "해 볼 것",
+                "en": "Try"
+              }
+            },
+            {
+              "label": {
+                "ko": "내 예상",
+                "en": "Guess"
+              },
+              "input": true,
+              "kind": "select",
+              "options": [
+                {
+                  "ko": "0부터 다시 세요",
+                  "en": "Starts again from 0"
+                },
+                {
+                  "ko": "이어서 계속 세요",
+                  "en": "Keeps counting"
+                },
+                {
+                  "ko": "멈춰요",
+                  "en": "Stops"
+                }
+              ]
+            },
+            {
+              "label": {
+                "ko": "해 보니",
+                "en": "Result"
+              },
+              "input": true,
+              "kind": "verify",
+              "of": 1
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "1",
+                "en": "1"
+              },
+              null,
+              {
+                "answer": 1
+              }
+            ],
+            [
+              {
+                "ko": "2",
+                "en": "2"
+              },
+              null,
+              {
+                "answer": 0
+              }
+            ],
+            [
+              {
+                "ko": "3",
+                "en": "3"
+              },
+              null,
+              {
+                "answer": 0
+              }
+            ]
+          ]
         },
         {
           "type": "text",
           "value": {
-            "ko": "**확인**: 타이머가 10을 넘을 때까지 기다렸다가 깃발을 누르세요. 타이머가 0부터 다시 세나요?\n\n**해 보기**: 블록 꾸러미에 있는 `타이머 초기화`를 그냥 클릭해 보세요. 무대의 타이머는 어떻게 되나요?",
-            "en": "**Check**: Wait until the timer passes 10, then click the flag. Does it count from 0 again?\n\n**Try**: Click `reset timer` right in the block palette. What happens to the timer on the stage?"
+            "ko": "깃발을 누르면 스크래치가 타이머를 스스로 0으로 돌려요. 그래서 깃발을 누른 뒤로 흐른 시간이 곧 게임에 걸린 시간이에요. `타이머 초기화`는 깃발 말고 다른 때에 0으로 돌리고 싶을 때 써요.\n\n**정리**: 코드 영역에 꺼낸 블록이 있으면 지우세요. 무대의 타이머 표시는 켜 둬도 돼요.",
+            "en": "Clicking the flag makes Scratch reset the timer to 0 by itself. So the time since the flag is the time the game took. Use `reset timer` when you want to go back to 0 at some other moment.\n\n**Clean up**: Delete any blocks you took out into the code area. You can leave the timer showing on the stage."
           }
         }
       ],
       "checks": [
         {
-          "type": "static",
-          "rule": "hasBlock",
-          "opcode": "sensing_resettimer",
-          "sprite": "보물"
-        },
-        {
-          "type": "static",
-          "rule": "underHat",
-          "hat": "event_whenflagclicked",
-          "opcode": "sensing_resettimer"
+          "type": "record",
+          "key": "record"
         }
       ]
     },
@@ -3052,37 +3185,37 @@
         {
           "type": "text",
           "value": {
-            "ko": "**목표**\n- 다섯 번째 보물까지 찾으면 보물이 \"보물을 모두 찾았어요!\"라고 말한 뒤 걸린 시간을 말해요.",
-            "en": "**Goal**\n- After the fifth treasure, the treasure says \"Found all the treasure!\" and then the time taken."
+            "ko": "**목표**\n- 다섯 번째 보물을 찾으면 보물이 곧바로 걸린 시간을 말해요.\n- 네 번째 보물까지 찾았을 때는 아직 시간을 말하지 않아요.",
+            "en": "**Goal**\n- When the explorer finds the fifth treasure, the treasure says the time taken right away.\n- After only four treasures, it doesn't say the time yet."
           }
         },
         {
           "type": "image",
           "src": "media/s20-time.gif",
           "alt": {
-            "ko": "탐험가가 마지막 X 표시를 찾자 보물이 찾았다고 말하고, 다 찾았다고 말한 뒤 걸린 시간 26.7을 말한다",
-            "en": "The explorer finds the last X; the treasure says it found it, that it found everything, and then the time 26.7"
+            "ko": "탐험가가 마지막 X 표시를 찾자 보물이 곧바로 걸린 시간 30.50을 말하고, 무대의 타이머는 계속 흐른다",
+            "en": "The explorer finds the last X and the treasure says the time 30.50 right away, while the stage timer keeps running"
           }
         },
         {
           "type": "text",
           "value": {
-            "ko": "다섯 번째 자리의 `기다리기` 아래에 말하기 블록 두 개를 붙여요. 두 번째 말하기의 빈칸에는 **감지** 꾸러미의 둥근 `타이머` 블록을 끌어다 넣어요. 타이머는 깃발을 누른 뒤로 몇 초가 흘렀는지 알려 줘요.",
-            "en": "Under the fifth `wait until`, snap the two say blocks. Drag the round `timer` block from **Sensing** into the second one. The timer tells you how many seconds have passed since the flag."
+            "ko": "다섯 번째 자리의 `기다리기` 바로 아래에 **형태** 꾸러미의 `말하기`를 붙이고, 빈칸에 **감지** 꾸러미의 둥근 `타이머` 블록을 끌어다 넣어요. 깃발을 누르면 타이머가 0이 되니까, 보물을 다 찾은 순간의 타이머 값이 곧 걸린 시간이에요.",
+            "en": "Under the fifth `wait until`, snap `say` from **Looks** and drag the round `timer` block from **Sensing** into it. The flag resets the timer to 0, so the timer at the moment you find the last treasure is the time the game took."
           }
         },
         {
           "type": "blocks",
           "value": {
-            "ko": "x: (0) y: (-120) \\(으\\)로 이동하기\n<[탐험가 v] 에 닿았는가?> 까지 기다리기\n[찾았다!] 을\\(를\\) (1) 초 동안 말하기\n[보물을 모두 찾았어요!] 을\\(를\\) (2) 초 동안 말하기\n(타이머) 말하기",
-            "en": "go to x: (0) y: (-120)\nwait until <touching [탐험가 v]?>\nsay [Found it!] for (1) seconds\nsay [Found all the treasure!] for (2) seconds\nsay (timer)"
+            "ko": "x: (0) y: (-120) \\(으\\)로 이동하기\n<[탐험가 v] 에 닿았는가?> 까지 기다리기\n(타이머) 말하기",
+            "en": "go to x: (0) y: (-120)\nwait until <touching [탐험가 v]?>\nsay (timer)"
           }
         },
         {
           "type": "text",
           "value": {
-            "ko": "**확인**: 깃발을 누르고 보물 5개를 모두 찾으세요. 보물이 걸린 시간을 말하나요? 무대의 타이머와 같은 숫자인가요?",
-            "en": "**Check**: Click the flag and find all 5 treasures. Does the treasure say the time? Is it the same number as the timer on the stage?"
+            "ko": "**확인**: 깃발을 누르고 보물 5개를 모두 찾으세요. 보물이 걸린 시간을 말하나요?\n\n**생각해 보기**: 무대의 타이머는 계속 흐르는데, 보물이 말한 숫자는 왜 그대로일까요?",
+            "en": "**Check**: Click the flag and find all 5 treasures. Does the treasure say the time?\n\n**Look**: The stage timer keeps running. Why does the number the treasure said stay the same?"
           }
         }
       ],
@@ -3822,6 +3955,750 @@
               "ms": 300
             },
             {
+              "do": "wait",
+              "ms": 1200
+            }
+          ],
+          "expect": [
+            {
+              "target": "sprite",
+              "sprite": "보물",
+              "property": "sayText",
+              "op": "eq",
+              "value": ""
+            }
+          ],
+          "timeoutMs": 15000
+        },
+        {
+          "type": "dynamic",
+          "actions": [
+            {
+              "do": "greenFlag"
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowLeft",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowLeft",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowLeft",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowLeft",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowLeft",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowLeft",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowUp",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowRight",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "keyPress",
+              "key": "ArrowDown",
+              "durationMs": 50
+            },
+            {
+              "do": "wait",
+              "ms": 70
+            },
+            {
+              "do": "wait",
+              "ms": 300
+            },
+            {
               "do": "keyPress",
               "key": "ArrowLeft",
               "durationMs": 50
@@ -4043,7 +4920,7 @@
             },
             {
               "do": "wait",
-              "ms": 3500
+              "ms": 500
             }
           ],
           "expect": [
@@ -4055,7 +4932,7 @@
               "value": ""
             }
           ],
-          "timeoutMs": 21000
+          "timeoutMs": 18000
         }
       ]
     },
@@ -5219,7 +6096,7 @@
             },
             {
               "do": "wait",
-              "ms": 3500
+              "ms": 1000
             }
           ],
           "expect": [
@@ -5231,7 +6108,7 @@
               "value": ""
             }
           ],
-          "timeoutMs": 21000
+          "timeoutMs": 18500
         },
         {
           "type": "dynamic",
@@ -6183,7 +7060,7 @@
             },
             {
               "do": "wait",
-              "ms": 3500
+              "ms": 1000
             },
             {
               "do": "greenFlag"
@@ -6227,7 +7104,7 @@
               "tolerance": 5
             }
           ],
-          "timeoutMs": 22000
+          "timeoutMs": 19500
         }
       ]
     },
@@ -6391,6 +7268,27 @@
             "ko": "@greenFlag 클릭했을 때\n<[바위 v] 에 닿았는가?> 까지 기다리기\n[앗, 함정이다!] 을\\(를\\) (1) 초 동안 말하기\nx: (-180) y: (-120) \\(으\\)로 이동하기",
             "en": "when green flag clicked\nwait until <touching [바위 v]?>\nsay [Oops, a trap!] for (1) seconds\ngo to x: (-180) y: (-120)"
           }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "## ★★★ 미션 E. 보이지 않는 보물\n보물을 안 보이게 숨기고, 쪽지와 탐험가의 좌표만 보고 찾아요. **형태** 꾸러미의 효과 블록에서 `색깔`을 `투명도`로 바꾸고 100을 넣어, **보물**의 깃발 블록 바로 아래에 붙여요. 보물은 안 보여도 닿으면 찾을 수 있어요. 스페이스 키로 내 좌표를 말하게 한 것이 도움이 될 거예요.",
+            "en": "## ★★★ Mission E. Invisible treasure\nHide the treasure and find it using only the note and the explorer's coordinates. In the effect block from **Looks**, change `color` to `ghost`, enter 100, and snap it right under the flag block of **보물** (treasure). You can still find the treasure by touching it even though you can't see it. Saying your coordinates with the space key will help."
+          }
+        },
+        {
+          "type": "blocks",
+          "value": {
+            "ko": "@greenFlag 클릭했을 때\n[투명도 v] 효과를 (100) \\(으\\)로 정하기",
+            "en": "when green flag clicked\nset [ghost v] effect to (100)"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "ko": "**되돌리기**: 효과 블록을 빼고 깃발을 누르면 보물이 다시 보여요.",
+            "en": "**Undo**: Remove the effect block and click the flag, and the treasure shows again."
+          }
         }
       ]
     },
@@ -6470,7 +7368,7 @@
         "s16-third-spot",
         "s17-last-spots",
         "s18-found-say",
-        "s19-timer-reset",
+        "s19-timer-look",
         "s20-time-say",
         "q2-order"
       ]

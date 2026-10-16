@@ -1,0 +1,184 @@
+
+=== solution: 떨어져야 할 스텝 없음 맞음
+  s06-start            통과   static:통과 hasBlock motion_gotoxy 개수 1 | dynamic:통과 330ms
+  s09-arrows-x         통과   dynamic:통과 723ms | dynamic:통과 696ms
+  s10-arrows-y         통과   dynamic:통과 727ms | dynamic:통과 667ms
+  s11-hello            통과   dynamic:통과 526ms
+  s12-my-xy            통과   dynamic:통과 2665ms
+  s13-treasure-spot    통과   dynamic:통과 332ms
+  s15-wait-touch       통과   static:통과 hasBlock control_wait_until 개수 5 | dynamic:통과 4206ms
+  s16-third-spot       통과   dynamic:통과 6934ms
+  s17-last-spots       통과   dynamic:통과 13351ms
+  s18-found-say        통과   dynamic:통과 2627ms
+  s20-time-say         통과   static:통과 hasBlock sensing_timer 개수 1 | dynamic:통과 12844ms | dynamic:통과 15491ms
+  s21-final-test       통과   dynamic:통과 15984ms | dynamic:통과 16499ms
+
+=== core: 떨어져야 할 스텝 s11-hello, s12-my-xy, s18-found-say 맞음
+  s06-start            통과   static:통과 hasBlock motion_gotoxy 개수 1 | dynamic:통과 318ms
+  s09-arrows-x         통과   dynamic:통과 696ms | dynamic:통과 722ms
+  s10-arrows-y         통과   dynamic:통과 717ms | dynamic:통과 692ms
+  s11-hello            실패   dynamic:실패 탐험가.sayText ne '' 실제 ''
+  s12-my-xy            실패   dynamic:실패 탐험가.sayText contains '-180' 실제 ''
+  s13-treasure-spot    통과   dynamic:통과 301ms
+  s15-wait-touch       통과   static:통과 hasBlock control_wait_until 개수 5 | dynamic:통과 4318ms
+  s16-third-spot       통과   dynamic:통과 7323ms
+  s17-last-spots       통과   dynamic:통과 13721ms
+  s18-found-say        실패   dynamic:실패 보물.sayText ne '' 실제 ''
+  s20-time-say         통과   static:통과 hasBlock sensing_timer 개수 1 | dynamic:통과 13167ms | dynamic:통과 15851ms
+  s21-final-test       통과   dynamic:통과 16378ms | dynamic:통과 16863ms
+
+=== wrong-no-start: 실수하는 스텝 s06-start에서 떨어짐, 맞음 (떨어진 스텝: s06-start, s09-arrows-x, s10-arrows-y, s11-hello, s12-my-xy, s15-wait-touch, s16-third-spot, s17-last-spots, s18-found-say, s20-time-say, s21-final-test)
+  s06-start            실패   static:실패 hasBlock motion_gotoxy 개수 0 | dynamic:실패 탐험가.x eq -180 실제 0; 탐험가.y eq -120 실제 0
+  s09-arrows-x         실패   dynamic:실패 탐험가.x eq -170 실제 10 | dynamic:실패 탐험가.x eq -190 실제 -10
+  s10-arrows-y         실패   dynamic:실패 탐험가.y eq -110 실제 10 | dynamic:실패 탐험가.y eq -130 실제 -10
+  s11-hello            실패   dynamic:실패 탐험가.x eq -180 실제 0; 탐험가.y eq -120 실제 0
+  s12-my-xy            실패   dynamic:실패 탐험가.sayText contains '-180' 실제 '0'
+  s13-treasure-spot    통과   dynamic:통과 310ms
+  s15-wait-touch       실패   static:통과 hasBlock control_wait_until 개수 5 | dynamic:실패 보물.x eq -120 실제 -60; 보물.y eq 60 실제 -60
+  s16-third-spot       실패   dynamic:실패 보물.x eq 60 실제 -60; 보물.y eq 120 실제 -60
+  s17-last-spots       실패   dynamic:실패 보물.x eq 0 실제 -60; 보물.y eq -120 실제 -60
+  s18-found-say        실패   dynamic:실패 보물.sayText ne '' 실제 ''
+  s20-time-say         실패   static:통과 hasBlock sensing_timer 개수 1 | dynamic:통과 13200ms | dynamic:실패 보물.sayText ne '' 실제 ''
+  s21-final-test       실패   dynamic:실패 보물.sayText ne '' 실제 '' | dynamic:실패 탐험가.x eq -180 실제 121; 탐험가.y eq -120 실제 -55
+
+=== wrong-hello-first: 실수하는 스텝 s11-hello에서 떨어짐, 맞음 (떨어진 스텝: s06-start, s09-arrows-x, s10-arrows-y, s11-hello, s15-wait-touch, s16-third-spot, s17-last-spots, s18-found-say, s20-time-say, s21-final-test)
+  s06-start            실패   static:통과 hasBlock motion_gotoxy 개수 1 | dynamic:실패 탐험가.x eq -180 실제 0; 탐험가.y eq -120 실제 0
+  s09-arrows-x         실패   dynamic:실패 탐험가.x eq -170 실제 10 | dynamic:실패 탐험가.x eq -190 실제 -10
+  s10-arrows-y         실패   dynamic:실패 탐험가.y eq -110 실제 10 | dynamic:실패 탐험가.y eq -130 실제 -10
+  s11-hello            실패   dynamic:실패 탐험가.x eq -180 실제 0; 탐험가.y eq -120 실제 0
+  s12-my-xy            통과   dynamic:통과 2707ms
+  s13-treasure-spot    통과   dynamic:통과 328ms
+  s15-wait-touch       실패   static:통과 hasBlock control_wait_until 개수 5 | dynamic:실패 보물.x eq -120 실제 -60; 보물.y eq 60 실제 -60
+  s16-third-spot       실패   dynamic:실패 보물.x eq 60 실제 -60; 보물.y eq 120 실제 -60
+  s17-last-spots       실패   dynamic:실패 보물.x eq 0 실제 -60; 보물.y eq -120 실제 -60
+  s18-found-say        실패   dynamic:실패 보물.sayText ne '' 실제 ''
+  s20-time-say         실패   static:통과 hasBlock sensing_timer 개수 1 | dynamic:통과 13068ms | dynamic:실패 보물.sayText ne '' 실제 ''
+  s21-final-test       실패   dynamic:실패 보물.sayText ne '' 실제 '' | dynamic:실패 탐험가.x eq -180 실제 -120; 탐험가.y eq -120 실제 -130
+
+=== wrong-step20: 실수하는 스텝 s09-arrows-x에서 떨어짐, 맞음 (떨어진 스텝: s09-arrows-x, s10-arrows-y, s15-wait-touch, s16-third-spot, s17-last-spots, s18-found-say, s20-time-say, s21-final-test)
+  s06-start            통과   static:통과 hasBlock motion_gotoxy 개수 1 | dynamic:통과 314ms
+  s09-arrows-x         실패   dynamic:실패 탐험가.x eq -170 실제 -160 | dynamic:실패 탐험가.x eq -190 실제 -200
+  s10-arrows-y         실패   dynamic:실패 탐험가.y eq -110 실제 -100 | dynamic:실패 탐험가.y eq -130 실제 -140
+  s11-hello            통과   dynamic:통과 525ms
+  s12-my-xy            통과   dynamic:통과 2707ms
+  s13-treasure-spot    통과   dynamic:통과 302ms
+  s15-wait-touch       실패   static:통과 hasBlock control_wait_until 개수 5 | dynamic:실패 보물.x eq -120 실제 -60; 보물.y eq 60 실제 -60
+  s16-third-spot       실패   dynamic:실패 보물.x eq 60 실제 -60; 보물.y eq 120 실제 -60
+  s17-last-spots       실패   dynamic:실패 보물.x eq 0 실제 -60; 보물.y eq -120 실제 -60
+  s18-found-say        실패   dynamic:실패 보물.sayText ne '' 실제 ''
+  s20-time-say         실패   static:통과 hasBlock sensing_timer 개수 1 | dynamic:통과 13167ms | dynamic:실패 보물.sayText ne '' 실제 ''
+  s21-final-test       실패   dynamic:실패 보물.sayText ne '' 실제 '' | dynamic:통과 17263ms
+
+=== wrong-left-plus: 실수하는 스텝 s09-arrows-x에서 떨어짐, 맞음 (떨어진 스텝: s09-arrows-x, s16-third-spot, s17-last-spots, s20-time-say, s21-final-test)
+  s06-start            통과   static:통과 hasBlock motion_gotoxy 개수 1 | dynamic:통과 330ms
+  s09-arrows-x         실패   dynamic:통과 664ms | dynamic:실패 탐험가.x eq -190 실제 -170
+  s10-arrows-y         통과   dynamic:통과 664ms | dynamic:통과 663ms
+  s11-hello            통과   dynamic:통과 514ms
+  s12-my-xy            통과   dynamic:통과 2707ms
+  s13-treasure-spot    통과   dynamic:통과 325ms
+  s15-wait-touch       통과   static:통과 hasBlock control_wait_until 개수 5 | dynamic:통과 4284ms
+  s16-third-spot       실패   dynamic:실패 보물.x eq 60 실제 -120; 보물.y eq 120 실제 60
+  s17-last-spots       실패   dynamic:실패 보물.x eq 0 실제 -120; 보물.y eq -120 실제 60
+  s18-found-say        통과   dynamic:통과 2626ms
+  s20-time-say         실패   static:통과 hasBlock sensing_timer 개수 1 | dynamic:통과 13035ms | dynamic:실패 보물.sayText ne '' 실제 ''
+  s21-final-test       실패   dynamic:실패 보물.sayText ne '' 실제 '' | dynamic:통과 16975ms
+
+=== wrong-up-minus: 실수하는 스텝 s10-arrows-y에서 떨어짐, 맞음 (떨어진 스텝: s10-arrows-y, s15-wait-touch, s16-third-spot, s17-last-spots, s18-found-say, s20-time-say, s21-final-test)
+  s06-start            통과   static:통과 hasBlock motion_gotoxy 개수 1 | dynamic:통과 318ms
+  s09-arrows-x         통과   dynamic:통과 690ms | dynamic:통과 699ms
+  s10-arrows-y         실패   dynamic:실패 탐험가.y eq -110 실제 -130 | dynamic:실패 탐험가.y eq -130 실제 -110
+  s11-hello            통과   dynamic:통과 523ms
+  s12-my-xy            통과   dynamic:통과 2712ms
+  s13-treasure-spot    통과   dynamic:통과 328ms
+  s15-wait-touch       실패   static:통과 hasBlock control_wait_until 개수 5 | dynamic:실패 보물.x eq -120 실제 -60; 보물.y eq 60 실제 -60
+  s16-third-spot       실패   dynamic:실패 보물.x eq 60 실제 -60; 보물.y eq 120 실제 -60
+  s17-last-spots       실패   dynamic:실패 보물.x eq 0 실제 -60; 보물.y eq -120 실제 -60
+  s18-found-say        실패   dynamic:실패 보물.sayText ne '' 실제 ''
+  s20-time-say         실패   static:통과 hasBlock sensing_timer 개수 1 | dynamic:통과 13101ms | dynamic:실패 보물.sayText ne '' 실제 ''
+  s21-final-test       실패   dynamic:실패 보물.sayText ne '' 실제 '' | dynamic:통과 16935ms
+
+=== wrong-no-wait: 실수하는 스텝 s15-wait-touch에서 떨어짐, 맞음 (떨어진 스텝: s13-treasure-spot, s15-wait-touch, s16-third-spot, s20-time-say, s21-final-test)
+  s06-start            통과   static:통과 hasBlock motion_gotoxy 개수 1 | dynamic:통과 302ms
+  s09-arrows-x         통과   dynamic:통과 665ms | dynamic:통과 660ms
+  s10-arrows-y         통과   dynamic:통과 685ms | dynamic:통과 668ms
+  s11-hello            통과   dynamic:통과 515ms
+  s12-my-xy            통과   dynamic:통과 2679ms
+  s13-treasure-spot    실패   dynamic:실패 보물.x eq -60 실제 0; 보물.y eq -60 실제 -120
+  s15-wait-touch       실패   static:실패 hasBlock control_wait_until 개수 0 | dynamic:실패 보물.x eq -120 실제 0; 보물.y eq 60 실제 -120
+  s16-third-spot       실패   dynamic:실패 보물.x eq 60 실제 0; 보물.y eq 120 실제 -120
+  s17-last-spots       통과   dynamic:통과 12385ms
+  s18-found-say        통과   dynamic:통과 2494ms
+  s20-time-say         실패   static:통과 hasBlock sensing_timer 개수 1 | dynamic:실패 보물.sayText eq '' 실제 '0.03' | dynamic:통과 14721ms
+  s21-final-test       실패   dynamic:통과 15229ms | dynamic:실패 보물.x eq -60 실제 0; 보물.y eq -60 실제 -120
+
+=== wrong-swap34: 실수하는 스텝 s16-third-spot에서 떨어짐, 맞음 (떨어진 스텝: s16-third-spot, s17-last-spots, s20-time-say, s21-final-test)
+  s06-start            통과   static:통과 hasBlock motion_gotoxy 개수 1 | dynamic:통과 308ms
+  s09-arrows-x         통과   dynamic:통과 693ms | dynamic:통과 699ms
+  s10-arrows-y         통과   dynamic:통과 711ms | dynamic:통과 664ms
+  s11-hello            통과   dynamic:통과 502ms
+  s12-my-xy            통과   dynamic:통과 2681ms
+  s13-treasure-spot    통과   dynamic:통과 305ms
+  s15-wait-touch       통과   static:통과 hasBlock control_wait_until 개수 5 | dynamic:통과 4315ms
+  s16-third-spot       실패   dynamic:실패 보물.x eq 60 실제 120; 보물.y eq 120 실제 0
+  s17-last-spots       실패   dynamic:실패 보물.x eq 0 실제 60; 보물.y eq -120 실제 120
+  s18-found-say        통과   dynamic:통과 2626ms
+  s20-time-say         실패   static:통과 hasBlock sensing_timer 개수 1 | dynamic:통과 12903ms | dynamic:실패 보물.sayText ne '' 실제 ''
+  s21-final-test       실패   dynamic:실패 보물.sayText ne '' 실제 '' | dynamic:통과 16673ms
+
+=== wrong-no-finish: 실수하는 스텝 s20-time-say에서 떨어짐, 맞음 (떨어진 스텝: s20-time-say, s21-final-test)
+  s06-start            통과   static:통과 hasBlock motion_gotoxy 개수 1 | dynamic:통과 308ms
+  s09-arrows-x         통과   dynamic:통과 683ms | dynamic:통과 724ms
+  s10-arrows-y         통과   dynamic:통과 692ms | dynamic:통과 697ms
+  s11-hello            통과   dynamic:통과 529ms
+  s12-my-xy            통과   dynamic:통과 2708ms
+  s13-treasure-spot    통과   dynamic:통과 324ms
+  s15-wait-touch       통과   static:통과 hasBlock control_wait_until 개수 5 | dynamic:통과 4151ms
+  s16-third-spot       통과   dynamic:통과 7034ms
+  s17-last-spots       통과   dynamic:통과 13161ms
+  s18-found-say        통과   dynamic:통과 2632ms
+  s20-time-say         실패   static:실패 hasBlock sensing_timer 개수 0 | dynamic:통과 12771ms | dynamic:실패 보물.sayText ne '' 실제 ''
+  s21-final-test       실패   dynamic:실패 보물.sayText ne '' 실제 '' | dynamic:통과 16500ms
+
+=== wrong-no-fifth-wait: 실수하는 스텝 s20-time-say에서 떨어짐, 맞음 (떨어진 스텝: s20-time-say)
+  s06-start            통과   static:통과 hasBlock motion_gotoxy 개수 1 | dynamic:통과 327ms
+  s09-arrows-x         통과   dynamic:통과 695ms | dynamic:통과 663ms
+  s10-arrows-y         통과   dynamic:통과 665ms | dynamic:통과 701ms
+  s11-hello            통과   dynamic:통과 501ms
+  s12-my-xy            통과   dynamic:통과 2676ms
+  s13-treasure-spot    통과   dynamic:통과 332ms
+  s15-wait-touch       통과   static:통과 hasBlock control_wait_until 개수 4 | dynamic:통과 4220ms
+  s16-third-spot       통과   dynamic:통과 6804ms
+  s17-last-spots       통과   dynamic:통과 13299ms
+  s18-found-say        통과   dynamic:통과 2631ms
+  s20-time-say         실패   static:통과 hasBlock sensing_timer 개수 1 | dynamic:실패 보물.sayText eq '' 실제 '11.82' | dynamic:통과 15273ms
+  s21-final-test       통과   dynamic:통과 15805ms | dynamic:통과 16302ms
+
+=== wrong-arrow-goto: 실수하는 스텝 s09-arrows-x에서 떨어짐, 맞음 (떨어진 스텝: s09-arrows-x, s15-wait-touch, s16-third-spot, s17-last-spots, s18-found-say, s20-time-say, s21-final-test)
+  s06-start            통과   static:통과 hasBlock motion_gotoxy 개수 2 | dynamic:통과 301ms
+  s09-arrows-x         실패   dynamic:실패 탐험가.x eq -170 실제 10 | dynamic:통과 664ms
+  s10-arrows-y         통과   dynamic:통과 702ms | dynamic:통과 693ms
+  s11-hello            통과   dynamic:통과 524ms
+  s12-my-xy            통과   dynamic:통과 2702ms
+  s13-treasure-spot    통과   dynamic:통과 304ms
+  s15-wait-touch       실패   static:통과 hasBlock control_wait_until 개수 5 | dynamic:실패 보물.x eq -120 실제 -60; 보물.y eq 60 실제 -60
+  s16-third-spot       실패   dynamic:실패 보물.x eq 60 실제 -60; 보물.y eq 120 실제 -60
+  s17-last-spots       실패   dynamic:실패 보물.x eq 0 실제 -60; 보물.y eq -120 실제 -60
+  s18-found-say        실패   dynamic:실패 보물.sayText ne '' 실제 ''
+  s20-time-say         실패   static:통과 hasBlock sensing_timer 개수 1 | dynamic:통과 13167ms | dynamic:실패 보물.sayText ne '' 실제 ''
+  s21-final-test       실패   dynamic:실패 보물.sayText ne '' 실제 '' | dynamic:통과 16934ms
+
+=== wrong-script-in-explorer: 실수하는 스텝 s13-treasure-spot에서 떨어짐, 맞음 (떨어진 스텝: s06-start, s09-arrows-x, s10-arrows-y, s11-hello, s12-my-xy, s13-treasure-spot, s15-wait-touch, s16-third-spot, s17-last-spots, s18-found-say, s20-time-say, s21-final-test)
+  s06-start            실패   static:통과 hasBlock motion_gotoxy 개수 6 | dynamic:실패 탐험가.x eq -180 실제 -60; 탐험가.y eq -120 실제 -60
+  s09-arrows-x         실패   dynamic:실패 탐험가.x eq -170 실제 -50 | dynamic:실패 탐험가.x eq -190 실제 -70
+  s10-arrows-y         실패   dynamic:실패 탐험가.y eq -110 실제 -50 | dynamic:실패 탐험가.y eq -130 실제 -70
+  s11-hello            실패   dynamic:실패 탐험가.x eq -180 실제 -60; 탐험가.y eq -120 실제 -60
+  s12-my-xy            실패   dynamic:실패 탐험가.sayText contains '-180' 실제 '-60'
+  s13-treasure-spot    실패   dynamic:실패 보물.x eq -60 실제 120
+  s15-wait-touch       실패   static:실패 hasBlock control_wait_until 개수 0 | dynamic:실패 보물.x eq -120 실제 120; 보물.y eq 60 실제 -60
+  s16-third-spot       실패   dynamic:실패 보물.x eq 60 실제 120; 보물.y eq 120 실제 -60
+  s17-last-spots       실패   dynamic:실패 보물.x eq 0 실제 120; 보물.y eq -120 실제 -60
+  s18-found-say        실패   dynamic:실패 보물.sayText ne '' 실제 ''
+  s20-time-say         실패   static:실패 hasBlock sensing_timer 개수 0 | dynamic:통과 13167ms | dynamic:실패 보물.sayText ne '' 실제 ''
+  s21-final-test       실패   dynamic:실패 보물.sayText ne '' 실제 '' | dynamic:실패 탐험가.x eq -180 실제 -60; 탐험가.y eq -120 실제 -60; 보물.x eq -60 실제 120
+
+결과: 모두 예상대로

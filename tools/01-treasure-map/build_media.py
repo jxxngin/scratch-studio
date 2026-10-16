@@ -197,7 +197,7 @@ def frame(st):
     if st.get("treasure_say"): draw_say(d, C1, st["treasure"], st["treasure_say"], rise=44)
     mons = []
     if st.get("show_xy"): mons += [("탐험가: x 좌표", st["explorer"][0]), ("탐험가: y 좌표", st["explorer"][1])]
-    if st.get("timer") is not None: mons.append(("타이머", "%.1f" % st["timer"]))
+    if st.get("timer") is not None: mons.append(("타이머", "%.2f" % st["timer"]))
     draw_monitors(d, mons)
     if st.get("key"): draw_key(d, st["key"])
     return img
@@ -227,7 +227,8 @@ class Scene:
         i = self.st["spot"]
         if i is None or i >= len(SPOTS) or not touching(self.st["explorer"], SPOTS[i]): return
         self.st["spot"] = i + 1
-        if self.st.get("found_say"): self.snap(700, treasure_say="찾았다!")
+        # 다섯 번째 보물은 "찾았다!" 대신 곧바로 걸린 시간을 말한다
+        if self.st.get("found_say") and i + 1 < len(SPOTS): self.snap(700, treasure_say="찾았다!")
         if i + 1 < len(SPOTS): self.st["treasure"] = SPOTS[i + 1]
     def go(self, i, ms=60):
         """i번 보물 자리까지 가로 먼저, 다음에 세로로 걷는다."""
@@ -249,11 +250,9 @@ s.set(explorer=START, treasure=SPOTS[0], spot=0, timer=0.0, explorer_say="보물
 s.snap(1200, key="⚑ 깃발")
 s.set(explorer_say=None)
 for i in range(5): s.go(i, ms=50)
-s.set(treasure=SPOTS[4], treasure_say="보물을 모두 찾았어요!")
-s.snap(1400)
-t = s.st["timer"]
-s.set(treasure_say="%.1f" % t, timer=None)
-s.snap(2200, timer=t)
+# 보물이 말한 시간은 그대로이고, 무대의 타이머는 계속 흐른다
+s.set(treasure_say="%.2f" % s.st["timer"])
+for _ in range(9): s.snap(300)
 s.save("s03-preview.gif")
 
 # s06 깃발을 누르면 배에서 출발
@@ -307,15 +306,13 @@ for i in (2, 3): s.go(i, ms=60)
 s.snap(1500)
 s.save("s17-last.gif")
 
-# s20 걸린 시간 말하기: 마지막 보물을 찾으면 시간을 말한다 (s18의 '찾았다!'까지 한 모습)
+# s20 걸린 시간 말하기: 마지막 보물을 찾으면 곧바로 시간을 말한다 (s18의 '찾았다!'까지 한 모습)
 s = Scene(explorer=SPOTS[3], treasure=SPOTS[4], spot=4, timer=24.0, found_say=True)
 s.snap(500)
 s.go(4, ms=70)
-s.set(treasure=SPOTS[4], treasure_say="보물을 모두 찾았어요!")
-s.snap(1600)
-t = s.st["timer"]
-s.set(treasure_say="%.1f" % t, timer=None)
-s.snap(2200, timer=t)
+# 보물이 말한 시간은 그대로이고, 무대의 타이머는 계속 흐른다
+s.set(treasure_say="%.2f" % s.st["timer"])
+for _ in range(9): s.snap(300)
 s.save("s20-time.gif")
 
 # ---------------------------------------------------------------- 설명 그림
