@@ -352,13 +352,15 @@ function renderSubmitForm() {
   const intro = state.editing
     ? '지난번에 쓴 내용이 들어 있어요. 고칠 곳만 고쳐서 다시 제출하세요. 지금 무대 화면이 새로 제출되고, 이전 작품도 그대로 남아요.'
     : '만든 작품을 선생님과 친구들에게 보여 주세요. 지금 무대 화면도 함께 제출돼요.';
+  // 작품 제목 예시는 그 단원의 원래 이름으로 보여 준다. 사이트 문구는 한국어만이라 ko 값을 쓴다.
+  const titleExample = (state.unit && state.unit.title && state.unit.title.ko) || '';
   const wrap = document.createElement('div');
   wrap.style.display = 'contents';
   wrap.innerHTML = `
     <div class="md"><p>${intro}</p></div>
     <div class="ss-field">
       <label class="ss-label" for="f-title">작품 제목</label>
-      <input class="ss-input" id="f-title" data-field="title" placeholder="예) 해적선 대포" value="${escapeHtml(f.title)}">
+      <input class="ss-input" id="f-title" data-field="title" placeholder="${titleExample ? `예) ${escapeHtml(titleExample)}` : ''}" value="${escapeHtml(f.title)}">
     </div>
     <div class="ss-field-group">
       <div class="ss-label-lg">배움 노트</div>
