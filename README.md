@@ -31,6 +31,15 @@ python app/serve.py
 http://localhost:8000/app/?unit=../project/lv1/<단원 폴더>
 ```
 
+## 배포 (Vercel)
+
+교안을 보기 위한 배포다. 실제 수업용이 아니다.
+
+- `main`에 푸시하면 Vercel이 자동으로 배포한다. 빌드 과정은 없다.
+- `.vercelignore`로 `app/`과 `project/`만 올린다. `docs/`(강사용 안내서, 기획서), `tools/`, `styles/`는 올라가지 않는다.
+- `vercel.json`: 첫 주소 `/`를 `/app/`으로 보내고, 모든 응답에 `noindex`를 붙인다.
+- 배포 주소는 링크를 아는 누구나 볼 수 있다. 퀴즈 정답과 채점 규칙도 `unit.json`에 들어 있어 브라우저에서 보인다.
+
 ## 해적선 대포 버전 1, 2 보기 (임시)
 
 > 비교가 끝나면 지울 절이다.

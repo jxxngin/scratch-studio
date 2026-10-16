@@ -1,0 +1,7 @@
+# 교안 보기에 필요한 app/과 project/만 배포한다.
+# docs/(강사용 안내서, 기획서), tools/, styles/는 올리지 않는다.
+/*
+!/app
+!/project
+!/vercel.json
+/app/serve.py

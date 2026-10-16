@@ -1,0 +1,12 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/", "destination": "/app/", "permanent": false }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
+  ]
+}
