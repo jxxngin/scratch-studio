@@ -7,7 +7,7 @@
 | `docs/` | 커리큘럼 구성안(`scratch-curriculum-outline.md`), 기획서(`scratch-studio-spec.md`), 교안 틀(`scratch-lesson-template.md`), 본 사이트 기획서(`spec.md`), 강사용 안내서(`teacher-guides/`) |
 | `styles/` | hi-fi 목업 |
 | `project/` | 단원 교안. 단원 폴더에는 `unit.json`, `starter.sb3`, `media/`만 둔다 |
-| `tools/` | 단원별 미리보기 GIF 생성 스크립트 |
+| `tools/` | 단원별 미리보기 GIF 생성 스크립트 (보물 지도 탐험은 시작 프로젝트와 그림도 함께 만든다) |
 | `app/` | 스크래치 전용 학습 화면 (목업 화면 15) |
 
 ## 문서 내려받기
@@ -19,8 +19,10 @@
 | 스크래치 학생용 교안 틀 | [scratch-lesson-template.md](docs/scratch-lesson-template.md) | 2026-10-16 | 단원 흐름(이야기 1~3스텝, 개념 묶음마다 확인 퀴즈, 탐색·꾸미기 스텝, 심화 도전, 목차), 퀴즈 동작(힌트와 해설), 탐색 스텝과 입력 표, 꾸미기 스텝, 소제목, 블록 이름 코드 표기, 마크다운 범위, 채점 규칙 쓰는 법, 예시, 체크리스트 |
 | 스크래치 스튜디오 기획서 | [scratch-studio-spec.md](docs/scratch-studio-spec.md) | 2026-10-16 | 5장: 미니퀴즈 동작, 소제목 표시, 목차, 입력 표. 6장: 퀴즈 문항 필드(`hint`, `explain`, `blocks`, `title`), `record` 블록과 검사, `chapters`, 마크다운 범위. 8장: 입력 표 API |
 | 본 사이트 기획서 | [spec.md](docs/spec.md) | 2026-10-16 | §3.3.1: 미니퀴즈 동작, 입력 표, 목차. §5: `UNIT.chapters`, `STEP_RECORD`, `QUIZ_QUESTION.content`. §8: 학생 상세의 입력 표 열람 |
-| 커리큘럼 구성안 | [scratch-curriculum-outline.md](docs/scratch-curriculum-outline.md) | 2026-10-07 | 바뀌지 않음 |
+| 커리큘럼 구성안 | [scratch-curriculum-outline.md](docs/scratch-curriculum-outline.md) | 2026-10-16 | Lv.1 표 아래: 보물 지도 탐험의 정해진 블록(`탐험가에 닿았는가? 까지 기다리기`)과 타이머 메모 |
+| 강사용 안내서 (보물 지도 탐험) | [lv1-01-treasure-map.md](docs/teacher-guides/lv1-01-treasure-map.md) | 2026-10-16 | 새로 만듦. 단계 구성, 정답 코드, 채점 경로, 퀴즈 정답·힌트·해설 |
 | 강사용 안내서 (해적선 대포) | [lv1-04-pirate-cannon.md](docs/teacher-guides/lv1-04-pirate-cannon.md) | 2026-10-16 | 단계 구성, 퀴즈 정답·힌트·해설 |
+| 보물 지도 탐험 교안 | [unit.json](project/lv1/01-treasure-map/unit.json) · [starter.sb3](project/lv1/01-treasure-map/starter.sb3) · [media/](project/lv1/01-treasure-map/media) | 2026-10-16 | 새로 만듦. Lv.1 첫 단원 |
 | 해적선 대포 교안 | [unit.json](project/lv1/04-pirate-cannon/unit.json) · [starter.sb3](project/lv1/04-pirate-cannon/starter.sb3) · [media/](project/lv1/04-pirate-cannon/media) | 2026-10-16 | 교안 틀 개정의 기준이 된 교안 |
 
 ### 교안 틀 변경 (2026-10-16 반영)
@@ -71,6 +73,8 @@ python app/serve.py
 ```
 http://localhost:8000/app/?unit=../project/lv1/<단원 폴더>
 ```
+
+보물 지도 탐험: <http://localhost:8000/app/?unit=../project/lv1/01-treasure-map> (배포 주소에서는 `/app/?unit=../project/lv1/01-treasure-map`)
 
 ## 배포 (Vercel)
 
