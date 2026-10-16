@@ -78,9 +78,27 @@ function renderBlocksCode(code) {
   return box;
 }
 
-// 입력 표: 학생이 예상과 결과를 직접 적는 표. 적은 값은 저장하고 채점하지 않는다.
-// 열: { label, input?, requires? } — requires는 같은 줄에서 먼저 채워야 하는 열 번호 (예상을 적어야 결과 칸이 열림)
-// 줄: 칸 배열. 고정 열은 글자, 입력 열은 null 또는 { placeholder }
+// 입력 표: 학생이 예상과 결과를 직접 적는 표. 적은 값은 저장한다.
+// 열: { label, input?, kind?, options?, requires? }
+//   kind: 'text'(기본), 'number', 'select'(options 중 하나를 고르고 보기 번호를 저장)
+//   requires: 같은 줄에서 먼저 채워야 하는 열 번호 (예상을 적어야 결과 칸이 열림)
+// 줄: 칸 배열. 고정 열은 글자, 입력 열은 null 또는 { placeholder?, answer? }
+//   answer가 있는 칸은 스텝의 { "type": "record" } 검사가 채점한다 (store.checkRecords)
+function renderRecordInput(col, cell) {
+  if (col.kind === 'select') {
+    const sel = document.createElement('select');
+    sel.className = 'ss-record-input';
+    sel.add(new Option(t({ ko: '고르기', en: 'Choose' }), ''));
+    col.options.forEach((o, oi) => sel.add(new Option(t(o), String(oi))));
+    return sel;
+  }
+  const input = document.createElement('input');
+  input.className = 'ss-record-input';
+  if (col.kind === 'number') input.inputMode = 'decimal';
+  input.dataset.placeholder = cell && cell.placeholder ? t(cell.placeholder) : '';
+  return input;
+}
+
 function renderRecord(b, stepKey) {
   const saved = store.getRecord(stepKey, b.key) || [];
   const values = b.rows.map((row, ri) => row.map((_, ci) => (saved[ri] && saved[ri][ci]) || ''));
@@ -99,7 +117,8 @@ function renderRecord(b, stepKey) {
     for (const { input, ri, col } of inputs) {
       const locked = col.requires != null && !values[ri][col.requires].trim();
       input.disabled = locked;
-      input.placeholder = locked ? t({ ko: '예상 먼저', en: 'Guess first' }) : input.dataset.placeholder;
+      if (input.tagName === 'SELECT') input.options[0].text = locked ? t({ ko: '예상 먼저', en: 'Guess first' }) : t({ ko: '고르기', en: 'Choose' });
+      else input.placeholder = locked ? t({ ko: '예상 먼저', en: 'Guess first' }) : input.dataset.placeholder;
     }
   };
   b.rows.forEach((row, ri) => {
@@ -108,12 +127,11 @@ function renderRecord(b, stepKey) {
       const col = b.columns[ci];
       const td = tr.insertCell();
       if (!col.input) { td.innerHTML = renderInline(t(cell)); return; }
-      const input = document.createElement('input');
-      input.className = 'ss-record-input';
+      const input = renderRecordInput(col, cell);
       input.value = values[ri][ci];
-      input.dataset.placeholder = cell && cell.placeholder ? t(cell.placeholder) : '';
       input.setAttribute('aria-label', `${t(b.columns[0].label)} ${t(row[0])} · ${t(col.label)}`);
-      input.addEventListener('input', () => {
+      input.addEventListener(input.tagName === 'SELECT' ? 'change' : 'input', () => {
+        if (state.result === 'fail') { state.result = null; renderChrome(); }
         values[ri][ci] = input.value;
         store.saveRecord(stepKey, b.key, values);
         update();
@@ -127,13 +145,55 @@ function renderRecord(b, stepKey) {
   return wrap;
 }
 
+// 문단 맨 앞의 굵은 소제목("**확인**: …")을 칩과 색 상자로 그린다. 교안 글은 그대로 두고 화면에서만 꾸민다.
+const LABEL_KINDS = {
+  goal: ['목표', 'Goal'],
+  check: ['확인', 'Check'],
+  challenge: ['도전', 'Challenge'],
+  try: ['해 보기', 'Try'],
+  tidy: ['정리', '먼저 정리', '되돌리기', 'Clean up', 'Clean up first', 'Undo'],
+  think: ['어림해 보기', '그림 보기', '생각해 보기', 'Estimate', 'Look', 'Think about it'],
+};
+const LABEL_OF = Object.fromEntries(Object.entries(LABEL_KINDS).flatMap(([kind, names]) => names.map((n) => [n, kind])));
+
+function labelChip(kind, text) {
+  const chip = document.createElement('span');
+  chip.className = `ss-label ss-label-${kind}`;
+  chip.textContent = text;
+  return chip;
+}
+
+function decorateLabels(div) {
+  // "**목표**" 한 줄 뒤에 목록이 오는 블록은 목표 카드로
+  const first = div.firstElementChild;
+  if (first && first.tagName === 'P' && first.childNodes.length === 1 && first.firstChild.tagName === 'STRONG'
+      && LABEL_OF[first.textContent] === 'goal') {
+    div.classList.add('ss-goal');
+    first.replaceWith(labelChip('goal', first.textContent));
+  }
+  for (const p of [...div.children]) {
+    const strong = p.firstChild;
+    if (p.tagName !== 'P' || !strong || strong.tagName !== 'STRONG') continue;
+    const kind = LABEL_OF[strong.textContent];
+    const rest = strong.nextSibling;
+    if (!kind || kind === 'goal' || !rest || rest.nodeType !== Node.TEXT_NODE || !rest.textContent.startsWith(':')) continue;
+    rest.textContent = rest.textContent.replace(/^:\s*/, '');
+    const box = document.createElement('div');
+    box.className = `ss-callout ss-callout-${kind}`;
+    p.replaceWith(box);
+    strong.remove();
+    box.append(labelChip(kind, strong.textContent), p);
+  }
+  return div;
+}
+
 function renderContentBlock(b, stepKey) {
   if (b.type === 'record') return renderRecord(b, stepKey);
   if (b.type === 'text') {
     const d = document.createElement('div');
     d.className = 'md';
     d.innerHTML = renderMarkdown(t(b.value));
-    return d;
+    return decorateLabels(d);
   }
   if (b.type === 'image') {
     const img = document.createElement('img');
@@ -193,7 +253,17 @@ function renderQuiz(step) {
       options.appendChild(btn);
     });
     box.appendChild(options);
-    // 틀렸을 때는 통과/실패만 알리고, 해설은 통과한 뒤에만 보여 준다.
+    // 틀린 문항은 따로 표시하지 않고, 그 문항 아래에 힌트만 보여 준다. 해설은 통과한 뒤에 모든 문항에 보여 준다.
+    if (q.hint && !passed) {
+      const hint = document.createElement('div');
+      hint.className = 'ss-hint';
+      hint.innerHTML = `<div class="ss-hint-label">${t({ ko: '힌트', en: 'Hint' })}</div>`;
+      const body = document.createElement('div');
+      body.className = 'md';
+      body.innerHTML = renderMarkdown(t(q.hint));
+      hint.appendChild(body);
+      box.appendChild(hint);
+    }
     if (passed && q.explain) {
       const ex = document.createElement('div');
       ex.className = 'ss-explain';
@@ -385,10 +455,20 @@ async function checkQuiz() {
   const step = current();
   state.result = 'grading';
   renderChrome();
-  try { state.result = await store.gradeQuiz(step.key, state.quiz); }
-  catch (e) { console.warn('[scratch-studio] quiz failed', e); state.result = 'error'; }
+  let wrong = [];
+  try {
+    const res = await store.gradeQuiz(step.key, state.quiz);
+    state.result = res.result;
+    wrong = res.wrong;
+  } catch (e) { console.warn('[scratch-studio] quiz failed', e); state.result = 'error'; }
   if (state.result === 'pass') renderBody();
+  else if (state.result === 'fail') showQuizHints(wrong);
   renderChrome();
+}
+
+// 마지막 확인에서 틀린 문항에만 힌트를 보여 준다. 다시 확인하면 그 결과로 바뀐다.
+function showQuizHints(wrong) {
+  for (const box of el.body.querySelectorAll('.ss-question')) box.classList.toggle('show-hint', wrong.includes(box.dataset.qid));
 }
 
 async function check() {
@@ -397,10 +477,17 @@ async function check() {
   renderChrome();
   let result = 'error', sb3 = null;
   try {
+    // 입력 표 채점(record)은 사이트가 하고, 나머지는 에디터가 한다. 입력 표가 틀리면 에디터 채점은 하지 않는다.
     const checks = await store.getChecks(step.key);
-    const res = await frame.grade(checks);
-    result = ['pass', 'fail'].includes(res.result) ? res.result : 'error';
-    sb3 = res.sb3 || null;
+    const recordChecks = checks.filter((c) => c.type === 'record');
+    const editorChecks = checks.filter((c) => c.type !== 'record');
+    if (recordChecks.length && !store.checkRecords(step.key, recordChecks)) result = 'fail';
+    else if (!editorChecks.length) result = 'pass';
+    else {
+      const res = await frame.grade(editorChecks);
+      result = ['pass', 'fail'].includes(res.result) ? res.result : 'error';
+      sb3 = res.sb3 || null;
+    }
   } catch (e) {
     console.warn('[scratch-studio] grade failed', e);
   }

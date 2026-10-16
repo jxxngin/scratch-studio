@@ -75,12 +75,38 @@ button { font-family: inherit; }
 .md strong { font-weight: 700; color: var(--ink); }
 .md ul, .md ol { padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
 .md code { font: inherit; font-weight: 600; font-size: 13px; background: #F1F5F9; color: var(--ink); border-radius: 4px; padding: 2px 6px; }
+/* 소제목 칩과 상자: 목표, 확인, 도전, 해 보기, 정리, 생각 */
+.ss-label {
+  display: inline-flex; align-items: center; align-self: flex-start; gap: 6px; height: 26px; padding: 0 10px;
+  border-radius: 999px; font-size: 13px; font-weight: 800; letter-spacing: -0.1px; line-height: 1;
+}
+.ss-label::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.ss-label-goal { background: #DBE7FB; color: #1D4FA8; }
+.ss-label-check { background: #DCFCE7; color: #15803D; }
+.ss-label-challenge { background: #FFEDD5; color: #C2410C; }
+.ss-label-try { background: #EDE9FE; color: #6D28D9; }
+.ss-label-tidy { background: #E2E8F0; color: #475569; }
+.ss-label-think { background: #E0F2FE; color: #0369A1; }
+
+.md.ss-goal {
+  background: #F2F7FF; border: 1px solid #C9DAF7; border-left: 4px solid var(--accent);
+  border-radius: 8px; padding: 12px 14px 12px 12px; gap: 8px;
+}
+.md.ss-goal li { color: var(--ink); font-weight: 600; }
+.ss-callout { display: flex; flex-direction: column; gap: 6px; border-radius: 8px; padding: 10px 12px; border-left: 4px solid; }
+.ss-callout p { margin: 0; }
+.ss-callout-check { background: #F0FDF4; border-color: #22C55E; }
+.ss-callout-challenge { background: #FFF7ED; border-color: #F97316; }
+.ss-callout-try { background: #F5F3FF; border-color: #8B5CF6; }
+.ss-callout-tidy { background: #F8FAFC; border-color: #94A3B8; }
+.ss-callout-think { background: #F0F9FF; border-color: #38BDF8; }
+
 .md-table { overflow-x: auto; }
 .md table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.5; }
 .md th, .md td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #F1F5F9; }
 .md th { font-weight: 700; color: #475569; background: #F8FAFC; }
 .ss-record th, .ss-record td code { white-space: nowrap; }
-.ss-record td { padding: 6px 6px; vertical-align: middle; }
+.ss-record td { padding: 6px 6px; vertical-align: middle; word-break: keep-all; }
 .ss-record-input {
   width: 100%; min-width: 64px; height: 34px; padding: 0 8px; border: 1px solid #CBD5E1; border-radius: 6px;
   font: inherit; font-size: 13px; color: var(--ink); background: #fff; outline: none;
@@ -113,6 +139,11 @@ button { font-family: inherit; }
 .ss-radio::after { content: ''; width: 10px; height: 10px; border-radius: 50%; }
 .ss-option.is-selected .ss-radio { border-color: var(--ink); }
 .ss-option.is-selected .ss-radio::after { background: var(--ink); }
+.ss-hint { display: none; flex-direction: column; gap: 4px; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 10px 12px; }
+.ss-question.show-hint .ss-hint { display: flex; }
+.ss-hint-label { font-size: 12px; font-weight: 700; color: #B45309; }
+.ss-hint .md { font-size: 13px; line-height: 1.6; color: #78350F; }
+.ss-hint .md code { background: #FEF3C7; color: #78350F; }
 .ss-explain { font-size: 13px; line-height: 1.6; color: #15803D; background: #F0FDF4; border-radius: 8px; padding: 10px 12px; }
 
 /* 제출 폼 */

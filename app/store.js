@@ -106,11 +106,27 @@ export function createStore(unit, { failFirstSave = false, namespace = '' } = {}
       const s = read();
       if (!previousAllPassed(s, stepKey)) throw new Error('step locked');
       const step = unit.steps[stepIndex(stepKey)];
-      const pass = step.questions.every((q) => answers[q.id] === q.answer);
+      const wrong = step.questions.filter((q) => answers[q.id] !== q.answer).map((q) => q.id);
       s.attempts[stepKey] = (s.attempts[stepKey] || 0) + 1;
-      if (pass && !s.passed.includes(stepKey)) s.passed.push(stepKey);
+      if (!wrong.length && !s.passed.includes(stepKey)) s.passed.push(stepKey);
       write(s);
-      return pass ? 'pass' : 'fail';
+      return { result: wrong.length ? 'fail' : 'pass', wrong };
+    },
+
+    // 입력 표 채점: 정답(answer)이 있는 칸이 모두 맞아야 통과. 보기 칸은 보기 번호, 숫자 칸은 숫자로 비교한다.
+    checkRecords(stepKey, checks) {
+      const step = unit.steps[stepIndex(stepKey)];
+      return checks.every((c) => {
+        const block = step.content.find((b) => b.type === 'record' && b.key === c.key);
+        const values = (this.getRecord(stepKey, c.key)) || [];
+        return block.rows.every((row, ri) => row.every((cell, ci) => {
+          if (!cell || cell.answer == null) return true;
+          const v = String((values[ri] && values[ri][ci]) || '').trim();
+          const col = block.columns[ci];
+          if (col.kind === 'number') return v !== '' && Number(v) === Number(cell.answer);
+          return v === String(cell.answer);
+        }));
+      });
     },
 
     // 프로젝트 제출: 새 버전과 썸네일 저장. 작품당 최근 10개 버전만 보관한다.
