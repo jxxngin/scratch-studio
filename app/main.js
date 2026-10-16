@@ -1,7 +1,7 @@
 // 스크래치 전용 학습 화면 (기획서 5장, hi-fi 목업 화면 15).
 // 교안 패널과 버튼은 이 화면이 그리고, 에디터는 iframe으로 띄워 메시지로만 통신한다.
 
-import { renderMarkdown } from './markdown.js';
+import { renderMarkdown, renderInline } from './markdown.js';
 import { ScratchStudioFrame } from './studio-frame.js';
 import { createStore, isYoutubeUrl, youtubeId } from './store.js';
 
@@ -78,7 +78,57 @@ function renderBlocksCode(code) {
   return box;
 }
 
-function renderContentBlock(b) {
+// 입력 표: 학생이 예상과 결과를 직접 적는 표. 적은 값은 저장하고 채점하지 않는다.
+// 열: { label, input?, requires? } — requires는 같은 줄에서 먼저 채워야 하는 열 번호 (예상을 적어야 결과 칸이 열림)
+// 줄: 칸 배열. 고정 열은 글자, 입력 열은 null 또는 { placeholder }
+function renderRecord(b, stepKey) {
+  const saved = store.getRecord(stepKey, b.key) || [];
+  const values = b.rows.map((row, ri) => row.map((_, ci) => (saved[ri] && saved[ri][ci]) || ''));
+  const wrap = document.createElement('div');
+  wrap.className = 'md md-table ss-record';
+  const table = document.createElement('table');
+  const head = table.createTHead().insertRow();
+  for (const col of b.columns) {
+    const th = document.createElement('th');
+    th.textContent = t(col.label);
+    head.appendChild(th);
+  }
+  const body = table.createTBody();
+  const inputs = [];
+  const update = () => {
+    for (const { input, ri, col } of inputs) {
+      const locked = col.requires != null && !values[ri][col.requires].trim();
+      input.disabled = locked;
+      input.placeholder = locked ? t({ ko: '예상 먼저', en: 'Guess first' }) : input.dataset.placeholder;
+    }
+  };
+  b.rows.forEach((row, ri) => {
+    const tr = body.insertRow();
+    row.forEach((cell, ci) => {
+      const col = b.columns[ci];
+      const td = tr.insertCell();
+      if (!col.input) { td.innerHTML = renderInline(t(cell)); return; }
+      const input = document.createElement('input');
+      input.className = 'ss-record-input';
+      input.value = values[ri][ci];
+      input.dataset.placeholder = cell && cell.placeholder ? t(cell.placeholder) : '';
+      input.setAttribute('aria-label', `${t(b.columns[0].label)} ${t(row[0])} · ${t(col.label)}`);
+      input.addEventListener('input', () => {
+        values[ri][ci] = input.value;
+        store.saveRecord(stepKey, b.key, values);
+        update();
+      });
+      inputs.push({ input, ri, col });
+      td.appendChild(input);
+    });
+  });
+  update();
+  wrap.appendChild(table);
+  return wrap;
+}
+
+function renderContentBlock(b, stepKey) {
+  if (b.type === 'record') return renderRecord(b, stepKey);
   if (b.type === 'text') {
     const d = document.createElement('div');
     d.className = 'md';
@@ -226,7 +276,7 @@ function renderBody() {
 
   if (step.type === 'submit') el.body.appendChild(state.submission && !state.editing ? renderSubmitDone() : renderSubmitForm());
   else if (step.type === 'quiz') el.body.appendChild(renderQuiz(step));
-  else for (const b of step.content || []) el.body.appendChild(renderContentBlock(b));
+  else for (const b of step.content || []) el.body.appendChild(renderContentBlock(b, step.key));
   el.body.scrollTop = 0;
 }
 

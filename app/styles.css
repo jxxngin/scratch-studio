@@ -79,6 +79,15 @@ button { font-family: inherit; }
 .md table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.5; }
 .md th, .md td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #F1F5F9; }
 .md th { font-weight: 700; color: #475569; background: #F8FAFC; }
+.ss-record th, .ss-record td code { white-space: nowrap; }
+.ss-record td { padding: 6px 6px; vertical-align: middle; }
+.ss-record-input {
+  width: 100%; min-width: 64px; height: 34px; padding: 0 8px; border: 1px solid #CBD5E1; border-radius: 6px;
+  font: inherit; font-size: 13px; color: var(--ink); background: #fff; outline: none;
+}
+.ss-record-input:focus { border-color: var(--accent); }
+.ss-record-input:disabled { background: #F1F5F9; border-color: var(--line-strong); }
+.ss-record-input::placeholder { color: var(--faint); }
 
 .ss-image { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); }
 .ss-video { width: 100%; aspect-ratio: 16 / 9; border: none; border-radius: 8px; background: #0F172A; }

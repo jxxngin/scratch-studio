@@ -3,7 +3,7 @@
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-function inline(s) {
+export function renderInline(s) {
   return esc(s)
     .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -21,7 +21,7 @@ export function renderMarkdown(src) {
     if (!line.trim()) { i++; continue; }
 
     const h = line.match(/^(#{1,3})\s+(.*)$/);
-    if (h) { out.push(`<h3>${inline(h[2])}</h3>`); i++; continue; }
+    if (h) { out.push(`<h3>${renderInline(h[2])}</h3>`); i++; continue; }
 
     if (isTableRow(line) && i + 1 < lines.length && /^\|[\s:|-]+\|\s*$/.test(lines[i + 1])) {
       const head = cells(line);
@@ -29,8 +29,8 @@ export function renderMarkdown(src) {
       const rows = [];
       while (i < lines.length && isTableRow(lines[i])) rows.push(cells(lines[i++]));
       out.push(
-        '<div class="md-table"><table><thead><tr>' + head.map((c) => `<th>${inline(c)}</th>`).join('') + '</tr></thead><tbody>' +
-        rows.map((r) => '<tr>' + r.map((c) => `<td>${inline(c)}</td>`).join('') + '</tr>').join('') + '</tbody></table></div>'
+        '<div class="md-table"><table><thead><tr>' + head.map((c) => `<th>${renderInline(c)}</th>`).join('') + '</tr></thead><tbody>' +
+        rows.map((r) => '<tr>' + r.map((c) => `<td>${renderInline(c)}</td>`).join('') + '</tr>').join('') + '</tbody></table></div>'
       );
       continue;
     }
@@ -39,20 +39,20 @@ export function renderMarkdown(src) {
     if (ol) {
       const items = [];
       while (i < lines.length && /^\d+\.\s+/.test(lines[i])) items.push(lines[i++].replace(/^\d+\.\s+/, ''));
-      out.push(`<ol start="${ol[1]}">` + items.map((t) => `<li>${inline(t)}</li>`).join('') + '</ol>');
+      out.push(`<ol start="${ol[1]}">` + items.map((t) => `<li>${renderInline(t)}</li>`).join('') + '</ol>');
       continue;
     }
 
     if (/^-\s+/.test(line)) {
       const items = [];
       while (i < lines.length && /^-\s+/.test(lines[i])) items.push(lines[i++].replace(/^-\s+/, ''));
-      out.push('<ul>' + items.map((t) => `<li>${inline(t)}</li>`).join('') + '</ul>');
+      out.push('<ul>' + items.map((t) => `<li>${renderInline(t)}</li>`).join('') + '</ul>');
       continue;
     }
 
     const para = [];
     while (i < lines.length && lines[i].trim() && !/^(#{1,3}\s|-\s|\d+\.\s)/.test(lines[i]) && !isTableRow(lines[i])) para.push(lines[i++]);
-    out.push(`<p>${para.map(inline).join('<br>')}</p>`);
+    out.push(`<p>${para.map(renderInline).join('<br>')}</p>`);
   }
   return out.join('');
 }

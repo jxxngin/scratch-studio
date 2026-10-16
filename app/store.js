@@ -50,6 +50,18 @@ export function createStore(unit, { failFirstSave = false, namespace = '' } = {}
       return { passed: s.passed, submission: s.submission };
     },
 
+    // 입력 표(record 블록)에 학생이 적은 값. 채점하지 않는다. { 스텝 키: { 표 키: [[칸 값]] } }
+    getRecord(stepKey, recordKey) {
+      const r = read().records || {};
+      return (r[stepKey] && r[stepKey][recordKey]) || null;
+    },
+    saveRecord(stepKey, recordKey, values) {
+      const s = read();
+      s.records = s.records || {};
+      s.records[stepKey] = { ...(s.records[stepKey] || {}), [recordKey]: values };
+      write(s);
+    },
+
     // 작품 불러오기: 저장본 → 시작 프로젝트 → 빈 프로젝트
     async loadProject(unitBase) {
       const saved = await idb('readonly', (os) => os.get(`${id}:work`));
